@@ -16,3 +16,9 @@
 .error {
   color: red;
 }
+
+.or {
+  display: block;
+  font-size: 20px;
+  margin: 15px 0 15px 100px;
+}

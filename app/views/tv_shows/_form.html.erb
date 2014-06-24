@@ -7,13 +7,13 @@
   
   <label>
     Title:<br>
-    <input type="text" name="tv[title]">
+    <input type="text" name="tv[title]" value="<%= @tv.title %>">
   </label>
   <br>
   
   <label>
     Photo:<br>
-    <input type="text" name="tv[photo]">
+    <input type="text" name="tv[photo]" value="<%= @tv.photo %>">
   </label>
   <br>
   
@@ -21,10 +21,23 @@
   <% @genres.each do |genre| %>
     <input type="checkbox" 
            id="<%= genre.name %>" 
-           name="tv_genre_ids[]" 
-           value="<%= genre.id %>">
+           name="genre_ids[]" 
+           value="<%= genre.id %>"
+           <%= 'checked' if @tv.genres.include?(genre) %>>
     <label for="<%= genre.name %>"><%= genre.name %></label>
   <% end %>
+  <br>
+  
+  <label>
+    Network:<br>
+    <select name="tv[network]">
+      <option value=""></option>
+      
+      <% TvShow::NETWORKS.each do |network| %>
+        <option value="<%= network %>"><%= network %></option>
+      <% end %>
+    </select>
+  </label>
   <br>
   
   <label>

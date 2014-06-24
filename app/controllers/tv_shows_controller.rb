@@ -9,7 +9,8 @@ class TvShowsController < ApplicationController
   def create
     @tv = TvShow.new(tv_params)
     @tv.admin = current_user
-    @tv.tv_genre_ids = params[:tv_genre_ids]
+    @tv.genre_ids = params[:genre_ids]
+    @tv.apply_imdb_rating
     
     if @tv.save
       redirect_to @tv
@@ -23,10 +24,18 @@ class TvShowsController < ApplicationController
     @tv = TvShow.find(params[:id])
   end
   
+  def auto_complete_form
+    @tv = TvShow.new(title: params[:tv][:title])
+    @tv.auto_complete
+    
+    @genres = Genre.all.order(:name)
+    render :new
+  end
+  
   private
   def tv_params
     params.require(:tv).permit(:title, :photo, :seasons, :year_start, 
-                               :year_end, :status, :blurb)
+                               :year_end, :status, :blurb, :network)
   end
   
   def check_admin

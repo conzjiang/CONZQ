@@ -2,6 +2,22 @@
 
 <%= render partial: "layouts/error" %>
 
+<h2>Auto Complete with IMDB</h2>
+<form action="<%= auto_complete_url %>" method="post">
+  <%= form_auth %>
+  
+  <label>
+    Title:<br>
+    <input type="text" name="tv[title]">
+    
+    <button>Fill out form</button>
+  </label>
+</form>
+
+<div class="or">- OR -</div>
+
+<h2>Add manually</h2>
+
 <%= render partial: "form", locals: { 
   action_url: tv_url,
   button_text: "Add Series", 
