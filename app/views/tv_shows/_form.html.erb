@@ -20,10 +20,10 @@
   Genre(s):<br>
   <% @genres.each do |genre| %>
     <input type="checkbox" 
-           id="<%= genre %>" 
+           id="<%= genre.name %>" 
            name="tv_genre_ids[]" 
-           value="<%= genre %>">
-    <label for="<%= genre %>"><%= genre %></label>
+           value="<%= genre.id %>">
+    <label for="<%= genre.name %>"><%= genre.name %></label>
   <% end %>
   <br>
   

@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624154621) do
+ActiveRecord::Schema.define(version: 20140624180654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genres", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genres", ["name"], name: "index_genres_on_name", unique: true, using: :btree
+
+  create_table "tv_genres", force: true do |t|
+    t.integer  "tv_show_id"
+    t.integer  "genre_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tv_genres", ["genre_id"], name: "index_tv_genres_on_genre_id", using: :btree
+  add_index "tv_genres", ["tv_show_id"], name: "index_tv_genres_on_tv_show_id", using: :btree
 
   create_table "tv_shows", force: true do |t|
     t.string   "title",                  null: false
@@ -34,13 +52,13 @@ ActiveRecord::Schema.define(version: 20140624154621) do
   add_index "tv_shows", ["title"], name: "index_tv_shows_on_title", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",                    null: false
-    t.string   "email",                       null: false
-    t.string   "password_digest",             null: false
+    t.string   "username",                        null: false
+    t.string   "email",                           null: false
+    t.string   "password_digest",                 null: false
     t.string   "session_token"
-    t.integer  "admin",           default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

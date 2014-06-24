@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   
+  has_many :tv_shows,
+    foreign_key: :admin_id,
+    inverse_of: :admin
+  
   def password
     @password
   end
