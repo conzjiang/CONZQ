@@ -23,7 +23,7 @@
            id="<%= genre.name %>" 
            name="genre_ids[]" 
            value="<%= genre.id %>"
-           <%= 'checked' if @tv.genres.include?(genre) %>>
+           <%= 'checked' if @tv.genre_names.include?(genre.name) %>>
     <label for="<%= genre.name %>"><%= genre.name %></label>
   <% end %>
   <br>
@@ -34,36 +34,44 @@
       <option value=""></option>
       
       <% TvShow::NETWORKS.each do |network| %>
-        <option value="<%= network %>"><%= network %></option>
+        <option value="<%= network %>"
+                selected="<%= 'selected' if @tv.network == network %>">
+                <%= network %></option>
       <% end %>
     </select>
+    
+    Other:
+    <input type="text" name="tv[network]" value="">
   </label>
   <br>
   
   <label>
     # of seasons:
-    <input type="text" name="tv[seasons]">
+    <input type="text" name="tv[seasons]" value="<%= @tv.seasons %>">
   </label>
   <br>
   
   <label>
-    Year Start:
-    <input type="text" name="tv[year_start]">
+    Year Start:<br>
+    <input type="text" name="tv[year_start]" value="<%= @tv.year_start %>">
   </label>
+  <br>
   
   <label>
-    Year End:
-    <input type="text" name="tv[year_end]">
+    Year End: (leave blank if currently airing)<br>
+    <input type="text" name="tv[year_end]" value="<%= @tv.year_end %>">
   </label>
-    <input type="checkbox" id="current" name="tv[year_end]" value="">
-    <label for="current">Currently airing</label>
   <br>
   
   <label>
     Status:
     <select name="tv[status]">
+      <option value=""></option>
+      
       <% TvShow::STATUSES.each do |status| %>
-        <option value="<%= status %>"><%= status %></option>
+        <option value="<%= status %>"
+                selected="<%= 'selected' if @tv.status == status %>">
+                <%= status %></option>
       <% end %>
     </select>
   </label>
@@ -71,7 +79,7 @@
   
   <label>
     Summary:<br>
-    <textarea name="tv[blurb]"></textarea>
+    <textarea name="tv[blurb]"><%= @tv.blurb %></textarea>
   </label>
   <br>
   
