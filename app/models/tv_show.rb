@@ -34,8 +34,12 @@ class TvShow < ActiveRecord::Base
       self.status = "Currently Airing"
     end
     
-    self.genres = pulled_info["Genre"].split(",")
+    @genre_names = pulled_info["Genre"].split(",")
     nil
+  end
+  
+  def genre_names
+    @genre_names ||= self.genres.pluck(:name)
   end
   
   private
