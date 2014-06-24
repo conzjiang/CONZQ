@@ -1,8 +1,7 @@
 class TvShow < ActiveRecord::Base
+  STATUSES = ["Currently Airing", "Ended", "Cancelled"]
+  
   validates :title, presence: true
-  validates :status, inclusion: { 
-    in: ["Ended", "Currently Airing", "Cancelled"] 
-  }
-  
-  
+  validates :status, inclusion: { in: STATUSES }
+
 end

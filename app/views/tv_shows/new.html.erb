@@ -2,4 +2,8 @@
 
 <%= render partial: "layouts/error" %>
 
-<form action="<%=  %>"></form>
+<%= render partial: "form", locals: { 
+  action_url: tv_url,
+  button_text: "Add Series", 
+  put: false
+  } %>

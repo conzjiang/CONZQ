@@ -1,0 +1,66 @@
+<form action="<%= action_url %>" method="post">
+  <%= form_auth %>
+  
+  <% if put %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  
+  <label>
+    Title:<br>
+    <input type="text" name="tv[title]">
+  </label>
+  <br>
+  
+  <label>
+    Photo:<br>
+    <input type="text" name="tv[photo]">
+  </label>
+  <br>
+  
+  Genre(s):<br>
+  <% @genres.each do |genre| %>
+    <input type="checkbox" 
+           id="<%= genre %>" 
+           name="tv_genre_ids[]" 
+           value="<%= genre %>">
+    <label for="<%= genre %>"><%= genre %></label>
+  <% end %>
+  <br>
+  
+  <label>
+    # of seasons:
+    <input type="text" name="tv[seasons]">
+  </label>
+  <br>
+  
+  <label>
+    Year Start:
+    <input type="text" name="tv[year_start]">
+  </label>
+  
+  <label>
+    Year End:
+    <input type="text" name="tv[year_end]">
+  </label>
+    <input type="checkbox" id="current" name="tv[year_end]" value="">
+    <label for="current">Currently airing</label>
+  <br>
+  
+  <label>
+    Status:
+    <select name="tv[status]">
+      <% TvShow::STATUSES.each do |status| %>
+        <option value="<%= status %>"><%= status %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+  
+  <label>
+    Summary:<br>
+    <textarea name="tv[blurb]"></textarea>
+  </label>
+  <br>
+  
+  <button><%= button_text %></button>
+</form>
