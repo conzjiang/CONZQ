@@ -17,4 +17,15 @@ class User < ActiveRecord::Base
     self.save!
     self.session_token
   end
+  
+  def self.find_by_credentials(username, pass)
+    user = User.find_by(username: username)
+    return unless user
+    
+    user.is_password?(pass) ? user : nil
+  end
+  
+  def is_password?(pass)
+    BCrypt::Password.new(self.password_digest).is_password?(pass)
+  end
 end
