@@ -9,12 +9,11 @@ class WatchlistsController < ApplicationController
     @watchlist = current_user.watchlists.new(watchlist_params)
     @watchlist.tv_show = @tv
     
-    if @watchlist.save
-      redirect_to user_watchlist_url(current_user)
-    else
+    unless @watchlist.save
       flash[:errors] = ["You've already added this series to your watchlist!"]
-      redirect_to @tv
     end
+    
+    redirect_to :back
   end
   
   def update
@@ -24,7 +23,7 @@ class WatchlistsController < ApplicationController
       flash[:errors] = @watchlist.errors.full_messages
     end
     
-    redirect_to user_watchlist_url(current_user)
+    redirect_to :back
   end
   
   private

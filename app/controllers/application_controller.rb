@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(session_token: session[:token])
   end
+  
+  def require_signed_in
+    unless signed_in?
+      flash[:errors] = ["You must be signed in to perform that action!"]
+      redirect_to new_session_url
+    end
+  end
 end
