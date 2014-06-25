@@ -1,4 +1,6 @@
 class WatchlistsController < ApplicationController
+  before_action :require_signed_in, only: [:create, :update]
+  
   def index
     @user = User.find(params[:user_id])
     @watchlist = @user.watchlist_shows

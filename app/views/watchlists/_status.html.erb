@@ -1,4 +1,4 @@
-<% unless current_user.watchlist_shows.exists?(tv.id) %>
+<% if !signed_in? || !current_user.watchlist_shows.exists?(tv.id) %>
   <ul class="watch_dropdown">
     <li><strong>Add to Watchlist</strong></li>
     

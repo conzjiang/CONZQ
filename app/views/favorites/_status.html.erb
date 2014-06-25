@@ -1,4 +1,10 @@
-<% if current_user.favorite_shows.exists?(tv.id) %>
+<% if !signed_in? || !current_user.favorite_shows.exists?(tv.id) %>
+  <form action="<%= add_fav_url(tv) %>" method="post">
+    <%= form_auth %>
+    
+    <button>Add to Favorites</button>
+  </form>
+<% else %>
   <p class="fav">&hearts;</p>
   
   <form action="<%= delete_fav_url(tv) %>" method="post">
@@ -6,11 +12,5 @@
     <input type="hidden" name="_method" value="delete">
     
     <button>Remove from Favorites</button>
-  </form>
-<% else %>
-  <form action="<%= add_fav_url(tv) %>" method="post">
-    <%= form_auth %>
-    
-    <button>Add to Favorites</button>
   </form>
 <% end %>

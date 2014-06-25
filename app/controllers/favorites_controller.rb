@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :require_signed_in, only: [:create, :destroy]
+  
   def index
     @user = User.find(params[:user_id])
     @favorites = @user.favorite_shows
