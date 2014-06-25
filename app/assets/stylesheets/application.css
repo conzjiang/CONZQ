@@ -26,3 +26,7 @@
 .main_tv_image {
   width: 360px;
 }
+
+h3 {
+  text-transform: uppercase;
+}

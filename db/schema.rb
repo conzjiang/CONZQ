@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624183935) do
+ActiveRecord::Schema.define(version: 20140625135710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "decades", force: true do |t|
+    t.integer  "years",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "genres", force: true do |t|
     t.string   "name",       null: false
@@ -23,6 +29,15 @@ ActiveRecord::Schema.define(version: 20140624183935) do
   end
 
   add_index "genres", ["name"], name: "index_genres_on_name", unique: true, using: :btree
+
+  create_table "tv_decades", force: true do |t|
+    t.integer  "decade_id",  null: false
+    t.integer  "tv_show_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tv_decades", ["decade_id", "tv_show_id"], name: "index_tv_decades_on_decade_id_and_tv_show_id", unique: true, using: :btree
 
   create_table "tv_genres", force: true do |t|
     t.integer  "tv_show_id"

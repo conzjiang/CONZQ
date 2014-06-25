@@ -12,6 +12,8 @@ class TvShow < ActiveRecord::Base
   
   has_many :tv_genres
   has_many :genres, through: :tv_genres
+  has_many :tv_decades
+  has_many :decades, through: :tv_decades
   belongs_to :admin,
     class_name: "User",
     foreign_key: :admin_id,
