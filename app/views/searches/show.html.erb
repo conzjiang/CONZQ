@@ -1,0 +1,23 @@
+<h1>Your Results</h1>
+
+<ul class="search_params">
+  <% @search_params.each do |param| %>
+    <li>
+      <% if param.is_a?(Integer) %>
+        '<%= param == 0 ? "00" : param %>s
+      <% else %>
+        <%= param %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<% if @query.nil? %>
+  <h3>No results! :(</h3>
+<% else %>
+  <ul class="results">
+    <% @query.each do |result| %>
+      <li><%= render partial: "result", locals: { tv: result } %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,18 @@
+<h3><%= tv.title %></h3>
+
+<% if tv.photo %>
+  <img src="<%= tv.photo %>">
+  <br>
+<% end %>
+
+<ul class="individual_result">
+  <li>
+    <strong>IMDB rating:</strong>
+    <%= tv.rating %>
+  </li>
+  
+  <li>
+    <strong>Plot:</strong>
+    <%= tv.blurb %>
+  </li>
+</ul>

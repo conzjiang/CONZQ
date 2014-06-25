@@ -19,6 +19,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'debugger'
 end
 
 group :production do
