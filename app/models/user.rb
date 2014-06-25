@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
+    
+  has_many :watchlists
+  has_many :watchlist_shows, through: :watchlists, source: :tv_show
   
   def password
     @password

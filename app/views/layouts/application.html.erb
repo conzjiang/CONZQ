@@ -11,6 +11,8 @@
 <% if signed_in? %>
   <h1><%= current_user.username %></h1>
   
+  <a href="<%= new_search_url %>">New Search</a>
+  
   <% if current_user.admin %>
     <a href="<%= tv_shows_url %>">My series</a>
     <a href="<%= new_tv_url %>">Add a series</a>

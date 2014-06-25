@@ -12,7 +12,7 @@
   <% end %>
 </ul>
 
-<% if @query.nil? %>
+<% if @query.nil? || @query.empty? %>
   <h3>No results! :(</h3>
 <% else %>
   <ul class="results">
