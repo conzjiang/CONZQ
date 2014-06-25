@@ -2,10 +2,6 @@ require 'addressable/uri'
 
 class TvShow < ActiveRecord::Base
   STATUSES = ["Currently Airing", "Ended", "Cancelled"]
-  NETWORKS = ["ABC", "CBS", "NBC", "FOX", "AMC", "Nickelodeon", "Netflix",
-              "A&E", "History", "MTV", "WeTV", "USA", "TNT", "TBS", "IFC",
-              "Comedy Central", "BBC America", "PBS", "HBO", "Showtime",
-              "Starz", "CW", "FX", "FXX", "Sundance"].sort
   
   validates :title, presence: true
   validates :status, inclusion: { in: STATUSES }

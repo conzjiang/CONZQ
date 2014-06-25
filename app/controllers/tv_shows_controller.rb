@@ -38,7 +38,7 @@ class TvShowsController < ApplicationController
   
   def update
     @tv = TvShow.find(params[:id])
-    
+
     if @tv.update_attributes(tv_params)
       redirect_to @tv
     else

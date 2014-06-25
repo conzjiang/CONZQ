@@ -22,7 +22,7 @@ class TvGenre < ActiveRecord::Base
           switched = true
         end
       end
-      
+
       @tvs = [] if (switched == false && all_shows.length > 1)
     end
     

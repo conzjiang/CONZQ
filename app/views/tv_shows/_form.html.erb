@@ -30,18 +30,7 @@
   
   <label>
     Network:<br>
-    <select name="tv[network]">
-      <option value=""></option>
-      
-      <% TvShow::NETWORKS.each do |network| %>
-        <option value="<%= network %>"
-                <%= 'selected' if @tv.network == network %>>
-                <%= network %></option>
-      <% end %>
-    </select>
-    
-    Other:
-    <input type="text" name="tv[network]" value="<%= @tv.network unless TvShow::NETWORKS.include?(@tv.network) %>">
+    <input type="text" name="tv[network]" value="<%= @tv.network %>">
   </label>
   <br>
   
