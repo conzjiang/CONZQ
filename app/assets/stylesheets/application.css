@@ -12,6 +12,22 @@
  *= require_tree .
  */
 
+html, body, p, div, ul, li, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+body {
+  font-family: courier;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 36px;
+  margin: 15px;
+}
 
 .error {
   color: red;
@@ -28,6 +44,8 @@
 }
 
 h3 {
+  font-weight: bold;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -43,5 +61,33 @@ h3 {
 .show_result {
   display: block;
   text-decoration: none;
-  color: black;
+  border: 1px solid black;
+}
+
+.results {
+  list-style: none;
+  width: 950px;
+}
+
+.results > li {
+  float: left;
+  width: 280px;
+}
+
+.show_list {
+  list-style: none;
+  display: inline-block;
+  margin: 15px 30px 20px 30px;
+}
+
+.show_list > li {
+  margin-bottom: 10px;
+}
+
+.show_list a {
+  display: block;
+  width: auto;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
 }

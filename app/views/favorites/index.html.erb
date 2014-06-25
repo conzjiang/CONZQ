@@ -2,8 +2,8 @@
 
 <h1>My Favorites</h1>
 
-<ul>
+<ul class="show_list">
   <% @favorites.each do |fav_show| %>
-    <li><%= render partial: "searches/result", locals: { tv: fav_show } %></li>
+    <li><a href="<%= tv_show_url(fav_show) %>"><%= fav_show.title %></a></li>
   <% end %>
 </ul>
