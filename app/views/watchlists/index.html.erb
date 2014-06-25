@@ -1,0 +1,21 @@
+<ul class="profile">
+  <li>Watchlist</li>
+  <li>Favorites</li>
+  <li>Friends</li>
+</ul>
+
+<h1>My Watchlist</h1>
+<ul class="watchlist_nav">
+  <li><strong>Currently Watching</strong></li>
+  <li>Plan to Watch</li>
+  <li>Completed</li>
+  <li>Dropped</li>
+</ul>
+
+<ul class="watchlist">
+  <% @watchlist.each do |show| %>
+    <li><%= render partial: "searches/result", tv: show %></li>
+  <% end %>
+</ul>
+
+
