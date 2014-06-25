@@ -14979,3 +14979,334 @@ Started GET "/assets/watchlists.css?body=1" for 127.0.0.1 at 2014-06-25 15:05:05
 
 
 Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2014-06-25 15:05:05 -0400
+
+
+Started GET "/user/1/watchlist" for 127.0.0.1 at 2014-06-25 15:22:56 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError - Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.:
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1908369449063284069__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70342825862200/variables" for 127.0.0.1 at 2014-06-25 15:22:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFavorites (20140625190551)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (103.9ms)[0m  [1mCREATE TABLE "favorites" ("id" serial primary key, "user_id" integer NOT NULL, "tv_show_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX "index_favorites_on_user_id_and_tv_show_id" ON "favorites" ("user_id", "tv_show_id")
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140625190551"]]
+  [1m[35m (15.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/user/1/watchlist" for 127.0.0.1 at 2014-06-25 15:23:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/user/1/watchlist"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (43.9ms)
+
+
+Started GET "/users/1/watchlist" for 127.0.0.1 at 2014-06-25 15:23:50 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/1/watchlist"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.3ms)
+
+
+Started GET "/users/1/watchlists" for 127.0.0.1 at 2014-06-25 15:23:55 -0400
+Processing by WatchlistsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered watchlists/_nav.html.erb (0.2ms)
+  [1m[36mTvShow Load (0.7ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Currently Watching'[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."session_token" = '9saU62KrSV8VUtvEk3HPIA' LIMIT 1
+  [1m[36mTvShow Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 4 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mWatchlist Load (0.5ms)[0m  SELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 4 LIMIT 1  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (11.9ms)
+  Rendered searches/_result.html.erb (21.4ms)
+  [1m[36mTvShow Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 6 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mWatchlist Load (0.4ms)[0m  SELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 6 LIMIT 1  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (3.0ms)
+  Rendered searches/_result.html.erb (3.7ms)
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (0.4ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Plan to Watch'[0m  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[35mTvShow Load (0.3ms)[0m  SELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Completed'  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (0.3ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Dropped'[0m  [["user_id", 1]]
+  Rendered watchlists/index.html.erb within layouts/application (70.2ms)
+Completed 200 OK in 239ms (Views: 193.2ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/favorites.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/tv_shows.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/assets/watchlists.css?body=1" for 127.0.0.1 at 2014-06-25 15:23:56 -0400
+
+
+Started GET "/users/1/watchlists" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+Processing by WatchlistsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered users/_profilenav.html.erb (0.7ms)
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (0.5ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Currently Watching'[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."session_token" = '9saU62KrSV8VUtvEk3HPIA' LIMIT 1
+  [1m[36mTvShow Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 4 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mWatchlist Load (0.5ms)[0m  SELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 4 LIMIT 1  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (4.9ms)
+  [1m[36mTvShow Exists (1.6ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "favorites" ON "tv_shows"."id" = "favorites"."tv_show_id" WHERE "favorites"."user_id" = $1 AND "tv_shows"."id" = 4 LIMIT 1[0m  [["user_id", 1]]
+  Rendered favorites/_status.html.erb (10.1ms)
+  Rendered searches/_result.html.erb (17.1ms)
+  [1m[35mTvShow Exists (0.7ms)[0m  SELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 6 LIMIT 1  [["user_id", 1]]
+  [1m[36mWatchlist Load (0.8ms)[0m  [1mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 6 LIMIT 1[0m  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (3.5ms)
+  [1m[35mTvShow Exists (1.0ms)[0m  SELECT 1 AS one FROM "tv_shows" INNER JOIN "favorites" ON "tv_shows"."id" = "favorites"."tv_show_id" WHERE "favorites"."user_id" = $1 AND "tv_shows"."id" = 6 LIMIT 1  [["user_id", 1]]
+  Rendered favorites/_status.html.erb (2.1ms)
+  Rendered searches/_result.html.erb (7.0ms)
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (1.1ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Plan to Watch'[0m  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[35mTvShow Load (1.0ms)[0m  SELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Completed'  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (1.0ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Dropped'[0m  [["user_id", 1]]
+  Rendered watchlists/index.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 79ms (Views: 65.6ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/assets/favorites.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/tv_shows.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/watchlists.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:41 -0400
+
+
+Started GET "/users/1/watchlists" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+Processing by WatchlistsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered users/_profilenav.html.erb (0.3ms)
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (0.5ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Currently Watching'[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."session_token" = '9saU62KrSV8VUtvEk3HPIA' LIMIT 1
+  [1m[36mTvShow Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 4 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mWatchlist Load (0.4ms)[0m  SELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 4 LIMIT 1  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (6.9ms)
+  [1m[36mTvShow Exists (1.6ms)[0m  [1mSELECT 1 AS one FROM "tv_shows" INNER JOIN "favorites" ON "tv_shows"."id" = "favorites"."tv_show_id" WHERE "favorites"."user_id" = $1 AND "tv_shows"."id" = 4 LIMIT 1[0m  [["user_id", 1]]
+  Rendered favorites/_status.html.erb (4.7ms)
+  Rendered searches/_result.html.erb (12.9ms)
+  [1m[35mTvShow Exists (0.6ms)[0m  SELECT 1 AS one FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "tv_shows"."id" = 6 LIMIT 1  [["user_id", 1]]
+  [1m[36mWatchlist Load (0.8ms)[0m  [1mSELECT "watchlists".* FROM "watchlists" WHERE "watchlists"."user_id" = $1 AND "watchlists"."tv_show_id" = 6 LIMIT 1[0m  [["user_id", 1]]
+  Rendered watchlists/_status.html.erb (3.2ms)
+  [1m[35mTvShow Exists (0.8ms)[0m  SELECT 1 AS one FROM "tv_shows" INNER JOIN "favorites" ON "tv_shows"."id" = "favorites"."tv_show_id" WHERE "favorites"."user_id" = $1 AND "tv_shows"."id" = 6 LIMIT 1  [["user_id", 1]]
+  Rendered favorites/_status.html.erb (2.0ms)
+  Rendered searches/_result.html.erb (6.4ms)
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (1.0ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Plan to Watch'[0m  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[35mTvShow Load (1.0ms)[0m  SELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Completed'  [["user_id", 1]]
+  Rendered watchlists/_nav.html.erb (0.1ms)
+  [1m[36mTvShow Load (0.9ms)[0m  [1mSELECT "tv_shows".* FROM "tv_shows" INNER JOIN "watchlists" ON "tv_shows"."id" = "watchlists"."tv_show_id" WHERE "watchlists"."user_id" = $1 AND "watchlists"."status" = 'Dropped'[0m  [["user_id", 1]]
+  Rendered watchlists/index.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 39ms (Views: 23.8ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/assets/favorites.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/tv_shows.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started GET "/assets/watchlists.css?body=1" for 127.0.0.1 at 2014-06-25 15:35:43 -0400
+
+
+Started POST "/favorites" for 127.0.0.1 at 2014-06-25 15:35:47 -0400
+
+AbstractController::ActionNotFound - The action 'create' could not be found for FavoritesController:
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1908369449063284069__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70342826359260/variables" for 127.0.0.1 at 2014-06-25 15:35:47 -0400

@@ -1,8 +1,4 @@
-<ul class="profile">
-  <li>Watchlist</li>
-  <li>Favorites</li>
-  <li>Friends</li>
-</ul>
+<%= render partial: "users/profilenav" %>
 
 <h1>My Watchlist</h1>
 
@@ -11,9 +7,8 @@
   <h2 id="<%= status.split(" ").first %>"><%= status %></h2>
   <%= render partial: "nav", locals: { location: status } %>
 
-  <ul class="<%= status.split(" ").first %>_watchlist">
+  <ul>
     <% @watchlist.where(watchlists: { status: status }).each do |show| %>
-    
       <li><%= render partial: "searches/result", locals: { tv: show } %></li>
     <% end %>
   </ul>

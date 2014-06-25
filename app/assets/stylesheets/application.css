@@ -34,3 +34,8 @@ h3 {
 .mini-display {
   width: 200px;
 }
+
+.fav {
+  color: red;
+  font-size: 20px;
+}

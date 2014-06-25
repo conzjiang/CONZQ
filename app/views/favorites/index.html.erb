@@ -1,0 +1,9 @@
+<%= render partial: "users/profilenav" %>
+
+<h1>My Favorites</h1>
+
+<ul>
+  <% @favorites.each do |fav_show| %>
+    <li><%= render partial: "searches/result", locals: { tv: fav_show } %></li>
+  <% end %>
+</ul>

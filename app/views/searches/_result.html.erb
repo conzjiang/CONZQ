@@ -1,6 +1,7 @@
 <h3><%= tv.title %></h3>
 
 <%= render partial: "watchlists/status", locals: { tv: tv } %>
+<%= render partial: "favorites/status", locals: { tv: tv } %>
 
 <% if tv.photo %>
   <img class="mini-display" src="<%= tv.photo %>">
