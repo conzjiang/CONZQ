@@ -1,6 +1,7 @@
 CONZQ::Application.routes.draw do
   resources :users
   resource :session
+  resource :search
   
   # TV SHOW ROUTES
   get "tv/index", to: "tv_shows#index", as: "tv_shows"
