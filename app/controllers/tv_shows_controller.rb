@@ -1,5 +1,11 @@
 class TvShowsController < ApplicationController
-  before_action :check_admin, only: [:new, :create]
+  before_action :check_admin, only: [
+    :index, :new, :create, :edit, :update, :destroy
+  ]
+  
+  def index
+    @tvs = current_user.tv_shows.order(:title)
+  end
   
   def new
     @tv = TvShow.new

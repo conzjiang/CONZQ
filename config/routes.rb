@@ -3,6 +3,7 @@ CONZQ::Application.routes.draw do
   resource :session
   
   # TV SHOW ROUTES
+  get "tv/index", to: "tv_shows#index", as: "tv_shows"
   get "tv/new", to: "tv_shows#new", as: "new_tv"
   post "tv", to: "tv_shows#create"
   get "tv/:id", to: "tv_shows#show", as: "tv_show"
