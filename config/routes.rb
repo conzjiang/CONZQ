@@ -14,7 +14,7 @@ CONZQ::Application.routes.draw do
   # WATCHLIST ROUTES
   get "user/:user_id/watchlist", to: "watchlists#index", as: "user_watchlist"
   post "tv/:tv_id/watchlist", to: "watchlists#create", as: "tv_watchlist"
-  put "tv/:tv_id/watchlist", to: "watchlists#update", as: "update_watchlist"
+  put "watchlist/:id", to: "watchlists#update", as: "update_watchlist"
   
   # AUTOCOMPLETE ROUTE
   post "tv/new/auto", to: "tv_shows#auto_complete_form", as: "auto_complete"

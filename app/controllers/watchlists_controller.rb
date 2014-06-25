@@ -19,6 +19,16 @@ class WatchlistsController < ApplicationController
     end
   end
   
+  def update
+    @watchlist = Watchlist.find(params[:id])
+    
+    unless @watchlist.update_attributes(watchlist_params)
+      flash[:errors] = @watchlist.errors.full_messages
+    end
+    
+    redirect_to user_watchlist_url(current_user)
+  end
+  
   private
   def watchlist_params
     params.require(:watchlist).permit(:status)

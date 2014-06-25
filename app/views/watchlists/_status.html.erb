@@ -17,6 +17,19 @@
   </ul>
 <% else %>
   <% watchlist = current_user.watchlists.find_by(tv_show_id: tv.id) %>
-  <%= watchlist.status %>
+  
+  <form action="<%= update_watchlist_url(watchlist) %>" method="post">
+    <%= form_auth %>
+    <input type="hidden" name="_method" value="put">
+    
+    <select name="watchlist[status]">
+      <% Watchlist::STATUSES.each do |status| %>
+        <option value="<%= status %>" <%= 'selected' if watchlist.status == status %>><%= status %></option>
+      <% end %>
+    </select>
+    
+    <button>Change status</button>
+  </form>
+  
   <br>
 <% end %>
