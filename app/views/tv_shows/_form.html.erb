@@ -41,7 +41,7 @@
     </select>
     
     Other:
-    <input type="text" name="tv[network]" value="">
+    <input type="text" name="tv[network]" value="<%= @tv.network unless TvShow::NETWORKS.include?(@tv.network) %>">
   </label>
   <br>
   

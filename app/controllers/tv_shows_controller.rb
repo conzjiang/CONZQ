@@ -26,6 +26,18 @@ class TvShowsController < ApplicationController
   
   def edit
     @tv = TvShow.find(params[:id])
+    @genres = Genre.all.order(:name)
+  end
+  
+  def update
+    @tv = TvShow.find(params[:id])
+    
+    if @tv.update_attributes(tv_params)
+      redirect_to @tv
+    else
+      flash.now[:errors] = @tv.errors.full_messages
+      render :edit
+    end
   end
   
   def auto_complete_form
