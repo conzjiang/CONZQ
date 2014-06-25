@@ -7,6 +7,8 @@
 
 <%= render partial: "layouts/error" %>
 
+<%= render partial: "watchlists/status", locals: { tv: @tv } %>
+
 <% if @tv.photo %>
   <img class="main_tv_image" src="<%= @tv.photo %>">
 <% end %>

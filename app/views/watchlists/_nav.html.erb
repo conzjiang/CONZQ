@@ -1,0 +1,13 @@
+<ul class="watchlist_nav">
+  <% Watchlist::STATUSES.each do |status| %>
+    <li>
+      <a href="#<%= status.split(" ").first %>">
+        <% if location == status %>
+          <strong><%= status %></strong>
+        <% else %>
+          <%= status %>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>

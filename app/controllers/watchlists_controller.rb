@@ -1,9 +1,7 @@
 class WatchlistsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @watchlist = @user.watchlist_shows.where(watchlists: {
-      status: "Currently Watching"
-    })
+    @watchlist = @user.watchlist_shows
   end
   
   def create

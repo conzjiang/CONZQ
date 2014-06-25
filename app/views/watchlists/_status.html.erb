@@ -1,7 +1,7 @@
 <% unless current_user.watchlist_shows.exists?(tv.id) %>
-  <a class="watch_link" href="#">Add to Watchlist</a><br>
-  
   <ul class="watch_dropdown">
+    <li><strong>Add to Watchlist</strong></li>
+    
     <% ["Currently Watching", "Plan to Watch"].each do |status| %>
       <li>
         <form action="<%= tv_watchlist_url(tv) %>" method="post">

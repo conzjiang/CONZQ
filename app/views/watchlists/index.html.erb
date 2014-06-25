@@ -5,17 +5,19 @@
 </ul>
 
 <h1>My Watchlist</h1>
-<ul class="watchlist_nav">
-  <li><strong>Currently Watching</strong></li>
-  <li>Plan to Watch</li>
-  <li>Completed</li>
-  <li>Dropped</li>
-</ul>
 
-<ul class="watchlist">
-  <% @watchlist.each do |show| %>
-    <li><%= render partial: "searches/result", locals: { tv: show } %></li>
-  <% end %>
-</ul>
+<% Watchlist::STATUSES.each do |status| %>
+
+  <h2 id="<%= status.split(" ").first %>"><%= status %></h2>
+  <%= render partial: "nav", locals: { location: status } %>
+
+  <ul class="<%= status.split(" ").first %>_watchlist">
+    <% @watchlist.where(watchlists: { status: status }).each do |show| %>
+    
+      <li><%= render partial: "searches/result", locals: { tv: show } %></li>
+    <% end %>
+  </ul>
+  
+<% end %>
 
 

@@ -11,11 +11,13 @@
 }
 
 .watch_dropdown {
-//  display: none;
+  display: block;
+  border: 1px solid black;
   list-style: none;
+  width: 150px;
+  padding: 0;
 }
 
-.watch_link:hover .watch_dropdown {
-  display: block;
-  z-index: 9;
+.watch_dropdown > li {
+  text-align: center;
 }
