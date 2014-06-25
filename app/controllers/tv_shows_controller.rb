@@ -24,6 +24,10 @@ class TvShowsController < ApplicationController
     @tv = TvShow.find(params[:id])
   end
   
+  def edit
+    @tv = TvShow.find(params[:id])
+  end
+  
   def auto_complete_form
     @tv = TvShow.new(title: params[:tv][:title])
     @tv.auto_complete

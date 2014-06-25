@@ -45,7 +45,7 @@ class TvShow < ActiveRecord::Base
     @genre_names ||= self.genres.pluck(:name)
   end
   
-  # private
+  private
   def parse_omdb
     show = Addressable::URI.new(
           scheme: "http",

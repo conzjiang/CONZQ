@@ -35,7 +35,7 @@
       
       <% TvShow::NETWORKS.each do |network| %>
         <option value="<%= network %>"
-                selected="<%= 'selected' if @tv.network == network %>">
+                <%= 'selected' if @tv.network == network %>>
                 <%= network %></option>
       <% end %>
     </select>
@@ -70,7 +70,7 @@
       
       <% TvShow::STATUSES.each do |status| %>
         <option value="<%= status %>"
-                selected="<%= 'selected' if @tv.status == status %>">
+                <%= 'selected' if @tv.status == status %>>
                 <%= status %></option>
       <% end %>
     </select>
