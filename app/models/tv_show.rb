@@ -43,6 +43,31 @@ class TvShow < ActiveRecord::Base
     nil
   end
   
+  def assign_decade
+    start_yr = self.year_start
+    return unless start_yr
+    end_yr = self.year_end.nil? ? Time.now.year : self.year_end
+    
+    parsed_start = Decade.parse(start_yr)
+    parsed_end = Decade.parse(end_yr)
+    decades = [parsed_start, parsed_end]
+    
+    if (end_yr - start_yr > 10) && (parsed_start != parsed_end) 
+      year_jump = start_yr + 10
+      
+      until year_jump >= end_yr
+        decades << Decade.parse(year_jump)
+        year_jump += 10
+      end
+    end
+    
+    decade_ids = decades.uniq.map do |years|
+      Decade.find_by(years: years).id
+    end
+    
+    self.decade_ids = decade_ids
+  end
+  
   def genre_names
     @genre_names ||= self.genres.pluck(:name)
   end

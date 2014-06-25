@@ -17,6 +17,7 @@ class TvShowsController < ApplicationController
     @tv.admin = current_user
     @tv.genre_ids = params[:genre_ids]
     @tv.apply_imdb_rating
+    @tv.assign_decade
     
     if @tv.save
       redirect_to @tv
