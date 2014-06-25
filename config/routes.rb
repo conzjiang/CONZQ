@@ -1,10 +1,5 @@
 CONZQ::Application.routes.draw do
-  shallow do
-    resources :users do
-      resources :watchlists
-    end
-  end
-  
+  resources :users
   resource :session
   resource :search, only: [:new, :create]
   
@@ -15,6 +10,11 @@ CONZQ::Application.routes.draw do
   get "tv/:id", to: "tv_shows#show", as: "tv_show"
   get "tv/:id/edit", to: "tv_shows#edit", as: "edit_tv"
   put "tv/:id", to: "tv_shows#update", as: "update_tv"
+  
+  # WATCHLIST ROUTES
+  get "user/:user_id/watchlist", to: "watchlists#index", as: "user_watchlist"
+  post "tv/:tv_id/watchlist", to: "watchlists#create", as: "tv_watchlist"
+  put "tv/:tv_id/watchlist", to: "watchlists#update", as: "update_watchlist"
   
   # AUTOCOMPLETE ROUTE
   post "tv/new/auto", to: "tv_shows#auto_complete_form", as: "auto_complete"

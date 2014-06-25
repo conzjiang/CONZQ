@@ -14,7 +14,7 @@
 
 <ul class="watchlist">
   <% @watchlist.each do |show| %>
-    <li><%= render partial: "searches/result", tv: show %></li>
+    <li><%= render partial: "searches/result", locals: { tv: show } %></li>
   <% end %>
 </ul>
 

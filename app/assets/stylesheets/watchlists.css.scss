@@ -9,3 +9,13 @@
 .profile li {
   float: left;
 }
+
+.watch_dropdown {
+//  display: none;
+  list-style: none;
+}
+
+.watch_link:hover .watch_dropdown {
+  display: block;
+  z-index: 9;
+}

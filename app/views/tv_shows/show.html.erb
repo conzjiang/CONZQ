@@ -1,7 +1,11 @@
 <h1><%= @tv.title %></h1>
 
+<% if current_user == @tv.admin %>
 <a href="<%= edit_tv_url(@tv) %>">Edit Info</a>
 <br>
+<% end %>
+
+<%= render partial: "layouts/error" %>
 
 <% if @tv.photo %>
   <img class="main_tv_image" src="<%= @tv.photo %>">

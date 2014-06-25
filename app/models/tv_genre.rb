@@ -11,10 +11,19 @@ class TvGenre < ActiveRecord::Base
       end
       
       @tvs = all_shows[0]
-      all_shows[1..-1].each_index do |i|
+      switched = false
+      
+      all_shows.each_index do |i|
+        next if i == 0
         common_shows = @tvs & all_shows[i]
-        @tvs = common_shows if common_shows.length > 0
+        
+        if common_shows
+          @tvs = common_shows
+          switched = true
+        end
       end
+      
+      @tvs = [] unless switched
     end
     
     @tvs

@@ -30,3 +30,7 @@
 h3 {
   text-transform: uppercase;
 }
+
+.mini-display {
+  width: 200px;
+}

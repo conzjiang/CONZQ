@@ -1,0 +1,22 @@
+<% unless current_user.watchlist_shows.exists?(tv.id) %>
+  <a class="watch_link" href="#">Add to Watchlist</a><br>
+  
+  <ul class="watch_dropdown">
+    <% ["Currently Watching", "Plan to Watch"].each do |status| %>
+      <li>
+        <form action="<%= tv_watchlist_url(tv) %>" method="post">
+          <%= form_auth %>
+          <input type="hidden" 
+                 name="watchlist[status]" 
+                 value="<%= status %>">
+               
+          <button><%= status %></button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <% watchlist = current_user.watchlists.find_by(tv_show_id: tv.id) %>
+  <%= watchlist.status %>
+  <br>
+<% end %>

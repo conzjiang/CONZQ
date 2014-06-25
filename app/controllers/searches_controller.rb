@@ -7,9 +7,9 @@ class SearchesController < ApplicationController
   def create
     @search_params = search_params
 
-    if params[:genre_ids].nil?
+    if params[:genre_ids].nil? && params[:decade_ids]
       @query = TvDecade.search(params[:decade_ids])
-    elsif params[:decade_ids].nil?
+    elsif params[:decade_ids].nil? && params[:genre_ids]
       @query = TvGenre.search(params[:genre_ids])
     elsif params[:genre_ids] && params[:decade_ids]
       @query = TvGenre.search(params[:genre_ids]) & 
@@ -18,7 +18,11 @@ class SearchesController < ApplicationController
     
     if params[:status]
       if @query
-        @query = @query.where(status: params[:status])
+        if @query.is_a?(Array)
+          @query.select! { |show| show.status == params[:status] }
+        else
+          @query = @query.where(status: params[:status])
+        end
       else
         @query = TvShow.where(status: params[:status])
       end
@@ -35,9 +39,9 @@ class SearchesController < ApplicationController
   def search_params
     search = []
     
-    if params[:genre_ids].nil?
+    if params[:decade_ids].nil? && params[:genre_ids]
       search = Genre.where(id: params[:genre_ids]).pluck(:name)
-    elsif params[:decade_ids].nil?
+    elsif params[:genre_ids].nil? && params[:decade_ids]
       search = Decade.where(id: params[:decade_ids]).pluck(:years)
     elsif params[:genre_ids] && params[:decade_ids]
       search = Decade.where(id: params[:decade_ids]).pluck(:years) + 

@@ -18,6 +18,8 @@
     <a href="<%= new_tv_url %>">Add a series</a>
   <% end %>
   
+  <a href="<%= user_watchlist_url(current_user) %>">My Profile</a>
+  
   <form action="<%= session_url %>" method="post">
     <%= form_auth %>
     <input type="hidden" name="_method" value="delete">
