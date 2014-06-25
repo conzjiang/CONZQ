@@ -19,5 +19,5 @@ CONZQ::Application.routes.draw do
   # AUTOCOMPLETE ROUTE
   post "tv/new/auto", to: "tv_shows#auto_complete_form", as: "auto_complete"
   
-  root to: "users#new"
+  root to: "searches#new"
 end

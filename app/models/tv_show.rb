@@ -19,6 +19,9 @@ class TvShow < ActiveRecord::Base
   has_many :watchlists
   has_many :watchers, through: :watchlists, source: :user
   
+  has_many :favorites
+  has_many :lovers, through: :favorites, source: :user
+  
   belongs_to :admin,
     class_name: "User",
     foreign_key: :admin_id,

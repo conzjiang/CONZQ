@@ -2,13 +2,16 @@ class User < ActiveRecord::Base
   validates :username, :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+   
+  has_many :watchlists
+  has_many :watchlist_shows, through: :watchlists, source: :tv_show
+  
+  has_many :favorites
+  has_many :favorite_shows, through: :favorites, source: :tv_show
   
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
-    
-  has_many :watchlists
-  has_many :watchlist_shows, through: :watchlists, source: :tv_show
   
   def password
     @password
