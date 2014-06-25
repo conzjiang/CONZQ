@@ -38,10 +38,12 @@ class TvShow < ActiveRecord::Base
     
     if years.count > 1
       self.year_end = years.last
+    else
       self.status = "Currently Airing"
     end
     
     self.seasons = tmdb_info["number_of_seasons"]
+    self.network = tmdb_info["networks"].map { |hash| hash["name"] }.join("/")
     
     @genre_names = omdb_info["Genre"].split(",")
     nil
