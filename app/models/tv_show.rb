@@ -33,7 +33,7 @@ class TvShow < ActiveRecord::Base
     
     self.blurb = omdb_info["Plot"]
     
-    years = omdb_info["Year"].split("-")
+    years = omdb_info["Year"].split("–")
     self.year_start = years.first
     
     if years.count > 1
