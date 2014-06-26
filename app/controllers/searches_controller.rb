@@ -17,12 +17,11 @@ class SearchesController < ApplicationController
   end
 
   def sort
-    query = params[:query]
-    comparator = sort_params[:sort_by]
+    @search_params = params[:query]
+    @comparator = sort_params[:sort_by]
 
-    @query = sort_results(query, comparator)
-    @search_param_names = query.split("+")
-    @search_params = query
+    @query = sort_results(@search_params, @comparator)
+    @search_param_names = @search_params.split("+")
 
     render :show
   end

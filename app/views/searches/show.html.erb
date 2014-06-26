@@ -33,7 +33,7 @@
         <select name="comparator[sort_by]">
           <option value=""></option>
           <% SearchesHelper::SORT_BY.each do |sort| %>
-            <option value="<%= sort %>"><%= sort %></option>
+            <option value="<%= sort %>" <%= 'selected' if @comparator == sort %>><%= sort %></option>
           <% end %>
         </select>
       </label>
