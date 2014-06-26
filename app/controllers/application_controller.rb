@@ -48,6 +48,77 @@ class ApplicationController < ActionController::Base
     search
   end
 
+  def sort_results(query, comparator)
+    params = parse_query_into_params(query)
+    results = run_query(params)
+
+    results.is_a?(Array) ?
+      sort_array(results, comparator) : sort_arel(results, comparator)
+  end
+
+  def parse_query_into_params(query)
+    params = {}
+    query = query.split("+")
+
+    current = nil
+    current = query.shift if query.first == "Currently Airing"
+
+    decade_ids = []
+    until query.empty?
+      begin
+        year = Integer(query.first)
+        query.shift
+
+        decade = Decade.find_by(years: year)
+        decade_ids << decade.id if decade
+      rescue
+        break
+      end
+    end
+
+    genre_ids = []
+    query.each do |genre|
+      genre_exists = Genre.find_by(name: genre)
+      genre_ids << genre_exists.id if genre_exists
+    end
+
+    params[:status] = current
+    params[:decade_ids] = decade_ids unless decade_ids.empty?
+    params[:genre_ids] = genre_ids unless genre_ids.empty?
+
+    params
+  end
+
+  def sort_array(results_arr, comparator)
+    case comparator
+    when "A-Z"
+      results_arr.sort_by! { |show| show.title }
+    when "Z-A"
+      results_arr.sort_by! { |show| show.title }.reverse!
+    when "Highest Rating"
+      results_arr.sort_by! { |show| show.rating }.reverse!
+    when "Lowest Rating"
+      results_arr.sort_by! { |show| show.rating }
+    end
+
+    results_arr
+  end
+
+  def sort_arel(arel_results, comparator)
+    case comparator
+    when "A-Z"
+      arel_results = arel_results.order(:title)
+    when "Z-A"
+      arel_results = arel_results.order(:title).reverse
+    when "Highest Rating"
+      arel_results = arel_results.order(:rating).reverse
+    when "Lowest Rating"
+      arel_results = arel_results.order(:rating)
+    end
+
+    arel_results
+  end
+
   def signed_in?
     !!current_user
   end

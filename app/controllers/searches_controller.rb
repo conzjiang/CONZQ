@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
 
   def create
     @search_param_names = search_param_names(params[:search])
+    @search_params = @search_param_names.join("+")
     @query = run_query(params[:search])
 
     render :show
@@ -18,16 +19,10 @@ class SearchesController < ApplicationController
   def sort
     query = params[:query]
     comparator = sort_params[:sort_by]
-    fail
-    if comparator == "A-Z"
-      @query = query.order(:title)
-    elsif comparator == "Z-A"
-      @query = query.order(:title).reverse
-    elsif comparator == "Highest Rating"
-      @query = query.order(:rating).reverse
-    elsif comparator == "Lowest Rating"
-      @query = query.order(:rating)
-    end
+
+    @query = sort_results(query, comparator)
+    @search_param_names = query.split("+")
+    @search_params = query
 
     render :show
   end
