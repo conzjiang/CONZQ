@@ -33,7 +33,7 @@ class TvShowsController < ApplicationController
 
   def edit
     @tv = TvShow.find(params[:id])
-    @genres = Genre.all.order(:name)
+    @genres = Genre.where(top_level: false).order(:name)
   end
 
   def update

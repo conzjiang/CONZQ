@@ -1,6 +1,6 @@
 <h1><%= @user.username %>'s Watchlist</h1>
 
-<%= render partial: "users/profilenav" %>
+<%= render partial: "users/profilenav", locals: { location: "Watchlist" } %>
 
 <% Watchlist::STATUSES.each do |status| %>
 

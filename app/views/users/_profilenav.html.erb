@@ -1,8 +1,8 @@
 <div class="header-links-container group">
 <ul class="header-links">
-  <li><a href="<%= user_watchlists_url(@user) %>">Watchlist</a></li>
-  <li><a href="<%= user_favorites_url(@user) %>">Favorites</a></li>
-  <li><a href="<%= user_follows_url(@user) %>">Followers & Followees</a></li>
+  <li class=<%= 'location' if location == "Watchlist" %>><a href="<%= user_watchlists_url(@user) %>">Watchlist</a></li>
+  <li class=<%= 'location' if location == "Favorites" %>><a href="<%= user_favorites_url(@user) %>">Favorites</a></li>
+  <li class=<%= 'location' if location == "Followers" %>><a href="<%= user_follows_url(@user) %>">Followers & Followees</a></li>
 </ul>
 </div>
 

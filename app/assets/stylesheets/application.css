@@ -111,5 +111,16 @@ h3 {
 
 .header-links > li {
   padding: 5px 5px 5px 0;
+  margin: 0 10px;
   display: inline;
+}
+
+.watchlist-nav li {
+  float: left;
+  padding: 5px 20px 5px 0;
+}
+
+.location {
+  font-weight: bold;
+  border-bottom: 3px solid black;
 }

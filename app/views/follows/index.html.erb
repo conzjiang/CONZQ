@@ -1,10 +1,10 @@
 <h1><%= @user.username %>'s Followers & Followees</h1>
 
-<%= render partial: "users/profilenav" %>
+<%= render partial: "users/profilenav", locals: { location: "Followers" } %>
 
 <h2 id="Followers"><%= @user.username %>'s Followers</h2>
 
-<ul class="watchlist-nav">
+<ul class="watchlist-nav group">
   <li><a href="#Followers"><strong>Followers</strong></a></li>
   <li><a href="#Followees">People <%= @user.username %> follows</a></li>
 </ul>
@@ -20,7 +20,7 @@
 
 <h2 id="Followees">People <%= @user.username %> Follows</h2>
 
-<ul class="watchlist-nav">
+<ul class="watchlist-nav group">
   <li><a href="#Followers">Followers</a></li>
   <li>
     <a href="#Followees">
