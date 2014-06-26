@@ -5,7 +5,7 @@
 <ul class="show_list">
   <% @favorites.each do |fav_show| %>
     <li>
-			<%= render partial: "watchlists/result", locals: { tv: fav_show } %>
+			<%= render partial: "result", locals: { tv: fav_show } %>
 		</li>
   <% end %>
 </ul>
