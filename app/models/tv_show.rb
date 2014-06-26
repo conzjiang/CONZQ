@@ -9,7 +9,7 @@ class TvShow < ActiveRecord::Base
 
   has_attached_file :photo, styles: {
       big: "360x360>",
-      medium: "200x250#",
+      medium: "160x200#",
       thumb: "50x50#"
     }, default_url: "/assets/missing_:style.jpg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/

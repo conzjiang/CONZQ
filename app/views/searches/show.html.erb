@@ -2,19 +2,19 @@
 
 <div class="params-container group">
   <div class="search-params">
-    <% @search_param_names.each_with_index do |param, i| %>
-      <% if i == 0 %>
+    <%- @search_param_names.each_with_index do |param, i| -%>
+      <%- if i == 0 -%>
         <div class="param first">
-      <% else %>
+      <%- else -%>
         <div class="param">
-      <% end %>
-        <% if param.is_a?(Integer) %>
+      <%- end -%>
+        <%- if param.is_a?(Integer) || param =~ /["0-9"]/ -%>
           '<%= param == 0 ? "00" : param %>s
-        <% else %>
+        <%- else -%>
           <%= param %>
-        <% end %>
+        <%- end -%>
       </div>
-    <% end %>
+    <%- end -%>
   </div>
 </div>
 
