@@ -5,8 +5,8 @@
 <%= render partial: "watchlists/status", locals: { tv: tv } %>
 <%= render partial: "favorites/status", locals: { tv: tv } %>
 
-<% if tv.photo %>
-  <img class="mini-display" src="<%= tv.photo %>">
+<% unless tv.photo.url =~ /missing/ %>
+  <img class="mini-display" src="<%= tv.photo.url(:medium) %>">
   <br>
 <% end %>
 

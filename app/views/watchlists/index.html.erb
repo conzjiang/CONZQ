@@ -9,7 +9,7 @@
 
   <ul class="show_list">
     <% @watchlist.where(watchlists: { status: status }).each do |show| %>
-      <li><a href="<%= tv_show_url(show) %>"><%= show.title %></a></li>
+      <li><%= render partial: "result", locals: { tv: show } %></li>
     <% end %>
   </ul>
   

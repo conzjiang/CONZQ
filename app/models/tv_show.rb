@@ -12,9 +12,10 @@ class TvShow < ActiveRecord::Base
     medium: "200x250#",
     thumb: "50x50#"
   }
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   
   has_many :tv_genres
-  has_many :genres, through: :tv_geenres
+  has_many :genres, through: :tv_genres
   
   has_many :tv_decades
   has_many :decades, through: :tv_decades
