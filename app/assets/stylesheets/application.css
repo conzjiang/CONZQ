@@ -38,6 +38,10 @@ a {
   color: black;
 }
 
+ul {
+  list-style: none;
+}
+
 .group:after {
   content: "";
   display: block;

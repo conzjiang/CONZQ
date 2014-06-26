@@ -1,5 +1,21 @@
 <ul class="profile_nav">
   <li><a href="<%= user_watchlists_url(@user) %>">Watchlist</a></li>
   <li><a href="<%= user_favorites_url(@user) %>">Favorites</a></li>
-  <li>Friends</li>
+  <li>Followers</li>
 </ul>
+
+<% if @user.followers.exists?(current_user) %>
+  <p class="following">Following</p>
+  <form action="<%= unfollow_url(@user) %>" method="post">
+    <%= form_auth %>
+    <input type="hidden" name="_method" value="delete">
+
+    <button>Unfollow</button>
+  </form>
+<% elsif current_user != @user %>
+  <form action="<%= user_follows_url(@user) %>" method="post">
+    <%= form_auth %>
+
+    <button>Follow</button>
+  </form>
+<% end %>

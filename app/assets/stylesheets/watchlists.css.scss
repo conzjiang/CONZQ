@@ -7,3 +7,15 @@ h2 {
   font-size: 30px;
   margin: 10px 0;
 }
+
+.watch_dropdown {
+  display: block;
+  border: 1px solid black;
+  list-style: none;
+  width: 150px;
+  padding: 0;
+}
+
+.watch_dropdown > li {
+  text-align: center;
+}

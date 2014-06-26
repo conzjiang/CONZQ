@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
 
   # PEOPLE THEY FOLLOW
   has_many :follows, foreign_key: :follower_id
-  has_many :idols, through: :follows, inverse_of: :follower
+  has_many :idols, through: :follows, inverse_of: :followers
 
   # PEOPLE WHO FOLLOW THEM
   has_many :followings, class_name: "Follow", foreign_key: :idol_id
-  has_many :followers, through: :followings, inverse_of: :idol
+  has_many :followers, through: :followings, inverse_of: :idols
 
   has_many :tv_shows,
     foreign_key: :admin_id,
