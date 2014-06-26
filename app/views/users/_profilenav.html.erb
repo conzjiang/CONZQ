@@ -1,7 +1,9 @@
-<ul class="profile_nav">
+<div class="header-links-container group">
+<ul class="header-links">
   <li><a href="<%= user_watchlists_url(@user) %>">Watchlist</a></li>
   <li><a href="<%= user_favorites_url(@user) %>">Favorites</a></li>
   <li><a href="<%= user_follows_url(@user) %>">Followers & Followees</a></li>
 </ul>
+</div>
 
 <%= render partial: "follows/status", locals: { user: @user } %>

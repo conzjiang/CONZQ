@@ -1,21 +1,21 @@
 <h1>Your Results</h1>
 
-<div class="params-container group">
-  <div class="search-params">
+<div class="header-links-container group">
+  <ul class="header-links">
     <%- @search_param_names.each_with_index do |param, i| -%>
       <%- if i == 0 -%>
-        <div class="param first">
+        <li class="param first">
       <%- else -%>
-        <div class="param">
+        <li class="param">
       <%- end -%>
         <%- if param.is_a?(Integer) || param =~ /["0-9"]/ -%>
           '<%= param == 0 ? "00" : param %>s
         <%- else -%>
           <%= param %>
         <%- end -%>
-      </div>
+      </li>
     <%- end -%>
-  </div>
+  </ul>
 </div>
 
 

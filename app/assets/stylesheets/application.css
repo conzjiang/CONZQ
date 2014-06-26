@@ -95,3 +95,21 @@ h3 {
   float: left;
   margin: 0 10px 5px 0;
 }
+
+.header-links-container {
+  display: block;
+  margin: 20px 0;
+}
+
+.header-links {
+  max-width: 600px;
+  display: block;
+  text-align: center;
+  height: auto;
+  margin: auto;
+}
+
+.header-links > li {
+  padding: 5px 5px 5px 0;
+  display: inline;
+}

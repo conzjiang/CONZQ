@@ -2,31 +2,31 @@
 <html>
 <head>
   <title>CONZQ</title>
-  
+
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <% if signed_in? %>
-  <h1><%= current_user.username %></h1>
-  
+  <h1>my name is <%= current_user.username %></h1>
+
   <a href="<%= new_search_url %>">New Search</a>
-  
+
   <% if current_user.admin %>
     <a href="<%= tv_shows_url %>">My series</a>
     <a href="<%= new_tv_url %>">Add a series</a>
   <% end %>
-  
+
   <a href="<%= user_watchlists_url(current_user) %>">My Profile</a>
-  
+
   <form action="<%= session_url %>" method="post">
     <%= form_auth %>
     <input type="hidden" name="_method" value="delete">
     <button>Logout</button>
   </form>
-  
-  
+
+
 <% else %>
   <a href="<%= new_session_url %>">Sign In</a>
   <a href="<%= new_user_url %>">Register</a>
