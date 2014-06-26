@@ -23,26 +23,17 @@
   <br>
 
   Genre(s):<br>
-  <% @genres.each do |genre| %>
-    <input type="checkbox"
-           id="<%= genre.name %>"
-           name="genre_ids[]"
-           value="<%= genre.id %>"
-           <%= 'checked' if @tv.genre_names.include?(genre.name) %>>
-    <label for="<%= genre.name %>"><%= genre.name %></label>
-  <% end %>
-  <br>
-
-
-  <div class="genre_form">
-    <div class="top_genre">
+  <div class="genre-form">
+    <div class="top-level-left">
       <input type="checkbox"
              id="Scripted"
              name="genre_ids[]"
              value="10"
              <%= 'checked' if @tv.genre_names.include?("Scripted") %>>
       <label for="Scripted">Scripted</label>
+    </div>
 
+    <div class="top-level-right">
       <input type="checkbox"
              id="Unscripted"
              name="genre_ids[]"
@@ -51,14 +42,16 @@
       <label for="Unscripted">Unscripted/Reality</label>
     </div>
 
-    <div class="top_genre">
+    <div class="top-level-left">
       <input type="checkbox"
              id="Live-Action"
              name="genre_ids[]"
              value="6"
              <%= 'checked' if @tv.genre_names.include?("Live-Action") %>>
       <label for="Live-Action">Live-Action</label>
+    </div>
 
+    <div class="top-level-right">
       <input type="checkbox"
              id="Animated"
              name="genre_ids[]"
@@ -67,14 +60,16 @@
       <label for="Animated">Animated</label>
     </div>
 
-    <div class="top_genre">
+    <div class="sub-genre">
       <input type="checkbox"
              id="Drama"
              name="genre_ids[]"
              value="5"
              <%= 'checked' if @tv.genre_names.include?("Drama") %>>
       <label for="Drama">Drama</label>
+    </div>
 
+    <div class="sub-genre">
       <input type="checkbox"
              id="Comedy"
              name="genre_ids[]"
@@ -83,8 +78,62 @@
       <label for="Comedy">Comedy</label>
     </div>
 
+    <div class="sub-genre">
+      <ul>
+        <li>
+          <input type="checkbox"
+                 id="Procedural"
+                 name="genre_ids[]"
+                 value="8"
+                 <%= 'checked' if @tv.genre_names.include?("Procedural") %>>
+          <label for="Procedural">Procedural</label>
+        </li>
 
+        <li>
+          <input type="checkbox"
+                 id="Serialized"
+                 name="genre_ids[]"
+                 value="11"
+                 <%= 'checked' if @tv.genre_names.include?("Serialized") %>>
+          <label for="Serialized">Serialized</label>
+        </li>
+      </ul>
+    </div>
 
+    <div class="sub-genre">
+      <ul>
+        <li>
+          <input type="checkbox"
+                 id="Single-camera"
+                 name="genre_ids[]"
+                 value="15"
+                 <%= 'checked' if @tv.genre_names.include?("Single-camera") %>>
+          <label for="Single-camera">Single-camera</label>
+        </li>
+
+        <li>
+          <input type="checkbox"
+                 id="Multi-camera"
+                 name="genre_ids[]"
+                 value="16"
+                 <%= 'checked' if @tv.genre_names.include?("Multi-camera") %>>
+          <label for="Multi-camera">Multi-camera</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rest-genres">
+      <% @genres.each do |genre| %>
+        <div class="checkbox">
+          <input type="checkbox"
+                 id="<%= genre.name %>"
+                 name="genre_ids[]"
+                 value="<%= genre.id %>"
+                 <%= 'checked' if @tv.genre_names.include?(genre.name) %>>
+          <label for="<%= genre.name %>"><%= genre.name %></label>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <label>

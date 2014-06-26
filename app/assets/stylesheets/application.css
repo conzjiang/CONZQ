@@ -29,6 +29,10 @@ h1 {
   margin: 15px;
 }
 
+div {
+  display: block;
+}
+
 .error {
   color: red;
 }
