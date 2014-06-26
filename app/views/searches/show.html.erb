@@ -1,16 +1,22 @@
 <h1>Your Results</h1>
 
-<ul class="search_params">
-  <% @search_params.each do |param| %>
-    <li>
+<div class="params-container group">
+<div class="search-params">
+  <% @search_params.each_with_index do |param, i| %>
+    <% if i == 0 %>
+      <div class="param first">
+    <% else %>
+      <div class="param">
+    <% end %>
       <% if param.is_a?(Integer) %>
         '<%= param == 0 ? "00" : param %>s
       <% else %>
         <%= param %>
       <% end %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>
+</div>
 
 <% if @query.nil? || @query.empty? %>
   <h3>No results! :(</h3>
