@@ -2,7 +2,6 @@
 log/*.log
 /tmp
 
-db/seeds.rb
 /config/database.yml
 
 # Ignore application configuration

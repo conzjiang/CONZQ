@@ -1,9 +1,4 @@
 <a href="<%= tv_show_url(tv) %>">
-	<% unless @tv.photo.url =~ /missing/ %>
-		<img src="<%= tv.photo.url(:thumb) %>">
-	<% else %>
-		<div class="filler"></div>
-	<% end %>
-	
+	<img src="<%= tv.photo.url(:thumb) %>">
 	<%= tv.title %>
 </a>

@@ -1,21 +1,21 @@
 <a class="show_result" href="<%= tv_show_url(tv) %>">
-  
+
 <h3><%= tv.title %></h3>
 
 <%= render partial: "watchlists/status", locals: { tv: tv } %>
 <%= render partial: "favorites/status", locals: { tv: tv } %>
 
-<% unless tv.photo.url =~ /missing/ %>
-  <img class="mini-display" src="<%= tv.photo.url(:medium) %>">
+
+  <img src="<%= tv.photo.url(:medium) %>">
   <br>
-<% end %>
+
 
 <ul class="individual_result">
   <li>
     <strong>IMDB rating:</strong>
     <%= tv.rating %>
   </li>
-  
+
   <li>
     <strong>Plot:</strong>
     <%= tv.blurb %>

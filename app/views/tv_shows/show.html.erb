@@ -10,36 +10,34 @@
 <%= render partial: "watchlists/status", locals: { tv: @tv } %>
 <%= render partial: "favorites/status", locals: { tv: @tv } %>
 
-<% unless @tv.photo.url =~ /missing/ %>  
-	<img src="<%= @tv.photo.url(:big) %>">
-<% end %>
+<img src="<%= @tv.photo.url(:big) %>">
 
 <ul>
   <li>
     <strong>Genre(s):</strong>
     <%= @tv.genres.order(:name).pluck(:name).join(", ") %>
   </li>
-  
+
   <li>
     <strong>IMDB rating:</strong>
     <%= @tv.rating %>
   </li>
-  
+
   <li>
     <strong>Network:</strong>
     <%= @tv.network %>
   </li>
-  
+
   <li>
     <%= @tv.seasons %> seasons, <%= @tv.year_start %> -
     <%= @tv.year_end.nil? ? "present" : @tv.year_end %>
   </li>
-  
+
   <li>
     <strong>Status:</strong>
     <%= @tv.status %>
   </li>
-  
+
   <li>
     <strong>Plot:</strong>
     <%= @tv.blurb %>

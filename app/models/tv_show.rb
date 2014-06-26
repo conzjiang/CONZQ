@@ -8,10 +8,10 @@ class TvShow < ActiveRecord::Base
   validates :status, inclusion: { in: STATUSES }
 
   has_attached_file :photo, styles: {
-    big: "360x360>",
-    medium: "200x250#",
-    thumb: "50x50#"
-  }
+      big: "360x360>",
+      medium: "200x250#",
+      thumb: "50x50#"
+    }, default_url: "/assets/missing_:style.jpg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   has_many :tv_genres
