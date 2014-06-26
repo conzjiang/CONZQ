@@ -1,3 +1,8 @@
+if RUBY_VERSION =~ /1.9/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
@@ -10,6 +15,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt'
 gem 'addressable'
 gem 'rest-client'
+gem 'figaro'
+gem "paperclip"
+gem "aws-sdk"
 
 group :doc do
   gem 'sdoc', require: false

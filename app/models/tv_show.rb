@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'addressable/uri'
 
 class TvShow < ActiveRecord::Base
@@ -6,8 +7,14 @@ class TvShow < ActiveRecord::Base
   validates :title, presence: true
   validates :status, inclusion: { in: STATUSES }
   
+  has_attached_file :photo, styles: {
+    big: "360x360>",
+    medium: "200x250#",
+    thumb: "50x50#"
+  }
+  
   has_many :tv_genres
-  has_many :genres, through: :tv_genres
+  has_many :genres, through: :tv_geenres
   
   has_many :tv_decades
   has_many :decades, through: :tv_decades
@@ -94,14 +101,12 @@ class TvShow < ActiveRecord::Base
   def parse_tmdb
     parsed_omdb = parse_omdb
     
-    api_key = File.read(".tmdb_api_key")
-    
     tmdb_external_search = Addressable::URI.new(
           scheme: "http",
           host: "api.themoviedb.org",
           path: "3/find/" + parse_omdb["imdbID"],
           query_values: {
-            api_key: api_key,
+            api_key: ENV["TMDB_KEY"],
             external_source: "imdb_id"
           }).to_s
           
@@ -113,7 +118,7 @@ class TvShow < ActiveRecord::Base
           host: "api.themoviedb.org",
           path: "3/tv/" + tmdb_show_id,
           query_values: {
-            api_key: api_key
+            api_key: ENV["TMDB_KEY"]
           }).to_s
     
     JSON.parse(RestClient.get(tmdb_show_info))

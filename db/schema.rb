@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625190551) do
+ActiveRecord::Schema.define(version: 20140626014153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,18 +59,21 @@ ActiveRecord::Schema.define(version: 20140625190551) do
   add_index "tv_genres", ["tv_show_id"], name: "index_tv_genres_on_tv_show_id", using: :btree
 
   create_table "tv_shows", force: true do |t|
-    t.string   "title",                  null: false
-    t.string   "photo"
+    t.string   "title",                          null: false
     t.float    "rating"
     t.integer  "year_start"
     t.integer  "year_end"
     t.string   "status"
     t.integer  "seasons"
     t.text     "blurb"
-    t.integer  "admin_id",   default: 1
+    t.integer  "admin_id",           default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "network"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "tv_shows", ["admin_id"], name: "index_tv_shows_on_admin_id", using: :btree
