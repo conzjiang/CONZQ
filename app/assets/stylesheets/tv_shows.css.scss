@@ -1,6 +1,26 @@
 // Place all the styles related to the TvShows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//-----------------------------------------
+
+// SHOW PAGE
+.tv-show-page-container {
+  width: 650px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.tv-show-page-container ul {
+  list-style: none;
+}
+
+.tv-show-page-container li {
+  padding: 10px 0;
+}
+
+.main-blurb {
+  font-size: 20px;
+}
 
 // FORM
 .genre-form {

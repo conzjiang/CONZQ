@@ -2,14 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.watch_dropdown {
-  display: block;
-  border: 1px solid black;
-  list-style: none;
-  width: 150px;
-  padding: 0;
-}
-
-.watch_dropdown > li {
-  text-align: center;
+h2 {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 10px 0;
 }

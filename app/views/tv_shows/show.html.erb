@@ -1,3 +1,4 @@
+<div class="tv-show-page-container">
 <h1><%= @tv.title %></h1>
 
 <% if current_user == @tv.admin %>
@@ -38,8 +39,8 @@
     <%= @tv.status %>
   </li>
 
-  <li>
-    <strong>Plot:</strong>
+  <li class="main-blurb">
     <%= @tv.blurb %>
   </li>
 </ul>
+</div>
