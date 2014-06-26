@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
         if query.is_a?(Array)
           query.select! { |show| show.status == params[:status] }
         else
-          query = @query.where(status: params[:status])
+          query = query.where(status: params[:status])
         end
       else
         query = TvShow.where(status: params[:status])
