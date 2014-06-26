@@ -10,6 +10,14 @@ genres.each do |genre|
   Genre.create!(name: genre)
 end
 
+top_level_genres = ["Scripted", "Unscripted/Reality", "Live-Action", "Animated", "Drama", "Comedy", "Procedural", "Serialized", "Single-camera", "Multi-camera"]
+
+top_level_genres.each do |genre|
+  top = Genre.find_by(name: genre)
+  top.top_level = true
+  top.save!
+end
+
 # DECADES
 [50, 60, 70, 80, 90, 00, 10].each do |decade|
   Decade.create!(years: decade)

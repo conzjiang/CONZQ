@@ -1,67 +1,121 @@
 <form action="<%= action_url %>" method="post" enctype="multipart/form-data">
   <%= form_auth %>
-  
+
   <% if put %>
     <input type="hidden" name="_method" value="put">
   <% end %>
-  
+
   <label>
     Title:<br>
     <input type="text" name="tv[title]" value="<%= @tv.title %>">
   </label>
   <br>
-  
+
   <label>
     Photo:<br>
 		<% unless @tv.photo.url =~ /missing/ %>
 			<img src="<%= @tv.photo.url(:medium) %>">
 			<br>
 		<% end %>
-		
+
     <input type="file" name="tv[photo]">
   </label>
   <br>
-  
+
   Genre(s):<br>
   <% @genres.each do |genre| %>
-    <input type="checkbox" 
-           id="<%= genre.name %>" 
-           name="genre_ids[]" 
+    <input type="checkbox"
+           id="<%= genre.name %>"
+           name="genre_ids[]"
            value="<%= genre.id %>"
            <%= 'checked' if @tv.genre_names.include?(genre.name) %>>
     <label for="<%= genre.name %>"><%= genre.name %></label>
   <% end %>
   <br>
-  
+
+
+  <div class="genre_form">
+    <div class="top_genre">
+      <input type="checkbox"
+             id="Scripted"
+             name="genre_ids[]"
+             value="10"
+             <%= 'checked' if @tv.genre_names.include?("Scripted") %>>
+      <label for="Scripted">Scripted</label>
+
+      <input type="checkbox"
+             id="Unscripted"
+             name="genre_ids[]"
+             value="13"
+             <%= 'checked' if @tv.genre_names.include?("Unscripted/Reality") %>>
+      <label for="Unscripted">Unscripted/Reality</label>
+    </div>
+
+    <div class="top_genre">
+      <input type="checkbox"
+             id="Live-Action"
+             name="genre_ids[]"
+             value="6"
+             <%= 'checked' if @tv.genre_names.include?("Live-Action") %>>
+      <label for="Live-Action">Live-Action</label>
+
+      <input type="checkbox"
+             id="Animated"
+             name="genre_ids[]"
+             value="2"
+             <%= 'checked' if @tv.genre_names.include?("Animated") %>>
+      <label for="Animated">Animated</label>
+    </div>
+
+    <div class="top_genre">
+      <input type="checkbox"
+             id="Drama"
+             name="genre_ids[]"
+             value="5"
+             <%= 'checked' if @tv.genre_names.include?("Drama") %>>
+      <label for="Drama">Drama</label>
+
+      <input type="checkbox"
+             id="Comedy"
+             name="genre_ids[]"
+             value="3"
+             <%= 'checked' if @tv.genre_names.include?("Comedy") %>>
+      <label for="Comedy">Comedy</label>
+    </div>
+
+
+
+  </div>
+
   <label>
     Network: (please abbreviate)<br>
     <input type="text" name="tv[network]" value="<%= @tv.network %>">
   </label>
   <br>
-  
+
   <label>
     # of seasons:
     <input type="text" name="tv[seasons]" value="<%= @tv.seasons %>">
   </label>
   <br>
-  
+
   <label>
     Year Start:<br>
     <input type="text" name="tv[year_start]" value="<%= @tv.year_start %>">
   </label>
   <br>
-  
+
   <label>
     Year End: (leave blank if currently airing)<br>
     <input type="text" name="tv[year_end]" value="<%= @tv.year_end %>">
   </label>
   <br>
-  
+
   <label>
     Status:
     <select name="tv[status]">
       <option value=""></option>
-      
+
       <% TvShow::STATUSES.each do |status| %>
         <option value="<%= status %>"
                 <%= 'selected' if @tv.status == status %>>
@@ -70,12 +124,12 @@
     </select>
   </label>
   <br>
-  
+
   <label>
     Summary:<br>
     <textarea name="tv[blurb]"><%= @tv.blurb %></textarea>
   </label>
   <br>
-  
+
   <button><%= button_text %></button>
 </form>

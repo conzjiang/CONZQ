@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626014153) do
+ActiveRecord::Schema.define(version: 20140626145200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20140626014153) do
   add_index "favorites", ["user_id", "tv_show_id"], name: "index_favorites_on_user_id_and_tv_show_id", unique: true, using: :btree
 
   create_table "genres", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "top_level",  default: false
   end
 
   add_index "genres", ["name"], name: "index_genres_on_name", unique: true, using: :btree
