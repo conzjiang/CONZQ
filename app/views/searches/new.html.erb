@@ -3,34 +3,34 @@
 <h3>By Decade</h3>
 <form action="<%= search_url %>" method="post">
   <%= form_auth %>
-  
+
   <% @decades.each do |decade| %>
-    <input type="checkbox" 
-           id="<%= decade.years %>" 
-           name="decade_ids[]" 
+    <input type="checkbox"
+           id="<%= decade.years %>"
+           name="search[decade_ids][]"
            value="<%= decade.id %>">
     <label for="<%= decade.years %>">'<%= decade.years == 0 ? "00" : decade.years %>s</label>
     <br>
   <% end %>
-  
+
   <input type="checkbox"
          id="Currently Airing"
-         name="status"
+         name="search[status]"
          value="Currently Airing">
   <label for="Currently Airing">Currently Airing</label>
-  
-  
+
+
   <h3>By Genre</h3>
-  
+
   <% @genres.each do |genre| %>
-    <input type="checkbox" 
-           id="<%= genre.name %>" 
-           name="genre_ids[]" 
+    <input type="checkbox"
+           id="<%= genre.name %>"
+           name="search[genre_ids][]"
            value="<%= genre.id %>">
     <label for="<%= genre.name %>"><%= genre.name %></label>
     <br>
   <% end %>
-  
+
   <button>Search</button>
 </form>
 

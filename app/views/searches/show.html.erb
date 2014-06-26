@@ -1,26 +1,47 @@
 <h1>Your Results</h1>
 
 <div class="params-container group">
-<div class="search-params">
-  <% @search_params.each_with_index do |param, i| %>
-    <% if i == 0 %>
-      <div class="param first">
-    <% else %>
-      <div class="param">
-    <% end %>
-      <% if param.is_a?(Integer) %>
-        '<%= param == 0 ? "00" : param %>s
+  <div class="search-params">
+    <% @search_param_names.each_with_index do |param, i| %>
+      <% if i == 0 %>
+        <div class="param first">
       <% else %>
-        <%= param %>
+        <div class="param">
       <% end %>
-    </div>
-  <% end %>
+        <% if param.is_a?(Integer) %>
+          '<%= param == 0 ? "00" : param %>s
+        <% else %>
+          <%= param %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-</div>
+
+
 
 <% if @query.nil? || @query.empty? %>
   <h3>No results! :(</h3>
 <% else %>
+
+  <div class="sort-by">
+    <form action="<%= sort_url(@search_param_names) %>" method="post">
+      <%= form_auth %>
+
+      <label>
+        Sort by:<br>
+        <select name="comparator[sort_by]">
+          <option value=""></option>
+          <% SearchesHelper::SORT_BY.each do |sort| %>
+            <option value="<%= sort %>"><%= sort %></option>
+          <% end %>
+        </select>
+      </label>
+
+      <button>Select</button>
+    </form>
+  </div>
+
   <ul class="results">
     <% @query.each do |result| %>
       <li><%= render partial: "result", locals: { tv: result } %></li>

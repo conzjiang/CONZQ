@@ -3,53 +3,41 @@ class SearchesController < ApplicationController
     @decades = Decade.all
     @genres = Genre.all.order(:name)
   end
-  
-  def create
-    @search_params = search_params
 
-    if params[:genre_ids].nil? && params[:decade_ids]
-      @query = TvDecade.search(params[:decade_ids])
-    elsif params[:decade_ids].nil? && params[:genre_ids]
-      @query = TvGenre.search(params[:genre_ids])
-    elsif params[:genre_ids] && params[:decade_ids]
-      @query = TvGenre.search(params[:genre_ids]) & 
-               TvDecade.search(params[:decade_ids])
-    end
-    
-    if params[:status]
-      if @query
-        if @query.is_a?(Array)
-          @query.select! { |show| show.status == params[:status] }
-        else
-          @query = @query.where(status: params[:status])
-        end
-      else
-        @query = TvShow.where(status: params[:status])
-      end
-    end
-    
+  def create
+    @search_param_names = search_param_names(params[:search])
+    @query = run_query(params[:search])
+
     render :show
   end
-  
+
   def show
-    
+
   end
-  
+
+  def sort
+    query = params[:query]
+    comparator = sort_params[:sort_by]
+    fail
+    if comparator == "A-Z"
+      @query = query.order(:title)
+    elsif comparator == "Z-A"
+      @query = query.order(:title).reverse
+    elsif comparator == "Highest Rating"
+      @query = query.order(:rating).reverse
+    elsif comparator == "Lowest Rating"
+      @query = query.order(:rating)
+    end
+
+    render :show
+  end
+
   private
   def search_params
-    search = []
-    
-    if params[:decade_ids].nil? && params[:genre_ids]
-      search = Genre.where(id: params[:genre_ids]).pluck(:name)
-    elsif params[:genre_ids].nil? && params[:decade_ids]
-      search = Decade.where(id: params[:decade_ids]).pluck(:years)
-    elsif params[:genre_ids] && params[:decade_ids]
-      search = Decade.where(id: params[:decade_ids]).pluck(:years) + 
-               Genre.where(id: params[:genre_ids]).pluck(:name)
-    end
-    
-    search.unshift(params[:status]) if params[:status]
-    
-    search
+    params.require(:search).permit(:genre_ids, :decade_ids, :status)
+  end
+
+  def sort_params
+    params.require(:comparator).permit(:sort_by)
   end
 end
