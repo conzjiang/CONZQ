@@ -2,7 +2,7 @@ class FollowsController < ApplicationController
   before_action :require_signed_in
 
   def index
-
+    @user = User.find(params[:user_id])
   end
 
   def create

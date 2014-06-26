@@ -1,3 +1,22 @@
 // Place all the styles related to the follows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//---------------------------------------
+
+.follow {
+  width: 250px;
+}
+
+.follow-username {
+  font-weight: bold;
+}
+
+.user-favs:before {
+  content: "❤ ";
+  color: red;
+}
+
+.user-favs {
+  font-size: 12px;
+}

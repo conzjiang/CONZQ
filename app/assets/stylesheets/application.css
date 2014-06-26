@@ -42,6 +42,10 @@ ul {
   list-style: none;
 }
 
+img {
+  display: block;
+}
+
 .group:after {
   content: "";
   display: block;
@@ -69,20 +73,25 @@ h3 {
   font-size: 20px;
 }
 
-.show_list {
+.show-list {
   list-style: none;
   display: inline-block;
   margin: 15px 30px 20px 30px;
 }
 
-.show_list > li {
+.show-list > li {
   margin-bottom: 10px;
 }
 
-.show_list a {
+.show-list a {
   display: block;
   width: auto;
   border: 1px solid black;
   text-decoration: none;
   padding: 10px;
+}
+
+.show-list img {
+  float: left;
+  margin: 0 10px 5px 0;
 }

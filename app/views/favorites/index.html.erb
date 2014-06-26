@@ -2,7 +2,7 @@
 
 <h1><%= @user.username %>'s Favorites</h1>
 
-<ul class="show_list">
+<ul class="show-list">
   <% @favorites.each do |fav_show| %>
     <li>
 			<%= render partial: "result", locals: { tv: fav_show } %>

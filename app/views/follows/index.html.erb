@@ -1,0 +1,34 @@
+<%= render partial: "users/profilenav" %>
+
+<h2 id="Followers"><%= @user.username %>'s Followers</h2>
+
+<ul class="watchlist-nav">
+  <li><a href="#Followers"><strong>Followers</strong></a></li>
+  <li><a href="#Followees">People <%= @user.username %> follows</a></li>
+</ul>
+
+<ul class="show-list follow">
+  <% @user.followers.each do |follower| %>
+    <li><%= render partial: "result", locals: { user: follower } %></li>
+  <% end %>
+</ul>
+
+
+
+
+<h2 id="Followees">People <%= @user.username %> Follows</h2>
+
+<ul class="watchlist-nav">
+  <li><a href="#Followers">Followers</a></li>
+  <li>
+    <a href="#Followees">
+      <strong>People <%= @user.username %> follows</strong>
+    </a>
+  </li>
+</ul>
+
+<ul class="show-list follow">
+  <% @user.idols.each do |idol| %>
+    <li><%= render partial: "result", locals: { user: idol } %></li>
+  <% end %>
+</ul>

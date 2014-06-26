@@ -1,4 +1,4 @@
-<a href="<%= tv_show_url(tv) %>">
+<a class="group" href="<%= tv_show_url(tv) %>">
 	<img src="<%= tv.photo.url(:thumb) %>">
 	<%= tv.title %>
   <%= render partial: "status", locals: { tv: tv } %>

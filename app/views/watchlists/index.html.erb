@@ -7,7 +7,7 @@
   <h2 id="<%= status.split(" ").first %>"><%= status %></h2>
   <%= render partial: "nav", locals: { location: status } %>
 
-  <ul class="show_list">
+  <ul class="show-list">
     <% @watchlist.where(watchlists: { status: status }).each do |show| %>
       <li><%= render partial: "result", locals: { tv: show } %></li>
     <% end %>
