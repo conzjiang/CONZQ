@@ -1,7 +1,9 @@
 CONZQ::Application.routes.draw do
   root to: "sessions#root"
 
-
+  namespace :api do
+    resources :tv_shows
+  end
 
 
   resources :users do

@@ -17,7 +17,7 @@ class TvDecade < ActiveRecord::Base
   def self.years(decade_ids)
     return [] if decade_ids.nil? || decade_ids.empty?
 
-    DECADES.select { |id, year| decade_ids.include?(id) }.values
+    DECADES.select { |id, year| decade_ids.map(&:to_i).include?(id) }.values
   end
 
   def self.search(decade_ids)

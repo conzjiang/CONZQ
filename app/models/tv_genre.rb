@@ -26,7 +26,7 @@ class TvGenre < ActiveRecord::Base
   def self.names(genre_ids)
     return [] if genre_ids.nil? || genre_ids.empty?
 
-    GENRES.select { |id, genre| genre_ids.include?(id) }.values
+    GENRES.select { |id, genre| genre_ids.map(&:to_i).include?(id) }.values
   end
 
   def self.search(genre_ids)

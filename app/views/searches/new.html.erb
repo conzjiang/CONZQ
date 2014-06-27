@@ -4,12 +4,12 @@
 <form action="<%= search_url %>" method="post">
   <%= form_auth %>
 
-  <% @decades.each do |decade| %>
+  <% @decades.each do |id, decade| %>
     <input type="checkbox"
-           id="<%= decade.years %>"
+           id="<%= decade %>"
            name="search[decade_ids][]"
-           value="<%= decade.id %>">
-    <label for="<%= decade.years %>">'<%= decade.years == 0 ? "00" : decade.years %>s</label>
+           value="<%= id %>">
+    <label for="<%= decade %>">'<%= decade == 0 ? "00" : decade %>s</label>
     <br>
   <% end %>
 
@@ -22,12 +22,12 @@
 
   <h3>By Genre</h3>
 
-  <% @genres.each do |genre| %>
+  <% @genres.each do |id, genre| %>
     <input type="checkbox"
-           id="<%= genre.name %>"
+           id="<%= genre %>"
            name="search[genre_ids][]"
-           value="<%= genre.id %>">
-    <label for="<%= genre.name %>"><%= genre.name %></label>
+           value="<%= id %>">
+    <label for="<%= genre %>"><%= genre %></label>
     <br>
   <% end %>
 

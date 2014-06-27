@@ -1,7 +1,7 @@
-class SearchesController < ApplicationController
+class Api::SearchesController < ApplicationController
   def new
-    @decades = TvDecade::DECADES
-    @genres = TvGenre::GENRES
+    @decades = Decade.all
+    @genres = Genre.all.order(:name)
   end
 
   def create
@@ -27,7 +27,7 @@ class SearchesController < ApplicationController
     render :show
   end
 
-  # private
+  private
   def search_params
     params.require(:search).permit(:genre_ids, :decade_ids, :status)
   end
@@ -38,9 +38,9 @@ class SearchesController < ApplicationController
 
   def run_query(params)
     @search_param_names = []
-    decade_ids = params["decade_ids"]
-    genre_ids = params["genre_ids"]
-    currently_airing = params["status"]
+    decade_ids = params[:decade_ids]
+    genre_ids = params[:genre_ids]
+    currently_airing = params[:status]
 
     decade_results = TvDecade.search(decade_ids)
     genre_results = TvGenre.search(genre_ids)
