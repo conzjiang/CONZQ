@@ -3,7 +3,5 @@
 * Watchlist index view - cache shows of different statuses to not call query straight from the page
 
 
-
-
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

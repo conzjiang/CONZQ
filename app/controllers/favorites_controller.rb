@@ -12,13 +12,13 @@ class FavoritesController < ApplicationController
 
     @favorite.save!
 
-    redirect_to :back
+    redirect_to user_favorites_url(current_user)
   end
 
   def destroy
     @favorite = current_user.favorites.find_by(tv_show_id: params[:tv_id])
     @favorite.destroy!
 
-    redirect_to :back
+    redirect_to user_favorites_url(current_user)
   end
 end

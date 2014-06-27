@@ -1,7 +1,7 @@
 <%- if !signed_in? || !current_user.favorite_shows.exists?(tv.id) -%>
   <form action="<%= add_fav_url(tv) %>" method="post">
     <%= form_auth %>
-
+    
     <button>Add to Favorites</button>
   </form>
 <%- else -%>
