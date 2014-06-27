@@ -11,7 +11,7 @@ class TvShow < ActiveRecord::Base
       big: "360x360>",
       medium: "160x200#",
       thumb: "50x50#"
-    }, default_url: "/assets/missing_:style.jpg"
+    }, default_url: "/images/missing_:style.jpg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   has_many :tv_genres

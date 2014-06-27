@@ -1,5 +1,5 @@
 CONZQ::Application.routes.draw do
-  root to: "sessions#root"
+  root to: "searches#new"
 
   namespace :api do
     resources :tv_shows

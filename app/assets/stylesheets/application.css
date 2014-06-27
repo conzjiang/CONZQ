@@ -75,6 +75,12 @@ img {
   clear: both;
 }
 
+/*SIGN IN*/
+.sign-in {
+  width: 130px;
+  margin: 20px auto;
+}
+
 /*MAIN HEADER NAV*/
 .nav {
 	width: 650px;
