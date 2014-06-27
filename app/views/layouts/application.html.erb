@@ -4,6 +4,8 @@
   <title>CONZQ</title>
 
   <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,7 +13,7 @@
 <div class="nav group">
 <% if signed_in? %>
   <h1>my name is <%= current_user.username %></h1>
-	
+
 	<ul>
   	<li><a href="<%= new_search_url %>">New Search</a></li>
 

@@ -1,8 +1,28 @@
 class TvDecade < ActiveRecord::Base
+  DECADES = {
+    1 => 50,
+    2 => 60,
+    3 => 70,
+    4 => 80,
+    5 => 90,
+    6 => 00,
+    7 => 10
+  }
+
+  DECADE_IDS = DECADES.invert
+
   belongs_to :tv_show
   belongs_to :decade
 
+  def self.years(decade_ids)
+    return [] if decade_ids.nil? || decade_ids.empty?
+
+    DECADES.select { |id, year| decade_ids.include?(id) }.values
+  end
+
   def self.search(decade_ids)
+    return if decade_ids.nil? || decade_ids.empty?
+
     if @tvs.nil?
       all_shows = []
 

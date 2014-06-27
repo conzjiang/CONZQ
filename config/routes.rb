@@ -1,4 +1,9 @@
 CONZQ::Application.routes.draw do
+  root to: "sessions#root"
+
+
+
+
   resources :users do
     resources :watchlists, only: [:index]
     resources :favorites, only: [:index]
@@ -8,7 +13,8 @@ CONZQ::Application.routes.draw do
   resource :session
   resource :search, only: [:new, :create]
 
-  # SORT ROUTE
+  # SEARCH ROUTES
+  get "search/:search_params", to: "searches#show", as: "search_query"
   post "search/sort/:query", to: "searches#sort", as: "sort"
 
   # TV SHOW ROUTES
@@ -32,6 +38,4 @@ CONZQ::Application.routes.draw do
 
   # UNFOLLOW ROUTE
   delete "user/:user_id/unfollow", to: "follows#destroy", as: "unfollow"
-
-  root to: "searches#new"
 end

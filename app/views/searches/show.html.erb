@@ -2,14 +2,14 @@
 
 <div class="header-links-container param group">
   <ul class="header-links">
-    <%- @search_param_names.each_with_index do |param, i| -%>
+    <%- @search_params.split("+").each_with_index do |param, i| -%>
       <%- if i == 0 -%>
         <li class="param first">
       <%- else -%>
         <li class="param">
       <%- end -%>
-        <%- if param.is_a?(Integer) || param =~ /["0-9"]/ -%>
-          '<%= param == 0 ? "00" : param %>s
+        <%- if param =~ /["0-9"]/ -%>
+          '<%= param == "0" ? "00" : param %>s
         <%- else -%>
           <%= param %>
         <%- end -%>

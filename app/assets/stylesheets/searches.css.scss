@@ -22,14 +22,14 @@
 }
 
 .first:before,
-.param:after {
+li.param:after {
   content: "✿";
 }
 
 // NEW SEARCH LINK
 .header-links-container > center > a {
 	display: inline-block;
-	margin-top: 10px;	
+	margin-top: 10px;
 	padding: 5px;
 	background: rgb(96, 238, 136);
 	border-bottom: 5px solid #0B33D5;
@@ -41,8 +41,7 @@
 
 .header-links-container > center > a:active {
 	border-bottom: 3px solid #0B33D5;
-	padding-top: 3px;
-	color: pink;
+  padding-top: 7px;
 }
 
 // SORT
