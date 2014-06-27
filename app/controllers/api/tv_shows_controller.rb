@@ -5,6 +5,7 @@ class Api::TvShowsController < ApplicationController
 
   def index
     @tvs = current_user.tv_shows.order(:title)
+    render json: @tvs
   end
 
   def new
@@ -65,8 +66,7 @@ class Api::TvShowsController < ApplicationController
 
   def check_admin
     unless signed_in? && current_user.admin
-      flash[:errors] = ["You are not allowed to perform that action!"]
-      redirect_to root_url
+      render json: "You are not allowed to perform this action!"
     end
   end
 end

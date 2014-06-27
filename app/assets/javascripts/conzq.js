@@ -3,8 +3,11 @@ window.CONZQ = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function(options) {
-    this.$rootEl = options.$rootEl;
+  initialize: function(rootEl) {
+
+    new CONZQ.Router.AppRouter({
+      $rootEl: rootEl
+    });
 
 
   }
