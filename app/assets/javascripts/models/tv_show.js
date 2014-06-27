@@ -20,7 +20,7 @@ CONZQ.Models.TvShow = Backbone.Model.extend({
     return response;
   },
 
-  genres: {
+  genres: function () {
     if (!this._genres) {
       this._genres = new CONZQ.Collections.Genres({}, {
         show: this
@@ -30,7 +30,7 @@ CONZQ.Models.TvShow = Backbone.Model.extend({
     return this._genres;
   },
 
-  decades: {
+  decades: function () {
     if (!this._decades) {
       this._decades = new CONZQ.Collections.Decades({}, {
         show: this

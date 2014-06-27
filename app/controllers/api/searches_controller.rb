@@ -1,9 +1,4 @@
 class Api::SearchesController < ApplicationController
-  def new
-    @decades = Decade.all
-    @genres = Genre.all.order(:name)
-  end
-
   def create
     @query = run_query(params[:search])
     @search_params = @search_param_names.join("+")
@@ -17,6 +12,8 @@ class Api::SearchesController < ApplicationController
   def show
     @search_params = params[:search_params]
     @query = TvShow.find(session[:result_ids])
+
+    render json: [@search_params, @query]
   end
 
   def sort

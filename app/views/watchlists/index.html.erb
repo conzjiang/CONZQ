@@ -2,6 +2,8 @@
 
 <%= render partial: "users/profilenav", locals: { location: "Watchlist" } %>
 
+<section class="profile">
+
 <% Watchlist::STATUSES.each do |status| %>
 
   <h2 id="<%= status.split(" ").first %>"><%= status %></h2>
@@ -16,3 +18,4 @@
 <% end %>
 
 
+</section>

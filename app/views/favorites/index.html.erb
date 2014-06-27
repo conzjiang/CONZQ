@@ -2,6 +2,8 @@
 
 <%= render partial: "users/profilenav", locals: { location: "Favorites" } %>
 
+<section class="profile">
+
 <ul class="show-list">
   <% @favorites.each do |fav_show| %>
     <li>
@@ -9,3 +11,5 @@
 		</li>
   <% end %>
 </ul>
+
+</section>

@@ -110,6 +110,39 @@ img {
   font-size: 20px;
 }
 
+.following {
+  text-align: center;
+  color: rgb(29, 41, 189);
+  font-size: 20px;
+}
+
+.center-button {
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+
+	margin-top: 10px;
+	padding: 7px;
+	background: rgb(96, 238, 136);
+	border-bottom: 5px solid #0B33D5;
+}
+
+.center-button:hover {
+	background: #45A560;
+}
+
+.center-button:active {
+	border-bottom: 3px solid #0B33D5;
+  padding-top: 9px;
+}
+
+/*PROFILE INDEX CONTAINER*/
+section.profile {
+  margin: auto;
+  width: 600px;
+  padding: 20px;
+}
+
 /*PROFILE INDEX LIST ITEMS*/
 .show-list {
   list-style: none;

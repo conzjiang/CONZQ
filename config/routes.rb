@@ -3,6 +3,9 @@ CONZQ::Application.routes.draw do
 
   namespace :api do
     resources :tv_shows
+
+    get "search/:search_params", to: "searches#show", as: "search_query"
+    get "search/:query/sort/:comparator", to: "searches#sort", as: "sort"
   end
 
 

@@ -2,6 +2,9 @@
 
 <%= render partial: "users/profilenav", locals: { location: "Followers" } %>
 
+<section class="profile">
+
+
 <h2 id="Followers"><%= @user.username %>'s Followers</h2>
 
 <ul class="watchlist-nav group">
@@ -34,3 +37,7 @@
     <li><%= render partial: "result", locals: { user: idol } %></li>
   <% end %>
 </ul>
+
+
+
+</section>
