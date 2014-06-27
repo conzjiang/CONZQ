@@ -8,29 +8,28 @@
 </head>
 <body>
 
+<div class="nav group">
 <% if signed_in? %>
   <h1>my name is <%= current_user.username %></h1>
-
-  <a href="<%= new_search_url %>">New Search</a>
+	
+	<ul>
+  	<li><a href="<%= new_search_url %>">New Search</a></li>
 
   <% if current_user.admin %>
-    <a href="<%= tv_shows_url %>">My series</a>
-    <a href="<%= new_tv_url %>">Add a series</a>
+    <li><a href="<%= tv_shows_url %>">My Series</a></li>
+    <li><a href="<%= new_tv_url %>">Add a Series</a></li>
   <% end %>
 
-  <a href="<%= user_watchlists_url(current_user) %>">My Profile</a>
+  <li><a href="<%= user_watchlists_url(current_user) %>">My Profile</a></li>
 
-  <form action="<%= session_url %>" method="post">
-    <%= form_auth %>
-    <input type="hidden" name="_method" value="delete">
-    <button>Logout</button>
-  </form>
-
-
+  <li><%= link_to "Logout", session_url, method: "delete" %></li>
 <% else %>
-  <a href="<%= new_session_url %>">Sign In</a>
-  <a href="<%= new_user_url %>">Register</a>
+	<ul>
+	  <li><a href="<%= new_session_url %>">Sign In</a></li>
+	  <li><a href="<%= new_user_url %>">Register</a></li>
 <% end %>
+	</ul>
+</div>
 
 <%= yield %>
 

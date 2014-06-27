@@ -19,6 +19,23 @@ html, body, p, div, ul, li, h1, h2, h3, a {
   font: inherit;
 }
 
+button,
+input[type="submit"] {
+  display: inline;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  width: auto;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
 body {
   font-family: courier;
 }
@@ -27,6 +44,12 @@ h1 {
   font-weight: bold;
   font-size: 36px;
   text-align: center;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 div {
@@ -52,20 +75,34 @@ img {
   clear: both;
 }
 
+/*MAIN HEADER NAV*/
+.nav {
+	width: 650px;
+	margin: 20px auto;
+}
+
+.nav > ul {
+}
+
+.nav li {
+	float: left;
+}
+
+.nav a {
+	padding: 15px;
+}
+
+.nav button:hover,
+.nav a:hover {
+	background: rgb(96, 238, 136);
+	padding-bottom: 10px;
+	border-bottom: 5px solid #f4821d;
+}
+
+
+/*EVERYWHERE STATUSES*/
 .error {
   color: red;
-}
-
-.or {
-  display: block;
-  font-size: 20px;
-  margin: 15px 0 15px 100px;
-}
-
-h3 {
-  font-weight: bold;
-  font-size: 20px;
-  text-transform: uppercase;
 }
 
 .fav {
@@ -73,6 +110,7 @@ h3 {
   font-size: 20px;
 }
 
+/*PROFILE INDEX LIST ITEMS*/
 .show-list {
   list-style: none;
   display: inline-block;
@@ -96,6 +134,7 @@ h3 {
   margin: 0 10px 5px 0;
 }
 
+/*PROFILE INDEX NAVS + SEARCH PARAMS LISTING*/
 .header-links-container {
   display: block;
   margin: 20px 0;
@@ -112,12 +151,27 @@ h3 {
 .header-links > li {
   padding: 5px 5px 5px 0;
   margin: 0 10px;
-  display: inline;
+	line-height: 30px;
+	display: inline;
 }
 
+.header-links a {
+	padding: 5px;
+	padding-right: 0;
+}
+
+.header-links a:hover {
+	border-bottom: 2px solid #f4821d;
+}
+
+/*NAV WITHIN LISTS*/
 .watchlist-nav li {
   float: left;
   padding: 5px 20px 5px 0;
+}
+
+.watchlist-nav a:hover {
+	border-bottom: 1px solid #f4821d;
 }
 
 .location {

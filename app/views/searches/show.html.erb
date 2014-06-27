@@ -1,6 +1,6 @@
 <h1>Your Results</h1>
 
-<div class="header-links-container group">
+<div class="header-links-container param group">
   <ul class="header-links">
     <%- @search_param_names.each_with_index do |param, i| -%>
       <%- if i == 0 -%>
@@ -16,12 +16,14 @@
       </li>
     <%- end -%>
   </ul>
+
+	<center><a href="<%= new_search_url %>">Make a new search</a></center>
 </div>
 
 
 
 <% if @query.nil? || @query.empty? %>
-  <h3>No results! :(</h3>
+  <section class="results"><h3>No results! :(</h3></section>
 <% else %>
 
   <div class="sort-by">
@@ -42,9 +44,11 @@
     </form>
   </div>
 
-  <ul class="results">
-    <% @query.each do |result| %>
-      <li><%= render partial: "result", locals: { tv: result } %></li>
-    <% end %>
-  </ul>
+	<section class="results">
+	  <ul>
+	    <% @query.each do |result| %>
+	      <li><%= render partial: "result", locals: { tv: result } %></li>
+	    <% end %>
+	  </ul>
+	</section>
 <% end %>
