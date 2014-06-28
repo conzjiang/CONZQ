@@ -1,33 +1,26 @@
 class SearchesController < ApplicationController
   def new
     @decades = TvDecade::DECADES
-    @genres = TvGenre::GENRES
-  end
-
-  def create
-    @query = run_query(params[:search])
-    @search_params = @search_param_names.join("+")
-
-    session[:result_ids] =
-      @query.is_a?(Array) ? @query.map { |show| show.id } : @query.pluck(:id)
-
-    redirect_to search_query_url(@search_params)
+    @genres = TvGenre::GENRES.sort_by { |id, genre| genre }
   end
 
   def show
-    @search_params = params[:search_params]
-    @query = TvShow.find(session[:result_ids])
+    session[:result_ids] = run_query(params[:search])
+    @search_params = @search_param_names.join("+")
+    @query = TvShow.includes(:genres).find(session[:result_ids])
+    
+    session[:result_ids] = nil
   end
 
   def sort
-    @search_params = params[:query]
+    @search_params = params[:search_params]
     @comparator = sort_params[:sort_by]
     @query = sort_results(@comparator)
 
     render :show
   end
 
-  # private
+  private
   def search_params
     params.require(:search).permit(:genre_ids, :decade_ids, :status)
   end
@@ -45,27 +38,30 @@ class SearchesController < ApplicationController
     decade_results = TvDecade.search(decade_ids)
     genre_results = TvGenre.search(genre_ids)
     results = [decade_results, genre_results]
-
-    results = results.include?(nil) ? results.flatten.compact :
-                                      decade_results & genre_results
-
+    
+    results = 
+      results.include?(nil) ? results.flatten.compact :
+                              decade_results & genre_results              
+                              
     @search_param_names = TvDecade.years(decade_ids) + TvGenre.names(genre_ids)
-
+  
     if currently_airing
       unless results.empty?
-        results.select! { |show| show.status == currently_airing }
+        results.select! { |show| show.status == currently_airing }.map!(&:id)
       else
-        results = TvShow.where(status: currently_airing)
+        results = TvShow.where(status: currently_airing).pluck(:id)
       end
 
       @search_param_names.unshift(currently_airing)
+    else
+      results.map!(&:id)
     end
 
     results
   end
 
   def sort_results(comparator)
-    tvs = TvShow.find(session[:result_ids])
+    tvs = TvShow.includes(:genres).find(session[:result_ids])
 
     case comparator
     when "A-Z"

@@ -36,7 +36,8 @@ class TvGenre < ActiveRecord::Base
       all_shows = []
 
       genre_ids.each do |id|
-        all_shows << TvShow.joins(:tv_genres).where(tv_genres: { genre_id: id })
+        all_shows << 
+          TvShow.joins(:tv_genres).where(tv_genres: { genre_id: id })
       end
 
       @tvs = all_shows[0]

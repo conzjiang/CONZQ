@@ -30,7 +30,15 @@ class TvShow < ActiveRecord::Base
     class_name: "User",
     foreign_key: :admin_id,
     inverse_of: :tv_shows
-
+  
+  def genre_names
+    @genres ||= self.genres.pluck(:name)
+  end
+  
+  def decade_years
+    @decades ||= self.decades.pluck(:years)
+  end
+  
   def apply_imdb_rating
     self.rating = parse_omdb["imdbRating"]
   end
@@ -80,10 +88,6 @@ class TvShow < ActiveRecord::Base
     end
 
     self.decade_ids = decade_ids
-  end
-
-  def genre_names
-    @genre_names ||= self.genres.pluck(:name)
   end
 
   private

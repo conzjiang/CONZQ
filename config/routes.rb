@@ -1,5 +1,6 @@
 CONZQ::Application.routes.draw do
-  root to: "searches#new"
+  # root to: "searches#new" # PURE RAILS
+  root to: "sessions#root" # BACKBONE
 
   namespace :api do
     resources :tv_shows
@@ -9,6 +10,10 @@ CONZQ::Application.routes.draw do
   end
 
 
+
+  # --------------------------------------------------
+  # RAILS
+
   resources :users do
     resources :watchlists, only: [:index]
     resources :favorites, only: [:index]
@@ -16,11 +21,11 @@ CONZQ::Application.routes.draw do
   end
 
   resource :session
-  resource :search, only: [:new, :create]
+  resource :search, only: [:new]
 
   # SEARCH ROUTES
-  get "search/:search_params", to: "searches#show", as: "search_query"
-  post "search/sort/:query", to: "searches#sort", as: "sort"
+  get "search", to: "searches#show", as: "search_query"
+  post "search/:search_params/sort", to: "searches#sort", as: "sort"
 
   # TV SHOW ROUTES
   get "tv/index", to: "tv_shows#index", as: "tv_shows"

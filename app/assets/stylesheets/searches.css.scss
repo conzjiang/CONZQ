@@ -72,18 +72,33 @@ li.param:after {
 	width: 650px;
 }
 
+//.results > ul > li {
+//  float: left;
+//  width: 300px;
+//  margin: 10px;
+//}
+
 .results > ul > li {
-  float: left;
-  width: 300px;
-  margin: 10px;
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 400px;
+	padding: 5px 10px;
+	margin: 10px;
+	border: 1px solid black;
+}
+
+.results > ul > li:hover {
+	background: lightblue;
 }
 
 a.show-result {
   display: block;
   text-decoration: none;
-  border: 1px solid black;
-  padding: 5px 10px;
-  height: 400px;
+	height: 100%;
+//  border: 1px solid black;
+//  padding: 5px 10px;
+//  height: 400px;
 }
 
 .individual-result > img {

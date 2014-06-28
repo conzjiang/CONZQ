@@ -16,7 +16,7 @@
 <ul>
   <li>
     <strong>Genre(s):</strong>
-    <%= @tv.genres.order(:name).pluck(:name).join(", ") %>
+    <%= @tv.genre_names.join(", ") %>
   </li>
 
   <li>

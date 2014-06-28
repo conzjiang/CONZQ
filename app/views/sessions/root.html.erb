@@ -6,10 +6,15 @@
 
 <a href="#/tv/4">Tv 4</a>
 
+<% if current_user %>
+<script>
+	window.currentUser = { id: <%= current_user.id %> };
+</script>
+<% end %>
 
 
 <script>
-  $(document).ready(function(){
-    CONZQ.initialize($(".container"));
-  });
+$(document).ready(function(){
+  CONZQ.initialize($("div.container"));
+});
 </script>

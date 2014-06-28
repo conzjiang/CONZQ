@@ -106,7 +106,56 @@ img {
 }
 
 
-/*EVERYWHERE STATUSES*/
+/*STATUSES*/
+.statuses > li {
+	float: left;
+	padding: 5px 10px 5px 5px;
+	cursor: pointer;
+}
+
+#watchlist {
+	position: relative;
+	z-index: 3;
+}
+
+.watchlist-statuses {
+	position: absolute;
+	display: none;
+	width: 121px;
+	border: 1px solid black;
+	border-bottom: 0;
+}
+
+.watchlist-statuses > li {
+	font-size: 10px;
+	background: white;
+	opacity: 0.8;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	cursor: pointer;
+	transition: all .3s;
+}
+
+.watchlist-statuses > li:hover {
+	color: white;
+	background: #666;
+	opacity: 1;
+}
+
+#watchlist:hover .watchlist-statuses {
+	display: block;
+}
+
+#favorite {
+	position: relative;
+	color: #ccc;
+	z-index: 3;
+}
+
+#favorite .is_favorite {
+	color: red;
+}
+
 .error {
   color: red;
 }
