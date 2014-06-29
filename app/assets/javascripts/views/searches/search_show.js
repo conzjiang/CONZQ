@@ -24,9 +24,12 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 			if (CONZQ.currentUser.watchlists().getOrFetch(this.model.id)) {
 				var stat = 
 					CONZQ.currentUser.attributes.watchlist_statuses[this.model.id];
-
+				
+				var $watching = $resultContainer.find("li#watchlist");
 				var $userStatus = $resultContainer.find("li#status[data-id='" +
 													stat + "']");
+													
+				$watching.addClass("on-watchlist");
 				$userStatus.addClass("user-status");
 			}
 			

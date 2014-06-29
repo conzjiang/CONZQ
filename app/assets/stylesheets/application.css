@@ -109,20 +109,33 @@ img {
 /*STATUSES*/
 .statuses > li {
 	float: left;
-	padding: 5px 10px 5px 5px;
+	margin: 5px 10px 5px 5px;
 	cursor: pointer;
 }
 
 #watchlist {
 	position: relative;
+	
+	font-weight: bold;
+	color: #fff;
+	background: #666;
+	padding: 0px 3px;
+	border-radius: 15px;
+	
 	z-index: 3;
+}
+
+#watchlist.on-watchlist {
+	background: #4394EC;
 }
 
 .watchlist-statuses {
 	position: absolute;
 	display: none;
 	width: 121px;
-	border: 1px solid black;\
+	font-weight: normal;
+	color: #000;
+	border: 1px solid black;
 	border-bottom: 0;
 }
 
@@ -156,6 +169,7 @@ img {
 	position: relative;
 	color: #ccc;
 	font-size: 20px;
+	bottom: 2px;
 	z-index: 3;
 }
 
