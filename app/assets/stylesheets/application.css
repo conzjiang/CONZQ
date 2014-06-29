@@ -122,7 +122,7 @@ img {
 	position: absolute;
 	display: none;
 	width: 121px;
-	border: 1px solid black;
+	border: 1px solid black;\
 	border-bottom: 0;
 }
 
@@ -155,10 +155,11 @@ img {
 #favorite {
 	position: relative;
 	color: #ccc;
+	font-size: 20px;
 	z-index: 3;
 }
 
-#favorite .is_favorite {
+#favorite.is_favorite {
 	color: red;
 }
 
