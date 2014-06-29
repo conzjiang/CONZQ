@@ -46,4 +46,16 @@ class User < ActiveRecord::Base
   def is_password?(pass)
     BCrypt::Password.new(self.password_digest).is_password?(pass)
   end
+  
+  def watchlist_statuses
+    if @watchlist_hash.nil?
+      @watchlist_hash = {}
+      
+      self.watchlists.each do |watch|
+        @watchlist_hash[watch.tv_show_id] = watch.status 
+      end
+    end
+    
+    @watchlist_hash
+  end
 end

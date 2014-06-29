@@ -16,7 +16,9 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
+    @user = JSON.parse(user.to_json)
+    @user[:watchlist_statuses] = user.watchlist_statuses
 
     render json: @user, include: [:watchlist_shows, :favorite_shows]
   end

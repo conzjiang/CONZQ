@@ -146,8 +146,10 @@ img {
 	display: block;
 }
 
-.user-status {
+.watchlist-statuses > li.user-status {
 	font-weight: bold;
+	background: rgb(226, 157, 157);
+	opacity: 1;
 }
 
 #favorite {
