@@ -146,7 +146,7 @@ img {
 	padding: 5px;
 	border-bottom: 1px solid black;
 	cursor: pointer;
-	transition: all .3s;
+	transition: all 0.3s;
 }
 
 .watchlist-statuses > li:hover {
@@ -170,6 +170,8 @@ img {
 	color: #ccc;
 	font-size: 20px;
 	bottom: 2px;
+	
+	transition: color 0.3s;
 	z-index: 3;
 }
 

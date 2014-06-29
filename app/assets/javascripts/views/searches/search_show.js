@@ -4,11 +4,11 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 	},
 	
 	events: {
-		"click li#status": "changeWatchStatus"
+		"click li#status": "changeWatchStatus",
+		"click li#favorite": "toggleFav"
 	},
 	
 	changeWatchStatus: function () {
-		event.preventDefault();
 		var $newStatus = $(event.target);
 		var that = this;
 		
@@ -42,6 +42,22 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 				});
 			}
 		}
+	},
+	
+	toggleFav: function () {
+		var $heartIcon = $(event.target);
+		var favorite_params = { favorite: {	tv_show_id: this.model.id }}
+		var user = CONZQ.currentUser;
+		
+		user.save(favorite_params, {
+			success: function () {
+				if ($heartIcon.hasClass("is_favorite")) {
+					$heartIcon.removeClass("is_favorite");
+				} else {
+					$heartIcon.addClass("is_favorite");
+				}
+			}
+		});
 	},
 	
 	template: JST["tv/result"],
