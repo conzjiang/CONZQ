@@ -8,7 +8,7 @@
 			</h3>
 			
 			<ul class="statuses group">
-				<li id="watchlist">+
+				<li id="watchlist">
 					<ul class="watchlist-statuses">
 						<% _(["Currently Watching", "Plan to Watch", "Completed", "Dropped"]).each(function (status) { %>
 							<li id="status" data-id="<%= status %>"><%= status %></li>
@@ -16,7 +16,7 @@
 					</ul>
 				</li>
 			
-				<li id="favorite">❤</li>
+				<li id="favorite"></li>
 			</ul>
 			
 			<a class="show-result" href="#/tv/<%= tv.id %>">

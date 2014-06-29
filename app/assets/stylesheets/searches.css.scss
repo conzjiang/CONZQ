@@ -81,15 +81,16 @@ li.param:after {
 .results > ul > li {
 	position: relative;
 	float: left;
-	width: 300px;
-	height: 400px;
-	padding: 5px 10px;
+	width: 270px;
+	height: 370px;
+	padding: 15px;
 	margin: 10px;
 	border: 1px solid black;
 }
 
 .results > ul > li:hover {
-	background: lightblue;
+	padding: 14px;
+	border: 2px solid #530591;
 }
 
 a.show-result {
@@ -103,7 +104,7 @@ a.show-result {
 
 .individual-result > img {
 	float: left;
-  margin: 0 10px 15px 0;
+  margin: 0 10px 10px 0;
 }
 
 .individual-result {
