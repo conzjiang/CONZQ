@@ -1,0 +1,1 @@
+json.extract! tv_show, :id, :title, :rating, :year_start, :year_end, :status, :seasons, :blurb, :admin_id, :network, :created_at, :updated_at

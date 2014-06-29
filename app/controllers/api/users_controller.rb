@@ -19,8 +19,8 @@ class Api::UsersController < ApplicationController
     user = User.find(params[:id])
     @user = JSON.parse(user.to_json)
     @user[:watchlist_statuses] = user.watchlist_statuses
-
-    render json: @user, include: [:watchlist_shows, :favorite_shows]
+    
+    render partial: "api/users/user", locals: { user: user }
   end
 
   private

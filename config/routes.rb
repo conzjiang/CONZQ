@@ -2,7 +2,7 @@ CONZQ::Application.routes.draw do
   # root to: "searches#new" # PURE RAILS
   root to: "sessions#root" # BACKBONE
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :users do
       resources :watchlists
     end

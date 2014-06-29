@@ -1,0 +1,1 @@
+json.extract! watchlist, :id, :user_id, :tv_show_id, :status, :created_at, :updated_at

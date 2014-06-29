@@ -26,14 +26,14 @@ CONZQ.Models.User = Backbone.Model.extend({
 	},
 	
 	parse: function (response) {
-		if (response.watchlist_shows) {
-			this.watchlists().set(response.watchlist_shows);
-			delete response.watchlist_shows;
+		if (response.watchlists) {
+			this.watchlists().set(response.watchlists);
+			delete response.watchlists;
 		}
 		
-		if (response.favorite_shows) {
-			this.favorites().set(response.favorite_shows);
-			delete response.favorite_shows;
+		if (response.favorites) {
+			this.favorites().set(response.favorites);
+			delete response.favorites;
 		}
 		
 		return response;
