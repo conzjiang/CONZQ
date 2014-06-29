@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    redirect_to user_watchlists_url(@user)
+    render json: @user, include: [:watchlist_shows, :favorite_shows]
   end
 
   private

@@ -1,9 +1,14 @@
 CONZQ.Views.SearchShow = Backbone.View.extend({
 	initialize: function (options) {
+		
 	},
 	
 	events: {
-		"click li#status"
+		"click li#status": "changeWatchStatus"
+	},
+	
+	changeWatchStatus: function () {
+		
 	},
 	
 	template: JST["tv/result"],

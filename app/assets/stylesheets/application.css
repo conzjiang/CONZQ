@@ -146,6 +146,10 @@ img {
 	display: block;
 }
 
+.user-status {
+	font-weight: bold;
+}
+
 #favorite {
 	position: relative;
 	color: #ccc;

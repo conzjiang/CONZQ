@@ -3,6 +3,7 @@ CONZQ::Application.routes.draw do
   root to: "sessions#root" # BACKBONE
 
   namespace :api do
+    resources :users
     resources :tv_shows
 
     get "search/:search_params", to: "searches#show", as: "search_query"
