@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html, body, p, div, ul, li, h1, h2, h3, a, strong, img {
+html, body, main, section, div, ul, li, h1, h2, h3, a, strong, img, p {
   margin: 0;
   padding: 0;
   border: 0;
@@ -36,10 +36,15 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+html, body {
+	position: relative;
+	height: 100%;
+}
+
 body {
   font-family: "Fira Sans", monospace;
 	font-weight: 300;
-	background: rgb(198, 187, 204);
+	background: rgb(248, 236, 255);
 }
 
 div {
@@ -72,13 +77,94 @@ h3 { /* SEARCH RESULT TITLES */
   clear: both;
 }
 
-/*CONTAINER*/
-.container {
-	width: 900px;
-	margin: auto;
-	background: #fff;
+/*HEADER*/
+.header {
+	width: 100%;
+	background: #41002D;
+	color: #fff;
 }
 
+.header > section {
+	width: 750px;
+	margin: auto;
+}
+
+.header a {
+	color: #fff;
+}
+
+.logo {
+	float: left;
+	display: block;
+	
+	padding: 10px;
+	
+	font-size: 20px;
+	font-weight: bold;
+}
+
+ul.nav {
+	float: right;
+}
+
+ul.nav > li {
+	float: left;
+}
+
+ul.nav > li > a {
+	display: block;
+	padding: 13px;
+	
+	font-weight: 500;
+	font-size: 14px;
+}
+
+a.discover {
+	transition: color 0.3s;
+}
+
+/*CONTAINERS*/
+.container {
+	position: relative;
+	width: 750px;
+	height: 100%;
+	margin: auto;
+}
+
+.sidebar {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	
+	display: block;
+	width: 250px;
+	height: 80%;
+	
+	background: pink;
+	transition: all 0.5s;
+
+}
+
+.main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	width: 750px;
+	display: block;
+	
+	background: #fff;
+	
+	transition: all 0.5s;
+}
+
+.container.open > .sidebar {
+	left: -125px;
+}
+
+.container.open > .main {
+	left: 125px;
+}
 
 /*STATUSES*/
 .statuses {
@@ -178,7 +264,6 @@ h3 { /* SEARCH RESULT TITLES */
 	color: #27386F;
 	
 	background: #D2EDFA;
-/* pretty purple #41002D*/
 }
 
 #message.display {

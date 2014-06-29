@@ -1,12 +1,13 @@
 CONZQ.Routers.AppRouter = Backbone.Router.extend({
   initialize: function (options) {
-		this.$rootEl = options.$rootEl;
-		this.$mainEl = options.$mainEl;    
-		
-		var searchbarView = new CONZQ.Views.Searchbar({
-			$sidebar: options.$sidebar
-		});
-		this.$rootEl.html(searchbarView.render().$el);
+		// this.$rootEl = options.$rootEl;
+// 		this.$mainEl = options.$mainEl;
+//
+// 		var searchbarView = new CONZQ.Views.Searchbar({
+// 			$sidebar: options.$sidebar
+// 		});
+// 		this.$rootEl.html(searchbarView.render().$el);
+// 		this.$rootEl.append(this.$mainEl);
   },
 
   routes: {

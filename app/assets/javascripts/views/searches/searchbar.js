@@ -3,7 +3,7 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 		this.$el = options.$sidebar;
 	},
 	
-	template: JST["search/bar"],
+	template: JST["search/sidebar"],
 	
 	render: function () {
 		this.$el.html(this.template());

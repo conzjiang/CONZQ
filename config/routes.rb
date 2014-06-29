@@ -3,14 +3,11 @@ CONZQ::Application.routes.draw do
   root to: "sessions#root" # BACKBONE
 
   namespace :api, defaults: { format: :json } do
-    resources :users do
-      resources :watchlists
+    resources :users, only: [:show, :update] do
+      resources :watchlists, only: [:create, :update, :destroy]
     end
     
-    resources :tv_shows
-
-    get "search/:search_params", to: "searches#show", as: "search_query"
-    get "search/:query/sort/:comparator", to: "searches#sort", as: "sort"
+    resources :tv_shows, only: [:index, :show]
   end
 
 
