@@ -1,46 +1,40 @@
-<section class="results">
-	<ul>
-		<li id="tv" data-id="<%= tv.id %>">
-			<h3>
-				<a class="show-result" href="#/tv/<%= tv.id %>">
-					<%= tv.escape("title") %>
-				</a>
-			</h3>
-			
-			<ul class="statuses group">
-				<li id="watchlist">
-					<ul class="watchlist-statuses">
-						<% _(["Currently Watching", "Plan to Watch", "Completed", "Dropped"]).each(function (status) { %>
-							<li id="status" data-id="<%= status %>"><%= status %></li>
-						<% }) %>
-					</ul>
-				</li>
-			
-				<li id="favorite"></li>
-				
-				<li id="message"></li>
-			</ul>
-			
-			<a class="show-result" href="#/tv/<%= tv.id %>">
-			<div class="individual-result group">
-			  <img src=<%= tv.escape("photo_medium") %>>
+<h3>
+	<a class="show-result" href="#/tv/<%= tv.id %>">
+		<%= tv.escape("title") %>
+	</a>
+</h3>
 
-			  <ul>
-			    <li>
-			      <strong>IMDB rating:</strong>
-			      <p class="rating"><%= tv.escape("rating") %></p>
-			    </li>
+<ul class="statuses group">
+	<li id="watchlist">
+		<ul class="watchlist-statuses">
+			<% _(["Currently Watching", "Plan to Watch", "Completed", "Dropped"]).each(function (status) { %>
+				<li id="status" data-id="<%= status %>"><%= status %></li>
+			<% }) %>
+		</ul>
+	</li>
 
-			    <% _(tv.escape("genres").split(", ")).each(function (genre) { %>
-			    <li class="result-genre"><%= genre %></li>
-			    <% }) %>
-			  </ul>
-			</div>
+	<li id="favorite"></li>
+	
+	<li id="message"></li>
+</ul>
 
-			<div class="blurb">
-			  <p><%= tv.escape("blurb") %></p>
-			</div>
-			</a>
-		</li>
-	</ul>
-</section>
+<a class="show-result" href="#/tv/<%= tv.id %>">
+<div class="individual-result group">
+  <img src=<%= tv.escape("photo_medium") %>>
+
+  <ul>
+    <li>
+      <strong>IMDB rating:</strong>
+      <p class="rating"><%= tv.escape("rating") %></p>
+    </li>
+
+    <% _(tv.escape("genres").split(", ")).each(function (genre) { %>
+    <li class="result-genre"><%= genre %></li>
+    <% }) %>
+  </ul>
+</div>
+
+<div class="blurb">
+  <p><%= tv.escape("blurb") %></p>
+</div>
+</a>
