@@ -1,19 +1,23 @@
 CONZQ.Routers.AppRouter = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl;
+		this.$rootEl = options.$rootEl;
+		this.$mainEl = options.$mainEl;    
+		
+		var searchbarView = new CONZQ.Views.Searchbar({
+			$sidebar: options.$sidebar
+		});
+		this.$rootEl.html(searchbarView.render().$el);
   },
 
   routes: {
-		"search/result/:id": "resultShow",
+		"search": "newSearch",
     "tv/:id": "tvShow"
   },
 	
-	resultShow: function (id) {
-		var searchShowView = new CONZQ.Views.SearchShow({
-			model: CONZQ.all_shows.getOrFetch(id)
-		});
+	newSearch: function (id) {
 		
-    this._swapViews(searchShowView);
+		
+    
 	},
 
   tvShow: function (id) {

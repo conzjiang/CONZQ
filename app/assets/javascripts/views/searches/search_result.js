@@ -1,4 +1,6 @@
 CONZQ.Views.SearchResult = Backbone.View.extend({
+	// model = TV Show
+	
 	initialize: function (options) {
 		this.$el.attr("data-id", this.model.id);
 		
@@ -12,7 +14,7 @@ CONZQ.Views.SearchResult = Backbone.View.extend({
 	
 	id: "tv-result",
 	
-	template: JST["tv/result"],
+	template: JST["search/result"],
 	
 	events: {
 		"click li#status": "changeWatchStatus",

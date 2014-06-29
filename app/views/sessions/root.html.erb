@@ -4,8 +4,6 @@
   <section class="main"></section>
 </div>
 
-<a href="#/tv/4">Tv 4</a>
-
 <% if current_user %>
 <script>
 	window.currentUser = { id: <%= current_user.id %> };
@@ -15,6 +13,6 @@
 
 <script>
 $(document).ready(function(){
-  CONZQ.initialize($("div.container"));
+  CONZQ.initialize($("div.container"), $("section.sidebar"), $("section.main"));
 });
 </script>

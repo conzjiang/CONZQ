@@ -1,8 +1,6 @@
-<h3>
-	<a class="show-result" href="#/tv/<%= tv.id %>">
-		<%= tv.escape("title") %>
-	</a>
-</h3>
+<a class="show-result" href="#/tv/<%= tv.id %>">
+	<h3><%= tv.escape("title") %></h3>
+</a>
 
 <ul class="statuses group">
 	<li id="watchlist">
@@ -14,18 +12,17 @@
 	</li>
 
 	<li id="favorite"></li>
-	
 	<li id="message"></li>
 </ul>
 
 <a class="show-result" href="#/tv/<%= tv.id %>">
-<div class="individual-result group">
+<div class="result-info group">
   <img src=<%= tv.escape("photo_medium") %>>
 
   <ul>
-    <li>
+    <li class="rating">
       <strong>IMDB rating:</strong>
-      <p class="rating"><%= tv.escape("rating") %></p>
+      <%= tv.escape("rating") %>
     </li>
 
     <% _(tv.escape("genres").split(", ")).each(function (genre) { %>
