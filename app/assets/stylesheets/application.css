@@ -109,6 +109,10 @@ img {
 
 
 /*STATUSES*/
+.statuses {
+	position: relative;
+}
+
 .statuses > li {
 	float: left;
 	margin: 3px 10px 8px 7px;
@@ -174,15 +178,6 @@ img {
 }
 
 #favorite {
-	/*position: relative;
-	color: #ccc;
-	font-size: 20px;
-	bottom: 4px;
-	❤
-
-	transition: color 0.3s;
-	z-index: 3;*/
-	
 	width: 15px;
 	height: 15px;
 	background-image: url("status-sprite.png");
@@ -192,6 +187,30 @@ img {
 
 #favorite.is_favorite {
 	background-position: 15px 0;
+}
+
+#message {
+	background: #D2EDFA;
+	color: #27386F;
+	font-size: 10px;
+	padding: 0 10px 0 8px;
+	border: 1px solid #27386F;
+	display: none;
+	
+	position: absolute;
+	left: 65px;
+/* pretty purple #41002D*/
+}
+
+#message.display {
+	display: block;
+}
+
+#message.login-error {
+	display: block;
+	background: #FAC1D5;
+	color: #8A091E;
+	border: 1px solid #8A091E;
 }
 
 .error {

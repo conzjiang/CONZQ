@@ -1,6 +1,8 @@
 CONZQ.Views.SearchShow = Backbone.View.extend({
 	initialize: function (options) {
-		this.watchlist = CONZQ.currentUser.watchlists();
+		if (CONZQ.currentUser) {
+			this.watchlist = CONZQ.currentUser.watchlists();
+		}
 	},
 	
 	events: {
@@ -13,7 +15,8 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 		var that = this;
 		
 		if (!CONZQ.currentUser) {
-			// modal that says you must be signed in?
+			that.displayMessage($newStatus, 
+				"You must be logged in to do that!", "login-error");
 		} else if (!$newStatus.hasClass("user-status")) {
 			var params = { watchlist: {
 				"tv_show_id": that.model.id,
@@ -31,6 +34,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 					success: function () {
 						$currentStatus.removeClass("user-status");
 						that.applyStatus(existingWatchlist.get("status"));
+						that.displayMessage($newStatus, "Watchlist updated.", "display");
 					}
 				});
 			} else {
@@ -38,6 +42,8 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 					success: function (newWatchlist) {
 						that.watchlist.add(newWatchlist);
 						that.applyStatus(newWatchlist.get("status"));
+						that.displayMessage($newStatus, 
+							"Added to your watchlist!", "display");
 					}
 				});
 			}
@@ -48,16 +54,25 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 		var $heartIcon = $(event.target);
 		var favorite_params = { favorite: {	tv_show_id: this.model.id }}
 		var user = CONZQ.currentUser;
+		var that = this;
 		
-		user.save(favorite_params, {
-			success: function () {
-				if ($heartIcon.hasClass("is_favorite")) {
-					$heartIcon.removeClass("is_favorite");
-				} else {
-					$heartIcon.addClass("is_favorite");
+		if (user) {
+			user.save(favorite_params, {
+				success: function () {
+					if ($heartIcon.hasClass("is_favorite")) {
+						$heartIcon.removeClass("is_favorite");
+						that.displayMessage($heartIcon, 
+							"Removed from favorites.", "display");
+					} else {
+						$heartIcon.addClass("is_favorite");
+						that.displayMessage($heartIcon, "Added to favorites!", "display");
+					}
 				}
-			}
-		});
+			});
+		} else {
+			that.displayMessage($heartIcon, 
+				"You must be logged in to do that!", "login-error");
+		}
 	},
 	
 	template: JST["tv/result"],
@@ -95,5 +110,19 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 										
 		$watchIcon.addClass("on-watchlist");
 		$userStatus.addClass("user-status");
+	},
+	
+	displayMessage: function ($target, message, messageClass) {
+		var $messageBox = $target.closest(".statuses").find("li#message");
+		$messageBox.fadeIn("slow");
+		$messageBox.addClass(messageClass);
+		$messageBox.html(message);
+		
+		setTimeout(function () {
+			$messageBox.fadeOut("slow", function () {
+				$messageBox.removeClass(messageClass);
+				$messageBox.empty();
+			});
+		}, 3000);
 	}
 });
