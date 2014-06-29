@@ -41,10 +41,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 					}
 				});
 			}
-		} else {
-
 		}
-		
 	},
 	
 	template: JST["tv/result"],
