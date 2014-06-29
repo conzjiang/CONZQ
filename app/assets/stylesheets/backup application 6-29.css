@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html, body, p, div, ul, li, h1, h2, h3, a, strong, img {
+html, body, p, div, ul, li, h1, h2, h3, a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -42,13 +42,26 @@ body {
 	background: rgb(198, 187, 204);
 }
 
+h1 {
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+h3 {
+	font-weight: bold;
+  font-size: 22px;
+	line-height: 1.2;
+  text-transform: uppercase;
+}
+
 div {
   display: block;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: black;
 }
 
 ul {
@@ -57,13 +70,6 @@ ul {
 
 img {
   display: block;
-}
-
-h3 { /* SEARCH RESULT TITLES */
-	font-weight: bold;
-  font-size: 22px;
-	line-height: 1.2;
-  text-transform: uppercase;
 }
 
 .group:after {
@@ -76,7 +82,37 @@ h3 { /* SEARCH RESULT TITLES */
 .container {
 	width: 900px;
 	margin: auto;
-	background: #fff;
+	background: white;
+}
+
+/*SIGN IN*/
+.sign-in {
+  width: 130px;
+  margin: 20px auto;
+}
+
+/*MAIN HEADER NAV*/
+.nav {
+	width: 650px;
+	margin: 20px auto;
+}
+
+.nav > ul {
+}
+
+.nav li {
+	float: left;
+}
+
+.nav a {
+	padding: 15px;
+}
+
+.nav button:hover,
+.nav a:hover {
+	background: rgb(96, 238, 136);
+	padding-bottom: 10px;
+	border-bottom: 5px solid #f4821d;
 }
 
 
@@ -96,7 +132,6 @@ h3 { /* SEARCH RESULT TITLES */
 	
 	width: 15px;
 	height: 15px;
-	
 	background-image: url("status-sprite.png");
 	background-size: cover;
 	background-position: 0 0;
@@ -113,37 +148,34 @@ h3 { /* SEARCH RESULT TITLES */
 	
 	display: none;
 	width: 121px;
-	
 	font-family: "Fira Sans";
 	font-weight: 300;
 	font-size: 10px;
 	color: #000;
 	
-	border: 1px solid #000;
+	border: 1px solid black;
 	border-bottom: 0;
 	
 	z-index: 100;
 }
 
-#watchlist:hover .watchlist-statuses {
-	display: block;
-}
-
 .watchlist-statuses > li {
+	background: white;
+	opacity: 0.8;
 	padding: 5px;
 	border-bottom: 1px solid black;
-	
-	background: #fff;
-	opacity: 0.8;
-	
 	cursor: pointer;
-	transition: opacity 0.3s;
+	transition: all 0.3s;
 }
 
 .watchlist-statuses > li:hover {
-	color: #fff;
+	color: white;
 	background: #666;
 	opacity: 1;
+}
+
+#watchlist:hover .watchlist-statuses {
+	display: block;
 }
 
 .watchlist-statuses > li.user-status {
@@ -156,7 +188,6 @@ h3 { /* SEARCH RESULT TITLES */
 #favorite {
 	width: 15px;
 	height: 15px;
-	
 	background-image: url("status-sprite.png");
 	background-size: cover;
 	background-position: 30px 0;
@@ -167,17 +198,15 @@ h3 { /* SEARCH RESULT TITLES */
 }
 
 #message {
-	position: absolute;
-	left: 65px;
-	
-	display: none;
+	background: #D2EDFA;
+	color: #27386F;
+	font-size: 10px;
 	padding: 0 10px 0 8px;
 	border: 1px solid #27386F;
+	display: none;
 	
-	font-size: 10px;
-	color: #27386F;
-	
-	background: #D2EDFA;
+	position: absolute;
+	left: 65px;
 /* pretty purple #41002D*/
 }
 
@@ -187,7 +216,117 @@ h3 { /* SEARCH RESULT TITLES */
 
 #message.login-error {
 	display: block;
-	border: 1px solid #8A091E;
-	color: #8A091E;
 	background: #FAC1D5;
+	color: #8A091E;
+	border: 1px solid #8A091E;
+}
+
+.error {
+  color: red;
+}
+
+.fav {
+  color: red;
+  font-size: 20px;
+}
+
+.following {
+  text-align: center;
+  color: rgb(29, 41, 189);
+  font-size: 20px;
+}
+
+.center-button {
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+	margin-top: 10px;
+	padding: 7px;
+	background: rgb(96, 238, 136);
+	border-bottom: 5px solid #0B33D5;
+}
+
+.center-button:hover {
+	background: #45A560;
+}
+
+.center-button:active {
+	border-bottom: 3px solid #0B33D5;
+  padding-top: 9px;
+}
+
+/*PROFILE INDEX CONTAINER*/
+section.profile {
+  margin: auto;
+  width: 600px;
+  padding: 20px;
+}
+
+/*PROFILE INDEX LIST ITEMS*/
+.show-list {
+  list-style: none;
+  display: inline-block;
+  margin: 15px 30px 20px 30px;
+}
+
+.show-list > li {
+  margin-bottom: 10px;
+}
+
+.show-list a {
+  display: block;
+  width: auto;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.show-list img {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+/*PROFILE INDEX NAVS + SEARCH PARAMS LISTING*/
+.header-links-container {
+  display: block;
+  margin: 20px 0;
+}
+
+.header-links {
+  max-width: 600px;
+  display: block;
+  text-align: center;
+  height: auto;
+  margin: auto;
+}
+
+.header-links > li {
+  padding: 5px 5px 5px 0;
+  margin: 0 10px;
+	line-height: 30px;
+	display: inline;
+}
+
+.header-links a {
+	padding: 5px;
+	padding-right: 0;
+}
+
+.header-links a:hover {
+	border-bottom: 2px solid #f4821d;
+}
+
+/*NAV WITHIN LISTS*/
+.watchlist-nav li {
+  float: left;
+  padding: 5px 20px 5px 0;
+}
+
+.watchlist-nav a:hover {
+	border-bottom: 1px solid #f4821d;
+}
+
+.location {
+  font-weight: bold;
+  border-bottom: 3px solid black;
 }
