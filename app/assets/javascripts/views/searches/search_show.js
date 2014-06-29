@@ -1,6 +1,6 @@
 CONZQ.Views.SearchShow = Backbone.View.extend({
 	initialize: function (options) {
-		this.watchlist = CONZQ.currentUser.watchlists();	
+		this.watchlist = CONZQ.currentUser.watchlists();
 	},
 	
 	events: {
@@ -16,25 +16,33 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 			// modal that says you must be signed in?
 		} else if (!$newStatus.hasClass("user-status")) {
 			var params = { watchlist: {
-				"tv_show_id": this.model.id,
+				"tv_show_id": that.model.id,
 				"status": $newStatus.attr("data-id")
 			}};
 			
-			that.watchlist.create(params, {
-				success: function (newWatchlist) {
-					that.watchlist.add(newWatchlist);
-					
-					var $statusContainer = that.$el.find("li#tv[data-id='" + 
-																 that.model.id + "']");
-					var $watchIcon = $statusContainer.find("li#watchlist");
-					
-					var $userStatus = $statusContainer.find("li#status[data-id='" +
-														newWatchlist.get("status") + "']");
-														
-					$watchIcon.addClass("on-watchlist");
-					$userStatus.addClass("user-status");
-				}
-			});
+			var $currentStatus = $newStatus.parent().children("li.user-status");
+			
+			if ($currentStatus.length > 0) {
+				var existingWatchlist = that.watchlist.find(function (watch) {
+					return watch.get("tv_show_id") == that.model.id;
+				});
+				
+				existingWatchlist.save(params, {
+					success: function () {
+						$currentStatus.removeClass("user-status");
+						that.applyStatus(existingWatchlist.get("status"));
+					}
+				});
+			} else {
+				that.watchlist.create(params, {
+					success: function (newWatchlist) {
+						that.watchlist.add(newWatchlist);
+						that.applyStatus(newWatchlist.get("status"));
+					}
+				});
+			}
+		} else {
+
 		}
 		
 	},
@@ -50,14 +58,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 				var stat = 
 					CONZQ.currentUser.attributes.watchlist_statuses[this.model.id];
 				
-				var $statusContainer = this.$el.find("li#tv[data-id='" + 
-															 this.model.id + "']");
-				var $watchIcon = $statusContainer.find("li#watchlist");
-				var $userStatus = $statusContainer.find("li#status[data-id='" +
-													stat + "']");
-												
-				$watchIcon.addClass("on-watchlist");
-				$userStatus.addClass("user-status");
+				this.applyStatus(stat);
 			}
 			
 			// if (CONZQ.currentUser.favorites().getOrFetch(this.model.id)) {
@@ -67,5 +68,17 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 		}
 
     return this;
-  }
+  },
+	
+	applyStatus: function (statusSetting) {
+		var id = this.model.id;
+		
+		var $statusContainer = this.$el.find("li#tv[data-id='" + id + "']");
+		var $watchIcon = $statusContainer.find("li#watchlist");
+		var $userStatus = $statusContainer.find("li#status[data-id='" +
+											statusSetting + "']");
+										
+		$watchIcon.addClass("on-watchlist");
+		$userStatus.addClass("user-status");
+	}
 });

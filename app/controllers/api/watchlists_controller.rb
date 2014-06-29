@@ -11,6 +11,17 @@ class Api::WatchlistsController < ApplicationController
   end
   
   def update
+    @watchlist = Watchlist.find(params[:id])
+    
+    if @watchlist.update_attributes(watchlist_params)
+      render json: @watchlist
+    else
+      render json: { errors: @watchlist.errors.full_messages }, 
+             status: :unprocessable_entity
+    end
+  end
+  
+  def destroy
     
   end
   
