@@ -50,18 +50,20 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
     var content = this.template({ tv: this.model });
     this.$el.html(content);
 		
-		if (CONZQ.currentUser) {										 
-			if (this.watchlist.getOrFetch(this.model.id)) {
+		if (CONZQ.currentUser) {
+			var id = this.model.id;										 
+			if (this.watchlist.getOrFetch(id)) {
 				var stat = 
-					CONZQ.currentUser.attributes.watchlist_statuses[this.model.id];
+					CONZQ.currentUser.attributes.watchlist_statuses[id];
 				
 				this.applyStatus(stat);
 			}
 			
-			// if (CONZQ.currentUser.favorites().getOrFetch(this.model.id)) {
-// 				var $heart = $resultContainer.find("li#favorite");
-// 				$heart.addClass("is_favorite");
-// 			}
+			if (CONZQ.currentUser.favorites().get(id)) {
+				var $statusContainer = this.$el.find("li#tv[data-id='" + id + "']");
+				var $heartIcon = $statusContainer.find("li#favorite");
+				$heartIcon.addClass("is_favorite");
+			}
 		}
 
     return this;

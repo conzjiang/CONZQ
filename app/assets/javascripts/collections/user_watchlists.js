@@ -10,7 +10,7 @@ CONZQ.Collections.UserWatchlists = Backbone.Collection.extend({
 	},
 	
   getOrFetch: function (id) {
-    var all_shows = this;
+    var watchlists = this;
 		var show;
 		
 		var watchlist = this.find(function (watch) {
@@ -23,7 +23,7 @@ CONZQ.Collections.UserWatchlists = Backbone.Collection.extend({
       show.fetch({
         success: function() {
 					CONZQ.all_shows.add(show);
-					all_shows.add(show); 
+					watchlists.add(show); 
 				}
       });
 		}

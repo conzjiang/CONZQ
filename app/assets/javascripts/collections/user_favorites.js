@@ -7,20 +7,5 @@ CONZQ.Collections.UserFavorites = Backbone.Collection.extend({
 	
 	url: function () {
 		return this.user.url() + "/favorites"
-	},
-	
-  getOrFetch: function (id) {
-    var all_shows = this;
-
-    var show;
-    if (!(show = this.get(id))) {
-      show = new CONZQ.Models.TvShow({ id: id });
-
-      show.fetch({
-        success: function() { all_shows.add(show); }
-      });
-    }
-
-    return show;
-  }
+	}
 });
