@@ -53,14 +53,14 @@ form label {
 }
 
 .decades label {
-	padding: 18px 10px;
+	padding: 24px 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 20px;
 }
 
 .decades > li#decade.current > label {
-	padding: 19px 0;
+	padding: 21px 0;
 	font-size: 12px;
 }
 
@@ -84,7 +84,7 @@ form > h3 {
 }
 
 .genres label {
-	padding: 2px 5px;
+	padding: 3px 7px;
 }
 
 .decades > li#decade:hover,
@@ -106,7 +106,7 @@ form > input[type="submit"] {
 	display: block;
 	width: 229px;
 	
-	padding: 3px 0;
+	padding: 5px 0;
 	margin: 30px 3px 0 3px;
 	
 	font-size: 18px;
@@ -252,9 +252,10 @@ a.show-result {
 }
 
 .result-genre {
-	padding-bottom: 5px;
+	padding: 5px 0;
 }
 
-.blurb p {
+.blurb {
   font-size: 12px;
+	line-height: 1.2;
 }

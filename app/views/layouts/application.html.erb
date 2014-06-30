@@ -27,11 +27,13 @@
 				</li>
 				
 				<% if signed_in? %>
-				<li class="signed-in">
-					<a class="profile-link" href="<%= user_url(current_user) %>">
-						<%= current_user.username %>
-					</a>
+				<li><a href="<%= user_url(current_user) %>">
+					<%= current_user.username %>
+				</a></li>
 					
+				<li class="signed-in">	
+					<a class="triangle" href="#">▼</a>
+
 					<ul class="profile-dropdown">
 						<% if current_user.admin %>
 						<li>
@@ -102,10 +104,17 @@ $(document).ready(function(){
 		// else session[:sidebar] == false
 	});
 	
+	
+	// removeClass on blur!!!
 	$("a#search").on("click", function () {
 		event.preventDefault();
 		$("li.search").toggleClass("open");
-	})
+	});
+	
+	$(".signed-in").on("click", function () {
+		event.preventDefault();
+		$(".profile-dropdown").toggleClass("open");
+	});
 	
 });
 </script>

@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html, body, main, section, div, ul, li, h1, h2, h3, a, strong, img, p, form {
+html, body, header, main, section, div, ul, li, h1, h2, h3, a, strong, img, p, form {
   margin: 0;
   padding: 0;
   border: 0;
@@ -102,7 +102,7 @@ h3 { /* SEARCH RESULT TITLES */
 	float: left;	
 	padding: 10px;
 	
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bold;
 }
 
@@ -115,7 +115,7 @@ ul.nav > li {
 }
 
 ul.nav > li > a {
-	padding: 14px 14px 15px 14px;
+	padding: 15px;
 	
 	font-weight: 500;
 	font-size: 14px;
@@ -133,7 +133,7 @@ a.discover {
 	display: none;
 	
 	position: absolute;
-	top: 51px;
+	top: 44px;
 	right: 0;
 	
 	width: 200px;
@@ -150,7 +150,7 @@ a.discover {
 	width: 188px;
 	font-size: 14px;
 	color: #000;
-	padding: 2px 5px;
+	padding: 0 5px;
 	background: #fff;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -164,9 +164,13 @@ a.discover {
 	position: relative;
 }
 
+.triangle {
+	font-size: 10px;
+}
+
 .profile-dropdown {
 	position: absolute;
-	top: 51px;
+	top: 44px;
 	display: none;
 	width: 130px;
 	
@@ -183,7 +187,7 @@ a.discover {
 
 .profile-dropdown > li > a {
 	display: block;
-	padding: 2px 10px;
+	padding: 7px 10px;
 	color: #000;
 	background: #fff;
 	
@@ -194,7 +198,7 @@ a.discover {
 	background: #FD0D9D;
 }
 
-.signed-in:hover .profile-dropdown {
+.profile-dropdown.open {
 	display: block;
 }
 
@@ -249,11 +253,12 @@ a.discover {
 /*STATUSES*/
 .statuses {
 	position: relative;
+	padding: 5px 0;
 }
 
 .statuses > li {
 	float: left;
-	margin: 3px 10px 5px 7px;
+	margin: 0 10px 0 7px;
 	cursor: pointer;
 }
 
@@ -334,11 +339,11 @@ a.discover {
 
 #message {
 	position: absolute;
-	top: -1px;
+	top: 5px;
 	left: 65px;
 	
 	display: none;
-	padding: 0 10px 0 8px;
+	padding: 2px 8px;
 	border: 1px solid #27386F;
 	
 	font-size: 10px;
