@@ -1,3 +1,3 @@
 CONZQ.Models.Search = Backbone.Model.extend({
-	url: "api/search"
+	url: "/api/search"
 });

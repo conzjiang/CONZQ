@@ -3,7 +3,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 		
 	},
 	
-	urlRoot: "api/users",
+	urlRoot: "/api/users",
 	
 	watchlists: function () {
 		if (!this._watchlists) {

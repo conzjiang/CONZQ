@@ -1,5 +1,5 @@
 CONZQ.Collections.TvShows = Backbone.Collection.extend({
-  url: "api/tv_shows",
+  url: "/api/tv_shows",
 
   model: CONZQ.Models.TvShow,
 

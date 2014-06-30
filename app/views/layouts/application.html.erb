@@ -32,6 +32,7 @@
 						<li>
 							<a href="<%= new_tv_url %>">Add a Series</a>
 						</li>
+						<% end %>
 						
 						<li>
 							<a href="<%= user_url(current_user) %>">My Profile</a>
@@ -56,30 +57,42 @@
 		</section>
 	</header>
 
-<!-- <div class="nav group">
-<% if signed_in? %>
-  <h1>my name is <%= current_user.username %></h1>
+<main class="container">
+	<!-- SIDEBAR -->
+	
+	<section class="main"><%= yield %></section>
+</main>
 
-	<ul class="group">
-  	<li><a href="<%= new_search_url %>">New Search</a></li>
-
-  <% if current_user.admin %>
-    <li><a href="<%= tv_shows_url %>">My Series</a></li>
-    <li><a href="<%= new_tv_url %>">Add a Series</a></li>
-  <% end %>
-
-  <li><a href="<%= user_watchlists_url(current_user) %>">My Profile</a></li>
-
-  <li><%= link_to "Logout", session_url, method: "delete" %></li>
-<% else %>
-	<ul class="group">
-	  <li><a href="<%= new_session_url %>">Sign In</a></li>
-	  <li><a href="<%= new_user_url %>">Register</a></li>
+<% if current_user %>
+<script>
+	window.currentUser = { id: <%= current_user.id %> };
+</script>
 <% end %>
-	</ul>
-</div> -->
 
-<%= yield %>
 
+<script>
+$(document).ready(function(){
+	var $container = $("main.container");
+	var $sidebar = $("<section>").addClass("sidebar");
+	var $main = $("section.main");
+
+
+  CONZQ.initialize($container, $sidebar, $main);
+	
+	<% if session[:sidebar] == "true" %>
+	$container.addClass("open");
+	<% end %>
+	
+	
+	$("a.discover").on("click", function () {
+		$container.toggleClass("open");
+		
+		// if $container hasClass open 
+		// session[:sidebar] == true
+		// else session[:sidebar] == false
+	});
+	
+});
+</script>
 </body>
 </html>
