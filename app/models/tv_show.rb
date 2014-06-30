@@ -26,6 +26,8 @@ class TvShow < ActiveRecord::Base
 
   has_many :favorites
   has_many :lovers, through: :favorites, source: :user
+  
+  has_many :posts, inverse_of: :tv_show
 
   belongs_to :admin,
     class_name: "User",

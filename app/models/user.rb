@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   # PEOPLE WHO FOLLOW THEM
   has_many :followings, class_name: "Follow", foreign_key: :idol_id
   has_many :followers, through: :followings, inverse_of: :idols
-
+  
+  has_many :posts, inverse_of: :user
+  
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
