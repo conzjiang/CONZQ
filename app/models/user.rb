@@ -3,25 +3,30 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :watchlists
+  has_many :watchlists, dependent: :destroy
   has_many :watchlist_shows, through: :watchlists, source: :tv_show
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_shows, through: :favorites, source: :tv_show
 
   # PEOPLE THEY FOLLOW
-  has_many :follows, foreign_key: :follower_id
+  has_many :follows, foreign_key: :follower_id, dependent: :destroy
   has_many :idols, through: :follows, inverse_of: :followers
 
   # PEOPLE WHO FOLLOW THEM
-  has_many :followings, class_name: "Follow", foreign_key: :idol_id
+  has_many :followings, 
+    class_name: "Follow", 
+    foreign_key: :idol_id, 
+    dependent: :destroy
   has_many :followers, through: :followings, inverse_of: :idols
   
-  has_many :posts, inverse_of: :user
+  has_many :posts, inverse_of: :user, dependent: :destroy
   
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
+    
+  before_destroy :release_admin
   
   include PgSearch
   multisearchable against: [:username, :email]
@@ -62,5 +67,13 @@ class User < ActiveRecord::Base
     end
     
     @watchlist_hash
+  end
+  
+  private
+  def release_admin
+    self.tv_shows.each do |show|
+      show.admin_id = nil
+      show.save!
+    end
   end
 end

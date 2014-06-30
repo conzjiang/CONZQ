@@ -5,6 +5,8 @@ CONZQ::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :update] do
       resources :watchlists, only: [:create, :update, :destroy]
+      
+      resources :posts, only: [:create, :destroy]
     end
     
     resources :tv_shows, only: [:index, :show]

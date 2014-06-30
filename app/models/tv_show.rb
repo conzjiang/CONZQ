@@ -15,19 +15,19 @@ class TvShow < ActiveRecord::Base
     }, default_url: "/images/missing_:style.jpg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
-  has_many :tv_genres
+  has_many :tv_genres, dependent: :destroy
   has_many :genres, through: :tv_genres
 
-  has_many :tv_decades
+  has_many :tv_decades, dependent: :destroy
   has_many :decades, through: :tv_decades
 
-  has_many :watchlists
+  has_many :watchlists, dependent: :destroy
   has_many :watchers, through: :watchlists, source: :user
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :lovers, through: :favorites, source: :user
   
-  has_many :posts, inverse_of: :tv_show
+  has_many :posts, inverse_of: :tv_show, dependent: :destroy
 
   belongs_to :admin,
     class_name: "User",
