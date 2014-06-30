@@ -32,6 +32,9 @@ class TvShow < ActiveRecord::Base
     foreign_key: :admin_id,
     inverse_of: :tv_shows
   
+  include PgSearch
+  multisearchable against: [:title]
+  
   def genre_names
     @genres ||= self.genres.pluck(:name)
   end

@@ -1,13 +1,13 @@
-<h3><a class="show-result" href="#/tv/<%= tv.id %>">
-	<%= tv.escape("title") %>
+<h3><a class="show-result" href="/#/tv/<%= tv_show.id %>">
+	<%= tv_show.title %>
 </a></h3>
 
 <ul class="statuses group">
 	<li id="watchlist">
 		<ul class="watchlist-statuses">
-			<% _(["Currently Watching", "Plan to Watch", "Completed", "Dropped"]).each(function (status) { %>
+			<% TvShow::STATUSES.each do |status| %>
 				<li id="status" data-id="<%= status %>"><%= status %></li>
-			<% }) %>
+			<% end %>
 		</ul>
 	</li>
 
@@ -15,23 +15,23 @@
 	<li id="message"></li>
 </ul>
 
-<a class="show-result" href="#/tv/<%= tv.id %>">
+<a class="show-result" href="/#/tv/<%= tv_show.id %>">
 <div class="result-info group">
-  <img src=<%= tv.escape("photo_medium") %>>
+  <img src="<%= tv_show.photo.url(:medium) %>">
 
   <ul>
     <li class="rating">
       <strong>IMDB rating:</strong>
-      <%= tv.escape("rating") %>
+      <%= tv_show.rating %>
     </li>
 
-    <% _(tv.escape("genres").split(", ")).each(function (genre) { %>
+    <% tv_show.genre_names.each do |genre| %>
     <li class="result-genre"><%= genre %></li>
-    <% }) %>
+    <% end %>
   </ul>
 </div>
 
 <div class="blurb">
-  <p><%= tv.escape("blurb") %></p>
+  <p><%= tv_show.blurb %></p>
 </div>
 </a>

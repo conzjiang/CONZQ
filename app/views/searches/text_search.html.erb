@@ -1,16 +1,26 @@
 <h1>Results for <%= @query %></h1>
 
-<% if @results.empty? %>
-<h3>No results! :(</h3>
+<h2>TV Shows</h2>
+
+<% if @tv_results.empty? %>
+<h3>No results!</h3>
 <% else %>
-<ul class="results">
-	<% @results.map(&:searchable).each do |result| %>
-		<% if result.is_a?(User) %>
-		<% resultClass = "user" %>
-			<li><%= render result %></li>
-		<% else %>
-			<li><%= render partial: "searches/result", locals: { tv: result } %></li>
-		<% end %>
+<ul id="tv-search-results" class="results group">
+	<% @tv_results.each do |tv| %>
+	<li class="tv"><%= render tv %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<h2>Users</h2>
+
+<% if @user_results.empty? %>
+<h3>No results!</h3>
+<% else %>
+<ul id="user-search-results" class="results group">
+	<% @user_results.each do |user| %>
+	<li class="user"><%= render user %></li>
 	<% end %>
 </ul>
 <% end %>

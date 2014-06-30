@@ -26,7 +26,17 @@ class SearchesController < ApplicationController
       @query = session[:last_search]
     end
     
-    @results = PgSearch.multisearch(@query).includes(:searchable)
+    results = PgSearch.multisearch(@query).includes(:searchable)
+    @tv_results = []
+    @user_results = []
+    
+    results.map(&:searchable).each do |result|
+      if result.is_a?(TvShow)
+        @tv_results << result
+      else
+        @user_results << result
+      end
+    end
   end
 
   private
