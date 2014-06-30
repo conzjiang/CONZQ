@@ -127,7 +127,7 @@ a.discover {
 .container {
 	position: relative;
 	width: 750px;
-	height: 100%;
+	height: auto;
 	margin: auto;
 }
 
