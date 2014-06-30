@@ -6,6 +6,7 @@ class TvShow < ActiveRecord::Base
 
   validates :title, presence: true
   validates :status, inclusion: { in: STATUSES }
+  validates :imdb_id, uniqueness: true
 
   has_attached_file :photo, styles: {
       big: "360x360>",
@@ -40,7 +41,9 @@ class TvShow < ActiveRecord::Base
   end
   
   def apply_imdb_rating
-    self.rating = parse_omdb["imdbRating"]
+    omdb_info = parse_omdb
+    self.rating = omdb_info["imdbRating"]
+    self.imdb_id = omdb_info["imdbID"]
   end
 
   def auto_complete

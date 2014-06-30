@@ -9,6 +9,52 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<header class="header">
+		<section class="group">
+			<a class="logo" href="#">CONZQ</a>
+
+			<ul class="nav">
+				<li><a class="discover" href="#">Discover</a></li>
+				
+				<% if signed_in? %>
+				<li class="signed-in">
+					<a class="profile-link" href="<%= user_url(current_user) %>">
+						<%= current_user.username %>
+					</a>
+					
+					<ul class="profile-dropdown">
+						<% if current_user.admin %>
+						<li>
+							<a href="<%= tv_shows_url %>">My Series</a>
+						</li>
+						
+						<li>
+							<a href="<%= new_tv_url %>">Add a Series</a>
+						</li>
+						
+						<li>
+							<a href="<%= user_url(current_user) %>">My Profile</a>
+						</li>
+						
+						<li>
+							<a href="#">Settings</a>
+						</li>
+						
+						<li>
+							<%= link_to "Logout", session_url, method: "delete" %>
+						</li>
+					</ul>
+				</li>
+				<% else %>
+				
+				<li><a href="<%= new_session_url %>">Sign In</a></li>
+				<li><a href="<%= new_user_url %>">Create an account</a></li>
+				
+				<% end %>
+			</ul>
+		</section>
+	</header>
 
 <!-- <div class="nav group">
 <% if signed_in? %>
