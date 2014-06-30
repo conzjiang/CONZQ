@@ -178,7 +178,7 @@ a.discover {
 
 .statuses > li {
 	float: left;
-	margin: 3px 10px 8px 7px;
+	margin: 3px 10px 5px 7px;
 	cursor: pointer;
 }
 
@@ -259,6 +259,7 @@ a.discover {
 
 #message {
 	position: absolute;
+	top: -1px;
 	left: 65px;
 	
 	display: none;

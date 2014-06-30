@@ -30,10 +30,6 @@ form label {
 	cursor: pointer;
 }
 
-form label:hover {
-	background: rgb(117, 219, 117);
-}
-
 .decades > li {
 	display: block;
 	float: left;
@@ -93,8 +89,18 @@ form > h3 {
 	padding: 2px 5px;
 }
 
+.decades > li#decade:hover,
+.genres > li#genre:hover {
+	background: rgb(117, 219, 117);
+}
+
 li#decade.selected,
 li#genre.selected {
+	background: red;
+}
+
+li#decade.selected:hover,
+li#genre.selected:hover {
 	background: red;
 }
 
@@ -194,8 +200,9 @@ li.param:after {
 }
 
 .results > li:hover {
-	padding: 14px;
-	border: 2px solid #530591;
+	padding: 13px;
+	background: rgb(253, 240, 253);
+	border: 3px solid #41002D;
 }
 
 a.show-result {
@@ -217,6 +224,7 @@ a.show-result {
 .rating {
   font-size: 30px;
   margin: 5px 0;
+	line-height: 1;
 }
 
 .result-genre {
