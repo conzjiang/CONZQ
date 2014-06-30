@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20140630142118) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "imdb_id"
+    t.string   "imdb_id"
   end
 
   add_index "tv_shows", ["admin_id"], name: "index_tv_shows_on_admin_id", using: :btree
