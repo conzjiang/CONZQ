@@ -25,6 +25,20 @@ CONZQ.Models.User = Backbone.Model.extend({
 		return this._favorites;
 	},
 	
+	posts: function () {
+		if (!this._posts) {
+			this._posts = new CONZQ.Collections.UserPosts({
+				user: this
+			});
+		}
+		
+		return this._posts;
+	},
+	
+	showlist: function () {
+		return this.watchlists().models.concat(this.favorites().models);
+	},
+	
 	parse: function (response) {
 		if (response.watchlists) {
 			this.watchlists().set(response.watchlists);
@@ -34,6 +48,11 @@ CONZQ.Models.User = Backbone.Model.extend({
 		if (response.favorites) {
 			this.favorites().set(response.favorites);
 			delete response.favorites;
+		}
+		
+		if (response.posts) {
+			this.posts().set(response.posts);
+			delete response.posts;
 		}
 		
 		return response;

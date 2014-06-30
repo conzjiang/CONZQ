@@ -1,0 +1,36 @@
+<h1><%= user.escape("username") %></h1>
+
+<section class="wall">
+	
+	<% if (signedIn) { %>
+	<form id="post-form">
+		<textarea name="post[body]"></textarea>
+		
+		<label>
+			Tag a show:
+			<select name="post[tv_show_id]">
+				<option value=""></option>
+				
+				<% _(userShowlist).each(function (show) { %>
+				<option value="<%= show.id %>"><%= show.escape("title") %></option>
+				<% }) %>
+			</select>
+		</label>
+		
+		<input type="submit" value="Submit">
+	</form>
+	<% } %>
+	
+	<h2>Posts</h2>
+	
+	<% if (posts.length > 0) { %>
+	<ul class="posts">
+		<% posts.each(function (post) { %>
+		<li><%= post.escape("body") %></li>
+		<% }) %>
+	</ul>
+	<% } else { %>
+		<p>No posts.</p>
+	<% } %>
+	
+</section>

@@ -16,5 +16,9 @@ CONZQ.Collections.TvShows = Backbone.Collection.extend({
     }
 
     return show;
-  }
+  },
+	
+	comparator: function (tv) {
+		return tv.get("title");
+	}
 });
