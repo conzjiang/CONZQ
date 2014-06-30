@@ -12,6 +12,8 @@ CONZQ.Views.SearchResult = Backbone.View.extend({
 	
 	tagName: "li",
 	
+	className: "tv",
+	
 	id: "tv-result",
 	
 	template: JST["search/result"],

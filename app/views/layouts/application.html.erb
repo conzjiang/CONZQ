@@ -16,6 +16,15 @@
 
 			<ul class="nav">
 				<li><a class="discover" href="#">Discover</a></li>
+				<li class="search">
+					<a id="search" href="#">Search</a>
+					
+					<div class="search-input">
+						<form action="<%= text_search_url %>" method="get">
+							<input type="text" name="query" value="<%= params[:query] %>">
+						</form>
+					</div>
+				</li>
 				
 				<% if signed_in? %>
 				<li class="signed-in">
@@ -85,12 +94,18 @@ $(document).ready(function(){
 	
 	
 	$("a.discover").on("click", function () {
+		event.preventDefault();
 		$container.toggleClass("open");
 		
 		// if $container hasClass open 
 		// session[:sidebar] == true
 		// else session[:sidebar] == false
 	});
+	
+	$("a#search").on("click", function () {
+		event.preventDefault();
+		$("li.search").toggleClass("open");
+	})
 	
 });
 </script>

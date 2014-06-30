@@ -8,8 +8,6 @@ class SearchesController < ApplicationController
     session[:result_ids] = run_query(params[:search])
     @search_params = @search_param_names.join("+")
     @query = TvShow.includes(:genres).find(session[:result_ids])
-    
-    session[:result_ids] = nil
   end
 
   def sort
@@ -18,6 +16,17 @@ class SearchesController < ApplicationController
     @query = sort_results(@comparator)
 
     render :show
+  end
+  
+  def text_search
+    if !params[:query].blank?
+      @query = params[:query]
+      session[:last_search] = params[:query]
+    else
+      @query = session[:last_search]
+    end
+    
+    @results = PgSearch.multisearch(@query).includes(:searchable)
   end
 
   private

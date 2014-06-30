@@ -40,7 +40,6 @@ form label {
 
 .decades > li > h3 {
 	font-size: 18px;
-	line-height: 1;
 	color: #000;
 	padding-top: 35px;
 	text-align: right;
@@ -63,7 +62,6 @@ form label {
 .decades > li#decade.current > label {
 	padding: 19px 0;
 	font-size: 12px;
-	line-height: 1.2;
 }
 
 form > h3 {
@@ -190,14 +188,41 @@ li.param:after {
 .results > li {
 	position: relative;
 	float: left;
-	width: 270px;
-	height: 370px;
 	padding: 15px;
 	margin: 10px;
 	
 	font-size: 14px;
 	border: 1px solid black;
 }
+
+.results > li.tv {
+	width: 270px;
+	height: 370px;
+}
+
+.results > li.user {
+	width: 250px;
+//	height: ;
+}
+
+
+
+.follow-username {
+  font-weight: bold;
+}
+
+.user-favs:before {
+  content: "❤ ";
+  color: red;
+}
+
+.user-favs {
+  font-size: 12px;
+}
+
+
+
+
 
 .results > li:hover {
 	padding: 13px;
@@ -224,7 +249,6 @@ a.show-result {
 .rating {
   font-size: 30px;
   margin: 5px 0;
-	line-height: 1;
 }
 
 .result-genre {

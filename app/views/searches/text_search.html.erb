@@ -1,0 +1,16 @@
+<h1>Results for <%= @query %></h1>
+
+<% if @results.empty? %>
+<h3>No results! :(</h3>
+<% else %>
+<ul class="results">
+	<% @results.map(&:searchable).each do |result| %>
+		<% if result.is_a?(User) %>
+		<% resultClass = "user" %>
+			<li><%= render result %></li>
+		<% else %>
+			<li><%= render partial: "searches/result", locals: { tv: result } %></li>
+		<% end %>
+	<% end %>
+</ul>
+<% end %>

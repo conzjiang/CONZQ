@@ -12,27 +12,31 @@
  *= require_tree .
  */
 
-html, body, main, section, div, ul, li, h1, h2, h3, a, strong, img, p {
+html, body, main, section, div, ul, li, h1, h2, h3, a, strong, img, p, form {
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
 }
 
-button,
-input[type="submit"] {
-  display: inline;
-  -webkit-appearance: none;
-  box-sizing: content-box;
+input, button, textarea {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  width: auto;
   font: inherit;
-  vertical-align: baseline;
   background: transparent;
   color: inherit;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  width: auto;
+  display: inline-block;
+}
+
+button,
+input[type="submit"] {
+  display: inline;
+  vertical-align: baseline;
   cursor: pointer;
 }
 
@@ -44,6 +48,7 @@ html, body {
 body {
   font-family: "Fira Sans", monospace;
 	font-weight: 300;
+	line-height: 1;
 	background: rgb(248, 236, 255);
 }
 
@@ -67,7 +72,6 @@ img {
 h3 { /* SEARCH RESULT TITLES */
 	font-weight: bold;
   font-size: 22px;
-	line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -121,6 +125,41 @@ a.discover {
 	transition: color 0.3s;
 }
 
+.search {
+	position: relative;
+}
+
+.search-input {
+	display: none;
+	
+	position: absolute;
+	top: 51px;
+	right: 0;
+	
+	width: 200px;
+	padding: 5px 10px;
+	background: pink;
+	border: 1px solid tomato;
+	border-top: 0;
+	box-shadow: 0 1px 1px #888;
+	
+	z-index: 500;
+}
+
+.search-input input {
+	width: 188px;
+	font-size: 14px;
+	color: #000;
+	padding: 2px 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.search.open .search-input {
+	display: block;
+}
+
 .signed-in {
 	position: relative;
 }
@@ -134,6 +173,8 @@ a.discover {
 	border: 1px solid #41002D;
 	border-top: 0;
 	border-bottom: 0;
+	
+	z-index: 100;
 }
 
 .profile-dropdown > li {

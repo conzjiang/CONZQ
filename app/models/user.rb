@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
+  
+  include PgSearch
+  multisearchable against: [:username, :email]
 
   def password
     @password

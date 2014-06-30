@@ -1,6 +1,6 @@
 <a class="group" href="<%= user_url(user) %>">
 	<%= image_tag "missing_thumb.jpg" %>
-	<p class="follow-username"><%= user.username %></p>
+	<p class="username"><%= user.username %></p>
   <p class="user-favs"><%= user.favorites.count %> favorite shows</p>
   <%= render partial: "follows/status", locals: { user: user } %>
 </a>
