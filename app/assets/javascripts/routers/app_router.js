@@ -1,24 +1,21 @@
 CONZQ.Routers.AppRouter = Backbone.Router.extend({
   initialize: function (options) {
-		// this.$rootEl = options.$rootEl;
-// 		this.$mainEl = options.$mainEl;
-//
-// 		var searchbarView = new CONZQ.Views.Searchbar({
-// 			$sidebar: options.$sidebar
-// 		});
-// 		this.$rootEl.html(searchbarView.render().$el);
-// 		this.$rootEl.append(this.$mainEl);
+		this.$rootEl = options.$rootEl;
+		this.$mainEl = options.$mainEl;
+		
+		var searchbarView = new CONZQ.Views.Searchbar({
+			$sidebar: options.$sidebar
+		});
+		this.$rootEl.html(searchbarView.render().$el);
+		this.$rootEl.append(this.$mainEl);
   },
 
   routes: {
-		"search": "newSearch",
     "tv/:id": "tvShow"
   },
 	
-	newSearch: function (id) {
-		
-		
-    
+	displaySearch: function (searchShowView) {
+		this._swapViews(searchShowView);
 	},
 
   tvShow: function (id) {
@@ -35,6 +32,6 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
     }
 
     this.currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$mainEl.html(view.render().$el);
   }
 });

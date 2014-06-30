@@ -8,6 +8,7 @@ CONZQ::Application.routes.draw do
     end
     
     resources :tv_shows, only: [:index, :show]
+    resource :search, only: [:create]
   end
 
 

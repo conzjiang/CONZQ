@@ -4,6 +4,11 @@
 
 //------------------------------------------
 
+input[type="checkbox"] {
+  display: none;
+}
+
+
 // SEARCH CONTAINER
 .search-container {
   width: 220px;
@@ -11,6 +16,52 @@
 }
 
 // SEARCH NEW PAGE
+.decades {
+	width: 240px;
+	margin: auto;
+}
+
+.decades h3 {
+	font-size: 18px;
+	padding: 20px 0 0 1px;
+}
+
+.decades > li {
+	display: block;
+	float: left;
+	width: 72px;
+	height: 72px;
+	margin: 3px;
+}
+
+.decades > li#decade {
+	width: 62px;
+	height: 62px;
+	background: green;
+	border: 5px solid purple;
+}
+
+.decades label {
+	display: block;
+	padding: 18px 10px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 20px;
+	
+	cursor: pointer;
+}
+
+.decades > li#decade.current > label {
+	padding: 18px 0;
+	font-size: 12px;
+	line-height: 1.2;
+}
+
+li#decade.selected,
+li#genre.selected {
+	background: red;
+}
+
 .or {
   display: block;
   font-size: 20px;

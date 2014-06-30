@@ -1,0 +1,1 @@
+json.array! @results, partial: "api/tv_show", as: :tv_show

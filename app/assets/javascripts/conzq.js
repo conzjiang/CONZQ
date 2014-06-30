@@ -26,7 +26,7 @@ window.CONZQ = {
   },
 	
 	startRouter: function (options) {
-    new CONZQ.Routers.AppRouter({
+    CONZQ.appRouter = new CONZQ.Routers.AppRouter({
 			$rootEl: options.rootEl,
 			$sidebar: options.sidebar,
       $mainEl: options.main

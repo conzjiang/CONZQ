@@ -138,11 +138,11 @@ a.discover {
 	
 	display: block;
 	width: 250px;
-	height: 80%;
+	height: 575px;
+	padding: 5px;
 	
 	background: pink;
 	transition: all 0.5s;
-
 }
 
 .main {
@@ -154,7 +154,6 @@ a.discover {
 	display: block;
 	
 	background: #fff;
-	
 	transition: all 0.5s;
 }
 

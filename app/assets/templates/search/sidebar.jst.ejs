@@ -1,0 +1,40 @@
+<form id="search">
+	
+<ul class="decades group">
+	<li>
+		<h3>By Decade</h3>
+	</li>
+
+  <% for (var id in decades) { %>
+	<li id="decade" data-id=<%= id %>>
+		<label class="label">
+	    <input type="checkbox" name="search[decade_ids][]" value="<%= id %>">
+			'<%= decades[id] %>s
+		</label>
+	</li>
+	<% } %>
+
+	<li id="decade" class="current" data-id="current">
+		<label class="label">
+		  <input type="checkbox" name="search[status]" value="Currently Airing">
+			Currently Airing
+	  </label>
+	</li>
+</ul>
+
+<h3>By Genre</h3>
+
+<ul class="genres">
+  <% for (var id in genres) { %>
+	<li id="genre" data-id="<%= id %>">
+		<label class="label">
+	    <input type="checkbox" name="search[genre_ids][]" value="<%= id %>">
+    	<%= genres[id] %>
+		</label>
+	</li>
+  <% } %>
+</ul>
+
+  <input type="submit" value="Search">
+	
+</form>

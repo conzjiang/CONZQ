@@ -1,12 +1,12 @@
 class Api::SearchesController < ApplicationController
   def create
-    @query = run_query(params[:search])
-    @search_params = @search_param_names.join("+")
-
-    session[:result_ids] =
-      @query.is_a?(Array) ? @query.map { |show| show.id } : @query.pluck(:id)
-
-    redirect_to search_query_url(@search_params)
+    @results = run_query(params[:search])
+    
+    unless @results.empty?
+      render :results
+    else
+      render "No results!"
+    end
   end
 
   def show
