@@ -151,9 +151,13 @@ a.discover {
 	left: 0;
 	
 	width: 750px;
+	min-height: 625px;
 	display: block;
 	
 	background: #fff;
+	border: 1px solid #ccc;
+	border-top: 0;
+	
 	transition: all 0.5s;
 }
 
@@ -163,6 +167,8 @@ a.discover {
 
 .container.open > .main {
 	left: 125px;
+  box-shadow: -3px 0 5px rgba(6,6,6,0.2);
+	
 }
 
 /*STATUSES*/

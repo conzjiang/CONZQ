@@ -16,14 +16,18 @@ input[type="checkbox"] {
 }
 
 // SEARCH NEW PAGE
-.decades {
+form#search {
 	width: 240px;
 	margin: auto;
 }
 
-.decades h3 {
-	font-size: 18px;
-	padding: 20px 0 0 1px;
+form li {
+	color: #fff;
+}
+
+form label {
+	display: block;
+	cursor: pointer;
 }
 
 .decades > li {
@@ -34,6 +38,12 @@ input[type="checkbox"] {
 	margin: 3px;
 }
 
+.decades > li > h3 {
+	font-size: 18px;
+	color: #000;
+	padding: 20px 0 0 1px;
+}
+
 .decades > li#decade {
 	width: 62px;
 	height: 62px;
@@ -42,19 +52,39 @@ input[type="checkbox"] {
 }
 
 .decades label {
-	display: block;
 	padding: 18px 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 20px;
-	
-	cursor: pointer;
 }
 
 .decades > li#decade.current > label {
 	padding: 18px 0;
 	font-size: 12px;
 	line-height: 1.2;
+}
+
+form > h3 {
+	width: 240px;
+	font-size: 18px;
+	margin: 30px 0 5px 3px;
+}
+
+.genres {
+	width: 240px;
+	margin: auto;
+	
+	font-size: 14px;
+}
+
+.genres > li {
+	float: left;
+	margin: 3px;
+	background: green;
+}
+
+.genres label {
+	padding: 2px 5px;
 }
 
 li#decade.selected,
@@ -122,12 +152,6 @@ li.param:after {
 	list-style: none;
 	width: 650px;
 }
-
-//.results > ul > li {
-//  float: left;
-//  width: 300px;
-//  margin: 10px;
-//}
 
 .results > li {
 	position: relative;
