@@ -129,17 +129,19 @@ li.param:after {
 //  margin: 10px;
 //}
 
-.results > ul > li {
+.results > li {
 	position: relative;
 	float: left;
 	width: 270px;
 	height: 370px;
 	padding: 15px;
 	margin: 10px;
+	
+	font-size: 14px;
 	border: 1px solid black;
 }
 
-.results > ul > li:hover {
+.results > li:hover {
 	padding: 14px;
 	border: 2px solid #530591;
 }
@@ -150,16 +152,12 @@ a.show-result {
 	height: 100%;
 }
 
-.tv-info {
-  font-size: 14px;
-}
-
-.tv-info > img {
+.result-info > img {
 	float: left;
   margin: 0 10px 10px 0;
 }
 
-.tv-info strong {
+.result-info strong {
 	font-weight: 500;
   font-size: 12px;
 }
