@@ -4,20 +4,11 @@
 	<ul>
 	<% _(["Main", "Watchlist", "Favorites", "Follows"]).each(function (nav) { %>
 		<li>
-			<% var navUrl = "/#/users/" + user.id %>
-			
-			<% if (nav !== "Main") { %>
-				<% navUrl += "/" + nav.toLowerCase() %>
-			<% } %>
-			
-			<a id="nav" data-id="<%= nav %>" href="<%= navUrl %>"><%= nav %></a>
+			<a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a>
 		</li>
 	<% }) %>
 	</ul>
 </section>
 
 <section class="user-container">
-	
-	
-	
 </section>

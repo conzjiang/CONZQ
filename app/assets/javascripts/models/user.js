@@ -23,7 +23,9 @@ CONZQ.Models.User = Backbone.Model.extend({
 			shows.push(tv);
 		});
 		
-		return shows;
+		return _.sortBy(shows, function (show) {
+			return show.get("title");
+		});
 	},
 	
 	favorites: function () {
@@ -58,11 +60,9 @@ CONZQ.Models.User = Backbone.Model.extend({
 			}
 		});
 		
-		uniqShows = _.sortBy(uniqShows, function (show) {
+		return _.sortBy(uniqShows, function (show) {
 			return show.get("title");
 		});
-		
-		return uniqShows;
 	},
 	
 	parse: function (response) {
