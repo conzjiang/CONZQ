@@ -21,5 +21,11 @@ CONZQ.Views.UserFavorites = Backbone.View.extend({
 		});
 		
 		return this;
+	},
+	
+	remove: function () {
+		_(this.statusViews).each(function (view) { view.remove(); });
+		
+		return Backbone.View.prototype.remove.apply(this);
 	}
 });
