@@ -1,44 +1,34 @@
 CONZQ.Views.UserShow = Backbone.View.extend({
-	initialize: function () {
-		this.posts = this.model.posts();
-		
-		this.listenTo(this.posts, "sync add remove", this.render);
+	initialize: function (options) {
+		this.user = options.user;
 	},
 	
 	template: JST["users/show"],
 	
 	events: {
-		"submit form#post-form": "createPost",
-		"click .x": "deletePost"
+		"click a#nav": "profileNav",
 	},
 	
-	createPost: function () {
-		event.preventDefault();
-		var params = $(event.target).serializeJSON();
-		var posts = this.posts;
-
-		posts.create(params, { wait: true, sort: true });
+	profileNav: function () {
+		var nav = $(event.target).attr("data-id").toLowerCase();
+		
 	},
 	
-	deletePost: function () {
-		var $post = $(event.target).closest("li");
-		var postId = $post.attr("data-id");
-		var post = this.posts.get(postId);
-
-		post.destroy();
-	},
+	
 	
 	render: function () {
-		var content = this.template({
-			
-			user: this.model,
-			userShowlist: this.model.showlist(),
-			posts: this.posts,
-			signedIn: CONZQ.currentUser.id === this.model.id
-		
-		});
-		
+		var content = this.template({ user: this.user });
 		this.$el.html(content);
+		
+		var userWallView = new CONZQ.Views.UserWall({ user: this.user });
+		this._swapViews(userWallView);
+		
 		return this;
+	},
+	
+	_swapViews: function (view) {
+		if (this._currentView) this._currentView.remove();
+		this._currentView = view;
+		this.$el.find("section.user-container").html(view.render().$el);
 	}
 });
