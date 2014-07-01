@@ -1,0 +1,25 @@
+<% _(followers).each(function (follower) { %>
+	<li id="follow" data-id="<%= follower.id %>">
+		<a href="/#/users/<%= follower.id %>">
+			<img src="/images/missing_thumb.jpg">
+		</a>
+		
+		<ul class="user-info">
+			<li class="username">
+				<%= follower.escape("username") %>
+				<div id="follow-status" class="add-follow">Follow</div>
+				<div id="follow-status" class="is-following">Following</div>
+			</li>
+			<li>
+				currently watching
+				<strong><%= follower.watchlists().length %></strong> shows
+			</li>
+			
+			<li>
+				<span class="heart"></span>
+				<%= follower.favorites().length %> favorite shows
+			</li>
+		</ul>
+
+	</li>
+<% }) %>

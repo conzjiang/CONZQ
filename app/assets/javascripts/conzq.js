@@ -10,16 +10,17 @@ window.CONZQ = {
 			main: main
 		};
 		
-    CONZQ.all_shows = new CONZQ.Collections.TvShows();
+    CONZQ.allShows = new CONZQ.Collections.TvShows();
+		CONZQ.users = new CONZQ.Collections.Users();
 		
 		if (window.currentUser) {
 			CONZQ.currentUser = new CONZQ.Models.User({ id: window.currentUser.id });
 			
-			$.when(CONZQ.all_shows.fetch(), CONZQ.currentUser.fetch())
+			$.when(CONZQ.allShows.fetch(), CONZQ.currentUser.fetch())
 				.done(function () { CONZQ.startRouter(els); });
 				
 		} else {
-			CONZQ.all_shows.fetch({
+			CONZQ.allShows.fetch({
 				success: function () { CONZQ.startRouter(els); }
 			});
 		}

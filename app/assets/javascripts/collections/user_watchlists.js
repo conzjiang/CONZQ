@@ -17,12 +17,12 @@ CONZQ.Collections.UserWatchlists = Backbone.Collection.extend({
 			return watch.get("tv_show_id") === id;
 		});
 		
-		if (watchlist && !(show = CONZQ.all_shows.get(id))) {
+		if (watchlist && !(show = CONZQ.allShows.get(id))) {
       show = new CONZQ.Models.TvShow({ id: id });
 
       show.fetch({
         success: function() {
-					CONZQ.all_shows.add(show);
+					CONZQ.allShows.add(show);
 					watchlists.add(show); 
 				}
       });

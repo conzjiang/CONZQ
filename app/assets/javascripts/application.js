@@ -16,6 +16,7 @@
 //= require jquery.timeago
 //= require underscore
 //= require backbone
+//= require subsets
 //= require conzq
 //= require_tree ../templates
 //= require_tree ./models

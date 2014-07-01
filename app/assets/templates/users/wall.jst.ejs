@@ -32,7 +32,7 @@
 		
 				<% if (post.escape("tv_show_id")) { %>
 					
-				<% var tv = CONZQ.all_shows.getOrFetch(post.escape("tv_show_id")) %>
+				<% var tv = CONZQ.allShows.getOrFetch(post.escape("tv_show_id")) %>
 				<a href="/tv/<%= tv.id %>"><%= tv.escape("title") %></a>
 				
 				<% } %>

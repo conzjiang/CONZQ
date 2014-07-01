@@ -13,7 +13,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 		var resultViews = this.resultViews;
 		
 		_(view.collection).each(function (show) {
-			var tv = CONZQ.all_shows.getOrFetch(show.id);			
+			var tv = CONZQ.allShows.getOrFetch(show.id);			
 			var resultView = new CONZQ.Views.SearchResult({ model: tv });
 			
 			view.$el.append(resultView.render().$el);

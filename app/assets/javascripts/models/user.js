@@ -1,8 +1,4 @@
 CONZQ.Models.User = Backbone.Model.extend({
-	initialize: function () {
-		
-	},
-	
 	urlRoot: "/api/users",
 	
 	watchlists: function () {
@@ -15,40 +11,74 @@ CONZQ.Models.User = Backbone.Model.extend({
 		return this._watchlists;
 	},
 	
-	watchlistShows: function () {
-		var shows = [];
+	currentShows: function () {
+		if (!this._currentShows) {
+			this._currentShows = new CONZQ.Subsets.CurrentShows({
+				parentCollection: CONZQ.allShows
+			});
+		}
 		
-		this.watchlists().each(function (watchlist) {
-			var tv = CONZQ.all_shows.getOrFetch(watchlist.get("tv_show_id"));
-			shows.push(tv);
-		});
+		return this._currentShows;
+	},
+	
+	planToShows: function () {
+		if (!this._planToShows) {
+			this._planToShows = new CONZQ.Subsets.PlanToShows({
+				parentCollection: CONZQ.allShows
+			});
+		}
 		
-		return _.sortBy(shows, function (show) {
-			return show.get("title");
-		});
+		return this._planToShows;
+	},
+	
+	completedShows: function () {
+		if (!this._completedShows) {
+			this._completedShows = new CONZQ.Subsets.CompletedShows({
+				parentCollection: CONZQ.allShows
+			});
+		}
+		
+		return this._completedShows;
+	},
+	
+	droppedShows: function () {
+		if (!this._droppedShows) {
+			this._droppedShows = new CONZQ.Subsets.DroppedShows({
+				parentCollection: CONZQ.allShows
+			});
+		}
+		
+		return this._droppedShows;
 	},
 	
 	favorites: function () {
 		if (!this._favorites) {
-			this._favorites = new CONZQ.Collections.UserFavorites({
-				user: this
+			this._favorites = new CONZQ.Subsets.Favorites({
+				parentCollection: CONZQ.allShows
 			});
 		}
 		
 		return this._favorites;
 	},
 	
-	favoriteShows: function () {
-		var favs = [];
+	followers: function () {
+		if (!this._followers) {
+			this._followers = new CONZQ.Subsets.Followers({
+				parentCollection: CONZQ.users
+			});
+		}
 		
-		this.favorites().each(function (fav) {
-			var tv = CONZQ.all_shows.getOrFetch(fav.id);
-			favs.push(tv);
-		});
+		return this._followers;
+	},
+	
+	idols: function () {
+		if (!this._idols) {
+			this._idols = new CONZQ.Subsets.Idols({
+				parentCollection: CONZQ.users
+			});
+		}
 		
-		return _.sortBy(favs, function (fav) {
-			return fav.get("title");
-		})
+		return this._idols;
 	},
 	
 	posts: function () {
@@ -84,9 +114,40 @@ CONZQ.Models.User = Backbone.Model.extend({
 			delete response.watchlists;
 		}
 		
+		if (response.currentShows) {
+			this.currentShows().set(response.currentShows);
+			delete response.currentShows;
+		}
+		
+		if (response.planToShows) {
+			this.planToShows().set(response.planToShows);
+			delete response.planToShows;
+		}
+		
+		if (response.completedShows) {
+			this.completedShows().set(response.completedShows);
+			delete response.completedShows;
+		}
+		
+		if (response.droppedShows) {
+			this.droppedShows().set(response.droppedShows);
+			delete response.droppedShows;
+		}
+		
 		if (response.favorites) {
 			this.favorites().set(response.favorites);
 			delete response.favorites;
+		}
+		
+		if (response.followers) {
+			this.followers().set(response.followers);
+			
+			delete response.followers;
+		}
+		
+		if (response.idols) {
+			this.idols().set(response.idols);
+			delete response.idols;
 		}
 		
 		if (response.posts) {
@@ -96,6 +157,5 @@ CONZQ.Models.User = Backbone.Model.extend({
 		
 		return response;
 	}
-	
 	
 });

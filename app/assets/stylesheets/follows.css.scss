@@ -4,6 +4,95 @@
 
 //---------------------------------------
 
+.pointer {
+	cursor: pointer;
+}
+
+.hide {
+	display: none;
+}
+
+.unfocus {
+	color: #ccc;
+}
+
+.unfocus:hover {
+	color: #FD0D9D;
+}
+
+.follows > li {
+	position: relative;
+	border: 1px solid #000;
+}
+
+.follows > li > a {
+	display: block;
+	width: 250px;
+	padding: 15px;
+}
+
+.user-info {
+	position: absolute;
+	top: 16px;
+	left: 75px;
+}
+
+.user-info > li {
+	font-size: 12px;
+}
+
+.user-info > li.username {
+	font-size: 16px;
+}
+
+.add-follow {
+	padding: 2px 5px;
+	border: 1px solid #27386F;
+	
+	font-size: 12px;
+	color: #27386F;
+	text-transform: uppercase;
+	
+	background: #D2EDFA;
+	cursor: pointer;
+}
+
+.add-follow:hover {
+	background: blue;
+}
+
+.is-following {
+	padding: 2px 5px;
+	border: 1px solid #135D0B;
+	
+	font-size: 12px;
+	color: #135D0B;
+	
+	background: #A7FF96;
+	cursor: pointer;
+}
+
+.is-following:hover {
+	background: gray;
+}
+
+.is-following:active {
+	color: black;
+}
+
+.heart {
+	display: block;
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+	background: url("status-sprite.png");
+	background-position: 15px 0;
+}
+
+
+
+
+
 .follow {
   width: 250px;
 }

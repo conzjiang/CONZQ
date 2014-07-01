@@ -1,0 +1,1 @@
+json.extract! watchlist_show, :id, :title

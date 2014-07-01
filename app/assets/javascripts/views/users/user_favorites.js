@@ -1,7 +1,6 @@
 CONZQ.Views.UserFavorites = Backbone.View.extend({
 	initialize: function (options) {
-		this.user = options.user;
-		this.favorites = this.user.favoriteShows();
+		this.favorites = options.favorites;
 		
 		this.statusViews = [];
 	},

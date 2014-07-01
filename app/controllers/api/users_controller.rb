@@ -15,6 +15,9 @@ class Api::UsersController < ApplicationController
         favorite = @user.favorites.new(tv_show_id: tv_show_id)
         favorite.save!
       end
+    elsif params[:idol_id]
+      follow = current_user.follows.new(idol_id: params[:idol_id])
+      follow.save!
     end
     
     render partial: "api/users/user", locals: { user: @user }       

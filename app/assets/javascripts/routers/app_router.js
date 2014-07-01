@@ -23,7 +23,7 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 
   tvShow: function (id) {
     var tvShowView = new CONZQ.Views.TvShowView({
-      model: CONZQ.all_shows.getOrFetch(id)
+      model: CONZQ.allShows.getOrFetch(id)
     });
 		
     this._swapViews(tvShowView);

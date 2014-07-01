@@ -16,13 +16,24 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		
 		switch(nav) {
 			case "Watchlist":
-				view = new CONZQ.Views.UserWatchlist({ user: this.user });
+				view = new CONZQ.Views.UserWatchlist({ 
+					watchlist: this.user.watchlistShows() 
+				});
+				
 				break;
 			case "Favorites":
-				view = new CONZQ.Views.UserFavorites({ user: this.user });
+				view = new CONZQ.Views.UserFavorites({ 
+					favorites: this.user.favoriteShows() 
+				});
+				
 				break;
 			case "Follows":
-				// view = new CONZQ.Views.UserFollows({ user: this.user });
+				view = new CONZQ.Views.UserFollows({ 
+					user: this.user,
+					followers: this.user.followers(),
+					idols: this.user.idols() 
+				});
+				
 				break;
 			default:
 				view = new CONZQ.Views.UserWall({ user: this.user });
