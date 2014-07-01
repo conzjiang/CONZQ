@@ -1,0 +1,20 @@
+<h2>& these are my <u>favorites</u></h2>
+
+<ul class="watchlist group">
+	
+	<% _(favorites).each(function (show) { %>
+	<li id="tv" data-id="<%= show.id %>" class="group">	
+		<a class="result" href="/tv/<%= show.id %>">
+			<img src="<%= show.escape("photo_thumb") %>">
+		</a>
+		
+		<div class="watchlist-info">
+			<a href="/tv/<%= show.id %>"><%= show.escape("title") %></a>
+			<div id="statuses-container"></div>
+			<a class="blank" href="/tv/<%= show.id %>"> </a>
+		</div>
+		
+	</li>
+	<% }) %>
+	
+</ul>

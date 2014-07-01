@@ -38,6 +38,19 @@ CONZQ.Models.User = Backbone.Model.extend({
 		return this._favorites;
 	},
 	
+	favoriteShows: function () {
+		var favs = [];
+		
+		this.favorites().each(function (fav) {
+			var tv = CONZQ.all_shows.getOrFetch(fav.id);
+			favs.push(tv);
+		});
+		
+		return _.sortBy(favs, function (fav) {
+			return fav.get("title");
+		})
+	},
+	
 	posts: function () {
 		if (!this._posts) {
 			this._posts = new CONZQ.Collections.UserPosts({
