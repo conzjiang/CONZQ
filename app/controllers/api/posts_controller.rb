@@ -18,7 +18,7 @@ class Api::PostsController < ApplicationController
   end
   
   def check_user
-    if current_user.id != params[:user_id]
+    if current_user.id != params[:user_id].to_i
       render json: { errors: "Nacho cheese" },
              status: :unprocessable_entity
     end

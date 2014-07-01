@@ -32,7 +32,7 @@
 				</a></li>
 					
 				<li class="signed-in">	
-					<a class="triangle" href="#">▼</a>
+					<p class="triangle" href="#">▼</p>
 
 					<ul class="profile-dropdown">
 						<% if current_user.admin %>
@@ -90,9 +90,15 @@ $(document).ready(function(){
 
   CONZQ.initialize($container, $sidebar, $main);
 	
+	$("abbr.timeago").timeago();
+	
 	<% if session[:sidebar] == "true" %>
 	$container.addClass("open");
 	<% end %>
+	
+	$("input").on("focus", function () {
+		$(this).val("");
+	})
 	
 	
 	$("a.discover").on("click", function () {
@@ -112,7 +118,6 @@ $(document).ready(function(){
 	});
 	
 	$(".signed-in").on("click", function () {
-		event.preventDefault();
 		$(".profile-dropdown").toggleClass("open");
 	});
 	

@@ -26,7 +26,25 @@
 	<% if (posts.length > 0) { %>
 	<ul class="posts">
 		<% posts.each(function (post) { %>
-		<li><%= post.escape("body") %></li>
+		<li data-id="<%= post.id %>" class="group">
+			<div class="post-info">
+				<p class="body"><%= post.escape("body") %></p>
+			
+				<% var timeAgo = $.timeago(post.escape("created_at")) %>
+				<p>
+					<span class="time"><%= timeAgo %></span>
+			
+					<% var tv = CONZQ.all_shows.getOrFetch(post.escape("tv_show_id")) %>
+			
+					<% if (tv) { %>
+					<a href="/tv/<%= tv.id %>"><%= tv.escape("title") %></a>
+					<% } %>
+			
+				</p>
+			</div>
+						
+			<strong class="x">&times;</strong>
+		</li>
 		<% }) %>
 	</ul>
 	<% } else { %>

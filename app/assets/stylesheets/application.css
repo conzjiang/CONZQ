@@ -165,7 +165,9 @@ a.discover {
 }
 
 .triangle {
+	padding: 17px;
 	font-size: 10px;
+	cursor: pointer;
 }
 
 .profile-dropdown {

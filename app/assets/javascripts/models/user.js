@@ -15,6 +15,17 @@ CONZQ.Models.User = Backbone.Model.extend({
 		return this._watchlists;
 	},
 	
+	watchlistShows: function () {
+		var shows = [];
+		
+		this.watchlists().each(function (watchlist) {
+			var tv = CONZQ.all_shows.getOrFetch(watchlist.get("tv_show_id"));
+			shows.push(tv);
+		});
+		
+		return shows;
+	},
+	
 	favorites: function () {
 		if (!this._favorites) {
 			this._favorites = new CONZQ.Collections.UserFavorites({
@@ -36,7 +47,22 @@ CONZQ.Models.User = Backbone.Model.extend({
 	},
 	
 	showlist: function () {
-		return this.watchlists().models.concat(this.favorites().models);
+		var uniqIds = [];
+		var uniqShows = [];
+		var allShows = this.watchlistShows().concat(this.favorites().models);
+		
+		_(allShows).each(function (show) {
+			if (uniqIds.indexOf(show.id) === -1) {
+				uniqIds.push(show.id);
+				uniqShows.push(show);
+			}
+		});
+		
+		uniqShows = _.sortBy(uniqShows, function (show) {
+			return show.get("title");
+		});
+		
+		return uniqShows;
 	},
 	
 	parse: function (response) {
