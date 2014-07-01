@@ -9,11 +9,52 @@
 }
 
 .watchlist > li {
-	width: 270px;
+	position: relative;
+	float: left;
+	width: 315px;
+	margin: 10px;
 	font-size: 16px;
+	border: 1px solid #000;
 }
 
-.watchlist img {
-	float: left;
-	margin-right: 10px;
+.watchlist > li > a.result {
+	display: block;
+	padding: 15px;
+	width: 285px;
+	height: 100%;
+}
+
+.watchlist > li > .watchlist-info {
+	position: absolute;
+	top: 16px;
+	left: 75px;
+}
+
+.watchlist-info > a {
+	display: block;
+	width: 225px;
+}
+
+.watchlist .statuses {
+	padding-bottom: 0;
+}
+
+.watchlist .statuses > li {
+	margin-left: 0;
+}
+
+.watchlist .statuses > li#message {
+	left: 52px;
+}
+
+.watchlist .watchlist-statuses > li {
+	opacity: 1;
+}
+
+.watchlist-info > a.blank {
+	position: absolute;
+	bottom: 0;
+	left: 40px;
+	width: 185px;
+	height: 20px;
 }

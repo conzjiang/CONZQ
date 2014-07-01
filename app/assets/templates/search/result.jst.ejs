@@ -2,18 +2,7 @@
 	<%= tv.escape("title") %>
 </a></h3>
 
-<ul class="statuses group">
-	<li id="watchlist">
-		<ul class="watchlist-statuses">
-			<% _(["Currently Watching", "Plan to Watch", "Completed", "Dropped"]).each(function (status) { %>
-				<li id="status" data-id="<%= status %>"><%= status %></li>
-			<% }) %>
-		</ul>
-	</li>
-
-	<li id="favorite"></li>
-	<li id="message"></li>
-</ul>
+<div id="statuses-container"></div>
 
 <a class="show-result" href="#/tv/<%= tv.id %>">
 <div class="result-info group">

@@ -1,15 +1,19 @@
 <h2>& this is my <u>watchlist</u></h2>
 
-<ul class="watchlist results group">
+<ul class="watchlist group">
 	
 	<% _(watchlist).each(function (show) { %>
-	<li id="tv" data-id="<%= show.id %>">	
-		<a class="show-result" href="/tv/<%= show.id %>">
+	<li id="tv" data-id="<%= show.id %>" class="group">	
+		<a class="result" href="/tv/<%= show.id %>">
 			<img src="<%= show.escape("photo_thumb") %>">
-			
-			<%= show.escape("title") %>
-			<div id="statuses"></div>
 		</a>
+		
+		<div class="watchlist-info">
+			<a href="/tv/<%= show.id %>"><%= show.escape("title") %></a>
+			<div id="statuses-container"></div>
+			<a class="blank" href="/tv/<%= show.id %>"> </a>
+		</div>
+		
 	</li>
 	<% }) %>
 	
