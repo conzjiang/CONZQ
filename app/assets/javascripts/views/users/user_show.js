@@ -17,19 +17,14 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		var params = $(event.target).serializeJSON();
 		var posts = this.posts;
 
-		posts.create(params, {
-			success: function (post) {
-				posts.add(post);
-			}
-		});
+		posts.create(params, { wait: true, sort: true });
 	},
 	
 	deletePost: function () {
 		var $post = $(event.target).closest("li");
 		var postId = $post.attr("data-id");
 		var post = this.posts.get(postId);
-		
-		this.posts.remove(post);
+
 		post.destroy();
 	},
 	

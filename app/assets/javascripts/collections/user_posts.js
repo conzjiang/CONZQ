@@ -4,9 +4,9 @@ CONZQ.Collections.UserPosts = Backbone.Collection.extend({
 	},
 	
 	model: CONZQ.Models.Post,
-	
+
 	url: function () {
-		return "/api/users/" + this.user.id + "/posts";
+		return this.user.url() + "/posts";
 	},
 	
 	comparator: function (post1, post2) {

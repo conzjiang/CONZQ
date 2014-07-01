@@ -34,16 +34,19 @@
 				<p>
 					<span class="time"><%= timeAgo %></span>
 			
+					<% if (post.escape("tv_show_id")) { %>
+						
 					<% var tv = CONZQ.all_shows.getOrFetch(post.escape("tv_show_id")) %>
-			
-					<% if (tv) { %>
 					<a href="/tv/<%= tv.id %>"><%= tv.escape("title") %></a>
+					
 					<% } %>
 			
 				</p>
 			</div>
-						
+			
+			<% if (signedIn) { %>			
 			<strong class="x">&times;</strong>
+			<% } %>
 		</li>
 		<% }) %>
 	</ul>

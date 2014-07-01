@@ -1,8 +1,8 @@
 class Api::PostsController < ApplicationController
-  before_action :check_user, only: :create
+  before_action :check_user, only: [:create, :destroy]
   
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params.merge({ user_id: current_user.id }))
     
     if @post.save
       render json: @post
