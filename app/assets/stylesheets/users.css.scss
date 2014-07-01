@@ -18,18 +18,22 @@
 
 
 // POSTS
+.posts {
+}
+
 .posts > li {
 	position: relative;
 	display: block;
-	width: 280px;
+	width: 300px;
 	
 	padding: 17px 10px;
+	margin: 10px auto;
 	border: 1px solid #000;
 }
 
 .post-info {
 	display: block;
-	width: 258px;
+	width: 278px;
 }
 
 .post-info .body {
