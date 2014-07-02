@@ -1,4 +1,4 @@
-<% if (signedIn) { %>
+<% if (isThisUser) { %>
 <form id="post-form">
 	<textarea name="post[body]"></textarea>
 	
@@ -19,33 +19,8 @@
 
 <h2>& these are my <u>posts</u></h2>
 
-<% if (posts.length > 0) { %>
-<ul class="posts">
-	<% posts.each(function (post) { %>
-	<li data-id="<%= post.id %>" class="group">
-		<div class="post-info">
-			<p class="body"><%= post.escape("body") %></p>
-		
-			<% var timeAgo = $.timeago(post.escape("created_at")) %>
-			<p>
-				<span class="time"><%= timeAgo %></span>
-		
-				<% if (post.escape("tv_show_id")) { %>
-					
-				<% var tv = CONZQ.allShows.getOrFetch(post.escape("tv_show_id")) %>
-				<a href="/tv/<%= tv.id %>"><%= tv.escape("title") %></a>
-				
-				<% } %>
-		
-			</p>
-		</div>
-		
-		<% if (signedIn) { %>			
-		<strong class="x">&times;</strong>
-		<% } %>
-	</li>
-	<% }) %>
-</ul>
+<% if (posts) { %>
+<ul class="posts"></ul>
 <% } else { %>
-	<p>No posts.</p>
+<p>No posts.</p>
 <% } %>

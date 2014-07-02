@@ -155,7 +155,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 		}
 		
 		if (response.posts) {
-			this.posts().set(response.posts);
+			this.posts().set(response.posts, { parse: true });
 			delete response.posts;
 		}
 		

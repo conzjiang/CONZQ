@@ -31,7 +31,7 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 	
 	userShow: function (id) {
 		var userShowView = new CONZQ.Views.UserShow({
-			user: CONZQ.users.getOrFetch(id) 
+			user: CONZQ.users.getOrFetch(id)
 		});
 	
 		this._swapViews(userShowView);

@@ -19,7 +19,7 @@ $headerPurple: #41002D;
 }
 
 // POST FORM
-textarea {
+form#post-form > textarea {
 	display: block;
 	width: 348px;
 	height: 58px;
@@ -28,18 +28,22 @@ textarea {
 	background: rgb(219, 203, 216);
 }
 
-textarea:focus {
+form#post-form > textarea:focus {
 	padding: 9px;
 	border: 1px solid $headerPurple;
 }
 
 // POSTS
+section.post-left {
+	float: left;
+}
+
 .posts > li {
 	position: relative;
 	display: block;
-	width: 300px;
+	width: 294px;
 	
-	padding: 17px 10px;
+	padding: 17px 13px;
 	margin: 10px auto;
 	border: 1px solid #000;
 }
@@ -49,16 +53,31 @@ textarea:focus {
 	width: 278px;
 }
 
-.post-info .body {
-	padding: 0 0 7px 3px;
+.post-body {
+	padding-bottom: 7px;
 }
 
-.post-info .time {
+.post-bottom > li {
+	float: left;
+	padding-right: 7px;
+}
+
+.post-bottom > .comment-link,
+.post-bottom > .time {
 	color: #ccc;
 	font-size: 12px;
 }
 
-.post-info a {
+.post-bottom > .comment-link {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.post-bottom > .comment-link:hover {
+	color: $headerPurple;
+}
+
+.post-bottom a { /* SHOW TAG */
 	padding: 0 8px;
 	
 	font-size: 10px;
@@ -75,4 +94,44 @@ textarea:focus {
 	padding: 5px;
 	font-size: 24px;
 	cursor: pointer;
+}
+
+// POST EXPAND
+.posts > li.expand {
+	width: 514px;
+	max-height: 250px;
+}
+
+form#comment-form {
+	display: none;
+}
+
+section.comments-right {
+	display: none;
+	float: right;
+	width: 156px;
+	height: auto;
+	padding: 5px;
+	font-size: 12px;
+	
+	background: #A4FFAC;
+	overflow: auto;
+}
+
+.comments > li {
+	padding: 5px 0;
+	border-bottom: 1px solid #000;
+}
+
+.comments > li:first-child {
+	padding-top: 0;
+}
+
+.comments > li:last-child {
+	border-bottom: 0;
+}
+
+li.expand form#comment-form,
+li.expand section.comments-right {
+	display: block;
 }

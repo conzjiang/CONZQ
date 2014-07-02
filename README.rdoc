@@ -1,10 +1,11 @@
 == TODO
 
 * Delete post event to trigger alert to make sure if user wants to delete
-* Display text if profile pages have nothing there
+* Display text if pages (profile) have nothing there
 * Delete shows from watchlist
 * Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
 * When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
+* Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
 
 
 == REACH TODOS

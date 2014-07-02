@@ -1,0 +1,32 @@
+<section class="post-left">
+	<div class="post-info">
+		<p class="post-body"><%= post.escape("body") %></p>
+	
+		<ul class="post-bottom group">
+			<li id="view-comments" class="comment-link">
+				Comments (<%= post.comments().length %>)
+			</li>
+		
+			<% var timeAgo = $.timeago(post.escape("created_at")) %>
+			<li class="time"><%= timeAgo %></li>
+		
+			<% if (post.escape("tv_show_id")) { %>	
+			<% var tv = CONZQ.allShows.getOrFetch(post.escape("tv_show_id")) %>
+			<li><a href="/tv/<%= tv.id %>"><%= tv.escape("title") %></a></li>
+			<% } %>
+		</ul>
+	</div>
+	
+	<% if (signedIn) { %>
+	<form id="comment-form">
+		<textarea name="comment[body]"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+	<% } %>
+</section>
+
+<section class="comments-right"></section>
+
+<% if (isThisUser) { %>			
+<strong class="x">&times;</strong>
+<% } %>
