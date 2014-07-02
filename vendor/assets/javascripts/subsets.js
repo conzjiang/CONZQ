@@ -5,7 +5,7 @@
       this.parentCollection = options.parentCollection;
       this.model = this.parentCollection.model;
     } else {
-      throw 'ArgumentError: Must supply an instanceof Backbone.Collection as parentCollection';
+      throw 'ArgumentError: Must supply an instance of Backbone.Collection as parentCollection';
     }
 
     if (options.comparator) this.comparator = options.comparator;

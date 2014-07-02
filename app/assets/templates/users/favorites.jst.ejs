@@ -2,7 +2,7 @@
 
 <ul class="watchlist group">
 	
-	<% _(favorites).each(function (show) { %>
+	<% favorites.each(function (show) { %>
 	<li id="tv" data-id="<%= show.id %>" class="group">	
 		<a class="result" href="/tv/<%= show.id %>">
 			<img src="<%= show.escape("photo_thumb") %>">

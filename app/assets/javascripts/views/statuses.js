@@ -12,7 +12,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 	
 	className: "statuses group",
 	
-	template: JST["users/statuses"],
+	template: JST["statuses"],
 	
 	events: {
 		"click li#status": "changeWatchStatus",
@@ -28,6 +28,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 				"You must be logged in to do view!", "login-error");
 				
 		} else if (!$newStatus.hasClass("user-status")) {
+			
 			var params = { watchlist: {
 				"tv_show_id": view.tv.id,
 				"status": $newStatus.attr("data-id")
@@ -37,7 +38,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 			
 			if ($currentStatus.length > 0) {
 				var existingWatchlist = view.watchlist.find(function (watch) {
-					return watch.get("tv_show_id") == view.tv.id;
+					return watch.get("tv_show_id") === view.tv.id;
 				});
 				
 				existingWatchlist.save(params, {
@@ -92,14 +93,13 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
     this.$el.html(content);
 		
 		if (this.user) {
-			var id = this.tv.id;
+			var tvId = this.tv.id;
 			
-			if (this.watchlist.getOrFetch(id)) {
-				var stat = this.user.attributes.watchlist_statuses[id];
-				this._applyStatus(stat);
+			if (this.watchlist.getOrFetch(tvId)) {
+				this._applyStatus(this.user.watchlistStatuses[tvId]);
 			}
 			
-			if (this.user.favorites().get(id)) {
+			if (this.user.favorites().get(tvId)) {
 				var $heartIcon = this.$el.find("li#favorite");
 				$heartIcon.addClass("is-favorite");
 			}

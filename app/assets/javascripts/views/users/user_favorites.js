@@ -12,7 +12,7 @@ CONZQ.Views.UserFavorites = Backbone.View.extend({
 		this.$el.html(content);
 		
 		var that = this;
-		_(this.favorites).each(function (show) {
+		this.favorites.each(function (show) {
 			var statusView = new CONZQ.Views.StatusesView({ tv: show });
 			
 			that.$el.find("div#statuses-container").html(statusView.render().$el);

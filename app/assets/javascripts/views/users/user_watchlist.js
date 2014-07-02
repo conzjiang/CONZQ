@@ -1,13 +1,25 @@
 CONZQ.Views.UserWatchlist = Backbone.View.extend({
 	initialize: function (options) {
-		this.watchlist = options.watchlist;
+		this.user = options.user;
+		
+		this.currentShows = this.user.currentShows();
+		this.planToShows = this.user.planToShows();
+		this.completedShows = this.user.completedShows();
+		this.droppedShows = this.user.droppedShows();
+		
 		this.statusViews = [];
 	},
 	
 	template: JST["users/watchlist"],
 	
 	render: function () {
-		var content = this.template({ watchlist: this.watchlist });
+		var content = this.template({ 
+			currentShows: this.currentShows,
+			planToShows: this.planToShows,
+			completedShows: this.completedShows,
+			droppedShows: this.droppedShows 
+		});
+		
 		this.$el.html(content);
 		
 		var shows = this.$el.find("ul").children();
@@ -26,9 +38,7 @@ CONZQ.Views.UserWatchlist = Backbone.View.extend({
 	},
 	
 	remove: function () {
-		_(this.statusViews).each(function (view) {
-			view.remove();
-		});
+		_(this.statusViews).each(function (view) { view.remove(); });
 		
 		return Backbone.View.prototype.remove.apply(this);
 	}

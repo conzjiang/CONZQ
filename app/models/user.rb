@@ -58,6 +58,18 @@ class User < ActiveRecord::Base
       watchlists.status = 'Dropped'"
     )
   end
+  
+  def watchlist_statuses
+    if @watchlist_hash.nil?
+      @watchlist_hash = {}
+      
+      self.watchlists.each do |watch|
+        @watchlist_hash[watch.tv_show_id] = watch.status 
+      end
+    end
+    
+    @watchlist_hash
+  end
 
   def password
     @password

@@ -1,6 +1,7 @@
 window.CONZQ = {
   Models: {},
   Collections: {},
+	Subsets: {},
   Views: {},
   Routers: {},
   initialize: function(rootEl, sidebar, main) {

@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :email, :created_at, :updated_at
+json.extract! user, :id, :username, :email, :watchlist_statuses, :created_at, :updated_at
 
 json.watchlists user.watchlists, partial: 'api/watchlist', as: :watchlist
 

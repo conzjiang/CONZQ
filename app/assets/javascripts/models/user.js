@@ -12,8 +12,9 @@ CONZQ.Models.User = Backbone.Model.extend({
 	},
 	
 	currentShows: function () {
+		debugger
 		if (!this._currentShows) {
-			this._currentShows = new CONZQ.Subsets.CurrentShows({
+			this._currentShows = new CONZQ.Subsets.CurrentShows([], {
 				parentCollection: CONZQ.allShows
 			});
 		}
@@ -23,7 +24,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	planToShows: function () {
 		if (!this._planToShows) {
-			this._planToShows = new CONZQ.Subsets.PlanToShows({
+			this._planToShows = new CONZQ.Subsets.PlanToShows([], {
 				parentCollection: CONZQ.allShows
 			});
 		}
@@ -33,7 +34,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	completedShows: function () {
 		if (!this._completedShows) {
-			this._completedShows = new CONZQ.Subsets.CompletedShows({
+			this._completedShows = new CONZQ.Subsets.CompletedShows([], {
 				parentCollection: CONZQ.allShows
 			});
 		}
@@ -43,7 +44,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	droppedShows: function () {
 		if (!this._droppedShows) {
-			this._droppedShows = new CONZQ.Subsets.DroppedShows({
+			this._droppedShows = new CONZQ.Subsets.DroppedShows([], {
 				parentCollection: CONZQ.allShows
 			});
 		}
@@ -53,7 +54,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	favorites: function () {
 		if (!this._favorites) {
-			this._favorites = new CONZQ.Subsets.Favorites({
+			this._favorites = new CONZQ.Subsets.Favorites([], {
 				parentCollection: CONZQ.allShows
 			});
 		}
@@ -63,7 +64,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	followers: function () {
 		if (!this._followers) {
-			this._followers = new CONZQ.Subsets.Followers({
+			this._followers = new CONZQ.Subsets.Followers([], {
 				parentCollection: CONZQ.users
 			});
 		}
@@ -73,7 +74,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	idols: function () {
 		if (!this._idols) {
-			this._idols = new CONZQ.Subsets.Idols({
+			this._idols = new CONZQ.Subsets.Idols([], {
 				parentCollection: CONZQ.users
 			});
 		}
@@ -94,7 +95,11 @@ CONZQ.Models.User = Backbone.Model.extend({
 	showlist: function () {
 		var uniqIds = [];
 		var uniqShows = [];
-		var allShows = this.watchlistShows().concat(this.favorites().models);
+		var allShows = this.currentShows().models
+												.concat(this.planToShows().models)
+												.concat(this.completedShows().models)
+												.concat(this.droppedShows().models)
+												.concat(this.favorites().models)
 		
 		_(allShows).each(function (show) {
 			if (uniqIds.indexOf(show.id) === -1) {
@@ -153,6 +158,11 @@ CONZQ.Models.User = Backbone.Model.extend({
 		if (response.posts) {
 			this.posts().set(response.posts);
 			delete response.posts;
+		}
+		
+		if (response.watchlist_statuses) {
+			this.watchlistStatuses = response.watchlist_statuses;
+			delete response.watchlist_statuses;
 		}
 		
 		return response;
