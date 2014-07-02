@@ -3,6 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //--------------------------------
 
+$headerPurple: #41002D;
+$prettyPink: #FD0D9D;
+$brightGreen: rgb(96, 238, 136);
+
+// NAV
+.watchlist-nav {
+	
+}
+
+.watchlist-nav > li {
+	display: block;
+	float: left;
+	
+	padding: 5px;
+	cursor: pointer;
+}
+
+.watchlist-nav > li.selected {
+	font-weight: 500;
+	border-bottom: 3px solid #000;
+}
+
+.watchlist-nav > li:hover {
+	background: $brightGreen;
+}
+
 // LIST ITEMS
 .watchlist > li {
 	position: relative;

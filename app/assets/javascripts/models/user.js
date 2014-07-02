@@ -12,7 +12,6 @@ CONZQ.Models.User = Backbone.Model.extend({
 	},
 	
 	currentShows: function () {
-		debugger
 		if (!this._currentShows) {
 			this._currentShows = new CONZQ.Subsets.CurrentShows([], {
 				parentCollection: CONZQ.allShows

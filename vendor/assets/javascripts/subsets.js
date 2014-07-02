@@ -18,7 +18,7 @@
   Subset.prototype = Object.create(Backbone.Collection.prototype);
 
   Subset.prototype._prepareModel = function(attrs, options) {
-    var existingInParent, id, tagetModel, parent;
+    var existingInParent, id, targetModel, parent;
     parent = this.parentCollection, targetModel = this.model;
 
     id = attrs[targetModel.prototype.idAttribute || 'id'];

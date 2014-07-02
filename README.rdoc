@@ -1,6 +1,15 @@
 == TODO
 
-* Watchlist index view - cache shows of different statuses to not call query straight from the page
+* Delete post event to trigger alert to make sure if user wants to delete
+* Display text if profile pages have nothing there
+* Delete shows from watchlist
+
+
+== REACH TODOS
+
+* TV show pages to display live stream of comments about show
+* User feeds
+
 
 
 Please feel free to use a different markup language if you do not plan to run

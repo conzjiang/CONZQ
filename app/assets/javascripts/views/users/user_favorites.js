@@ -1,8 +1,6 @@
 CONZQ.Views.UserFavorites = Backbone.View.extend({
 	initialize: function (options) {
 		this.favorites = options.favorites;
-		
-		this.statusViews = [];
 	},
 	
 	template: JST["users/favorites"],
@@ -11,19 +9,14 @@ CONZQ.Views.UserFavorites = Backbone.View.extend({
 		var content = this.template({ favorites: this.favorites });
 		this.$el.html(content);
 		
-		var that = this;
-		this.favorites.each(function (show) {
-			var statusView = new CONZQ.Views.StatusesView({ tv: show });
-			
-			that.$el.find("div#statuses-container").html(statusView.render().$el);
-			that.statusViews.push(statusView);
-		});
+		this.listView = new CONZQ.Views.ListSubview({ list: this.favorites });
+		this.$el.find("section#list-container").html(this.listView.render().$el);
 		
 		return this;
 	},
 	
 	remove: function () {
-		_(this.statusViews).each(function (view) { view.remove(); });
+		this.listView.remove();
 		
 		return Backbone.View.prototype.remove.apply(this);
 	}
