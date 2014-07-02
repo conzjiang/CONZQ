@@ -16,8 +16,10 @@ class Api::UsersController < ApplicationController
         favorite.save!
       end
     elsif params[:idol_id]
-      follow = current_user.follows.new(idol_id: params[:idol_id])
-      follow.save!
+      if !current_user.follows.find_by(idol_id: params[:idol_id]).try(:destroy!)
+        follow = current_user.follows.new(idol_id: params[:idol_id])
+        follow.save!
+      end
     end
     
     render partial: "api/users/user", locals: { user: @user }       

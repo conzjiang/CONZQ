@@ -10,11 +10,13 @@ CONZQ.Views.Followers = Backbone.View.extend({
 	
 	className: "follows",
 	
+	template: JST["users/followers"],
+	
 	events: {
-		"click .add-follow": "follow"
+		"click #follow-status": "changeFollowStatus"
 	},
 	
-	follow: function () {
+	changeFollowStatus: function () {
 		var $followButton = $(event.target);
 		var $userContainer = $followButton.closest("#follow");
 		var idolId = $userContainer.attr("data-id");
@@ -22,16 +24,26 @@ CONZQ.Views.Followers = Backbone.View.extend({
 		
 		view.currentUser.save({ idol_id: idolId }, {
 			success: function () {
-				view.followers.add(view.currentUser);
-				view.currentUser.idols().add(view.user);
+				var $otherButton;
+				
+				if ($followButton.html() === "Follow") {
+					view.followers.add(view.currentUser);
+					view.currentUser.idols().add(view.user);
+
+					$otherButton = $userContainer.find(".is-following");
+					
+				} else {
+					view.followers.remove(view.currentUser);
+					view.currentUser.idols().remove(view.user);
+					
+					$otherButton = $userContainer.find(".add-follow");
+				}
 				
 				$followButton.addClass("hide");
-				$userContainer.find(".is-following").removeClass("hide");
+				$otherButton.removeClass("hide");
 			}
 		});
 	},
-	
-	template: JST["users/followers"],
 	
 	render: function () {
 		var content = this.template({ followers: this.followers });
