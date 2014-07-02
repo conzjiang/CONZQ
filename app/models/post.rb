@@ -3,4 +3,6 @@ class Post < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :tv_show
+  
+  has_many :comments, inverse_of: :post, dependent: :destroy
 end

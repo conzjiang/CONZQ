@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   
   has_many :posts, inverse_of: :user, dependent: :destroy
   
+  has_many :comments, inverse_of: :commenter, dependent: :destroy
+  
   has_many :tv_shows,
     foreign_key: :admin_id,
     inverse_of: :admin
