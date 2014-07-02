@@ -16,19 +16,19 @@ CONZQ.Views.Followers = Backbone.View.extend({
 	
 	follow: function () {
 		var $followButton = $(event.target);
-		var idolId = $followButton.closest("#follow").attr("data-id");
+		var $userContainer = $followButton.closest("#follow");
+		var idolId = $userContainer.attr("data-id");
 		var view = this;
 		
 		view.currentUser.save({ idol_id: idolId }, {
 			success: function () {
 				view.followers.add(view.currentUser);
-				view.currentUser.followings.add(view.user);
+				view.currentUser.idols().add(view.user);
 				
 				$followButton.addClass("hide");
-				$followButton.closest(".is-following").removeClass("hide");
+				$userContainer.find(".is-following").removeClass("hide");
 			}
 		});
-		
 	},
 	
 	template: JST["users/followers"],
@@ -49,7 +49,7 @@ CONZQ.Views.Followers = Backbone.View.extend({
 			var $addFollow = $userContainer.find("div#follow-status.add-follow");
 			var $isFollowing = $userContainer.find("div#follow-status.is-following");
 			
-			if (_(view.currentUser.followers()).contains(follower)) {
+			if (view.currentUser.idols().contains(follower)) {
 				$addFollow.addClass("hide");
 			} else {
 				$isFollowing.addClass("hide");

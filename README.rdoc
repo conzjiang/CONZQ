@@ -3,6 +3,7 @@
 * Delete post event to trigger alert to make sure if user wants to delete
 * Display text if profile pages have nothing there
 * Delete shows from watchlist
+* Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
 
 
 == REACH TODOS
