@@ -3,15 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //----------------------------------
+$headerPurple: #41002D;
 
-h1 {
-	display: block;
-	font-size: 36px;
-	font-weight: bold;
-	text-align: center;
-	margin: 15px 0;
-}
 
+// PROFILE NAV
 .profile-nav ul {
   width: 640px;
   display: block;
@@ -23,12 +18,22 @@ h1 {
   padding: 10px 25px;
 }
 
-
-
-// POSTS
-.posts {
+// POST FORM
+textarea {
+	display: block;
+	width: 348px;
+	height: 58px;
+	margin: auto;
+	padding: 10px;
+	background: rgb(219, 203, 216);
 }
 
+textarea:focus {
+	padding: 9px;
+	border: 1px solid $headerPurple;
+}
+
+// POSTS
 .posts > li {
 	position: relative;
 	display: block;
