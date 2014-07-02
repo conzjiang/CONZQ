@@ -25,12 +25,7 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 				
 				break;
 			case "Follows":
-				view = new CONZQ.Views.UserFollows({ 
-					user: this.user,
-					followers: this.user.followers(),
-					idols: this.user.idols() 
-				});
-				
+				view = new CONZQ.Views.UserFollows({ user: this.user });
 				break;
 			default:
 				view = new CONZQ.Views.UserWall({ user: this.user });

@@ -1,8 +1,9 @@
 CONZQ.Views.UserFollows = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
-		this.followers = options.followers;
-		this.idols = options.idols;
+		
+		this.followers = this.user.followers();
+		this.idols = this.user.idols();
 	},
 	
 	template: JST["users/follows"],
@@ -18,8 +19,8 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 		switch(selection) {
 			case "Followers":
 				view = new CONZQ.Views.Followers({ 
-					followers: this.followers,
-					user: this.user
+					user: this.user,
+					followers: this.followers 
 				});
 				
 				$other = this.$el.find("#idols");

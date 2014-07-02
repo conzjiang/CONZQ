@@ -159,10 +159,15 @@ CONZQ.Models.User = Backbone.Model.extend({
 			delete response.posts;
 		}
 		
+		// CURRENT USER HELPER METHODS
 		if (response.watchlist_statuses) {
 			this.watchlistStatuses = response.watchlist_statuses;
 			delete response.watchlist_statuses;
 		}
+		
+		// // FOLLOWER HELPER METHODS
+// 		if (response.currentCount) this.currentCount = response.currentCount;
+// 		if (response.favoritesCount) this.favoritesCount = response.favoritesCount;
 		
 		return response;
 	}

@@ -37,6 +37,23 @@ CONZQ.Views.Followers = Backbone.View.extend({
 		var content = this.template({ followers: this.followers });
 		this.$el.html(content);
 		
+		if (this.currentUser) this._applyFollowStatus();
+		
 		return this;
+	},
+	
+	_applyFollowStatus: function () {
+		var view = this;
+		view.followers.each(function (follower) {
+			var $userContainer = view.$el.find("li[data-id='" + follower.id + "']");
+			var $addFollow = $userContainer.find("div#follow-status.add-follow");
+			var $isFollowing = $userContainer.find("div#follow-status.is-following");
+			
+			if (_(view.currentUser.followers()).contains(follower)) {
+				$addFollow.addClass("hide");
+			} else {
+				$isFollowing.addClass("hide");
+			}
+		});
 	}
 })

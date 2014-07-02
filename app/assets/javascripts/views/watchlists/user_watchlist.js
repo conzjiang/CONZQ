@@ -24,7 +24,6 @@ CONZQ.Views.UserWatchlist = Backbone.View.extend({
 				
 					break;
 				case "Plan to Watch":
-					debugger
 					view = new CONZQ.Views.ListSubView({
 						list: this.user.planToShows()
 					});

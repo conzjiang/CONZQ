@@ -8,10 +8,6 @@
 	cursor: pointer;
 }
 
-.hide {
-	display: none;
-}
-
 .unfocus {
 	color: #ccc;
 }
@@ -22,6 +18,8 @@
 
 .follows > li {
 	position: relative;
+	width: 280px;
+	margin: 10px;
 	border: 1px solid #000;
 }
 
@@ -41,52 +39,70 @@
 	font-size: 12px;
 }
 
+.user-info > li:nth-child(2) {
+	padding: 2px 0;
+}
+
 .user-info > li.username {
 	font-size: 16px;
 }
 
-.add-follow {
-	padding: 2px 5px;
+#follow-status {
+	display: inline-block;
+	position: relative;
+	bottom: 2px;
+	padding: 2px 5px 0px 5px;
 	border: 1px solid #27386F;
 	
 	font-size: 12px;
 	color: #27386F;
-	text-transform: uppercase;
 	
 	background: #D2EDFA;
 	cursor: pointer;
 }
 
-.add-follow:hover {
+#follow-status.add-follow {
+	text-transform: uppercase;
+}
+
+#follow-status.add-follow:hover {
 	background: blue;
 }
 
-.is-following {
-	padding: 2px 5px;
-	border: 1px solid #135D0B;
-	
-	font-size: 12px;
+#follow-status.is-following {
+	border-color: #135D0B;
 	color: #135D0B;
 	
 	background: #A7FF96;
-	cursor: pointer;
 }
 
-.is-following:hover {
+#follow-status.is-following:hover {
 	background: gray;
 }
 
-.is-following:active {
+#follow-status.is-following:active {
 	color: black;
 }
 
+#follow-status.add-follow.hide,
+#follow-status.is-following.hide {
+	display: none;
+}
+
 .heart {
-	display: block;
+	display: inline-block;
 	width: 15px;
 	height: 15px;
-	margin-right: 5px;
+	margin-right: 2px;
 	background: url("status-sprite.png");
+	background-size: cover;
 	background-position: 15px 0;
+}
+
+.user-info > li > p {
+	display: inline;
+	position: relative;
+	bottom: 3px;
 }
 
 
