@@ -3,7 +3,7 @@ CONZQ.Collections.UserPosts = Backbone.Collection.extend({
 		this.user = options.user;
 	},
 	
-	model: CONZQ.Models.Post,
+	model: CONZQ.Models.UserPost,
 
 	url: function () {
 		return this.user.url() + "/posts";
