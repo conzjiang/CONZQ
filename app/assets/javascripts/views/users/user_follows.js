@@ -13,25 +13,29 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 	},
 	
 	toggleView: function () {
-		var selection = $(event.target).html();
+		var $selection = $(event.target);
 		var view, $other;
 		
-		switch(selection) {
-			case "Followers":
-				view = new CONZQ.Views.Followers({ 
+		switch($selection.html()) {
+			case "followers":
+				view = new CONZQ.Views.UsersSubView({ 
 					user: this.user,
-					followers: this.followers 
+					usersList: this.followers 
 				});
 				
 				$other = this.$el.find("#idols");
 				break;
-			case "Followings":
-				// view = new CONZQ.Views.Idols({ idols: this.idols });
+			case "followings":
+				view = new CONZQ.Views.UsersSubView({
+					user: this.user,
+					usersList: this.idols
+				});
+				
 				$other = this.$el.find("#followers");
 				break;
 		}
 		
-		selection.removeClass("unfocus");
+		$selection.removeClass("unfocus");
 		$other.addClass("unfocus");
 		this._swapViews(view);
 	},
@@ -39,8 +43,9 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 	render: function () {
 		this.$el.html(this.template());
 		
-		var followersView = new CONZQ.Views.Followers({
-			followers: this.followers
+		var followersView = new CONZQ.Views.UsersSubView({
+			user: this.user,
+			usersList: this.followers
 		});
 		
 		this._swapViews(followersView);

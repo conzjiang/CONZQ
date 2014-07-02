@@ -13,12 +13,16 @@ window.CONZQ = {
 		
     CONZQ.allShows = new CONZQ.Collections.TvShows();
 		CONZQ.users = new CONZQ.Collections.Users();
+		CONZQ.miniUserViews = new CONZQ.Collections.Users();
 		
 		if (window.currentUser) {
 			CONZQ.currentUser = new CONZQ.Models.User({ id: window.currentUser.id });
 			
 			$.when(CONZQ.allShows.fetch(), CONZQ.currentUser.fetch())
-				.done(function () { CONZQ.startRouter(els); });
+				.done(function () {
+					CONZQ.users.add(CONZQ.currentUser);
+					CONZQ.startRouter(els);
+				});
 				
 		} else {
 			CONZQ.allShows.fetch({

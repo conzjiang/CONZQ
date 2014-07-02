@@ -4,6 +4,7 @@
 * Display text if profile pages have nothing there
 * Delete shows from watchlist
 * Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
+* When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
 
 
 == REACH TODOS

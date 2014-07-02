@@ -30,18 +30,11 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
   },	
 	
 	userShow: function (id) {
-		var user = new CONZQ.Models.User({ id: id });
-		var that = this;
-		
-		user.fetch({
-			success: function () {
-				var userShowView = new CONZQ.Views.UserShow({
-					user: user 
-				});
-			
-				that._swapViews(userShowView);
-			}
+		var userShowView = new CONZQ.Views.UserShow({
+			user: CONZQ.users.getOrFetch(id) 
 		});
+	
+		this._swapViews(userShowView);
 	},
 
   _swapViews: function (view) {

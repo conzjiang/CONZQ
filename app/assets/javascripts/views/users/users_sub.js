@@ -1,16 +1,19 @@
-CONZQ.Views.Followers = Backbone.View.extend({
+CONZQ.Views.UsersSubView = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
-		this.followers = options.followers;
+		this.usersList = options.usersList;
 		
 		if (CONZQ.currentUser) this.currentUser = CONZQ.currentUser;
+		
+		this.listenTo(this.user.followers(), "add remove", this.render);
+		this.listenTo(this.user.idols(), "add remove", this.render);
 	},
 	
 	tagName: "ul",
 	
-	className: "follows",
+	className: "users-list",
 	
-	template: JST["users/followers"],
+	template: JST["users/subview"],
 	
 	events: {
 		"click #follow-status": "changeFollowStatus"
@@ -20,35 +23,40 @@ CONZQ.Views.Followers = Backbone.View.extend({
 		var $followButton = $(event.target);
 		var $userContainer = $followButton.closest("#follow");
 		var idolId = $userContainer.attr("data-id");
+		
 		var view = this;
 		
 		view.currentUser.save({ idol_id: idolId }, {
 			success: function () {
 				var $otherButton;
+				var idol = CONZQ.users.getOrFetch(idolId);
 				
-				if ($followButton.html() === "Follow") {
-					view.followers.add(view.currentUser);
-					view.currentUser.idols().add(view.user);
+				idol.fetch({
+					success: function () {
+						if ($followButton.html() === "Follow") {
+							idol.followers().add(view.currentUser);
+							view.currentUser.idols().add(idol);
 
-					$otherButton = $userContainer.find(".is-following");
+							$otherButton = $userContainer.find(".is-following");
 					
-				} else {
-					view.followers.remove(view.currentUser);
-					view.currentUser.idols().remove(view.user);
+						} else {
+							idol.followers().remove(view.currentUser);
+							view.currentUser.idols().remove(idol);
 					
-					$otherButton = $userContainer.find(".add-follow");
-				}
-				
-				$followButton.addClass("hide");
-				$otherButton.removeClass("hide");
+							$otherButton = $userContainer.find(".add-follow");
+						}
+						
+						$followButton.addClass("hide");
+						$otherButton.removeClass("hide");
+					}
+				});
 			}
 		});
 	},
 	
 	render: function () {
-		var content = this.template({ followers: this.followers });
+		var content = this.template({ usersList: this.usersList });
 		this.$el.html(content);
-		
 		if (this.currentUser) this._applyFollowStatus();
 		
 		return this;
@@ -56,7 +64,8 @@ CONZQ.Views.Followers = Backbone.View.extend({
 	
 	_applyFollowStatus: function () {
 		var view = this;
-		view.followers.each(function (follower) {
+		
+		view.usersList.each(function (follower) {
 			var $userContainer = view.$el.find("li[data-id='" + follower.id + "']");
 			var $addFollow = $userContainer.find("div#follow-status.add-follow");
 			var $isFollowing = $userContainer.find("div#follow-status.is-following");

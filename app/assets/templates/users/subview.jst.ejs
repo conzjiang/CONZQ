@@ -1,12 +1,12 @@
-<% followers.each(function (follower) { %>
-	<li id="follow" data-id="<%= follower.id %>">
-		<a href="/#/users/<%= follower.id %>">
+<% usersList.each(function (user) { %>
+	<li id="follow" data-id="<%= user.id %>">
+		<a href="/#/users/<%= user.id %>">
 			<img src="/images/missing_thumb.jpg">
 		</a>
 		
 		<ul class="user-info">
 			<li class="username">
-				<%= follower.escape("username") %>
+				<%= user.escape("username") %>
 				
 				<% if (CONZQ.currentUser) { %>
 				<div id="follow-status" class="add-follow">Follow</div>
@@ -15,12 +15,12 @@
 			</li>
 			<li>
 				currently watching
-				<strong><%= follower.escape("currentCount") %></strong> shows
+				<strong><%= user.escape("currentCount") %></strong> shows
 			</li>
 			
 			<li>
 				<span class="heart"></span>
-				<p><%= follower.escape("favoritesCount") %> favorite shows</p>
+				<p><%= user.escape("favoritesCount") %> favorite shows</p>
 			</li>
 		</ul>
 

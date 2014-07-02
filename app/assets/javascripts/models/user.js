@@ -64,7 +64,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	followers: function () {
 		if (!this._followers) {
 			this._followers = new CONZQ.Subsets.Followers([], {
-				parentCollection: CONZQ.users
+				parentCollection: CONZQ.miniUserViews
 			});
 		}
 		
@@ -74,7 +74,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	idols: function () {
 		if (!this._idols) {
 			this._idols = new CONZQ.Subsets.Idols([], {
-				parentCollection: CONZQ.users
+				parentCollection: CONZQ.miniUserViews
 			});
 		}
 		
