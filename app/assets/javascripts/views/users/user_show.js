@@ -1,6 +1,8 @@
 CONZQ.Views.UserShow = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
+		
+		this.listenTo(this.user, "sync", this.render);
 	},
 	
 	template: JST["users/show"],

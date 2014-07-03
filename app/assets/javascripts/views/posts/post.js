@@ -74,10 +74,13 @@ CONZQ.Views.Post = Backbone.View.extend({
 	},
 	
 	render: function () {
+		var isThisUser;
+		if (CONZQ.currentUser) isThisUser = CONZQ.currentUser.id === this.user.id;
+		
 		var content = this.template({
 			post: this.post,
 			signedIn: !!CONZQ.currentUser,
-			isThisUser: CONZQ.currentUser.id === this.user.id
+			isThisUser: isThisUser
 		});
 		
 		this.$el.html(content);

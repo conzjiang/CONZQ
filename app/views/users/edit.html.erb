@@ -1,4 +1,10 @@
-<section class="user-fun-facts">
+<h1>Your Profile</h1>
+
+<form class="user-form" action="<%= user_url(@user) %>" method="post" 
+	enctype="multipart/form-data">
+	<%= form_auth %>
+	<input type="hidden" name="_method" value="put">
+	
   <div class="input-group">
 		<label for="user_bio">
 			Give us a little something to share on your profile! ☺
@@ -10,4 +16,9 @@
 		<label for="user_photo">Profile Picture:</label>
 		<input id="user_photo" type="file" name="user[photo]">
 	</div>
-</section>
+	
+	<center>
+		<button>Submit</button>
+		<a href="/#/users/<%= @user.id %>">Skip</a>
+	</center>
+</form>

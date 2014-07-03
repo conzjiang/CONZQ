@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   validates :username, :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  
+  has_attached_file :photo
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   has_many :watchlists, dependent: :destroy
   has_many :watchlist_shows, through: :watchlists, source: :tv_show

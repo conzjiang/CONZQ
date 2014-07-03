@@ -82,9 +82,10 @@ h1 { /* PROFILE HEADER */
 }
 
 h2 { /* PROFILE SECTION TITLES */
+	margin: 10px;
   font-weight: bold;
   font-size: 30px;
-  margin: 10px 0;
+  text-align: center;
 }
 
 h3 { /* SEARCH RESULT TITLES */
@@ -137,6 +138,10 @@ ul.nav > li > a {
 	
 	font-weight: 500;
 	font-size: 14px;
+}
+
+ul.nav > li:last-child > a {
+	padding-right: 10px;
 }
 
 a.discover {
@@ -225,7 +230,7 @@ a.discover {
 /*CONTAINERS*/
 .container {
 	position: relative;
-	width: 750px;
+	width: 772px;
 	margin: auto;
 }
 

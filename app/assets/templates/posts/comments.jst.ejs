@@ -11,7 +11,8 @@
 		<span class="time"><%= createdAt %></span>
 	</p>
 	
-	<% if ((CONZQ.currentUser.id === commenter.id) || (isPostAuthor)) { %>
+	<% if ((CONZQ.currentUser) && 
+				((CONZQ.currentUser.id === commenter.id) || (isPostAuthor))) { %>
 	<div class="delete-view">
 		<div class="comment-delete">
 			<button id="cancel">Cancel</button>

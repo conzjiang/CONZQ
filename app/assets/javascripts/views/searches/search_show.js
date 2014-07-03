@@ -38,15 +38,18 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 	
 	render: function () {
 		var view = this;
+		var resultsExist = view.results instanceof Object;
 		
-		view.$el.html(view.template());
+		view.$el.html(view.template({ resultsExist: resultsExist }));
 		
-		_(view.results).each(function (show) {
-			var resultView = new CONZQ.Views.SearchResult({ tv: show });
+		if (resultsExist) {
+			_(view.results).each(function (show) {
+				var resultView = new CONZQ.Views.SearchResult({ tv: show });
 			
-			view.$el.find("ul.results").append(resultView.render().$el);
-			view.resultViews.push(resultView);
-		});
+				view.$el.find("ul.results").append(resultView.render().$el);
+				view.resultViews.push(resultView);
+			});
+		}
 		
 		return view;
 	},

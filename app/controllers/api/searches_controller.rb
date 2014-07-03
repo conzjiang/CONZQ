@@ -8,7 +8,7 @@ class Api::SearchesController < ApplicationController
         results: @results 
       }
     else
-      render "No results!"
+      render json: { results: "No results!" }
     end
   end
 

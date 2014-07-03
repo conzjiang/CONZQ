@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   def root
-
+    
   end
 
   def new
-
+    
   end
 
   def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
                                      params[:user][:password])
     if @user
       login!(@user)
-      redirect_to @user
+      redirect_to root_url
     else
       flash.now[:errors] = ["Incorrect username/password combination"]
       render :new

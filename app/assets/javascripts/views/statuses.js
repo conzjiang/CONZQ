@@ -68,7 +68,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 		var view = this;
 		
 		if (!view.user) {
-			view.displayMessage($heartIcon, 
+			view._displayMessage($heartIcon, 
 				"You must be logged in to do view!", "login-error");
 			
 		} else {

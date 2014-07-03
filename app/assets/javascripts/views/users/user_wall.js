@@ -21,12 +21,15 @@ CONZQ.Views.UserWall = Backbone.View.extend({
 	},
 	
 	render: function () {
+		var isThisUser;
+		if (CONZQ.currentUser) isThisUser = CONZQ.currentUser.id === this.user.id;
+		
 		var content = this.template({
 			
 			user: this.user,
 			userShowlist: this.user.showlist(),
 			posts: this.posts.length > 0,
-			isThisUser: CONZQ.currentUser.id === this.user.id
+			isThisUser: isThisUser
 		
 		});
 		

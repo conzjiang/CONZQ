@@ -20,12 +20,7 @@ CONZQ::Application.routes.draw do
   # --------------------------------------------------
   # RAILS
 
-  resources :users do
-    resources :watchlists, only: [:index]
-    resources :favorites, only: [:index]
-    resources :follows, only: [:index, :create]
-  end
-
+  resources :users
   resource :session
   resource :search, only: [:new]
 

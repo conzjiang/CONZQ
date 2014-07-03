@@ -9,7 +9,7 @@ CONZQ.Views.UserFavorites = Backbone.View.extend({
 		var content = this.template({ favorites: this.favorites });
 		this.$el.html(content);
 		
-		this.listView = new CONZQ.Views.ListSubview({ list: this.favorites });
+		this.listView = new CONZQ.Views.ListSubView({ list: this.favorites });
 		this.$el.find("section#list-container").html(this.listView.render().$el);
 		
 		return this;
@@ -17,7 +17,6 @@ CONZQ.Views.UserFavorites = Backbone.View.extend({
 	
 	remove: function () {
 		this.listView.remove();
-		
 		return Backbone.View.prototype.remove.apply(this);
 	}
 });

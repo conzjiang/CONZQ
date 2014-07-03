@@ -39,9 +39,14 @@ CONZQ.Views.PostComments = Backbone.View.extend({
 	},
 	
 	render: function () {
+		var isPostAuthor;
+		if (CONZQ.currentUser) {
+			isPostAuthor = CONZQ.currentUser.id == this.post.get("user_id");
+		}
+		
 		var content = this.template({
 			comments: this.comments,
-			isPostAuthor: CONZQ.currentUser.id == this.post.get("user_id")
+			isPostAuthor: isPostAuthor
 		});
 		
 		this.$el.html(content);
