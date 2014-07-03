@@ -86,6 +86,6 @@ CONZQ.Views.Post = Backbone.View.extend({
 	
 	remove: function () {
 		if (this.commentsView) this.commentsView.remove();
-		return Backbone.View.protoype.remove.apply(this);
+		return Backbone.View.prototype.remove.apply(this);
 	}
 });

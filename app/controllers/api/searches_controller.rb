@@ -1,5 +1,5 @@
 class Api::SearchesController < ApplicationController
-  def create
+  def show
     @results = run_query(params[:search])
     
     unless @results.empty?

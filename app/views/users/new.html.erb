@@ -4,28 +4,25 @@
 
 <%= render partial: "layouts/error" %>
 
-<form action="<%= users_url %>" method="post">
+<form class="user-form" action="<%= users_url %>" method="post">
   <%= form_auth %>
+	
+  <div class="input-group">
+	  <label for="user_email">Email:</label>
+	  <input id="user_email" type="text" name="user[email]">
+	</div>
+	
+	<div class="input-group">
+		<label for="user_username">Username:</label>
+	  <input id="user_username" type="text" name="user[username]">
+	</div>
+	
+  <div class="input-group">
+		<label for="user_password">Password:</label>
+	  <input id="user_password" type="password" name="user[password]">
+	</div>
 
-  <label>
-    Username:<br>
-    <input type="text" name="user[username]">
-  </label>
-  <br>
-
-  <label>
-    Email:<br>
-    <input type="text" name="user[email]">
-  </label>
-  <br>
-
-  <label>
-    Password:<br>
-    <input type="password" name="user[password]">
-  </label>
-  <br>
-
-  <button>Sign Up!</button>
+  <center><button>Sign Up!</button></center>
 </form>
 
 </section>

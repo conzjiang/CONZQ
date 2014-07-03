@@ -52,7 +52,7 @@ body {
 	background: rgb(248, 236, 255);
 }
 
-div {
+div, img, label {
   display: block;
 }
 
@@ -65,8 +65,12 @@ ul {
   list-style: none;
 }
 
-img {
-  display: block;
+input[type="file"] {
+	background: none;
+}
+
+input:focus, textarea:focus {
+	border: 1px solid #41002D;
 }
 
 h1 { /* PROFILE HEADER */
@@ -103,7 +107,7 @@ h3 { /* SEARCH RESULT TITLES */
 }
 
 .header > section {
-	width: 750px;
+	width: 772px;
 	margin: auto;
 }
 
@@ -222,7 +226,6 @@ a.discover {
 .container {
 	position: relative;
 	width: 750px;
-	height: auto;
 	margin: auto;
 }
 
@@ -246,7 +249,10 @@ a.discover {
 	left: 0;
 	
 	width: 750px;
-	min-height: 625px;
+	min-height: 525px;
+	margin-bottom: 50px;
+	padding: 10px;
+	padding-bottom: 100px;
 	display: block;
 	
 	background: #fff;
@@ -264,6 +270,47 @@ a.discover {
 	left: 125px;
   box-shadow: -3px 0 5px rgba(6,6,6,0.2);
 	
+}
+
+/* FORMS */
+form.user-form {
+	width: 500px;
+	margin: auto;
+	margin-bottom: 50px;
+	padding: 50px;
+	border: 1px solid #eee;
+}
+
+form.user-form .input-group {
+	width: 300px;
+	margin: auto;
+}
+
+form.user-form label {
+	padding-bottom: 5px;
+	font-weight: 500;
+}
+
+form.user-form input, textarea {
+	width: 300px;
+	padding: 5px;
+	margin-bottom: 20px;
+	background: rgb(219, 203, 216);
+}
+
+form.user-form input:focus, textarea:focus {
+	padding: 4px;
+}
+
+form.user-form textarea {
+	height: 100px;
+}
+
+form.user-form button {
+	padding: 5px 10px;
+	color: #fff;
+	text-align: center;
+	background: #41002D;
 }
 
 /*STATUSES*/

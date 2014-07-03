@@ -1,7 +1,7 @@
 <h1>my name is <%= user.escape("username") %></h1>
 
 <section class="profile-nav group">
-	<ul>
+	<ul class="group">
 	<% _(["Main", "Watchlist", "Favorites", "Follows"]).each(function (nav) { %>
 		<li>
 			<a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a>

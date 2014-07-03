@@ -53,7 +53,7 @@ CONZQ.Views.UserWall = Backbone.View.extend({
 	},
 	
 	remove: function () {
-		this.postViews.each(function (view) { view.remove(); });
+		_(this.postViews).each(function (view) { view.remove(); });
 		return Backbone.View.prototype.remove.apply(this);
 	}
 });

@@ -18,13 +18,13 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 		
 		if (prevSearch) {
 			results = prevSearch.get("results");
-			debugger
+			
 			var searchView = new CONZQ.Views.SearchShow({ results: results });
 			CONZQ.appRouter._swapViews(searchView);
 			
 		} else {
 			$.ajax({
-				type: "post",
+				type: "get",
 				url: '/api/search',
 				data: params,
 				success: function (searchData) {
@@ -32,7 +32,11 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 					CONZQ.searches.add(search);
 					
 					results = searchData.results;
-					var searchView = new CONZQ.Views.SearchShow({ results: results });
+					var searchView = new CONZQ.Views.SearchShow({
+						search: search, 
+						results: results 
+					});
+					
 					CONZQ.appRouter._swapViews(searchView);
 				}
 			});

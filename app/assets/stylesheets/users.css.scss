@@ -8,7 +8,7 @@ $headerPurple: #41002D;
 
 // PROFILE NAV
 .profile-nav ul {
-  width: 640px;
+  width: 418px;
   display: block;
   margin: auto;
 }
@@ -205,10 +205,12 @@ li.expand .x {
 	background: #FF4F4F;
 }
 
+.delete-view button#cancel-post:hover,
 .delete-view button#cancel:hover {
 	background: #767676;
 }
 
+.delete-view button#delete-post:hover,
 .delete-view button#delete:hover {
 	background: #f00;
 }

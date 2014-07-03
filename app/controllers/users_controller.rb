@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      redirect_to @user
+      flash[:notice] = "Give us a little something to share on your profile! ☺"
+      redirect_to edit_user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -16,6 +17,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+  end
+  
+  def edit
     @user = User.find(params[:id])
   end
 
