@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :check_user, only: [:create, :destroy]
+  before_action :check_user, only: [:destroy]
   
   def show
     @post = Post.find(params[:id])
@@ -11,7 +11,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params.merge({ user_id: current_user.id }))
     
     if @post.save
-      render json: @post
+      render partial: 'api/posts/post', locals: { post: @post }
     else
       render json: { errors: @post.errors.full_messages }, 
              status: :unprocessable_entity
@@ -19,14 +19,28 @@ class Api::PostsController < ApplicationController
   end
   
   def update
-    @post = Post.find(params[:id])
-    
     if params[:comment]
-      @comment = @post.comments.new(comment_params.merge({
-        commenter_id: current_user.id
-      }))
+      destroyed_comment = Comment.find_by(id: params[:comment][:id])
+                                 .try(:destroy!)
       
-      render json: @comment if @comment.save
+      if destroyed_comment
+        render partial: 'api/comments/comment', locals: { 
+          comment: destroyed_comment
+        }
+      else
+        post = Post.find(params[:id])
+        
+        comment = post.comments.new(comment_params.merge({
+          commenter_id: current_user.id
+        }))
+      
+        if comment.save
+          render partial: 'api/comments/comment', locals: { comment: comment }
+        else
+          render json: { errors: post.errors.full_messages }, 
+                 status: :unprocessable_entity
+        end
+      end
     end
   end
   
@@ -46,7 +60,9 @@ class Api::PostsController < ApplicationController
   end
   
   def check_user
-    if current_user.id != params[:user_id].to_i
+    post = Post.find(params[:id])
+    
+    if current_user.id != post.user_id
       render json: { errors: "Nacho cheese" },
              status: :unprocessable_entity
     end

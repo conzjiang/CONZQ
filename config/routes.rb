@@ -5,11 +5,9 @@ CONZQ::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :update] do
       resources :watchlists, only: [:create, :update, :destroy]
-      
-      resources :posts, only: [:create]
     end
     
-    resources :posts, only: [:show, :update, :destroy] do
+    resources :posts, only: [:create, :show, :update, :destroy] do
       resources :comments, only: [:show]
     end
     

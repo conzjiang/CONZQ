@@ -7,6 +7,7 @@
 * When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
+* Center post deletes vertically
 
 
 == REACH TODOS

@@ -1,13 +1,26 @@
+<% if (comments.length > 0) { %>
 <% comments.each(function (comment) { %>
 <li id="comment" data-id="<%= comment.id %>">
 	<p><%= comment.escape("body") %></p>
 	<p class="comment-info">
-		<a href="/#/users/<%= comment.escape("commenter").id %>">
-			<%= comment.escape("commenter").username %>
-		</a>
+		
+		<% var commenter = comment.commenter || comment.get("commenter") %>
+		<a href="/#/users/<%= commenter.id %>"><%= commenter.username %></a>
 		
 		<% var createdAt = $.timeago(comment.escape("created_at")) %>
 		<span class="time"><%= createdAt %></span>
 	</p>
+	
+	<% if ((CONZQ.currentUser.id === commenter.id) || (isPostAuthor)) { %>
+	<div class="delete-view">
+		<div class="comment-delete">
+			<button id="cancel">Cancel</button>
+			<button id="delete">Delete</button>
+		</div>
+	</div>
+	<% } %>
 </li>
 <% }) %>
+<% } else { %>
+<li>No comments!</li>
+<% } %>

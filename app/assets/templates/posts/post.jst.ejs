@@ -23,10 +23,31 @@
 		<input type="submit" value="Submit">
 	</form>
 	<% } %>
+	
+	<% if (isThisUser) { %>
+	<div class="delete-view">
+		<div class="post-delete">
+			<p>Delete post?</p>
+			<button id="cancel-post">Cancel</button>
+			<button id="delete-post">Delete</button>
+		</div>
+	</div>
+	<% } %>
 </section>
 
 <section class="comments-right"></section>
 
-<% if (isThisUser) { %>			
 <strong class="x">&times;</strong>
-<% } %>
+
+
+
+
+<!-- CLEAR HIGHLIGHT ON DOUBLE CLICK -->
+<script type="text/javascript">
+document.ondblclick = function(evt) {
+    if (window.getSelection)
+        window.getSelection().removeAllRanges();
+    else if (document.selection)
+        document.selection.empty();
+}
+</script>

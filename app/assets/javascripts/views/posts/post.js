@@ -9,29 +9,19 @@ CONZQ.Views.Post = Backbone.View.extend({
 	
 	tagName: "li",
 	
+	id: "post",
+	
 	className: "group",
 	
 	template: JST["posts/post"],
 	
 	events: {
-		"submit form#post-form": "createPost",
-		"click .x": "deletePost",
 		"click #view-comments": "expand",
-		"submit form#comment-form": "createComment"
-	},
-	
-	createPost: function () {
-		event.preventDefault();
-		var params = $(event.target).serializeJSON();
-		this.postsCollection.create(params, { wait: true, sort: true });
-	},
-	
-	deletePost: function () {
-		var $post = $(event.target).closest("li");
-		var postId = $post.attr("data-id");
-		var post = this.postsCollection.get(postId);
-
-		post.destroy();
+		"submit form#comment-form": "createComment",
+		"click .x": "closePost",
+		"dblclick section.post-left": "showDelete",
+		"click button#delete-post": "deletePost",
+		"click button#cancel-post": "cancelDelete"
 	},
 	
 	expand: function () {
@@ -39,6 +29,7 @@ CONZQ.Views.Post = Backbone.View.extend({
 		$post.addClass("expand");
 		
 		this.commentsView = new CONZQ.Views.PostComments({
+			post: this.post,
 			comments: this.post.comments()
 		});
 		
@@ -48,16 +39,38 @@ CONZQ.Views.Post = Backbone.View.extend({
 	createComment: function () {
 		event.preventDefault();
 		
-		var $form = $(event.target);
-		var commentParams = $form.serializeJSON();
+		var $formData = $(event.target);
+		var commentParams = $formData.serializeJSON();
 		
 		var comments = this.post.comments();
+		var view = this;
 		
-		this.post.save(commentParams, {
+		view.post.save(commentParams, {
 			success: function (comment) {
 				comments.add(comment);
+				view.$el.find("textarea").val("");
 			}
 		});
+	},
+	
+	closePost: function () {
+		$(event.target).closest("li").removeClass("expand");
+	},
+	
+	showDelete: function () {
+		$(event.currentTarget).find("section.post-left").toggleClass("delete");
+	},
+	
+	cancelDelete: function () {
+		$(event.currentTarget).find("section.post-left").removeClass("delete");
+	},
+	
+	deletePost: function () {
+		var $post = $(event.target).closest("li#post");
+		var postId = $post.attr("data-id");
+		var post = this.postsCollection.get(postId);
+
+		post.destroy();
 	},
 	
 	render: function () {

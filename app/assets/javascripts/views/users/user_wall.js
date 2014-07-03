@@ -4,10 +4,21 @@ CONZQ.Views.UserWall = Backbone.View.extend({
 		this.posts = this.user.posts();
 		this.postViews = [];
 		
-		this.listenTo(this.posts, "sync add remove", this.render);
+		this.listenTo(this.posts, "add remove", this.render);
 	},
 	
 	template: JST["users/wall"],
+	
+	events: {
+		"submit form#post-form": "createPost"
+	},
+	
+	createPost: function () {
+		event.preventDefault();
+		var params = $(event.target).serializeJSON();
+		
+		this.posts.create(params, { wait: true, sort: true });
+	},
 	
 	render: function () {
 		var content = this.template({

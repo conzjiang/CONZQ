@@ -6,6 +6,6 @@ CONZQ.Collections.PostComments = Backbone.Collection.extend({
 	model: CONZQ.Models.PostComment,
 	
 	url: function () {
-		return this.post.url() + "/comments";
+		return "/api/posts/" + this.post.id + "/comments";
 	}
 });

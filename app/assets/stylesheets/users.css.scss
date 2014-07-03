@@ -34,10 +34,6 @@ form#post-form > textarea:focus {
 }
 
 // POSTS
-section.post-left {
-	float: left;
-}
-
 .posts > li {
 	position: relative;
 	display: block;
@@ -46,11 +42,18 @@ section.post-left {
 	padding: 17px 13px;
 	margin: 10px auto;
 	border: 1px solid #000;
+	
+	-webkit-tap-highlight-color:transparent;
+}
+
+section.post-left {
+	position: relative;
+	float: left;
 }
 
 .post-info {
 	display: block;
-	width: 278px;
+	width: 294px;
 }
 
 .post-body {
@@ -59,7 +62,7 @@ section.post-left {
 
 .post-bottom > li {
 	float: left;
-	padding-right: 7px;
+	padding-right: 5px;
 }
 
 .post-bottom > .comment-link,
@@ -86,16 +89,6 @@ section.post-left {
 	background: #D2EDFA;
 }
 
-.posts > li > .x {
-	position: absolute;
-	top: -5px;
-	right: 0;
-	
-	padding: 5px;
-	font-size: 24px;
-	cursor: pointer;
-}
-
 // POST EXPAND - COMMENTS VIEW
 .posts > li.expand {
 	width: 514px;
@@ -110,7 +103,7 @@ section.comments-right {
 	display: none;
 	float: right;
 	width: 190px;
-	height: auto;
+	max-height: 216px;
 	padding: 5px;
 	font-size: 12px;
 	
@@ -119,6 +112,7 @@ section.comments-right {
 }
 
 .comments > li {
+	position: relative;
 	padding: 5px 0;
 	border-bottom: 1px solid #000;
 }
@@ -143,7 +137,97 @@ section.comments-right {
 	color: #999;
 }
 
+.posts > li > .x {
+	display: none;
+	position: absolute;
+	top: -5px;
+	right: 0;
+	
+	padding: 5px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
 li.expand form#comment-form,
-li.expand section.comments-right {
+li.expand section.comments-right,
+li.expand .x {
+	display: block;
+}
+
+// DELETE VIEWS
+.delete-view {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(202, 195, 201, 0.8);
+}
+
+.delete-view > .post-delete {
+	width: 180px;
+	height: 43px;
+	margin: auto;
+}
+
+.delete-view > .comment-delete {
+	position: absolute;
+	top: 9px;
+	left: 29px;
+}
+
+.delete-view button {
+	color: #fff;
+}
+
+.delete-view > .post-delete > button {
+	margin: 0 10px;
+	padding: 5px 10px;
+	font-size: 14px;
+}
+
+.delete-view > .comment-delete > button {
+	margin: 0 5px;
+	padding: 2px 5px;
+	font-size: 12px;
+}
+
+.delete-view button#cancel-post,
+.delete-view button#cancel {
+	background: #A8A8A8;
+}
+
+.delete-view button#delete-post,
+.delete-view button#delete {
+	font-weight: 500;
+	background: #FF4F4F;
+}
+
+.delete-view button#cancel:hover {
+	background: #767676;
+}
+
+.delete-view button#delete:hover {
+	background: #f00;
+}
+
+.delete-view > .post-delete > button:active {
+	padding: 0 9px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	border: 1px solid #000;
+}
+
+.delete-view > .comment-delete > button:active {
+	padding: 0 4px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+	border: 1px solid #000;
+}
+
+.post-left.delete > .delete-view,
+li#comment.delete > .delete-view {
 	display: block;
 }
