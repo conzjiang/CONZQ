@@ -24,7 +24,6 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 			});
 
 			if (comparator === "Z") this.results.reverse();
-
 			this.search.trigger("sync");
 
 		} else {
@@ -33,7 +32,6 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 			});
 
 			if (comparator === "Highest Rating") this.results.reverse();
-
 			this.search.trigger("sync");
 		}
 	},
