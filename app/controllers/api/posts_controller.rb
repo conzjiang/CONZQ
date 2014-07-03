@@ -1,6 +1,12 @@
 class Api::PostsController < ApplicationController
   before_action :check_user, only: [:create, :destroy]
   
+  def show
+    @post = Post.find(params[:id])
+    
+    render partial: 'api/posts/post', locals: { post: @post }
+  end
+  
   def create
     @post = Post.new(post_params.merge({ user_id: current_user.id }))
     
@@ -9,6 +15,18 @@ class Api::PostsController < ApplicationController
     else
       render json: { errors: @post.errors.full_messages }, 
              status: :unprocessable_entity
+    end
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    
+    if params[:comment]
+      @comment = @post.comments.new(comment_params.merge({
+        commenter_id: current_user.id
+      }))
+      
+      render json: @comment if @comment.save
     end
   end
   
@@ -21,6 +39,10 @@ class Api::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:tv_show_id, :body)
+  end
+  
+  def comment_params
+    params.require(:comment).permit(:body)
   end
   
   def check_user

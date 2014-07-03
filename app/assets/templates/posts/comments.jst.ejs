@@ -1,0 +1,13 @@
+<% comments.each(function (comment) { %>
+<li id="comment" data-id="<%= comment.id %>">
+	<p><%= comment.escape("body") %></p>
+	<p class="comment-info">
+		<a href="/#/users/<%= comment.escape("commenter").id %>">
+			<%= comment.escape("commenter").username %>
+		</a>
+		
+		<% var createdAt = $.timeago(comment.escape("created_at")) %>
+		<span class="time"><%= createdAt %></span>
+	</p>
+</li>
+<% }) %>

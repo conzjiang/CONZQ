@@ -1,13 +1,7 @@
-CONZQ.Collections.UserPosts = Backbone.Collection.extend({
-	initialize: function (options) {
-		this.user = options.user;
-	},
-	
-	model: CONZQ.Models.UserPost,
+CONZQ.Collections.Posts = Backbone.Collection.extend({
+	model: CONZQ.Models.Post,
 
-	url: function () {
-		return this.user.url() + "/posts";
-	},
+	url: "/api/posts",
 	
 	comparator: function (post1, post2) {
 		var date1 = Date.parse(post1.get("created_at"));

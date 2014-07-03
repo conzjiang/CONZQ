@@ -1,6 +1,8 @@
 CONZQ.Views.PostComments = Backbone.View.extend({
 	initialize: function (options) {
 		this.comments = options.comments;
+		
+		this.listenTo(this.comments, "add remove", this.render);
 	},
 	
 	tagName: "ul",

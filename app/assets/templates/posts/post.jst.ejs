@@ -7,8 +7,8 @@
 				Comments (<%= post.comments().length %>)
 			</li>
 		
-			<% var timeAgo = $.timeago(post.escape("created_at")) %>
-			<li class="time"><%= timeAgo %></li>
+			<% var createdAt = $.timeago(post.escape("created_at")) %>
+			<li class="time"><%= createdAt %></li>
 		
 			<% if (post.escape("tv_show_id")) { %>	
 			<% var tv = CONZQ.allShows.getOrFetch(post.escape("tv_show_id")) %>

@@ -1,26 +1,26 @@
 <h3><a class="show-result" href="#/tv/<%= tv.id %>">
-	<%= tv.escape("title") %>
+	<%= tv.title %>
 </a></h3>
 
 <div id="statuses-container"></div>
 
 <a class="show-result" href="#/tv/<%= tv.id %>">
 <div class="result-info group">
-  <img src=<%= tv.escape("photo_medium") %>>
+  <img src="<%= tv.photo_medium %>">
 
   <ul>
     <li class="rating">
       <strong>IMDB rating:</strong>
-      <%= tv.escape("rating") %>
+      <%= tv.rating %>
     </li>
 
-    <% _(tv.escape("genres").split(", ")).each(function (genre) { %>
+    <% _(tv.genre_names).each(function (genre) { %>
     <li class="result-genre"><%= genre %></li>
     <% }) %>
   </ul>
 </div>
 
 <div class="blurb">
-  <p><%= tv.escape("blurb") %></p>
+  <p><%= tv.blurb %></p>
 </div>
 </a>

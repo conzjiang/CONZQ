@@ -16,10 +16,6 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
     "tv/:id": "tvShow",
 		"users/:id": "userShow"
   },
-	
-	displaySearch: function (searchShowView) {
-		this._swapViews(searchShowView);
-	},
 
   tvShow: function (id) {
     var tvShowView = new CONZQ.Views.TvShowView({
@@ -39,7 +35,7 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 
   _swapViews: function (view) {
     if (this.currentView) this.currentView.remove();
-
+		
     this.currentView = view;
     this.$mainEl.html(view.render().$el);
   }

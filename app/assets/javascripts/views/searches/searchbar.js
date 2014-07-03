@@ -1,6 +1,5 @@
 CONZQ.Views.Searchbar = Backbone.View.extend({
 	initialize: function (options) {
-		this.model = new CONZQ.Models.Search();
 		this.$el = options.$sidebar;
 	},
 	
@@ -14,25 +13,30 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 	runSearch: function () {
 		event.preventDefault();
 		var params = $(event.target).serializeJSON();
+		var prevSearch = CONZQ.searches.prevSearch(params);
+		var results;
 		
-		this.model.save(params, {
-			success: function (data) {
-				var results = _(data.attributes).filter(function (obj) {
-					return obj.id;
-				});
-				
-				var searchShowView = new CONZQ.Views.SearchShow({
-					collection: results
-				});
-				
-				CONZQ.appRouter.displaySearch(searchShowView);
-			},
+		if (prevSearch) {
+			results = prevSearch.get("results");
+			debugger
+			var searchView = new CONZQ.Views.SearchShow({ results: results });
+			CONZQ.appRouter._swapViews(searchView);
 			
-			error: function (data) {
-				console.log("hit error in Searchbar View runSearch")
-				debugger
-			}
-		});
+		} else {
+			$.ajax({
+				type: "post",
+				url: '/api/search',
+				data: params,
+				success: function (searchData) {
+					var search = new CONZQ.Models.Search(searchData);
+					CONZQ.searches.add(search);
+					
+					results = searchData.results;
+					var searchView = new CONZQ.Views.SearchShow({ results: results });
+					CONZQ.appRouter._swapViews(searchView);
+				}
+			});
+		}
 	},
 	
 	select: function () {

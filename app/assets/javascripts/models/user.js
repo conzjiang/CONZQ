@@ -83,9 +83,7 @@ CONZQ.Models.User = Backbone.Model.extend({
 	
 	posts: function () {
 		if (!this._posts) {
-			this._posts = new CONZQ.Collections.UserPosts({
-				user: this
-			});
+			this._posts = new CONZQ.Collections.Posts();
 		}
 		
 		return this._posts;
@@ -165,9 +163,9 @@ CONZQ.Models.User = Backbone.Model.extend({
 			delete response.watchlist_statuses;
 		}
 		
-		// // FOLLOWER HELPER METHODS
-// 		if (response.currentCount) this.currentCount = response.currentCount;
-// 		if (response.favoritesCount) this.favoritesCount = response.favoritesCount;
+		// FOLLOWER HELPER METHODS
+		if (response.currentCount) this.currentCount = response.currentCount;
+		if (response.favoritesCount) this.favoritesCount = response.favoritesCount;
 		
 		return response;
 	}

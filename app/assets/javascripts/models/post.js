@@ -1,4 +1,4 @@
-CONZQ.Models.UserPost = Backbone.Model.extend({
+CONZQ.Models.Post = Backbone.Model.extend({
 	comments: function () {
 		if (!this._comments) {
 			this._comments = new CONZQ.Collections.PostComments({ post: this });
@@ -9,7 +9,7 @@ CONZQ.Models.UserPost = Backbone.Model.extend({
 	
 	parse: function (response) {
 		if (response.comments) {
-			this.comments().set(response.comments);
+			this.comments().set(response.comments, { parse: true });
 			delete response.comments;
 		}
 		

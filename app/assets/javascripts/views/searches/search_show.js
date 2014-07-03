@@ -1,6 +1,6 @@
 CONZQ.Views.SearchShow = Backbone.View.extend({
-	// collection = search results
-	initialize: function () {
+	initialize: function (options) {
+		this.results = options.results;
 		this.resultViews = [];
 	},
 	
@@ -10,14 +10,12 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 	
 	render: function () {
 		var view = this;
-		var resultViews = this.resultViews;
 		
-		_(view.collection).each(function (show) {
-			var tv = CONZQ.allShows.getOrFetch(show.id);			
-			var resultView = new CONZQ.Views.SearchResult({ model: tv });
+		_(view.results).each(function (show) {
+			var resultView = new CONZQ.Views.SearchResult({ tv: show });
 			
 			view.$el.append(resultView.render().$el);
-			resultViews.push(resultView);
+			view.resultViews.push(resultView);
 		});
 		
 		return view;

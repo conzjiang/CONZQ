@@ -6,6 +6,7 @@
 * Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
 * When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
+* Clean up render functions in views with subviews by pulling subview rendering into separate function
 
 
 == REACH TODOS

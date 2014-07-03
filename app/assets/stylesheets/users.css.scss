@@ -96,7 +96,7 @@ section.post-left {
 	cursor: pointer;
 }
 
-// POST EXPAND
+// POST EXPAND - COMMENTS VIEW
 .posts > li.expand {
 	width: 514px;
 	max-height: 250px;
@@ -109,7 +109,7 @@ form#comment-form {
 section.comments-right {
 	display: none;
 	float: right;
-	width: 156px;
+	width: 190px;
 	height: auto;
 	padding: 5px;
 	font-size: 12px;
@@ -129,6 +129,18 @@ section.comments-right {
 
 .comments > li:last-child {
 	border-bottom: 0;
+}
+
+.comment-info > a {
+	font-weight: 500;
+}
+
+.comment-info > a:hover {
+	text-decoration: underline;
+}
+
+.comment-info > .time {
+	color: #999;
 }
 
 li.expand form#comment-form,

@@ -1,10 +1,8 @@
 CONZQ.Views.SearchResult = Backbone.View.extend({
-	// model = TV Show
-	
 	initialize: function (options) {
-		this.$el.attr("data-id", this.model.id);
-		
-		this.statusesView = new CONZQ.Views.StatusesView({ tv: this.model });
+		this.tv = options.tv;
+		this.$el.attr("data-id", this.tv.id);
+		this.statusesView = new CONZQ.Views.StatusesView({ tv: this.tv });
 	},
 	
 	tagName: "li",
@@ -16,7 +14,7 @@ CONZQ.Views.SearchResult = Backbone.View.extend({
 	template: JST["search/result"],
 	
 	render: function () {
-		var content = this.template({ tv: this.model });
+		var content = this.template({ tv: this.tv });
 		this.$el.html(content);
 		this.$el.find("div#statuses-container").html(
 			this.statusesView.render().$el

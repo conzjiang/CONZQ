@@ -14,6 +14,7 @@ window.CONZQ = {
     CONZQ.allShows = new CONZQ.Collections.TvShows();
 		CONZQ.users = new CONZQ.Collections.Users();
 		CONZQ.miniUserViews = new CONZQ.Collections.Users();
+		CONZQ.searches = new CONZQ.Collections.SessionSearches();
 		
 		if (window.currentUser) {
 			CONZQ.currentUser = new CONZQ.Models.User({ id: window.currentUser.id });

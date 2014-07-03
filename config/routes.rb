@@ -6,9 +6,11 @@ CONZQ::Application.routes.draw do
     resources :users, only: [:show, :update] do
       resources :watchlists, only: [:create, :update, :destroy]
       
-      resources :posts, only: [:create, :destroy] do
-        resources :comments, only: [:create]
-      end
+      resources :posts, only: [:create]
+    end
+    
+    resources :posts, only: [:show, :update, :destroy] do
+      resources :comments, only: [:show]
     end
     
     resources :tv_shows, only: [:index, :show]

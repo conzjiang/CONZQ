@@ -1,0 +1,1 @@
+json.extract! post, :id, :user_id, :tv_show_id, :body, :created_at, :updated_at
