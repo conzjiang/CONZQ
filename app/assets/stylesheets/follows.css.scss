@@ -86,7 +86,8 @@ u.unfocus:hover {
 }
 
 #follow-status.add-follow.hide,
-#follow-status.is-following.hide {
+#follow-status.is-following.hide,
+#follows-you.hide {
 	display: none;
 }
 
@@ -104,25 +105,4 @@ u.unfocus:hover {
 	display: inline;
 	position: relative;
 	bottom: 3px;
-}
-
-
-
-
-
-.follow {
-  width: 250px;
-}
-
-.follow-username {
-  font-weight: bold;
-}
-
-.user-favs:before {
-  content: "❤ ";
-  color: red;
-}
-
-.user-favs {
-  font-size: 12px;
 }

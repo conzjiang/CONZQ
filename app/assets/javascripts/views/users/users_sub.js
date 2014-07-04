@@ -2,6 +2,7 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
 		this.usersList = options.usersList;
+		this.userShowView = options.userShowView;
 		
 		if (CONZQ.currentUser) this.currentUser = CONZQ.currentUser;
 		
@@ -16,10 +17,14 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 	template: JST["users/subview"],
 	
 	events: {
-		"click #follow-status": "changeFollowStatus"
+		"click #follow-status": "changeFollowStatus",
+		"mouseover .is-following": "confirmUnfollow",
+		"mouseleave .is-following": "resetButton"
 	},
 	
 	changeFollowStatus: function () {
+		this.userShowView.stopListening(this.user);
+		
 		var $followButton = $(event.target);
 		var $userContainer = $followButton.closest("#follow");
 		var idolId = $userContainer.attr("data-id");
@@ -27,6 +32,7 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 		var view = this;
 		
 		view.currentUser.save({ idol_id: idolId }, {
+			patch: true,
 			success: function () {
 				var $otherButton;
 				var idol = CONZQ.users.getOrFetch(idolId);
@@ -48,10 +54,20 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 						
 						$followButton.addClass("hide");
 						$otherButton.removeClass("hide");
+						view.userShowView.listenTo(view.user, 
+																			 "sync", view.userShowView.render);
 					}
 				});
 			}
 		});
+	},
+	
+	confirmUnfollow: function () {
+		$(event.target).html("Unfollow?");
+	},
+	
+	resetButton: function () {
+		$(event.target).html("Following");
 	},
 	
 	render: function () {
@@ -67,8 +83,8 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 		
 		view.usersList.each(function (follower) {
 			var $userContainer = view.$el.find("li[data-id='" + follower.id + "']");
-			var $addFollow = $userContainer.find("div#follow-status.add-follow");
-			var $isFollowing = $userContainer.find("div#follow-status.is-following");
+			var $addFollow = $userContainer.find("#follow-status.add-follow");
+			var $isFollowing = $userContainer.find("#follow-status.is-following");
 			
 			if (view.currentUser.idols().contains(follower)) {
 				$addFollow.addClass("hide");

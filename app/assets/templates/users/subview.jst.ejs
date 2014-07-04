@@ -8,8 +8,10 @@
 		<li class="username">
 			<%= user.escape("username") %>
 			
+			<% if (CONZQ.currentUser && CONZQ.currentUser.id != user.id) { %>
 			<button id="follow-status" class="add-follow">Follow</button>
 			<button id="follow-status" class="is-following">Following</button>
+			<% } %>
 		</li>
 		<li>
 			currently watching

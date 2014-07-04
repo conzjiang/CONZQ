@@ -1,6 +1,7 @@
 CONZQ.Views.UserFollows = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
+		this.userShowView = options.userShowView;
 		
 		this.followers = this.user.followers();
 		this.idols = this.user.idols();
@@ -20,7 +21,8 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 			case "followers":
 				view = new CONZQ.Views.UsersSubView({ 
 					user: this.user,
-					usersList: this.followers 
+					usersList: this.followers,
+					userShowView: this.userShowView
 				});
 				
 				$other = this.$el.find("#idols");
@@ -28,7 +30,8 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 			case "followings":
 				view = new CONZQ.Views.UsersSubView({
 					user: this.user,
-					usersList: this.idols
+					usersList: this.idols,
+					userShowView: this.userShowView
 				});
 				
 				$other = this.$el.find("#followers");
@@ -45,7 +48,8 @@ CONZQ.Views.UserFollows = Backbone.View.extend({
 		
 		var followersView = new CONZQ.Views.UsersSubView({
 			user: this.user,
-			usersList: this.followers
+			usersList: this.followers,
+			userShowView: this.userShowView
 		});
 		
 		this._swapViews(followersView);

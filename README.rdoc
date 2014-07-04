@@ -1,5 +1,6 @@
 == TODO
 
+* Change "Currently Airing" status to "Current"
 * Back link on TV show page in order to return to search results
 * Delete post event to trigger alert to make sure if user wants to delete
 * Display text if pages (profile) have nothing there

@@ -47,7 +47,7 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		var formData = $(event.target).serializeJSON();
 		var that = this;
 		
-		this.user.save(formData.user);
+		this.user.save(formData.user, { patch: true });
 	},
 	
 	profileNav: function () {
@@ -66,7 +66,10 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 				
 				break;
 			case "Follows":
-				view = new CONZQ.Views.UserFollows({ user: this.user });
+				view = new CONZQ.Views.UserFollows({
+					user: this.user,
+					userShowView: this
+				});
 				break;
 			default:
 				view = new CONZQ.Views.UserWall({ user: this.user });
@@ -86,10 +89,30 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		});
 		this.$el.html(content);
 		
+		if (CONZQ.currentUser && CONZQ.currentUser.id != this.user.id) {
+			this._applyFollowStatus();
+		}
+		
 		var userWallView = new CONZQ.Views.UserWall({ user: this.user });
 		this._swapViews(userWallView);
 		
 		return this;
+	},
+	
+	_applyFollowStatus: function () {
+		var $followStatuses = this.$el.find("#follow-statuses");
+		var $addFollow = $followStatuses.find("#follow-status.add-follow");
+		var $isFollowing = $followStatuses.find("#follow-status.is-following");
+		
+		if (CONZQ.currentUser.idols().contains(this.user)) {
+			$addFollow.addClass("hide");
+		} else {
+			$isFollowing.addClass("hide");
+		}
+		
+		if (!CONZQ.currentUser.followers().contains(this.user)) {
+			$followStatuses.find("#follows-you").addClass("hide");
+		}
 	},
 	
 	_swapViews: function (view) {
