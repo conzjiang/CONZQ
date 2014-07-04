@@ -1,23 +1,25 @@
+<h2>& these are my <u>posts</u></h2>
+
 <% if (isThisUser) { %>
 <form id="post-form">
 	<textarea name="post[body]"></textarea>
 	
-	<label>
-		Tag a show:
-		<select name="post[tv_show_id]">
-			<option value=""></option>
-			
-			<% _(userShowlist).each(function (show) { %>
-			<option value="<%= show.id %>"><%= show.escape("title") %></option>
-			<% }) %>
-		</select>
-	</label>
-	
-	<input type="submit" value="Submit">
+	<ul class="post-form-bottom group">
+		<li>
+			<label for="post_tv_show_id">Tag a show:</label>
+			<select id="post_tv_show_id" name="post[tv_show_id]">
+				<option value=""></option>
+
+				<% _(userShowlist).each(function (show) { %>
+				<option value="<%= show.id %>"><%= show.escape("title") %></option>
+				<% }) %>
+			</select>
+		</li>
+		
+		<li><input type="submit" value="Submit"></li>
+	</ul>
 </form>
 <% } %>
-
-<h2>& these are my <u>posts</u></h2>
 
 <% if (posts) { %>
 <ul class="posts"></ul>

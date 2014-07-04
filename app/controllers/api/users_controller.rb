@@ -20,6 +20,8 @@ class Api::UsersController < ApplicationController
         follow = current_user.follows.new(idol_id: params[:idol_id])
         follow.save!
       end
+    else
+      @user.update_attributes(user_params)
     end
     
     render partial: "api/users/user", locals: { user: @user }       
@@ -27,6 +29,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :photo, :bio)
   end
 end

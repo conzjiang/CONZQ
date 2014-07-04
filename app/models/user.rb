@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   
-  has_attached_file :photo
+  has_attached_file :photo, styles: {
+      big: "360x360>",
+      medium: "160x200#",
+      thumb: "50x50#"
+    }, default_url: "/images/missing_:style.jpg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   has_many :watchlists, dependent: :destroy

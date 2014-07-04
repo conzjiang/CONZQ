@@ -1,4 +1,10 @@
-json.extract! user, :id, :username, :email, :watchlist_statuses, :created_at, :updated_at
+json.extract! user, :id, :username, :bio, :watchlist_statuses, :created_at, :updated_at
+
+json.photo user.photo.url(:medium)
+json.photo_thumb user.photo.url(:thumb)
+
+json.currentCount user.currently_watching_shows.count
+json.favoritesCount user.favorites.count
 
 json.watchlists user.watchlists, partial: 'api/watchlist', as: :watchlist
 

@@ -33,7 +33,7 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 				
 				idol.fetch({
 					success: function () {
-						if ($followButton.html() === "Follow") {
+						if ($followButton.hasClass("add-follow")) {
 							idol.followers().add(view.currentUser);
 							view.currentUser.idols().add(idol);
 

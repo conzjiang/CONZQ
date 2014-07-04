@@ -1,6 +1,7 @@
 CONZQ.Views.UserShow = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
+		this.originalPhoto = this.user.get("photo_medium");
 		
 		this.listenTo(this.user, "sync", this.render);
 	},
@@ -8,7 +9,45 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 	template: JST["users/show"],
 	
 	events: {
-		"click a#nav": "profileNav",
+		"click .edit-profile": "editView",
+		"change #photo-upload": "photoPreview",
+		"click .cancel-edit": "cancelEdit",
+		"submit form#edit-user": "updateProfile",
+		"click a#nav": "profileNav"
+	},
+	
+	editView: function () {
+		$(event.target).closest(".profile-info").addClass("edit");
+	},
+	
+	photoPreview: function () {
+		var that = this;
+		var imageFile = event.target.files[0];
+		var reader = new FileReader();
+		
+		reader.onloadend = function(){
+		  that.user.set("photo", this.result);
+		  that.$el.find("#profile-photo").attr("src", this.result);
+		}
+		
+		if(imageFile){
+		  reader.readAsDataURL(imageFile);
+		} else {
+		  this.$el.find("#profile-photo").attr("src", "");
+		}
+	},
+	
+	cancelEdit: function () {
+		this.$el.find("#profile-photo").attr("src", this.originalPhoto);
+		$(event.target).closest(".profile-info").removeClass("edit");
+	},
+	
+	updateProfile: function () {
+		event.preventDefault();
+		var formData = $(event.target).serializeJSON();
+		var that = this;
+		
+		this.user.save(formData.user);
 	},
 	
 	profileNav: function () {
@@ -38,7 +77,13 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var content = this.template({ user: this.user });
+		var isThisUser;
+		if (CONZQ.currentUser) isThisUser = CONZQ.currentUser.id === this.user.id;
+		
+		var content = this.template({
+			user: this.user,
+			isThisUser: isThisUser
+		});
 		this.$el.html(content);
 		
 		var userWallView = new CONZQ.Views.UserWall({ user: this.user });

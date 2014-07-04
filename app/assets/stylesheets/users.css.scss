@@ -24,12 +24,102 @@ form.user-form a {
   padding: 10px 25px;
 }
 
+// PROFILE INFO
+.profile-info {
+	position: relative;
+	width: 500px;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid #eee;
+}
+
+.profile-left {
+	float: left;
+	width: 160px;
+}
+
+.profile-left > img#profile-photo {
+	width: 160px;
+	height: auto;
+}
+
+.profile-right {
+	float: right;
+	width: 320px;
+}
+
+.profile-right > li {
+	padding-bottom: 10px;
+}
+
+.edit-profile,
+.cancel-edit {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 5px 10px;
+	
+	font-weight: 500;
+	font-size: 14px;
+	color: #fff;
+	text-transform: uppercase;
+	
+	background: #CF7786;
+	cursor: pointer;
+}
+
+.edit-profile:hover {
+	background: #99516C;
+}
+
+// EDIT INFO VIEW
+form#edit-user input[type="file"] {
+	width: 160px;
+	font-size: 12px;
+}
+
+form#edit-user textarea {
+	width: 300px;
+	height: 105px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+form#edit-user textarea:focus {
+	padding: 9px;
+}
+
+form#edit-user input[type="submit"] {
+	font-size: 14px;
+	padding: 5px 10px;
+	float: right;
+}
+
+.profile-info input,
+.profile-info textarea,
+.profile-info .cancel-edit,
+.profile-info.edit p,
+.profile-info.edit .edit-profile {
+	display: none;
+} 
+
+.profile-info.edit input,
+.profile-info.edit textarea,
+.profile-info.edit .cancel-edit {
+	display: block;
+}
+
 // POST FORM
+form#post-form {
+	margin-bottom: 30px;
+}
+
 form#post-form > textarea {
 	display: block;
-	width: 348px;
+	width: 350px;
 	height: 58px;
-	margin: auto;
+	margin: 10px auto;
 	padding: 10px;
 	background: rgb(219, 203, 216);
 }
@@ -37,6 +127,28 @@ form#post-form > textarea {
 form#post-form > textarea:focus {
 	padding: 9px;
 	border: 1px solid $headerPurple;
+}
+
+.post-form-bottom {
+	width: 370px;
+	margin: auto;
+}
+
+.post-form-bottom > li:first-child {
+	float: left;
+}
+
+.post-form-bottom > li:last-child {
+	float: right;
+}
+
+.post-form-bottom input[type="submit"] {
+	padding: 5px 10px;
+	font-size: 12px;
+}
+
+.post-form-bottom label {
+	display: inline;
 }
 
 // POSTS
@@ -103,6 +215,19 @@ section.post-left {
 
 form#comment-form {
 	display: none;
+	margin: 10px 0;
+}
+
+form#comment-form textarea {
+	display: block;
+	width: 284px;
+	height: 40px;
+	padding: 5px;
+}
+
+form#comment-form input[type="submit"] {
+	padding: 5px 10px;
+	font-size: 12px;
 }
 
 section.comments-right {

@@ -168,6 +168,11 @@ CONZQ.Models.User = Backbone.Model.extend({
 		if (response.favoritesCount) this.favoritesCount = response.favoritesCount;
 		
 		return response;
+	},
+	
+	toJSON: function () {
+		var attributes = _.clone(this.attributes);
+		return { user: attributes };
 	}
 	
 });

@@ -1,28 +1,26 @@
 <% usersList.each(function (user) { %>
-	<li id="follow" data-id="<%= user.id %>">
-		<a href="/#/users/<%= user.id %>">
-			<img src="/images/missing_thumb.jpg">
-		</a>
-		
-		<ul class="user-info">
-			<li class="username">
-				<%= user.escape("username") %>
-				
-				<% if (CONZQ.currentUser) { %>
-				<div id="follow-status" class="add-follow">Follow</div>
-				<div id="follow-status" class="is-following">Following</div>
-				<% } %>
-			</li>
-			<li>
-				currently watching
-				<strong><%= user.escape("currentCount") %></strong> shows
-			</li>
+<li id="follow" data-id="<%= user.id %>">
+	<a href="/#/users/<%= user.id %>">
+		<img src="/images/missing_thumb.jpg">
+	</a>
+	
+	<ul class="user-info">
+		<li class="username">
+			<%= user.escape("username") %>
 			
-			<li>
-				<span class="heart"></span>
-				<p><%= user.escape("favoritesCount") %> favorite shows</p>
-			</li>
-		</ul>
+			<button id="follow-status" class="add-follow">Follow</button>
+			<button id="follow-status" class="is-following">Following</button>
+		</li>
+		<li>
+			currently watching
+			<strong><%= user.escape("currentCount") %></strong> shows
+		</li>
+		
+		<li>
+			<span class="heart"></span>
+			<p><%= user.escape("favoritesCount") %> favorite shows</p>
+		</li>
+	</ul>
 
-	</li>
+</li>
 <% }) %>

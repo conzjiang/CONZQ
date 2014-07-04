@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     unless @user.update_attributes(user_params)
-      flash[:error] = @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
     end
     
     redirect_to root_url

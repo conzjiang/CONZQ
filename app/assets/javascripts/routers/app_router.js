@@ -13,9 +13,14 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
   },
 
   routes: {
+		"search": "searchShow",
     "tv/:id": "tvShow",
 		"users/:id": "userShow"
   },
+	
+	searchShow: function () {
+		
+	},
 
   tvShow: function (id) {
     var tvShowView = new CONZQ.Views.TvShowView({

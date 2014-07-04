@@ -1,5 +1,6 @@
 == TODO
 
+* Back link on TV show page in order to return to search results
 * Delete post event to trigger alert to make sure if user wants to delete
 * Display text if pages (profile) have nothing there
 * Delete shows from watchlist
@@ -8,6 +9,7 @@
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
 * Center post deletes vertically
+* Get search url to be "#/search" instead of without slash
 
 
 == REACH TODOS

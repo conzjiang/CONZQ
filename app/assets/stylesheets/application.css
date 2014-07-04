@@ -65,12 +65,21 @@ ul {
   list-style: none;
 }
 
+input, textarea {
+	background: rgb(219, 203, 216);
+}
+
 input[type="file"] {
 	background: none;
 }
 
 input:focus, textarea:focus {
 	border: 1px solid #41002D;
+}
+
+button, input[type="submit"] {
+	color: #fff;
+	background: #41002D;
 }
 
 h1 { /* PROFILE HEADER */
@@ -296,14 +305,15 @@ form.user-form label {
 	font-weight: 500;
 }
 
-form.user-form input, textarea {
+form.user-form input,
+form.user-form textarea {
 	width: 300px;
 	padding: 5px;
 	margin-bottom: 20px;
-	background: rgb(219, 203, 216);
 }
 
-form.user-form input:focus, textarea:focus {
+form.user-form input:focus,
+form.user-form textarea:focus {
 	padding: 4px;
 }
 
@@ -315,7 +325,6 @@ form.user-form button {
 	padding: 5px 10px;
 	color: #fff;
 	text-align: center;
-	background: #41002D;
 }
 
 /*STATUSES*/
