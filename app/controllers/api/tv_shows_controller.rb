@@ -17,6 +17,12 @@ class Api::TvShowsController < ApplicationController
     render 'api/tv/index'
   end
   
+  def rest_genres
+    @genres = Genre.where(top_level: false).order(:name)
+    
+    render "api/tv/genres"
+  end
+  
   private
   def tv_params
     params.require(:tv).permit(:title, :photo, :seasons, :year_start,

@@ -13,6 +13,7 @@
 .edit-profile.tv {
 	position: relative;
 	bottom: 8px;
+	display: inline-block;
 }
 
 .tv-show-page-container > ul > li {
@@ -64,57 +65,132 @@
 }
 
 // FORM
-.new-form-container {
-  width: 500px;
-  margin: 20px auto;
+form.tv-form > label {
+	margin-left: 80px;
+}
+
+form.tv-form > input,
+form.tv-form > select,
+form.tv-form > textarea {
+	margin: 0 0 20px 80px;
+}
+
+form.tv-form > input {
+	width: 300px;
+	padding: 5px;
+}
+
+form.tv-form > textarea {
+	display: block;
+	width: 300px;
+	height: 80px;
+	padding: 5px;
+}
+
+form.tv-form > input:focus,
+form.tv-form > textarea:focus {
+	padding: 4px;
+}
+
+form.tv-form button {
+	padding: 5px 10px;
 }
 
 .genre-form {
-  width: 440px;
-  border: 1px solid black;
+	width: 310px;
+	margin: auto;
+	padding-bottom: 30px
 }
 
-.top-level-left {
-  width: 210px;
-  text-align: right;
-  padding: 5px;
-  float: left;
+.top-level {
+	width: 310px;
+	margin: auto;
 }
 
-.top-level-right {
-  width: 210px;
-  text-align: left;
-  padding: 5px;
-  float: left;
+.top-level > li {
+	float: left;
+	width: 145px;
+	margin: 5px;
 }
 
-.middle-genre {
-  float: left;
-  padding: 5px;
-  width: 210px;
-  text-align: center;
+.top-level label,
+.rest-genres > label {
+	text-align: center;
+	padding: 3px 0;
+	color: #fff;
+	background: blue;
 }
 
-.sub-genre {
-  float: left;
-  padding: 5px;
-  width: 210px;
-  margin-bottom: 15px;
-}
-
-.sub-genre > ul {
-  list-style: none;
-  display: inline-block;
-}
-
-.sub-genre li {
-  margin-left: 35px;
+form.tv-form label.red {
+	background: red;
 }
 
 .rest-genres {
-  padding: 5px;
+	text-align: center;
 }
 
-.checkbox {
-  display: inline-block;
+.rest-genres > label {
+	display: inline-block;
+	margin: 5px 2px 2px 3px;
+	padding: 3px 8px;
 }
+
+//.rest-genres > label {
+//	display: inline-block;
+//}
+
+
+//.new-form-container {
+//  width: 500px;
+//  margin: 20px auto;
+//}
+//
+//.genre-form {
+//  width: 440px;
+//  border: 1px solid black;
+//}
+//
+//.top-level-left {
+//  width: 210px;
+//  text-align: right;
+//  padding: 5px;
+//  float: left;
+//}
+//
+//.top-level-right {
+//  width: 210px;
+//  text-align: left;
+//  padding: 5px;
+//  float: left;
+//}
+//
+//.middle-genre {
+//  float: left;
+//  padding: 5px;
+//  width: 210px;
+//  text-align: center;
+//}
+//
+//.sub-genre {
+//  float: left;
+//  padding: 5px;
+//  width: 210px;
+//  margin-bottom: 15px;
+//}
+//
+//.sub-genre > ul {
+//  list-style: none;
+//  display: inline-block;
+//}
+//
+//.sub-genre li {
+//  margin-left: 35px;
+//}
+//
+//.rest-genres {
+//  padding: 5px;
+//}
+//
+//.checkbox {
+//  display: inline-block;
+//}

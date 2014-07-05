@@ -287,7 +287,8 @@ a.discover {
 }
 
 /* FORMS */
-form.user-form {
+form.user-form,
+form.tv-form {
 	width: 500px;
 	margin: auto;
 	margin-bottom: 50px;
@@ -300,7 +301,8 @@ form.user-form .input-group {
 	margin: auto;
 }
 
-form.user-form label {
+form.user-form label,
+form.tv-form > label {
 	padding-bottom: 5px;
 	font-weight: 500;
 }

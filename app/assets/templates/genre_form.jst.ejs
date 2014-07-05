@@ -1,0 +1,60 @@
+<ul class="top-level group">
+	<li>
+	  <input type="checkbox" id="Scripted" name="genre_ids[]" value="10">
+	  <label for="Scripted">Scripted</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Unscripted" name="genre_ids[]" value="13">
+	  <label for="Unscripted">Unscripted/Reality</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Live-Action" name="genre_ids[]" value="6">
+	  <label for="Live-Action">Live-Action</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Animated" name="genre_ids[]" value="2">
+	  <label for="Animated">Animated</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Drama" name="genre_ids[]" value="5">
+	  <label for="Drama">Drama</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Comedy" name="genre_ids[]" value="3">
+	  <label for="Comedy">Comedy</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Procedural" name="genre_ids[]" value="8">
+	  <label for="Procedural">Procedural</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Single-camera" name="genre_ids[]" value="15">
+	  <label for="Single-camera">Single-camera</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Serialized" name="genre_ids[]" value="11">
+	  <label for="Serialized">Serialized</label>
+	</li>
+
+	<li>
+	  <input type="checkbox" id="Multi-camera" name="genre_ids[]" value="16">
+	  <label for="Multi-camera">Multi-camera</label>
+	</li>
+</ul>
+
+
+<div class="rest-genres">
+  <% genres.each(function (genre) { %>
+  <input type="checkbox" id="<%= genre.escape("name") %>"
+				 name="genre_ids[]" value="<%= genre.id %>">
+  <label for="<%= genre.escape("name") %>"><%= genre.escape("name") %></label>
+  <% }) %>
+</div>

@@ -5,6 +5,7 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 		this.$mainEl = options.$mainEl;
 		
 		this.tvShowStatus();
+		this.genreForm();
 		
 		var searchbarView = new CONZQ.Views.Searchbar({
 			$sidebar: options.$sidebar
@@ -56,9 +57,31 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 			$statusContainer.html(this.showStatusView.render().$el);
 		}
 	},
+	
+	genreForm: function () {
+		var $genreForm = $("div.genre-form");
+		
+		if ($genreForm.length > 0) {
+			var tvId = $genreForm.attr("data-id");
+			var restGenres = new CONZQ.Collections.Genres();
+			var that = this;
+			
+			restGenres.fetch({
+				success: function () {
+					that.genreFormView = new CONZQ.Views.GenreForm({
+						genres: CONZQ.allShows.getOrFetch(tvId).get("genre_names"),
+						restGenres: restGenres
+					});
+			
+					$genreForm.html(that.genreFormView.render().$el);
+				}
+			});
+		}
+	},
 
   _swapViews: function (view) {
     if (this.showStatusView) this.showStatusView.remove();
+		if (this.genreFormView) this.genreFormView.remove();
 		if (this.currentView) this.currentView.remove();
 		
     this.currentView = view;
