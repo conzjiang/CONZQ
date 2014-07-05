@@ -2,10 +2,9 @@
 require 'addressable/uri'
 
 class TvShow < ActiveRecord::Base
-  STATUSES = ["Currently Airing", "Ended", "Cancelled"]
+  STATUSES = ["Currently Airing", "Current", "Ended", "Cancelled"]
 
   validates :title, presence: true
-  validates :status, inclusion: { in: STATUSES }
   validates :imdb_id, uniqueness: true
 
   has_attached_file :photo, styles: {

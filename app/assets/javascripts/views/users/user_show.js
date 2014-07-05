@@ -13,6 +13,7 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		"change #photo-upload": "photoPreview",
 		"click .cancel-edit": "cancelEdit",
 		"submit form#edit-user": "updateProfile",
+		"click #follow-status": "changeFollowStatus",
 		"click a#nav": "profileNav"
 	},
 	
@@ -48,6 +49,34 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		var that = this;
 		
 		this.user.save(formData.user, { patch: true });
+	},
+	
+	changeFollowStatus: function () {
+		var $followButton = $(event.target);
+		var view = this;
+		
+		CONZQ.currentUser.save({ idol_id: this.user.id }, {
+			patch: true,
+			success: function () {
+				var $otherButton;
+				
+				if ($followButton.hasClass("add-follow")) {
+					view.user.followers().add(CONZQ.currentUser);
+					CONZQ.currentUser.idols().add(view.user);
+					
+					$otherButton = $followButton.parent().find(".is-following");
+					
+				} else {
+					view.user.followers().remove(CONZQ.currentUser);
+					CONZQ.currentUser.idols().remove(view.user);
+					
+					$otherButton = $followButton.parent().find(".add-follow");
+				}
+				
+				$followButton.addClass("hide");
+				$otherButton.removeClass("hide");
+			}
+		});
 	},
 	
 	profileNav: function () {

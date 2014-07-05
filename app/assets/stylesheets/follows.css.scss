@@ -47,8 +47,25 @@ u.unfocus:hover {
 	font-size: 16px;
 }
 
+.heart {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: 2px;
+	background: url("status-sprite.png");
+	background-size: cover;
+	background-position: 15px 0;
+}
+
+.user-info > li p {
+	display: inline;
+	position: relative;
+	bottom: 3px;
+}
+
 // FOLLOW STATUS
-#follow-status {
+#follow-status,
+#follows-you {
 	display: inline-block;
 	position: relative;
 	bottom: 2px;
@@ -70,11 +87,16 @@ u.unfocus:hover {
 	background: blue;
 }
 
-#follow-status.is-following {
+#follow-status.is-following,
+#follows-you {
 	border-color: #135D0B;
 	color: #135D0B;
 	
 	background: #A7FF96;
+}
+
+#follows-you {
+	text-transform: uppercase;
 }
 
 #follow-status.is-following:hover {
@@ -89,20 +111,4 @@ u.unfocus:hover {
 #follow-status.is-following.hide,
 #follows-you.hide {
 	display: none;
-}
-
-.heart {
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin-right: 2px;
-	background: url("status-sprite.png");
-	background-size: cover;
-	background-position: 15px 0;
-}
-
-.user-info > li > p {
-	display: inline;
-	position: relative;
-	bottom: 3px;
 }

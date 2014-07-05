@@ -21,7 +21,7 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 			
 			var searchView = new CONZQ.Views.SearchShow({ results: results });
 			CONZQ.appRouter._swapViews(searchView);
-			Backbone.history.navigate("search", { trigger: true });
+			Backbone.history.navigate("/search", { trigger: true });
 			
 		} else {
 			$.ajax({

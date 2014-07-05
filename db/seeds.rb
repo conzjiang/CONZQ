@@ -32,7 +32,7 @@ shows.each do |show|
   tv.apply_imdb_rating
   tv.assign_decade
   tv.admin = conz
-  tv.status = "Currently Airing"
+  tv.status = "Current"
   tv.save!
 end
 

@@ -13,6 +13,8 @@ CONZQ::Application.routes.draw do
     
     resources :tv_shows, only: [:index, :show]
     resource :search, only: [:show]
+    
+    get '/front', to: "tv_shows#front_page", as: "front_page"
   end
 
 

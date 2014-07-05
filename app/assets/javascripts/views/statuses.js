@@ -73,6 +73,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 			
 		} else {
 			view.user.save(favoriteParams, {
+				patch: true,
 				success: function () {
 					$heartIcon.toggleClass("is-favorite");
 					

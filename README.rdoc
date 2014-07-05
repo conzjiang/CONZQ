@@ -11,6 +11,7 @@
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
 * Center post deletes vertically
 * Get search url to be "#/search" instead of without slash
+* Put listener on change:favoritesCount to call function that re-renders favorite count in profile
 
 
 == REACH TODOS

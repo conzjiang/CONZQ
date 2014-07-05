@@ -6,22 +6,29 @@
 	
 	<ul class="user-info">
 		<li class="username">
-			<%= user.escape("username") %>
+			<a href="/#/users/<%= user.id %>"><%= user.escape("username") %></a>
 			
 			<% if (CONZQ.currentUser && CONZQ.currentUser.id != user.id) { %>
 			<button id="follow-status" class="add-follow">Follow</button>
 			<button id="follow-status" class="is-following">Following</button>
 			<% } %>
 		</li>
+		
+		
 		<li>
-			currently watching
-			<strong><%= user.escape("currentCount") %></strong> shows
+			<a href="/#/users/<%= user.id %>">
+				currently watching
+				<strong><%= user.escape("currentCount") %></strong> shows
+			</a>
 		</li>
 		
 		<li>
-			<span class="heart"></span>
-			<p><%= user.escape("favoritesCount") %> favorite shows</p>
+			<a href="/#/users/<%= user.id %>">
+				<span class="heart"></span>
+				<p><%= user.escape("favoritesCount") %> favorite shows</p>
+			</a>
 		</li>
+		
 	</ul>
 
 </li>

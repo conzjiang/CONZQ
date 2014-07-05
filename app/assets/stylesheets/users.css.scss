@@ -55,9 +55,6 @@ form.user-form a {
 
 .edit-profile,
 .cancel-edit {
-	position: absolute;
-	top: 10px;
-	right: 10px;
 	padding: 5px 10px;
 	
 	font-weight: 500;
@@ -67,6 +64,13 @@ form.user-form a {
 	
 	background: #CF7786;
 	cursor: pointer;
+} 
+
+#edit.edit-profile,
+#edit.cancel-edit {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
 
 .edit-profile:hover {

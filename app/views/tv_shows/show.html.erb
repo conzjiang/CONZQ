@@ -1,15 +1,13 @@
 <div class="tv-show-page-container">
-<h1><%= @tv.title %></h1>
+<h1>
+	<%= @tv.title %>
+	
+	<% if current_user == @tv.admin %>
+	<a class="edit-profile tv" href="<%= edit_tv_url(@tv) %>">Edit Info</a>
+	<% end %>
+</h1>
 
-<% if current_user == @tv.admin %>
-<a href="<%= edit_tv_url(@tv) %>">Edit Info</a>
-<br>
-<% end %>
-
-<%= render partial: "layouts/error" %>
-
-<%= render partial: "watchlists/status", locals: { tv: @tv } %>
-<%= render partial: "favorites/status", locals: { tv: @tv } %>
+<div id="tv-show-page-statuses" data-id="<%= @tv.id %>"></div>
 
 <img src="<%= @tv.photo.url(:big) %>">
 
