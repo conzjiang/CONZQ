@@ -23,7 +23,7 @@ CONZQ.Views.GenreForm = Backbone.View.extend({
 		_(this.genres).each(function (genre) {
 			var $checkbox = that.$el.find("input#" + genre);
 			$checkbox.prop("checked", true);
-			$checkbox.parent().find("label").addClass("red");
+			$checkbox.parent().find("label[for='"+ genre + "']").addClass("red");
 		});
 		
 		return this;

@@ -16,13 +16,49 @@
 	display: inline-block;
 }
 
-.tv-show-page-container > ul > li {
+.tv-show-page-container > img {
+	margin: auto;
+}
+
+.tv-info-container {
+	position: relative;
+	margin-top: 30px;
+}
+
+.tv-info-left {
+	float: left;
+	width: 190px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.tv-info-left > li {
   padding: 10px 0;
 }
 
-.main-blurb {
+.tv-info-left strong {
+	font-weight: 500;
+}
+
+.tv-info-right {
+	position: absolute;
+	right: 0;
+	width: 420px;
+	height: 100%;
   font-size: 20px;
 }
+
+.tv-info-right > p {
+	padding: 20px 40px;
+	font-style: italic;
+	line-height: 1.2;
+	background: #D2EDFA;
+}
+
+//.tv-info-right > p:before {
+//	content: "";
+//	margin-left: 20px;
+//}
 
 // STATUSES
 #tv-show-page-statuses {
@@ -64,8 +100,45 @@
 	font-size: 12px;
 }
 
-// FORM
-form.tv-form > label {
+// AUTO COMPLETE FORM
+.new-tv-form-container > h2 {
+	margin-top: 30px;
+}
+
+form.auto-complete {
+	width: 323px;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+form.auto-complete > input {
+	width: 200px;
+	padding: 5px;
+}
+
+form.auto-complete > input:focus {
+	padding: 4px;
+}
+
+form.auto-complete > button {
+	padding: 5px 10px;
+}
+
+.or {
+	margin: 40px 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.or:before,
+.or:after {
+	content: " - ";
+}
+
+// NEW FORM
+form.tv-form > label,
+form.tv-form > img {
 	margin-left: 80px;
 }
 

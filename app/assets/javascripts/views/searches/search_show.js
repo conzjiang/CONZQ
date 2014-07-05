@@ -23,7 +23,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 				return show.title;
 			});
 
-			if (comparator === "Z") this.results.reverse();
+			if (comparator === "Z-A") this.results.reverse();
 			this.search.trigger("sync");
 
 		} else {

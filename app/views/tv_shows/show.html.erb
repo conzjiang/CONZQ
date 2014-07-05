@@ -1,44 +1,46 @@
 <div class="tv-show-page-container">
-<h1>
-	<%= @tv.title %>
+	<h1>
+		<%= @tv.title %>
 	
-	<% if current_user == @tv.admin %>
-	<a class="edit-profile tv" href="<%= edit_tv_url(@tv) %>">Edit Info</a>
-	<% end %>
-</h1>
+		<% if current_user == @tv.admin %>
+		<a class="edit-profile tv" href="<%= edit_tv_url(@tv) %>">Edit Info</a>
+		<% end %>
+	</h1>
 
-<div id="tv-show-page-statuses" data-id="<%= @tv.id %>"></div>
+	<div id="tv-show-page-statuses" data-id="<%= @tv.id %>"></div>
 
-<img src="<%= @tv.photo.url(:big) %>">
+	<img src="<%= @tv.photo.url(:big) %>">
+	
+	<section class="tv-info-container group">
+		<ul class="tv-info-left">
+		  <li>
+		    <strong>Genre(s):</strong>
+		    <%= @tv.genre_names.join(", ") %>
+		  </li>
 
-<ul>
-  <li>
-    <strong>Genre(s):</strong>
-    <%= @tv.genre_names.join(", ") %>
-  </li>
+		  <li>
+		    <strong>IMDB rating:</strong>
+		    <%= @tv.rating %>
+		  </li>
 
-  <li>
-    <strong>IMDB rating:</strong>
-    <%= @tv.rating %>
-  </li>
+		  <li>
+		    <strong>Network:</strong>
+		    <%= @tv.network %>
+		  </li>
 
-  <li>
-    <strong>Network:</strong>
-    <%= @tv.network %>
-  </li>
+		  <li>
+		    <%= @tv.seasons %> seasons, <%= @tv.year_start %> -
+		    <%= @tv.year_end.nil? ? "present" : @tv.year_end %>
+		  </li>
 
-  <li>
-    <%= @tv.seasons %> seasons, <%= @tv.year_start %> -
-    <%= @tv.year_end.nil? ? "present" : @tv.year_end %>
-  </li>
+		  <li>
+		    <strong>Status:</strong>
+		    <%= @tv.status %>
+			</li>
+		</ul>
 
-  <li>
-    <strong>Status:</strong>
-    <%= @tv.status %>
-  </li>
-
-  <li class="main-blurb">
-    <%= @tv.blurb %>
-  </li>
-</ul>
+	  <div class="tv-info-right">
+	    <p><%= @tv.blurb %></p>
+		</div>
+	</section>
 </div>

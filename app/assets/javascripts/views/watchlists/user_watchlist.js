@@ -10,7 +10,7 @@ CONZQ.Views.UserWatchlist = Backbone.View.extend({
 	},
 	
 	watchlistNav: function () {
-		var $link = $(event.target);
+		var $link = $(event.target).parent();
 		
 		if (!$link.hasClass("selected")) {
 			var navTo = $link.attr("data-id");

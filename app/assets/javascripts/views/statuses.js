@@ -96,7 +96,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 		if (this.user) {
 			var tvId = this.tv.id;
 			
-			if (this.watchlist.getOrFetch(tvId)) {
+			if (this.watchlist.findByTvId(tvId)) {
 				this._applyStatus(this.user.watchlistStatuses[tvId]);
 			}
 			

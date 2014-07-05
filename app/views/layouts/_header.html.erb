@@ -4,25 +4,24 @@
 
 		<ul class="nav">
 			<li><a class="discover" href="#">Discover</a></li>
-			<li class="search">
+			<!-- <li class="search">
 				<a id="input-search" href="#">Search</a>
-				
+
 				<div class="search-input">
 					<form action="<%= text_search_url %>" method="get">
-						<input id="text-search" type="text" 
+						<input id="text-search" type="text"
 									 name="query" value="<%= params[:query] %>">
 					</form>
 				</div>
-			</li>
+			</li> -->
 			
 			<% if signed_in? %>
-			<li><a href="/#/users/<%= current_user.id %>">
-				<%= current_user.username %>
-			</a></li>
+			<li class="signed-in">
+				<a href="/#/users/<%= current_user.id %>">
+					<%= current_user.username %>
+					<strong class="triangle">▼</strong>
+				</a>
 				
-			<li class="signed-in">	
-				<p class="triangle" href="#">▼</p>
-
 				<ul class="profile-dropdown">
 					<% if current_user.admin %>
 					<li>

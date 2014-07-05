@@ -9,27 +9,38 @@ $brightGreen: rgb(96, 238, 136);
 
 // NAV
 .watchlist-nav {
-	
+	width: 496px;
+	margin: 10px auto;
 }
 
 .watchlist-nav > li {
 	display: block;
 	float: left;
 	
-	padding: 5px;
+	padding: 0 10px;
 	cursor: pointer;
 }
 
-.watchlist-nav > li.selected {
+.watchlist-nav p {
+	padding: 5px;
+}
+
+.watchlist-nav > li.selected > p {
 	font-weight: 500;
+	background: $brightGreen;
 	border-bottom: 3px solid #000;
 }
 
-.watchlist-nav > li:hover {
+.watchlist-nav p:hover {
 	background: $brightGreen;
 }
 
 // LIST ITEMS
+.watchlist {
+	width: 676px;
+	margin: auto;
+}
+
 .watchlist > li {
 	position: relative;
 	float: left;
@@ -79,4 +90,26 @@ $brightGreen: rgb(96, 238, 136);
 	left: 40px;
 	width: 185px;
 	height: 20px;
+}
+
+.watchlist > li > .x {
+	position: absolute;
+	top: -5px;
+	right: 0;
+	
+	padding: 5px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+// DELETE VIEW
+.watchlist-delete {
+	position: absolute;
+	top: 15px;
+	left: 72px;
+	font-weight: 500;
+}
+
+.delete-view > .watchlist-delete > button {
+	margin: 5px;
 }

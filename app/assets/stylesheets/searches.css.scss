@@ -124,12 +124,6 @@ form#search > input[type="submit"]:active {
 	border-bottom: 1px solid #41002D;
 }
 
-.or {
-  display: block;
-  font-size: 20px;
-  margin: 15px 0 15px 100px;
-}
-
 // SORT
 form#sort {
   text-align: center;
@@ -166,7 +160,6 @@ form#sort > button {
 .results > li {
 	position: relative;
 	float: left;
-	padding: 15px;
 	margin: 10px;
 	
 	font-size: 14px;
@@ -174,13 +167,27 @@ form#sort > button {
 }
 
 .results > li.tv {
-	width: 270px;
-	height: 370px;
+	position: relative;
+	width: 300px;
+	height: 400px;
 }
 
 .results > li.user {
+	padding: 15px;
 	width: 250px;
 //	height: ;
+}
+
+a.fill {
+	display: block;
+	height: 100%;
+}
+
+.result-container {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 270px;
 }
 
 a.show-result {
@@ -188,11 +195,11 @@ a.show-result {
 }
 
 
+.results > li.tv:hover {
+	background: rgb(253, 240, 253);
+}
 
-
-
-
-.results > li:hover {
+.results > li.user:hover {
 	padding: 13px;
 	background: rgb(253, 240, 253);
 	border: 3px solid #41002D;
@@ -200,7 +207,7 @@ a.show-result {
 
 
 
-.result-info > img {
+.result-info img {
 	float: left;
   margin: 0 10px 10px 0;
 }

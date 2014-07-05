@@ -14,7 +14,8 @@ CONZQ.Models.User = Backbone.Model.extend({
 	currentShows: function () {
 		if (!this._currentShows) {
 			this._currentShows = new CONZQ.Subsets.CurrentShows([], {
-				parentCollection: CONZQ.allShows
+				parentCollection: CONZQ.allShows,
+				user: this
 			});
 		}
 		
@@ -24,7 +25,8 @@ CONZQ.Models.User = Backbone.Model.extend({
 	planToShows: function () {
 		if (!this._planToShows) {
 			this._planToShows = new CONZQ.Subsets.PlanToShows([], {
-				parentCollection: CONZQ.allShows
+				parentCollection: CONZQ.allShows,
+				user: this
 			});
 		}
 		
@@ -34,7 +36,8 @@ CONZQ.Models.User = Backbone.Model.extend({
 	completedShows: function () {
 		if (!this._completedShows) {
 			this._completedShows = new CONZQ.Subsets.CompletedShows([], {
-				parentCollection: CONZQ.allShows
+				parentCollection: CONZQ.allShows,
+				user: this
 			});
 		}
 		
@@ -44,7 +47,8 @@ CONZQ.Models.User = Backbone.Model.extend({
 	droppedShows: function () {
 		if (!this._droppedShows) {
 			this._droppedShows = new CONZQ.Subsets.DroppedShows([], {
-				parentCollection: CONZQ.allShows
+				parentCollection: CONZQ.allShows,
+				user: this
 			});
 		}
 		
@@ -54,7 +58,8 @@ CONZQ.Models.User = Backbone.Model.extend({
 	favorites: function () {
 		if (!this._favorites) {
 			this._favorites = new CONZQ.Subsets.Favorites([], {
-				parentCollection: CONZQ.allShows
+				parentCollection: CONZQ.allShows,
+				user: this
 			});
 		}
 		

@@ -298,13 +298,14 @@ li.expand .x {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	background: rgba(202, 195, 201, 0.8);
+	background: rgba(202, 195, 201, 0.9);
 }
 
 .delete-view > .post-delete {
 	width: 180px;
 	height: 43px;
 	margin: auto;
+	font-weight: 500;
 }
 
 .delete-view > .comment-delete {
@@ -317,7 +318,8 @@ li.expand .x {
 	color: #fff;
 }
 
-.delete-view > .post-delete > button {
+.delete-view > .post-delete > button,
+.delete-view > .watchlist-delete > button {
 	margin: 0 10px;
 	padding: 5px 10px;
 	font-size: 14px;
@@ -365,6 +367,7 @@ li.expand .x {
 }
 
 .post-left.delete > .delete-view,
-li#comment.delete > .delete-view {
+li#comment.delete > .delete-view,
+li#tv.delete > .delete-view {
 	display: block;
 }

@@ -10,5 +10,16 @@
 		<a class="blank" href="/tv/<%= show.id %>"> </a>
 	</div>
 	
+	<% if (isThisUser) { %>
+	<strong class="x">&times;</strong>	
+		
+	<div class="delete-view">
+		<div class="watchlist-delete">
+			<p>Remove from list?</p>
+			<button id="cancel">Cancel</button>
+			<button id="delete">Remove</button>
+		</div>
+	</div>
+	<% } %>
 </li>
 <% }) %>

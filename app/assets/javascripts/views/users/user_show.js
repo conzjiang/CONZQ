@@ -48,7 +48,12 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		var formData = $(event.target).serializeJSON();
 		var that = this;
 		
-		this.user.save(formData.user, { patch: true });
+		this.user.save(formData.user, {
+			patch: true,
+			success: function () {
+				that.originalPhoto = that.user.get("photo_medium");
+			}
+		});
 	},
 	
 	changeFollowStatus: function () {
@@ -90,9 +95,9 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 				break;
 			case "Favorites":
 				view = new CONZQ.Views.UserFavorites({ 
-					favorites: this.user.favorites() 
+					favorites: this.user.favorites(),
+					userShowView: this
 				});
-				
 				break;
 			case "Follows":
 				view = new CONZQ.Views.UserFollows({

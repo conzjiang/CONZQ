@@ -40,6 +40,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input[type="submit"]:hover,
+button:hover {
+	background: #FD0D9D;
+}
+
 html, body {
 	position: relative;
 	height: 100%;
@@ -157,24 +162,24 @@ a.discover {
 	transition: color 0.3s;
 }
 
-.search {
+/*.search {
 	position: relative;
 }
 
 .search-input {
 	display: none;
-	
+
 	position: absolute;
 	top: 44px;
 	right: 0;
-	
+
 	width: 200px;
 	padding: 5px 10px;
 	background: pink;
 	border: 1px solid tomato;
 	border-top: 0;
 	box-shadow: 0 1px 1px #888;
-	
+
 	z-index: 500;
 }
 
@@ -190,16 +195,15 @@ a.discover {
 
 .search.open .search-input {
 	display: block;
-}
+}*/
 
 .signed-in {
 	position: relative;
 }
 
 .triangle {
-	padding: 17px;
-	font-size: 10px;
-	cursor: pointer;
+	padding-left: 8px;
+	font-size: 9px;
 }
 
 .profile-dropdown {
@@ -232,7 +236,7 @@ a.discover {
 	background: #FD0D9D;
 }
 
-.profile-dropdown.open {
+.signed-in:hover .profile-dropdown {
 	display: block;
 }
 
@@ -302,6 +306,7 @@ form.user-form .input-group {
 }
 
 form.user-form label,
+form.auto-complete > label,
 form.tv-form > label {
 	padding-bottom: 5px;
 	font-weight: 500;

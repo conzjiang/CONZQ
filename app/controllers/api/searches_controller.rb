@@ -46,7 +46,7 @@ class Api::SearchesController < ApplicationController
     current_shows = nil
     
     if current
-      current_shows = TvShow.where(status: "Currently Airing")
+      current_shows = TvShow.where("status LIKE 'Current%'")
     end
     
     results = [decade_shows, genre_shows, current_shows].compact

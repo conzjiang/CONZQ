@@ -12,7 +12,7 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 	
 	tagName: "ul",
 	
-	className: "users-list",
+	className: "users-list group",
 	
 	template: JST["users/subview"],
 	
@@ -28,7 +28,6 @@ CONZQ.Views.UsersSubView = Backbone.View.extend({
 		var $followButton = $(event.target);
 		var $userContainer = $followButton.closest("#follow");
 		var idolId = $userContainer.attr("data-id");
-		
 		var view = this;
 		
 		view.currentUser.save({ idol_id: idolId }, {

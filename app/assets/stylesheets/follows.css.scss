@@ -16,6 +16,11 @@ u.unfocus:hover {
 	color: #FD0D9D;
 }
 
+.users-list {
+	width: 606px;
+	margin: 20px auto;
+}
+
 .users-list > li {
 	position: relative;
 	width: 280px;
@@ -77,6 +82,10 @@ u.unfocus:hover {
 	
 	background: #D2EDFA;
 	cursor: pointer;
+}
+
+#follows-you {
+	cursor: default;
 }
 
 #follow-status.add-follow {
