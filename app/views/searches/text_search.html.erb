@@ -1,26 +1,26 @@
-<h1>Results for <%= @query %></h1>
+<h1>Results for "<%= @query %>"</h1>
 
-<h2>TV Shows</h2>
+<h2 class="text-result-header">TV Shows</h2>
 
 <% if @tv_results.empty? %>
-<h3>No results!</h3>
+<p class="no-results">No results!</p>
 <% else %>
-<ul id="tv-search-results" class="results group">
+<ul class="tv-text-results group">
 	<% @tv_results.each do |tv| %>
-	<li class="tv"><%= render tv %></li>
+	<li><%= render tv %></li>
 	<% end %>
 </ul>
 <% end %>
 
 
-<h2>Users</h2>
+<h2 class="text-result-header">Users</h2>
 
 <% if @user_results.empty? %>
-<h3>No results!</h3>
+<p class="no-results">No results!</p>
 <% else %>
-<ul id="user-search-results" class="results group">
+<ul class="users-list user-text-results group">
 	<% @user_results.each do |user| %>
-	<li class="user"><%= render user %></li>
+	<li id="follow" data-id="<%= user.id %>"><%= render user %></li>
 	<% end %>
 </ul>
 <% end %>

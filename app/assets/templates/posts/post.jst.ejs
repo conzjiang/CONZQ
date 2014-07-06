@@ -20,7 +20,11 @@
 	<% if (signedIn) { %>
 	<form id="comment-form">
 		<textarea name="comment[body]"></textarea>
-		<input type="submit" value="Submit">
+		
+		<div class="comment-form-bottom">
+			logged in as <strong><%= CONZQ.currentUser.escape("username") %></strong>
+			<input type="submit" value="Submit">
+		</div>
 	</form>
 	<% } %>
 	

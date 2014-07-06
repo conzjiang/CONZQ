@@ -1,19 +1,15 @@
 <header id="search" class="header">
 	<section class="group">
-		<a class="logo" href="/#">Clickster</a>
+		<a class="logo" href="/">Clickster</a>
+		
+		<form id="input-search-form" action="<%= text_search_url %>" method="get">
+			<input id="text-search" type="text" 
+						 name="query" value="<%= params[:query] %>" 
+						 placeholder="Search for TV show titles or users">
+		</form>
 
 		<ul class="nav">
 			<li><a class="discover" href="#">Discover</a></li>
-			<!-- <li class="search">
-				<a id="input-search" href="#">Search</a>
-
-				<div class="search-input">
-					<form action="<%= text_search_url %>" method="get">
-						<input id="text-search" type="text"
-									 name="query" value="<%= params[:query] %>">
-					</form>
-				</div>
-			</li> -->
 			
 			<% if signed_in? %>
 			<li class="signed-in">

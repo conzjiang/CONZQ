@@ -19,12 +19,7 @@ class SearchesController < ApplicationController
   end
   
   def text_search
-    if !params[:query].blank?
-      @query = params[:query]
-      session[:last_search] = params[:query]
-    else
-      @query = session[:last_search]
-    end
+    @query = params[:query]
     
     results = PgSearch.multisearch(@query).includes(:searchable)
     @tv_results = []

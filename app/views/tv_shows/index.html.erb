@@ -1,7 +1,7 @@
 <h1>My Series</h1>
 
-<ul>
+<ul class="admin-index group">
   <% @tvs.each do |show| %>
-    <li><a href="<%= tv_show_url(show) %>"><%= show.title %></a></li>
+    <li><%= render show %></li>
   <% end %>
 </ul>

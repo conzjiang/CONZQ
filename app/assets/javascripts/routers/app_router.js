@@ -20,20 +20,25 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
   },
 	
 	index: function () {
-		var frontPageShows = new CONZQ.Subsets.IndexShows([], {
-			parentCollection: CONZQ.allShows
-		});
+		var $indexContainer = $("section#index");
 		
-		var that = this;
-		frontPageShows.fetch({
-			success: function () {
-				var indexView = new CONZQ.Views.IndexView({
-					currentlyShows: frontPageShows
-				});
+		if ($indexContainer.length > 0) {
+			var frontPageShows = new CONZQ.Subsets.IndexShows([], {
+				parentCollection: CONZQ.allShows
+			});
+		
+			var that = this;
+			frontPageShows.fetch({
+				success: function () {
+					var indexView = new CONZQ.Views.IndexView({
+						currentlyShows: frontPageShows
+					});
 				
-				that._swapViews(indexView);
-			}
-		});
+					$indexContainer.html(indexView.render().$el);
+					that._currentView = indexView;
+				}
+			});
+		}
 	},	
 	
 	userShow: function (id) {
@@ -82,9 +87,9 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
   _swapViews: function (view) {
     if (this.showStatusView) this.showStatusView.remove();
 		if (this.genreFormView) this.genreFormView.remove();
-		if (this.currentView) this.currentView.remove();
+		if (this._currentView) this._currentView.remove();
 		
-    this.currentView = view;
+    this._currentView = view;
     this.$mainEl.html(view.render().$el);
   }
 });

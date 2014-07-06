@@ -1,7 +1,7 @@
 <% usersList.each(function (user) { %>
 <li id="follow" data-id="<%= user.id %>">
 	<a href="/#/users/<%= user.id %>">
-		<img src="/images/missing_thumb.jpg">
+		<img src="<%= user.escape("photo_thumb") %>">
 	</a>
 	
 	<ul class="user-info">
@@ -30,6 +30,5 @@
 		</li>
 		
 	</ul>
-
 </li>
 <% }) %>

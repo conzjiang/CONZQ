@@ -4,6 +4,10 @@
 
 //------------------------------------------
 
+$themeYellow: #FFDC25;
+$hoverPink: #FF0052;
+$brightGreen: rgb(117, 219, 117);
+
 input[type="checkbox"] {
   display: none;
 }
@@ -15,14 +19,14 @@ input[type="checkbox"] {
   margin: 20px auto;
 }
 
-// SEARCH NEW PAGE
+// SEARCH SIDEBAR
 form#search {
 	width: 240px;
-	margin: auto;
+	margin: 5px auto;
 }
 
 form#search li {
-	color: #fff;
+	color: #000;
 }
 
 form#search label {
@@ -46,21 +50,21 @@ form#search label {
 }
 
 .decades > li#decade {
-	width: 66px;
-	height: 66px;
-	background: green;
-	border: 3px solid #fff;
+	width: 72px;
+	height: 69px;
+	background: $themeYellow;
+	border-bottom: 3px solid #000;
 }
 
 .decades label {
-	padding: 24px 10px;
+	padding: 27px 10px;
 	text-align: center;
 	font-weight: 500;
 	font-size: 20px;
 }
 
 .decades > li#decade.current > label {
-	padding: 21px 0;
+	padding: 24px 0;
 	font-size: 12px;
 }
 
@@ -80,7 +84,8 @@ form#search > h3 {
 .genres > li {
 	float: left;
 	margin: 3px;
-	background: green;
+	background: $themeYellow;
+	border-bottom: 1px solid #000;
 }
 
 .genres label {
@@ -89,17 +94,17 @@ form#search > h3 {
 
 .decades > li#decade:hover,
 .genres > li#genre:hover {
-	background: rgb(117, 219, 117);
+	background: lavenderblush;
 }
 
 li#decade.selected,
 li#genre.selected {
-	background: red;
+	background: $hoverPink;
 }
 
 li#decade.selected:hover,
 li#genre.selected:hover {
-	background: red;
+	background: $hoverPink;
 }
 
 form#search > input[type="submit"] {
@@ -119,8 +124,8 @@ form#search > input[type="submit"]:hover {
 }
 
 form#search > input[type="submit"]:active {
-	padding-top: 5px;
-	padding-bottom: 0;
+	padding-top: 6px;
+	padding-bottom: 3px;
 	border-bottom: 1px solid #41002D;
 }
 
@@ -172,12 +177,6 @@ form#sort > button {
 	height: 400px;
 }
 
-.results > li.user {
-	padding: 15px;
-	width: 250px;
-//	height: ;
-}
-
 a.fill {
 	display: block;
 	height: 100%;
@@ -194,15 +193,9 @@ a.show-result {
   display: block;
 }
 
-
-.results > li.tv:hover {
-	background: rgb(253, 240, 253);
-}
-
-.results > li.user:hover {
-	padding: 13px;
-	background: rgb(253, 240, 253);
-	border: 3px solid #41002D;
+.results > li.tv:hover,
+.users-list > li:hover {
+	background: lavenderblush;
 }
 
 
@@ -213,6 +206,8 @@ a.show-result {
 }
 
 .result-info strong {
+	display: block;
+	padding-bottom: 5px;
 	font-weight: 500;
   font-size: 12px;
 }
@@ -229,4 +224,61 @@ a.show-result {
 .blurb {
   font-size: 12px;
 	line-height: 1.2;
+}
+
+// TEXT SEARCH RESULTS
+.text-result-header {
+	margin-top: 30px;
+}
+
+// TV RESULTS
+.tv-text-results {
+	width: 182px;
+	max-width: 526px;
+	margin: auto;
+	margin-bottom: 40px;
+}
+
+.admin-index > li,
+.tv-text-results > li {
+	float: left;
+	width: 160px;
+	height: 240px;
+	margin: 10px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	box-shadow: 0px 3px 5px #eee;
+}
+
+.admin-index > li:hover,
+.tv-text-results > li:hover {
+	margin: 10px;
+	background: lavenderblush;
+	border: 1px solid $hoverPink;
+	box-shadow: -1px 3px 3px #ccc;
+}
+
+.admin-index a,
+.tv-text-results a {
+	display: block;
+	height: 100%;
+}
+
+.admin-index img,
+.tv-text-results img {
+	border-radius: 3px 3px 0 0;
+}
+
+.admin-index strong,
+.tv-text-results strong {
+	display: block;
+	padding: 5px;
+	color: #4a4a4a;
+}
+
+// USER RESULTS
+.user-text-results {
+	width: 302px;
+	max-width: 606px;
+	margin: auto;
 }

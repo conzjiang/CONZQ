@@ -6,6 +6,7 @@
 $headerPurple: #41002D;
 $prettyPink: #FD0D9D;
 $brightGreen: rgb(96, 238, 136);
+$themeYellow: #FFDC25;
 
 // NAV
 .watchlist-nav {
@@ -25,14 +26,16 @@ $brightGreen: rgb(96, 238, 136);
 	padding: 5px;
 }
 
+.profile-nav li.selected > a,
 .watchlist-nav > li.selected > p {
 	font-weight: 500;
-	background: $brightGreen;
+	background: $themeYellow;
 	border-bottom: 3px solid #000;
 }
 
+.profile-nav a:hover,
 .watchlist-nav p:hover {
-	background: $brightGreen;
+	background: lavenderblush;
 }
 
 // LIST ITEMS

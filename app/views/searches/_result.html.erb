@@ -1,33 +1,26 @@
-<h3><a class="show-result" href="#/tv/<%= tv.id %>">
+<a class="fill" href="/tv/<%= tv.id %>"></a>
+
+<div class="result-container">
+	
+<h3><a class="show-result" href="/tv/<%= tv.id %>">
 	<%= tv.title %>
 </a></h3>
 
-<ul class="statuses group">
-	<li id="watchlist">
-		<ul class="watchlist-statuses">
-			<% TvShow::STATUSES.each do |status| %>
-				<li id="status" data-id="<%= status %>"><%= status %></li>
-			<% end %>
-		</ul>
-	</li>
+<div id="statuses-container"></div>
 
-	<li id="favorite"></li>
-	<li id="message"></li>
-</ul>
-
-<a class="show-result" href="#/tv/<%= tv.id %>">
+<a class="show-result" href="/tv/<%= tv.id %>">
 <div class="result-info group">
   <img src="<%= tv.photo.url(:medium) %>">
 
   <ul>
     <li class="rating">
       <strong>IMDB rating:</strong>
-      <%= tv.rating %>
+			<%= tv.rating %>
     </li>
-
-    <% tv.genre_names.each do |genre| %>
+		
+		<% tv.genre_names.each do |genre| %>
     <li class="result-genre"><%= genre %></li>
-    <% end %>
+		<% end %>
   </ul>
 </div>
 
@@ -35,3 +28,5 @@
   <p><%= tv.blurb %></p>
 </div>
 </a>
+
+</div>

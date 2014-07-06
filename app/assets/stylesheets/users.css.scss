@@ -5,6 +5,10 @@
 //----------------------------------
 $headerPurple: #41002D;
 
+.no-results {
+	text-align: center;
+}
+
 // EDIT FORM
 form.user-form a {
 	margin-left: 15px;
@@ -13,23 +17,34 @@ form.user-form a {
 }
 
 // PROFILE NAV
+.profile-nav {
+	background: lavender;
+}
+
 .profile-nav ul {
-  width: 418px;
+  width: 422px;
   display: block;
   margin: auto;
 }
 
 .profile-nav li {
   float: left;
-  padding: 10px 25px;
+  padding: 10px;
+}
+
+.profile-nav a {
+	padding: 10px 15px;
+}
+
+.profile-nav li.selected > a {
+	padding-bottom: 7px;
 }
 
 // PROFILE INFO
 .profile-info {
 	position: relative;
 	width: 500px;
-	margin: auto;
-	margin-bottom: 20px;
+	margin: 20px auto;
 	padding: 20px;
 	border: 1px solid #eee;
 }
@@ -47,10 +62,18 @@ form.user-form a {
 .profile-right {
 	float: right;
 	width: 320px;
+	height: 200px;
 }
 
 .profile-right > li {
 	padding-bottom: 10px;
+}
+
+.profile-right > li > p {
+	height: 89px;
+	padding: 15px;
+	background: aliceblue;
+	overflow: auto;
 }
 
 .edit-profile,
@@ -147,8 +170,14 @@ form#post-form > textarea:focus {
 }
 
 .post-form-bottom input[type="submit"] {
+	float: right;
 	padding: 5px 10px;
 	font-size: 12px;
+}
+
+.post-form-bottom input[type="submit"]:active {
+	padding-top: 6px;
+	padding-bottom: 4px;
 }
 
 .post-form-bottom label {
@@ -164,8 +193,6 @@ form#post-form > textarea:focus {
 	padding: 17px 13px;
 	margin: 10px auto;
 	border: 1px solid #000;
-	
-	-webkit-tap-highlight-color:transparent;
 }
 
 section.post-left {
@@ -211,6 +238,10 @@ section.post-left {
 	background: #D2EDFA;
 }
 
+.post-bottom a:hover {
+	background: #6FD0FF;
+}
+
 // POST EXPAND - COMMENTS VIEW
 .posts > li.expand {
 	width: 514px;
@@ -229,9 +260,29 @@ form#comment-form textarea {
 	padding: 5px;
 }
 
-form#comment-form input[type="submit"] {
-	padding: 5px 10px;
+form#comment-form textarea:focus {
+	padding: 4px;
+}
+
+.comment-form-bottom {
+	float: right;
 	font-size: 12px;
+	color: #333;
+}
+
+.comment-form-bottom > strong {
+	font-weight: 500;
+}
+
+form#comment-form input[type="submit"] {
+	margin: 5px 0 0 5px;
+	padding: 3px 8px;
+	font-size: 12px;
+}
+
+form#comment-form input[type="submit"]:active {
+	padding-top: 4px;
+	padding-bottom: 2px;
 }
 
 section.comments-right {

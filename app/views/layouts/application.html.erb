@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CONZQ</title>
+  <title>Clickster</title>
 	<link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,500' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
@@ -31,9 +31,10 @@ $(document).ready(function(){
 	var $sidebar = $("<section>").addClass("sidebar");
 	var $main = $("section.main");
 
-
+	// BACKBONE
   CONZQ.initialize($container, $sidebar, $main);
 	
+	// EXTRA
 	$("abbr.timeago").timeago();
 	
 	<% if session[:sidebar] == "true" %>
@@ -42,6 +43,10 @@ $(document).ready(function(){
 	
 	$("input#text-search").on("focus", function () {
 		$(this).val("");
+	});
+	
+	$("form#input-search-form").on("submit", function () {
+		
 	});
 	
 	$("a.discover").on("click", function () {

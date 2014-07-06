@@ -1,9 +1,15 @@
 <h1>my name is <u><%= user.escape("username") %></u></h1>
 
-<section class="profile-nav group">
+<section class="profile-nav">
 	<ul class="group">
 	<% _(["Main", "Watchlist", "Favorites", "Follows"]).each(function (nav) { %>
-		<li><a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a></li>
+		<% if (nav === "Main") { %>
+		<li class="selected">
+		<% } else { %>
+		<li>
+		<% } %>
+			<a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a>
+		</li>
 	<% }) %>
 	</ul>
 </section>
@@ -32,7 +38,9 @@
 			<% } %>
 			
 			<li>
+				<% if (user.escape("bio")) { %>
 				<p><%= user.escape("bio") %></p>
+				<% } %>
 				<textarea name="user[bio]"><%= user.escape("bio") %></textarea>
 				<input type="submit" value="Save">
 			</li>

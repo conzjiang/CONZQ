@@ -1,6 +1,23 @@
-<a class="group" href="<%= user_url(user) %>">
-	<%= image_tag "missing_thumb.jpg" %>
-	<p class="username"><%= user.username %></p>
-  <p class="user-favs"><%= user.favorites.count %> favorite shows</p>
-  <%= render partial: "follows/status", locals: { user: user } %>
+<a href="/#/users/<%= user.id %>">
+	<img src="<%= user.photo.url(:thumb) %>">
 </a>
+
+<ul class="user-info">
+	<li class="username">
+		<a href="/#/users/<%= user.id %>"><%= user.username %></a>
+	</li>
+	
+	<li>
+		<a href="/#/users/<%= user.id %>">
+			currently watching
+			<strong><%= user.currently_watching_shows.count %></strong> shows
+		</a>
+	</li>
+	
+	<li>
+		<a href="/#/users/<%= user.id %>">
+			<span class="heart"></span>
+			<p><%= user.favorites.count %> favorite shows</p>
+		</a>
+	</li>
+</ul>

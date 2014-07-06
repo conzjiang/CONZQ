@@ -110,6 +110,8 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 				break;
 		}
 		
+		$(event.target).closest("ul").find(".selected").removeClass("selected");
+		$(event.target).parent().addClass("selected");
 		this._swapViews(view);
 	},
 	

@@ -11,6 +11,28 @@ class Api::SearchesController < ApplicationController
       render json: { results: "No results!" }
     end
   end
+  
+  def text_search
+    @query = params[:query]
+    
+    results = PgSearch.multisearch(@query).includes(:searchable)
+    @tv_results = []
+    @user_results = []
+    
+    results.map(&:searchable).each do |result|
+      if result.is_a?(TvShow)
+        @tv_results << result
+      else
+        @user_results << result
+      end
+    end
+    
+    render partial: 'api/searches/text_results', locals: {
+      search: {},
+      tv_results: @tv_results,
+      user_results: @user_results
+    }
+  end
 
   private
   def run_query(params)

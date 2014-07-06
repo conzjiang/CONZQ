@@ -15,6 +15,7 @@ CONZQ::Application.routes.draw do
     resource :search, only: [:show]
     
     get '/front', to: "tv_shows#front_page", as: "front_page"
+    get '/search/input_search', to: "searches#text_search", as: "text_search"
     get '/rest_genres', to: "tv_shows#rest_genres", as: "rest_genres"
   end
 

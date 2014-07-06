@@ -78,7 +78,9 @@ input[type="file"] {
 	background: none;
 }
 
-input:focus, textarea:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
 	border: 1px solid #41002D;
 }
 
@@ -145,57 +147,48 @@ ul.nav {
 
 ul.nav > li {
 	float: left;
+	padding: 5px;
 }
 
 ul.nav > li > a {
-	padding: 15px;
+	padding: 10px;
 	
 	font-weight: 500;
 	font-size: 14px;
 }
 
-ul.nav > li:last-child > a {
-	padding-right: 10px;
+ul.nav > li:last-child {
+	padding-right: 0;
+}
+
+ul.nav > li > a:hover {
+	background: #610143;
 }
 
 a.discover {
 	transition: color 0.3s;
 }
 
-/*.search {
+form#input-search-form {
 	position: relative;
+	float: left;
 }
 
-.search-input {
-	display: none;
-
+input#text-search {
 	position: absolute;
-	top: 44px;
-	right: 0;
-
-	width: 200px;
-	padding: 5px 10px;
-	background: pink;
-	border: 1px solid tomato;
-	border-top: 0;
-	box-shadow: 0 1px 1px #888;
-
-	z-index: 500;
-}
-
-.search-input input {
-	width: 188px;
+	top: 10px;
+	left: 20px;
+	
+	width: 250px;
+	padding: 0 5px;
+	
 	font-size: 14px;
 	color: #000;
-	padding: 0 5px;
+	line-height: 1.6;
+	
 	background: #fff;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	border: 1px solid #eee;
 }
-
-.search.open .search-input {
-	display: block;
-}*/
 
 .signed-in {
 	position: relative;
