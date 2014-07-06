@@ -2,8 +2,6 @@
 
 <section class="sign-in">
 
-<%= render partial: "layouts/error" %>
-
 <form class="user-form" action="<%= session_url %>" method="post">
   <%= form_auth %>
 
@@ -19,5 +17,9 @@
 
   <center><button>Log In</button></center>
 </form>
+
+<p class="or">or</p>
+
+<a href="/auth/facebook">Login with Facebook</a>
 
 </section>

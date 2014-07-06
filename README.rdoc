@@ -1,10 +1,8 @@
 == TODO
 
 * Facebook login
-* Change "Currently Airing" status to "Current"
 * Back link on TV show page in order to return to search results
 * Display text if pages (profile) have nothing there
-* Delete shows from watchlist
 * Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
 * When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)

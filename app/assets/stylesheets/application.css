@@ -439,3 +439,28 @@ form.user-form button {
 	color: #8A091E;
 	background: #FAC1D5;
 }
+
+/* ERRORS */
+.errors-container {
+	position: relative;
+	top: -10px;
+	left: -10px;
+	
+	display: block;
+	width: 740px;
+	padding: 15px;
+	
+	color: #f00;
+	background: pink;
+	border-bottom: 1px solid #f00;
+}
+
+p.error {
+	text-align: center;
+}
+
+ul.error {
+	list-style: circle;
+	width: 400px;
+	margin: auto;
+}

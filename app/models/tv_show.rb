@@ -53,22 +53,27 @@ class TvShow < ActiveRecord::Base
   def auto_complete
     omdb_info = parse_omdb
     tmdb_info = parse_tmdb
+    
+    if omdb_info
+      self.blurb = omdb_info["Plot"]
 
-    self.blurb = omdb_info["Plot"]
+      years = omdb_info["Year"].split("–")
+      self.year_start = years.first
 
-    years = omdb_info["Year"].split("–")
-    self.year_start = years.first
-
-    if years.count > 1
-      self.year_end = years.last
-    else
-      self.status = "Currently Airing"
+      if years.count > 1
+        self.year_end = years.last
+      else
+        self.status = "Currently Airing"
+      end
+    
+      @genres = omdb_info["Genre"].split(",")
     end
-
-    self.seasons = tmdb_info["number_of_seasons"]
-    self.network = tmdb_info["networks"].map { |hash| hash["name"] }.join("/")
-
-    @genre_names = omdb_info["Genre"].split(",")
+    
+    if tmdb_info
+      self.seasons = tmdb_info["number_of_seasons"]
+      self.network = tmdb_info["networks"].map { |hash| hash["name"] }.join("/")
+    end
+    
     nil
   end
 
@@ -111,8 +116,6 @@ class TvShow < ActiveRecord::Base
   end
 
   def parse_tmdb
-    parsed_omdb = parse_omdb
-
     tmdb_external_search = Addressable::URI.new(
           scheme: "http",
           host: "api.themoviedb.org",

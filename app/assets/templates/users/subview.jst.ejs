@@ -7,13 +7,8 @@
 	<ul class="user-info">
 		<li class="username">
 			<a href="/#/users/<%= user.id %>"><%= user.escape("username") %></a>
-			
-			<% if (CONZQ.currentUser && CONZQ.currentUser.id != user.id) { %>
-			<button id="follow-status" class="add-follow">Follow</button>
-			<button id="follow-status" class="is-following">Following</button>
-			<% } %>
+			<!--FOLLOW STATUS -->
 		</li>
-		
 		
 		<li>
 			<a href="/#/users/<%= user.id %>">

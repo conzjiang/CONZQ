@@ -1,7 +1,9 @@
 CONZQ::Application.routes.draw do
-  # root to: "searches#new" # PURE RAILS
   root to: "sessions#root" # BACKBONE
-
+  
+  # --------------------------------------------------
+  # BACKBONE
+  
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :update] do
       resources :watchlists, only: [:create, :update, :destroy]
@@ -26,11 +28,14 @@ CONZQ::Application.routes.draw do
 
   resources :users
   resource :session
-  resource :search, only: [:new]
+  # resource :search, only: [:new]
+  
+  # FACEBOOK LOGIN
+  get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 
   # SEARCH ROUTES
-  get "/search", to: "searches#show", as: "search_query"
-  post "/search/:search_params/sort", to: "searches#sort", as: "sort"
+  # get "/search", to: "searches#show", as: "search_query"
+  # post "/search/:search_params/sort", to: "searches#sort", as: "sort"
   get "/input-search", to: "searches#text_search", as: "text_search"
 
   # TV SHOW ROUTES
@@ -45,13 +50,13 @@ CONZQ::Application.routes.draw do
   post "/tv/new/auto", to: "tv_shows#auto_complete_form", as: "auto_complete"
 
   # WATCHLIST ROUTES
-  post "/tv/:tv_id/watchlist", to: "watchlists#create", as: "tv_watchlist"
-  put "/watchlist/:id", to: "watchlists#update", as: "update_watchlist"
+  # post "/tv/:tv_id/watchlist", to: "watchlists#create", as: "tv_watchlist"
+  # put "/watchlist/:id", to: "watchlists#update", as: "update_watchlist"
 
   # FAVORITE ROUTES
-  post "/tv/:tv_id/favorite", to: "favorites#create", as: "add_fav"
-  delete "/tv/:tv_id/favorite", to: "favorites#destroy", as: "delete_fav"
+  # post "/tv/:tv_id/favorite", to: "favorites#create", as: "add_fav"
+  # delete "/tv/:tv_id/favorite", to: "favorites#destroy", as: "delete_fav"
 
   # UNFOLLOW ROUTE
-  delete "/user/:user_id/unfollow", to: "follows#destroy", as: "unfollow"
+  # delete "/user/:user_id/unfollow", to: "follows#destroy", as: "unfollow"
 end

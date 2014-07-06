@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   
   def check_user
     if current_user != User.find(params[:id])
-      flash[:error] = ["You are not allowed to perform that action!"]
+      flash[:errors] = ["You are not allowed to perform that action!"]
       redirect_to root_url
     end
   end

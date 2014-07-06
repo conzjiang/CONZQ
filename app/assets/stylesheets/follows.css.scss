@@ -4,6 +4,7 @@
 
 //---------------------------------------
 
+// UTILITIES
 .pointer {
 	cursor: pointer;
 }
@@ -16,6 +17,11 @@ u.unfocus:hover {
 	color: #FD0D9D;
 }
 
+.inline {
+	display: inline-block;
+}
+
+// USER SUBVIEWS
 .users-list {
 	width: 606px;
 	margin: 20px auto;
@@ -48,9 +54,18 @@ u.unfocus:hover {
 	padding: 2px 0;
 }
 
+.user-info a {
+	display: block;
+}
+
 .user-info > li.username {
 	font-size: 16px;
 }
+
+.user-info > li.username > a {
+	display: inline;
+}
+
 
 .heart {
 	display: inline-block;
@@ -85,6 +100,8 @@ u.unfocus:hover {
 }
 
 #follows-you {
+	padding: 3px 6px 1px 6px;
+	border: 0;
 	cursor: default;
 }
 
@@ -93,15 +110,15 @@ u.unfocus:hover {
 }
 
 #follow-status.add-follow:hover {
-	background: blue;
+	color: #D2EDFA;
+	background: #27386F;
 }
 
 #follow-status.is-following,
 #follows-you {
-	border-color: #135D0B;
-	color: #135D0B;
-	
-	background: #A7FF96;
+	color: #FD0D9D;
+	background: lavenderblush;
+	border-color: lavenderblush;
 }
 
 #follows-you {
@@ -109,7 +126,8 @@ u.unfocus:hover {
 }
 
 #follow-status.is-following:hover {
-	background: gray;
+	color: lavenderblush;
+	background: #FD0D9D;
 }
 
 #follow-status.is-following:active {
@@ -120,4 +138,11 @@ u.unfocus:hover {
 #follow-status.is-following.hide,
 #follows-you.hide {
 	display: none;
+}
+
+#follow-status.follow-placeholder,
+#follow-status.follow-placeholder:hover {
+	color: #999;
+	background: #ccc;
+	border-color: #ccc;
 }

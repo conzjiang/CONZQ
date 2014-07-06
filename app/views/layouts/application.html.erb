@@ -15,7 +15,11 @@
 <main class="container">
 	<!-- SIDEBAR -->
 	
-	<section class="main"><%= yield %></section>
+	<section class="main">
+		<%= render partial: "layouts/error" %>
+		
+		<%= yield %>
+	</section>
 </main>
 
 <% if current_user %>

@@ -15,7 +15,8 @@ gem "paperclip"
 gem "aws-sdk"
 gem 'backbone-on-rails'
 gem "pg_search"
-gem "kaminari"
+gem 'kaminari'
+gem 'omniauth-facebook'
 
 group :doc do
   gem 'sdoc', require: false

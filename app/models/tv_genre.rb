@@ -8,7 +8,7 @@ class TvGenre < ActiveRecord::Base
     6 => "Live-Action",
     7 => "Period",
     8 => "Procedural",
-    9 => "Sci-Fi",
+    9 => "Sci-Fi/Fantasy",
     10 => "Scripted",
     11 => "Serialized",
     12 => "Thriller",

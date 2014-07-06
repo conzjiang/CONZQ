@@ -13,7 +13,6 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		"change #photo-upload": "photoPreview",
 		"click .cancel-edit": "cancelEdit",
 		"submit form#edit-user": "updateProfile",
-		"click #follow-status": "changeFollowStatus",
 		"click a#nav": "profileNav"
 	},
 	
@@ -52,34 +51,6 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 			patch: true,
 			success: function () {
 				that.originalPhoto = that.user.get("photo_medium");
-			}
-		});
-	},
-	
-	changeFollowStatus: function () {
-		var $followButton = $(event.target);
-		var view = this;
-		
-		CONZQ.currentUser.save({ idol_id: this.user.id }, {
-			patch: true,
-			success: function () {
-				var $otherButton;
-				
-				if ($followButton.hasClass("add-follow")) {
-					view.user.followers().add(CONZQ.currentUser);
-					CONZQ.currentUser.idols().add(view.user);
-					
-					$otherButton = $followButton.parent().find(".is-following");
-					
-				} else {
-					view.user.followers().remove(CONZQ.currentUser);
-					CONZQ.currentUser.idols().remove(view.user);
-					
-					$otherButton = $followButton.parent().find(".add-follow");
-				}
-				
-				$followButton.addClass("hide");
-				$otherButton.removeClass("hide");
 			}
 		});
 	},
@@ -125,8 +96,18 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		});
 		this.$el.html(content);
 		
-		if (CONZQ.currentUser && CONZQ.currentUser.id != this.user.id) {
-			this._applyFollowStatus();
+		if (CONZQ.currentUser && CONZQ.currentUser.id !== this.user.id) {
+			var $followStatuses = this.$el.find("#follow-statuses");
+			
+			this.followStatView = new CONZQ.Views.FollowStatus({
+				user: this.user,
+				userShowView: this
+			});
+			$followStatuses.prepend(this.followStatView.render().$el);
+			
+			if (!CONZQ.currentUser.followers().contains(this.user)) {
+				$followStatuses.find("#follows-you").addClass("hide");
+			}
 		}
 		
 		var userWallView = new CONZQ.Views.UserWall({ user: this.user });
@@ -135,25 +116,14 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 		return this;
 	},
 	
-	_applyFollowStatus: function () {
-		var $followStatuses = this.$el.find("#follow-statuses");
-		var $addFollow = $followStatuses.find("#follow-status.add-follow");
-		var $isFollowing = $followStatuses.find("#follow-status.is-following");
-		
-		if (CONZQ.currentUser.idols().contains(this.user)) {
-			$addFollow.addClass("hide");
-		} else {
-			$isFollowing.addClass("hide");
-		}
-		
-		if (!CONZQ.currentUser.followers().contains(this.user)) {
-			$followStatuses.find("#follows-you").addClass("hide");
-		}
-	},
-	
 	_swapViews: function (view) {
 		if (this._currentView) this._currentView.remove();
 		this._currentView = view;
 		this.$el.find("section.user-container").html(view.render().$el);
+	},
+	
+	remove: function () {
+		if (this.followStatView) this.followStatView.remove();
+		return Backbone.View.prototype.remove.apply(this);
 	}
 });
