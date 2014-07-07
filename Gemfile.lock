@@ -216,6 +216,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  omniauth
   omniauth-facebook
   paperclip
   pg

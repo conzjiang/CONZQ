@@ -53,8 +53,14 @@
 
 <div class="rest-genres">
   <% genres.each(function (genre) { %>
-  <input type="checkbox" id="<%= genre.escape("name") %>"
+		
+		<% var genreId = genre.escape("name") %>
+		<% if (genreId === "Sci-Fi/Fantasy") { %>
+			<% genreId = "Sci-Fi" %>
+		<% } %>
+		
+  <input type="checkbox" id="<%= genreId %>"
 				 name="genre_ids[]" value="<%= genre.id %>">
-  <label for="<%= genre.escape("name") %>"><%= genre.escape("name") %></label>
+  <label for="<%= genreId %>"><%= genre.escape("name") %></label>
   <% }) %>
 </div>

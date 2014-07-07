@@ -12,7 +12,7 @@ CONZQ.Views.GenreForm = Backbone.View.extend({
 	
 	highlightLabel: function () {
 		var $label = $(event.target);
-		$label.toggleClass("red");
+		$label.toggleClass("selected");
 	},
 	
 	render: function () {
@@ -21,9 +21,13 @@ CONZQ.Views.GenreForm = Backbone.View.extend({
 		
 		var that = this;
 		_(this.genres).each(function (genre) {
-			var $checkbox = that.$el.find("input#" + genre);
+			var genreId = genre;
+			if (genre === "Sci-Fi/Fantasy") genreId = "Sci-Fi";
+			
+			var $checkbox = that.$el.find("input#" + genreId);
 			$checkbox.prop("checked", true);
-			$checkbox.parent().find("label[for='"+ genre + "']").addClass("red");
+			$checkbox.parent().find("label[for='"+ genreId + "']")
+												.addClass("selected");
 		});
 		
 		return this;

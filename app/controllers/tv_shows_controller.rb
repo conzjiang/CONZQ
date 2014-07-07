@@ -28,7 +28,7 @@ class TvShowsController < ApplicationController
   end
 
   def show
-    @tv = TvShow.find(params[:id])
+    @tv = TvShow.includes(:posts).find(params[:id])
   end
 
   def edit

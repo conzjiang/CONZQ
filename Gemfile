@@ -16,6 +16,7 @@ gem "aws-sdk"
 gem 'backbone-on-rails'
 gem "pg_search"
 gem 'kaminari'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :doc do

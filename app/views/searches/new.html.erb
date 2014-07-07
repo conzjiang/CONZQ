@@ -1,40 +1,7 @@
-<h1>Filter</h1>
+<h3>Currently Airing Shows</h3>
 
-<section class="search-container">
-
-
-<h3>By Decade</h3>
-<form action="<%= search_query_url %>" method="get">
-  <%= form_auth %>
-
-  <% @decades.each do |id, decade| %>
-    <input type="checkbox"
-           id="<%= decade %>"
-           name="search[decade_ids][]"
-           value="<%= id %>">
-    <label for="<%= decade %>">'<%= decade == 0 ? "00" : decade %>s</label>
-    <br>
-  <% end %>
-
-  <input type="checkbox"
-         id="Currently Airing"
-         name="search[status]"
-         value="Currently Airing">
-  <label for="Currently Airing">Currently Airing</label>
-
-
-  <h3>By Genre</h3>
-
-  <% @genres.each do |id, genre| %>
-    <input type="checkbox"
-           id="<%= genre %>"
-           name="search[genre_ids][]"
-           value="<%= id %>">
-    <label for="<%= genre %>"><%= genre %></label>
-    <br>
-  <% end %>
-
-  <button>Search</button>
-</form>
-
-</section>
+<ul class="admin-index front group">
+	<% @front_page_shows.each do |show| %>
+	<li><%= render show %></li>
+	<% end %>
+</ul>

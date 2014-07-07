@@ -2,7 +2,6 @@ CONZQ.Views.Post = Backbone.View.extend({
 	initialize: function (options) {
 		this.user = options.user;
 		this.post = options.post;
-		this.postsCollection = options.postsCollection;
 				
 		this.$el.attr("data-id", this.post.id);
 	},
@@ -25,15 +24,14 @@ CONZQ.Views.Post = Backbone.View.extend({
 	},
 	
 	expand: function () {
-		var $post = $(event.currentTarget);
-		$post.addClass("expand");
+		this.$el.addClass("expand");
 		
 		this.commentsView = new CONZQ.Views.PostComments({
 			post: this.post,
 			comments: this.post.comments()
 		});
 		
-		$post.find("section.comments-right").html(this.commentsView.render().$el);
+		this.$el.find(".comments-right").html(this.commentsView.render().$el);
 	},
 	
 	createComment: function () {
@@ -54,23 +52,20 @@ CONZQ.Views.Post = Backbone.View.extend({
 	},
 	
 	closePost: function () {
-		$(event.target).closest("li").removeClass("expand");
+		this.$el.removeClass("expand");
 	},
 	
 	showDelete: function () {
-		$(event.currentTarget).find("section.post-left").toggleClass("delete");
+		this.$el.find("section.post-left").toggleClass("delete");
 	},
 	
 	cancelDelete: function () {
-		$(event.currentTarget).find("section.post-left").removeClass("delete");
+		this.$el.find("section.post-left").removeClass("delete");
 	},
 	
 	deletePost: function () {
-		var $post = $(event.target).closest("li#post");
-		var postId = $post.attr("data-id");
-		var post = this.postsCollection.get(postId);
-
-		post.destroy();
+		this.post.destroy();
+		this.remove();
 	},
 	
 	render: function () {

@@ -22,7 +22,11 @@
 		<textarea name="comment[body]"></textarea>
 		
 		<div class="comment-form-bottom">
-			logged in as <strong><%= CONZQ.currentUser.escape("username") %></strong>
+			<div>
+				logged in as
+				<strong><%= CONZQ.currentUser.escape("username") %></strong>
+			</div>
+			
 			<input type="submit" value="Submit">
 		</div>
 	</form>

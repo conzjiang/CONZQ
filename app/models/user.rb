@@ -29,7 +29,10 @@ class User < ActiveRecord::Base
   
   has_many :posts, inverse_of: :user, dependent: :destroy
   
-  has_many :comments, inverse_of: :commenter, dependent: :destroy
+  has_many :comments, 
+    foreign_key: :commenter_id, 
+    inverse_of: :commenter, 
+    dependent: :destroy
   
   has_many :tv_shows,
     foreign_key: :admin_id,
@@ -39,21 +42,6 @@ class User < ActiveRecord::Base
   
   include PgSearch
   multisearchable against: [:username, :email]
-  
-  def self.find_or_create_by_fb_auth_hash(auth_hash)
-    user = self.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
-    debugger
-    unless user
-      user = self.create!(
-        uid: auth_hash[:uid],
-        provider: auth_hash[:provider],
-        email: auth_hash[:info][:email],         
-        password_digest: SecureRandom::urlsafe_base64(16)
-      )
-    end 
-    
-    user
-  end
   
   def currently_watching_shows
     TvShow.joins(:watchlists).where(

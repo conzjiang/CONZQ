@@ -28,10 +28,11 @@ CONZQ::Application.routes.draw do
 
   resources :users
   resource :session
-  # resource :search, only: [:new]
+  resource :search, only: [:new]
   
   # FACEBOOK LOGIN
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
+  get '/users/:id/username', to: 'users#update_username', as: 'update_username'
 
   # SEARCH ROUTES
   # get "/search", to: "searches#show", as: "search_query"

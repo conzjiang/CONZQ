@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_user, only: [:edit, :update]
+  before_action :check_user, only: [:update_username, :edit, :update]
   
   def new
     @user = User.new
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def update_username
+    @user = User.find(params[:id])
+  end
 
   def show
     @user = User.find(params[:id])
@@ -28,11 +32,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    unless @user.update_attributes(user_params)
+    if @user.update_attributes(user_params)
+      if params[:update]
+        redirect_to edit_user_url(@user)
+      else
+        redirect_to '/#/users/' + @user.id.to_s
+      end
+    else
       flash[:errors] = @user.errors.full_messages
+      redirect_to :back
     end
-    
-    redirect_to root_url
   end
 
   private

@@ -45,28 +45,63 @@
 	</section>
 </div>
 
-<div class="tv-posts-container">
-	<strong class="title">Recent posts</strong>
-	
-	<ul class="tv-posts">
-		<% if @tv.posts.empty? %>
-		<li>No posts.</li>
-		<% else %>
-		
-		<% @tv.posts.each do |post| %>
-		<li>
-			<p><%= post.body %></p>
-			
-			<strong class="username">
-				<a href="/#/users/<%= post.user.id %>"><%= post.user.username %></a>
-			</strong>
-			
-			<strong class="time">
-				<%= distance_of_time_in_words(post.created_at, Time.zone.now) %> ago
-			</strong>
-		</li>
-		<% end %>
-		
-		<% end %>
-	</ul>
-</div>
+
+
+
+
+
+
+
+<!-- TV SHOW CSS -->
+
+// SHOW PAGE
+.tv-show-page-container {
+  width: 650px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.edit-profile.tv {
+	position: relative;
+	bottom: 8px;
+	display: inline-block;
+}
+
+.tv-show-page-container > img {
+	margin: auto;
+}
+
+.tv-info-container {
+	position: relative;
+	margin-top: 30px;
+}
+
+.tv-info-left {
+	float: left;
+	width: 190px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.tv-info-left > li {
+  padding: 10px 0;
+}
+
+.tv-info-left strong {
+	font-weight: 500;
+}
+
+.tv-info-right {
+	position: absolute;
+	right: 0;
+	width: 420px;
+	height: 100%;
+  font-size: 20px;
+}
+
+.tv-info-right > p {
+	padding: 20px 40px;
+	font-style: italic;
+	line-height: 1.2;
+	background: #D2EDFA;
+}

@@ -7,21 +7,10 @@ CONZQ.Views.IndexView = Backbone.View.extend({
 	template: JST["index"],
 	
 	render: function () {
-		this.$el.html(this.template());
-		
-		var that = this;
-		this.currentlyShows.each(function (show) {
-			var tvView = new CONZQ.Views.SearchResult({ tv: show });
-			
-			that.$el.find("ul.results").append(tvView.render().$el);
-			that.tvViews.push(tvView);
+		var content = this.template({
+			currentlyShows: this.currentlyShows
 		});
-		
+		this.$el.html(content);
 		return this;
-	},
-	
-	remove: function () {
-		_(this.tvViews).each(function (view) { view.remove(); });
-		return Backbone.View.prototype.remove.apply(this);
 	}
 });

@@ -72,7 +72,7 @@ CONZQ.Views.FollowStatus = Backbone.View.extend({
 	_applyStatus: function () {
 		var $addFollow = this.$el.find("#follow-status.add-follow");
 		var $isFollowing = this.$el.find("#follow-status.is-following");
-		debugger
+		
 		if (CONZQ.currentUser.idols().contains(this.user)) {
 			$addFollow.addClass("hide");
 		} else {

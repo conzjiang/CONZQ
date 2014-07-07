@@ -1,0 +1,19 @@
+<h1>Your Profile</h1>
+
+<form class="user-form" action="<%= user_url(@user) %>" method="post">
+	<%= form_auth %>
+	<input type="hidden" name="_method" value="put">
+	<input type="hidden" name="update" value="username">
+	
+  <div class="input-group">
+		<label for="user_username">
+			Choose a unique username to represent yourself:
+		</label>
+		<input id="user_username" type="text" 
+					 name="user[username]" value="<%= @user.username %>">
+	</div>
+	
+	<center>
+		<button>Next &raquo;</button>
+	</center>
+</form>

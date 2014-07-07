@@ -7,15 +7,19 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 		this.tvShowStatus();
 		this.genreForm();
 		
+		this.frontPageShows = new CONZQ.Subsets.IndexShows([], {
+			parentCollection: CONZQ.allShows
+		});
+		
 		var searchbarView = new CONZQ.Views.Searchbar({
 			$sidebar: options.$sidebar
 		});
-		
 		this.$rootEl.prepend(searchbarView.render().$el);
   },
 
   routes: {
 		"": "index",
+		"index": "frontPageShow",
 		"users/:id": "userShow"
   },
 	
@@ -23,15 +27,11 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 		var $indexContainer = $("section#index");
 		
 		if ($indexContainer.length > 0) {
-			var frontPageShows = new CONZQ.Subsets.IndexShows([], {
-				parentCollection: CONZQ.allShows
-			});
-		
 			var that = this;
-			frontPageShows.fetch({
+			this.frontPageShows.fetch({
 				success: function () {
 					var indexView = new CONZQ.Views.IndexView({
-						currentlyShows: frontPageShows
+						currentlyShows: that.frontPageShows
 					});
 				
 					$indexContainer.html(indexView.render().$el);
@@ -39,7 +39,20 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 				}
 			});
 		}
-	},	
+	},
+	
+	frontPageShow: function () {
+		var that = this;
+		this.frontPageShows.fetch({
+			success: function () {
+				var indexView = new CONZQ.Views.IndexView({
+					currentlyShows: that.frontPageShows
+				});
+			
+				that._swapViews(indexView);
+			}
+		});
+	},
 	
 	userShow: function (id) {
 		var userShowView = new CONZQ.Views.UserShow({

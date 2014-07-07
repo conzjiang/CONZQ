@@ -216,7 +216,8 @@ section.post-left {
 }
 
 .post-bottom > .comment-link,
-.post-bottom > .time {
+.post-bottom > .time,
+.tv-posts .time {
 	color: #ccc;
 	font-size: 12px;
 }
@@ -271,11 +272,17 @@ form#comment-form textarea:focus {
 	color: #333;
 }
 
-.comment-form-bottom > strong {
+.comment-form-bottom > div {
+	float: left;
+	padding-top: 8px;
+}
+
+.comment-form-bottom strong {
 	font-weight: 500;
 }
 
 form#comment-form input[type="submit"] {
+	float: left;
 	margin: 5px 0 0 5px;
 	padding: 3px 8px;
 	font-size: 12px;
@@ -354,31 +361,38 @@ li.expand .x {
 }
 
 .delete-view > .post-delete {
-	width: 180px;
-	height: 43px;
-	margin: auto;
+	position: absolute;
+	top: 50%;
+	margin-top: -21px;
+	left: 64px;
+	
+	width: 165px;
+	height: 40px;
 	font-weight: 500;
 }
 
 .delete-view > .comment-delete {
 	position: absolute;
-	top: 9px;
+	top: 50%;
+	margin-top: -8px;
 	left: 29px;
 }
 
 .delete-view button {
+	display: block;
+	float: left;
 	color: #fff;
 }
 
-.delete-view > .post-delete > button,
-.delete-view > .watchlist-delete > button {
+.delete-view > .post-delete button,
+.delete-view > .watchlist-delete button {
 	margin: 0 10px;
 	padding: 5px 10px;
 	font-size: 14px;
 }
 
-.delete-view > .comment-delete > button {
-	margin: 0 5px;
+.delete-view > .comment-delete button {
+	margin: 0 10px;
 	padding: 2px 5px;
 	font-size: 12px;
 }
@@ -404,18 +418,16 @@ li.expand .x {
 	background: #f00;
 }
 
-.delete-view > .post-delete > button:active {
-	padding: 0 9px;
-	padding-top: 5px;
-	padding-bottom: 3px;
-	border: 1px solid #000;
+.delete-view > .post-delete button:active {
+	padding: 0 10px;
+	padding-top: 6px;
+	padding-bottom: 4px;
 }
 
-.delete-view > .comment-delete > button:active {
-	padding: 0 4px;
+.delete-view > .comment-delete button:active {
+	padding: 0 5px;
 	padding-top: 3px;
 	padding-bottom: 1px;
-	border: 1px solid #000;
 }
 
 .post-left.delete > .delete-view,

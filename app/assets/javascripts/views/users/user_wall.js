@@ -41,11 +41,8 @@ CONZQ.Views.UserWall = Backbone.View.extend({
 		
 		that.posts.each(function (post) {
 			var postView = new CONZQ.Views.Post({
-				
 				user: that.user,
-				post: post,
-				postsCollection: that.posts
-				
+				post: post
 			});
 			
 			$postsUl.append(postView.render().$el);

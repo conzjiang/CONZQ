@@ -5,9 +5,11 @@
 
 // SHOW PAGE
 .tv-show-page-container {
-  width: 650px;
-  margin: auto;
-  margin-bottom: 20px;
+  width: 506px;
+//	height: 624px;
+	float: left;
+	padding: 10px;
+	border: 1px solid #eee;
 }
 
 .edit-profile.tv {
@@ -18,16 +20,17 @@
 
 .tv-show-page-container > img {
 	margin: auto;
+	border: 10px solid #ccc;
 }
 
 .tv-info-container {
 	position: relative;
-	margin-top: 30px;
+	margin-top: 10px;
 }
 
 .tv-info-left {
 	float: left;
-	width: 190px;
+	width: 168px;
 	padding: 10px;
 	border: 1px solid #ccc;
 }
@@ -43,16 +46,62 @@
 .tv-info-right {
 	position: absolute;
 	right: 0;
-	width: 420px;
+	width: 305px;
 	height: 100%;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .tv-info-right > p {
-	padding: 20px 40px;
+	padding: 20px;
 	font-style: italic;
 	line-height: 1.2;
 	background: #D2EDFA;
+}
+
+// TV POSTS
+.tv-posts-container {
+	float: right;
+	width: 200px;
+	height: 618px;
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #eee;
+}
+
+.tv-posts-container > .title {
+	position: relative;
+	top: -5px;
+	left: -5px;
+	width: 190px;
+	display: block;
+	padding: 10px;
+	font-weight: 500;
+	background: #eee;
+}
+
+.tv-posts {
+	max-height: 584px;
+	overflow: auto;
+}
+
+.tv-posts > li {
+	margin-bottom: 5px;
+	padding: 10px;
+	background: #E5F7FF;
+}
+
+.tv-posts > li:last-child {
+	margin: 0;
+	border: 0;
+}
+
+.tv-posts > li > .username {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.tv-posts > li > .username > a:hover {
+	color: #FD0D9D;
 }
 
 // STATUSES
@@ -185,12 +234,12 @@ form.tv-form button {
 .rest-genres > label {
 	text-align: center;
 	padding: 3px 0;
-	color: #fff;
-	background: blue;
+	background: #D2EDFA;
 }
 
-form.tv-form label.red {
-	background: red;
+form.tv-form label.selected {
+	color: #fff;
+	background: #27386F;
 }
 
 .rest-genres {
@@ -207,4 +256,13 @@ form.tv-form label.red {
 .admin-index {
 	width: 546px;
 	margin: auto;
+}
+
+// FRONT PAGE
+.front {
+	width: 688px;
+}
+
+.front > li {
+	margin: 5px;
 }

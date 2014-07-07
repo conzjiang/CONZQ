@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
   def new
-    @decades = TvDecade::DECADES
-    @genres = TvGenre::GENRES.sort_by { |id, genre| genre }
+    @front_page_shows = TvShow.where(status: "Currently Airing")
   end
 
   def show

@@ -1,20 +1,12 @@
 == TODO
 
-* Facebook login
 * Back link on TV show page in order to return to search results
-* Display text if pages (profile) have nothing there
-* Set a 2 sec timeout to Follow button with placeholder text (ex. Following...) before switching over to Following status because feels too abrupt
-* When post deleted & user unfollowed, fade in flash message that acknowledges successful deletion
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
-* Center post-deletes vertically
 * Get search url to be "#/search" instead of without slash
-* Put listener on change:favoritesCount to call function that re-renders favorite count in profile
-
 
 == REACH TODOS
 
-* TV show pages to display live stream of comments about show
 * User feeds
 
 
