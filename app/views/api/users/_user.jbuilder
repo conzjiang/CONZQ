@@ -1,6 +1,6 @@
 json.extract! user, :id, :username, :bio, :watchlist_statuses, :created_at, :updated_at
 
-json.photo user.photo.url(:medium)
+json.photo_medium user.photo.url(:medium)
 json.photo_thumb user.photo.url(:thumb)
 
 json.currentCount user.currently_watching_shows.count

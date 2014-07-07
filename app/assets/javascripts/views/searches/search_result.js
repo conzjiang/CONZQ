@@ -25,7 +25,6 @@ CONZQ.Views.SearchResult = Backbone.View.extend({
 	
 	remove: function () {
 		this.statusesView.remove();
-		
 		return Backbone.View.prototype.remove.apply(this);
 	}
 });

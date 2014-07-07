@@ -506,4 +506,5 @@ ul.error {
 /* INDEX VIEW */
 .index-header {
 	margin: 10px 0 0 35px;
+	text-align: left;
 }

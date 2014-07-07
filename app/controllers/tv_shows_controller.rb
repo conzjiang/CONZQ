@@ -29,6 +29,7 @@ class TvShowsController < ApplicationController
 
   def show
     @tv = TvShow.includes(:posts).find(params[:id])
+    @posts = @tv.posts.order("created_at DESC")
   end
 
   def edit

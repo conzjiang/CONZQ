@@ -44,12 +44,17 @@ CONZQ.Views.UserShow = Backbone.View.extend({
 	
 	updateProfile: function () {
 		event.preventDefault();
+		
+		var $container = $(event.target).parent();
+		$container.addClass("save");
+		
 		var formData = $(event.target).serializeJSON();
 		var that = this;
 		
 		this.user.save(formData.user, {
-			patch: true,
 			success: function () {
+				delete that.user.attributes.photo;
+				$container.removeClass("save");
 				that.originalPhoto = that.user.get("photo_medium");
 			}
 		});

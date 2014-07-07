@@ -44,6 +44,7 @@ CONZQ.Views.SearchShow = Backbone.View.extend({
 		
 		if (resultsExist) {
 			_(view.results).each(function (show) {
+				
 				var resultView = new CONZQ.Views.SearchResult({ tv: show });
 			
 				view.$el.find("ul.results").append(resultView.render().$el);

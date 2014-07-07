@@ -124,18 +124,23 @@ class TvShow < ActiveRecord::Base
             api_key: ENV["TMDB_KEY"],
             external_source: "imdb_id"
           }).to_s
-
+    
     parsed_tmdb = JSON.parse(RestClient.get(tmdb_external_search))
-    tmdb_show_id = parsed_tmdb["tv_results"].first["id"].to_s
+    
+    unless parsed_tmdb["tv_results"].empty?
+      tmdb_show_id = parsed_tmdb["tv_results"].first["id"].to_s
 
-    tmdb_show_info = Addressable::URI.new(
-          scheme: "http",
-          host: "api.themoviedb.org",
-          path: "3/tv/" + tmdb_show_id,
-          query_values: {
-            api_key: ENV["TMDB_KEY"]
-          }).to_s
+      tmdb_show_info = Addressable::URI.new(
+            scheme: "http",
+            host: "api.themoviedb.org",
+            path: "3/tv/" + tmdb_show_id,
+            query_values: {
+              api_key: ENV["TMDB_KEY"]
+            }).to_s
 
-    JSON.parse(RestClient.get(tmdb_show_info))
+      JSON.parse(RestClient.get(tmdb_show_info))
+    else
+      nil
+    end
   end
 end

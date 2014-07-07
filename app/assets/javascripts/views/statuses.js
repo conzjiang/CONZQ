@@ -25,7 +25,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 		
 		if (!view.user) {
 			view._displayMessage($newStatus, 
-				"You must be logged in to do view!", "login-error");
+				"You must be logged in to do that!", "login-error");
 				
 		} else if (!$newStatus.hasClass("user-status")) {
 			
@@ -69,7 +69,7 @@ CONZQ.Views.StatusesView = Backbone.View.extend({
 		
 		if (!view.user) {
 			view._displayMessage($heartIcon, 
-				"You must be logged in to do view!", "login-error");
+				"You must be logged in to do that!", "login-error");
 			
 		} else {
 			view.user.save(favoriteParams, {

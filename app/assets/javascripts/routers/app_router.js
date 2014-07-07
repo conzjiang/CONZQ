@@ -7,9 +7,7 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 		this.tvShowStatus();
 		this.genreForm();
 		
-		this.frontPageShows = new CONZQ.Subsets.IndexShows([], {
-			parentCollection: CONZQ.allShows
-		});
+		this.frontPageShows = new CONZQ.Collections.IndexShows();
 		
 		var searchbarView = new CONZQ.Views.Searchbar({
 			$sidebar: options.$sidebar

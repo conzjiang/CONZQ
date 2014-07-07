@@ -101,6 +101,33 @@ form.user-form a {
 	background: #99516C;
 }
 
+.saving {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(204, 204, 204, 0.7);
+}
+
+.saving > p {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -18px;
+	margin-left: -68px;
+	
+	font-weight: 500;
+	font-size: 36px;
+	color: #666;
+}
+
+.profile-info.save .saving {
+	display: block;
+}
+
 // EDIT INFO VIEW
 form#edit-user input[type="file"] {
 	width: 160px;
@@ -127,7 +154,7 @@ form#edit-user input[type="submit"] {
 .profile-info input,
 .profile-info textarea,
 .profile-info .cancel-edit,
-.profile-info.edit p,
+.profile-info.edit p.bio,
 .profile-info.edit .edit-profile {
 	display: none;
 } 

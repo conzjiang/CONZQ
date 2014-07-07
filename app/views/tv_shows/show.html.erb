@@ -49,11 +49,11 @@
 	<strong class="title">Recent posts</strong>
 	
 	<ul class="tv-posts">
-		<% if @tv.posts.empty? %>
+		<% if @posts.empty? %>
 		<li>No posts.</li>
 		<% else %>
 		
-		<% @tv.posts.each do |post| %>
+		<% @posts.each do |post| %>
 		<li>
 			<p><%= post.body %></p>
 			

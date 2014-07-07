@@ -17,7 +17,7 @@
 <section class="profile-info group">
 	<form id="edit-user" class="group">
 		<div class="profile-left">
-			<img id="profile-photo" src="<%= user.escape("photo") %>">
+			<img id="profile-photo" src="<%= user.escape("photo_medium") %>">
 			<input id="photo-upload" type="file" name="user[photo]">
 		</div>
 		
@@ -37,7 +37,7 @@
 			
 			<li>
 				<% if (user.escape("bio")) { %>
-				<p><%= user.escape("bio") %></p>
+				<p class="bio"><%= user.escape("bio") %></p>
 				<% } %>
 				<textarea name="user[bio]"><%= user.escape("bio") %></textarea>
 				<input type="submit" value="Save">
@@ -49,6 +49,8 @@
 	<strong id="edit" class="edit-profile">Edit</strong>
 	<strong id="edit" class="cancel-edit">Cancel</strong>
 	<% } %>
+	
+	<div class="saving"><p>Saving...</p></div>
 </section>
 
 <section class="user-container">
