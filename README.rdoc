@@ -5,6 +5,13 @@
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
 * Get search url to be "#/search" instead of without slash
 
+== BUGS
+
+* Allow for changing watchlist status from profile
+* Allow for changing favorites status from profile refreshes page
+* currentCount and favoritesCount are not updated live - have them be defined on the collection instead of its own stagnant attribute
+* Genres aren't pre-selected in edit form
+
 == REACH TODOS
 
 * User feeds

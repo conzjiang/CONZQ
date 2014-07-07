@@ -14,7 +14,7 @@ class Api::TvShowsController < ApplicationController
   def front_page
     @tvs = TvShow.where(status: "Currently Airing")
     
-    render 'api/tv/index'
+    render 'api/tv/front'
   end
   
   def rest_genres

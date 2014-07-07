@@ -1,1 +1,1 @@
-json.array! @tvs, partial: 'api/tv/index_tv', as: :tv_show
+json.array! @tvs, partial: 'api/tv/tv_result', as: :tv_show
