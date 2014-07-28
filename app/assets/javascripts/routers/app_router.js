@@ -18,7 +18,8 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
   routes: {
 		"": "index",
 		"index": "frontPageShow",
-		"users/:id": "userShow"
+		"users/:id": "userShow",
+		"tv/:id": "tvShow"
   },
 	
 	index: function () {
@@ -58,6 +59,13 @@ CONZQ.Routers.AppRouter = Backbone.Router.extend({
 		});
 	
 		this._swapViews(userShowView);
+	},
+	
+	tvShow: function (id) {
+		var tv = CONZQ.allShows.getOrFetch(id);
+		
+		var tvShowView = new CONZQ.Views.TvShow({ tv: tv });
+		this._swapViews(tvShowView);
 	},
 	
 	tvShowStatus: function () {

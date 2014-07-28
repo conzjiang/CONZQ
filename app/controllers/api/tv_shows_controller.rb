@@ -8,7 +8,7 @@ class Api::TvShowsController < ApplicationController
   def show
     tv = TvShow.find(params[:id])
     
-    render partial: 'api/tv/tv_result', locals: { tv_show: tv }
+    render partial: 'api/tv/tv_show', locals: { tv_show: tv }
   end
   
   def front_page

@@ -11,6 +11,7 @@
 * Allow for changing favorites status from profile refreshes page
 * currentCount and favoritesCount are not updated live - have them be defined on the collection instead of its own stagnant attribute
 * Genres aren't pre-selected in edit form
+* Can't search more than one thing at a time!!!
 
 == REACH TODOS
 

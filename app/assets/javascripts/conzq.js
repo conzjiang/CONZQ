@@ -11,7 +11,7 @@ window.CONZQ = {
 			main: main
 		};
 		
-    CONZQ.allShows = new CONZQ.Collections.TvShows();
+    CONZQ.allShows = new CONZQ.Collections.TvShows(); // TV result views
 		CONZQ.users = new CONZQ.Collections.Users();
 		CONZQ.miniUserViews = new CONZQ.Collections.Users();
 		CONZQ.searches = new CONZQ.Collections.SessionSearches();

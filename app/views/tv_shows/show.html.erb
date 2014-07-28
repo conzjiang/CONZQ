@@ -48,6 +48,13 @@
 <div class="tv-posts-container">
 	<strong class="title">Recent posts</strong>
 	
+	<form action="<%= update_tv_url(@tv) %>" method="post">
+		<%= form_auth %>
+		<input type="hidden" name="_method" value="put">
+		
+		<textarea name="post[body]"></textarea>
+	</form>
+	
 	<ul class="tv-posts">
 		<% if @posts.empty? %>
 		<li>No posts.</li>
