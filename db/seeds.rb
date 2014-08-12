@@ -4,7 +4,7 @@ conz.password = "green1"
 conz.save!
 
 # GENRES
-genres = ["Action", "Animated", "Comedy", "Crime", "Drama", "Live-Action", "Period", "Procedural", "Sci-Fi", "Scripted", "Serialized", "Thriller", "Unscripted/Reality", "Western", "Single-camera", "Multi-camera"]
+genres = ["Action", "Animated", "Comedy", "Crime", "Drama", "Live-Action", "Period", "Procedural", "Sci-Fi", "Scripted", "Serialized", "Thriller", "Unscripted/Reality", "Western", "Single-camera", "Multi-camera", "Family", "Workplace", "Mystery", "Political"]
 
 genres.each do |genre|
   Genre.create!(name: genre)
@@ -40,11 +40,11 @@ ad = TvShow.find(1)
 ad.blurb = "Level-headed son Michael Bluth takes over family affairs after his father is imprisoned, but the rest of his spoiled, dysfunctional family are making his job unbearable."
 ad.status = "Ended"
 ad.network = "FOX/Netflix"
-ad.genre_ids = [3, 6, 10, 15]
+ad.genre_ids = [3, 6, 10, 15, 17]
 ad.save!
 
 mm = TvShow.find(2)
-mm.genre_ids = [5, 6, 7, 10, 11]
+mm.genre_ids = [5, 6, 7, 10, 11, 18]
 mm.save!
 
 ob = TvShow.find(3)
@@ -73,12 +73,12 @@ gs.save!
 
 family = TvShow.find(8)
 family.status = "Ended"
-family.genre_ids = [3, 6, 10, 16]
+family.genre_ids = [3, 6, 10, 16, 17]
 family.save!
 
 lo = TvShow.find(9)
 lo.status = "Ended"
-lo.genre_ids = [4, 5, 6, 8, 10]
+lo.genre_ids = [4, 5, 6, 8, 10, 18, 19]
 lo.save!
 
 conz.favorite_shows = [ad, ob, sunny, archer]

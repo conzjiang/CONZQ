@@ -1,7 +1,7 @@
-<div class="tv-show-page-container">
+<!-- <div class="tv-show-page-container">
 	<h1>
 		<%= tv.escape("title") %>
-	
+
 		<% if (CONZQ.currentUser.id === tv.escape("admin_id")) { %>
 		<a class="edit-profile tv" href="/tv/<%= tv.id %>/edit">Edit Info</a>
 		<% } %>
@@ -10,7 +10,7 @@
 	<div id="tv-show-page-statuses" data-id="<%= tv.id %>"></div>
 
 	<img src="<%= tv.escape("photo_big") %>">
-	
+
 	<section class="tv-info-container group">
 		<ul class="tv-info-left">
 		  <li>
@@ -30,7 +30,7 @@
 
 		  <li>
 		    <%= tv.escape("seasons") %> seasons, <%= tv.year_start %> -
-		    <%= tv.year_end.nil? ? "present" : tv.year_end %>
+		    <%= tv.year_end ? tv.year_end : "present" %>
 		  </li>
 
 		  <li>
@@ -47,39 +47,39 @@
 
 <div class="tv-posts-container">
 	<strong class="title">Recent posts</strong>
-	
+
 	<form id="tv-post-form">
 		<textarea name="post[body]"></textarea>
-		
+
 		<div class="comment-form-bottom">
 			<div>
 				logged in as
 				<strong><%= CONZQ.currentUser.escape("username") %></strong>
 			</div>
-			
+
 			<input type="submit" value="Submit">
 		</div>
 	</form>
-	
+
 	<ul class="tv-posts">
 		<% if @posts.empty? %>
 		<li>No posts.</li>
 		<% else %>
-		
+
 		<% @posts.each do |post| %>
 		<li>
 			<p><%= post.body %></p>
-			
+
 			<strong class="username">
 				<a href="/#/users/<%= post.user.id %>"><%= post.user.username %></a>
 			</strong>
-			
+
 			<strong class="time">
 				<%= distance_of_time_in_words(post.created_at, Time.zone.now) %> ago
 			</strong>
 		</li>
 		<% end %>
-		
+
 		<% end %>
 	</ul>
-</div>
+</div> -->

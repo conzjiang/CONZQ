@@ -18,6 +18,7 @@ CONZQ::Application.routes.draw do
     
     get '/front', to: "tv_shows#front_page", as: "front_page"
     get '/search/input_search', to: "searches#text_search", as: "text_search"
+    get '/search/categories', to: "searches#categories", as: "categories"
     get '/rest_genres', to: "tv_shows#rest_genres", as: "rest_genres"
   end
 

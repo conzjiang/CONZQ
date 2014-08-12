@@ -15,20 +15,22 @@ window.CONZQ = {
 		CONZQ.users = new CONZQ.Collections.Users();
 		CONZQ.miniUserViews = new CONZQ.Collections.Users();
 		CONZQ.searches = new CONZQ.Collections.SessionSearches();
+		CONZQ.categories = new CONZQ.Models.Categories();
 		
 		if (window.currentUser) {
 			CONZQ.currentUser = new CONZQ.Models.User({ id: window.currentUser.id });
 			
-			$.when(CONZQ.allShows.fetch(), CONZQ.currentUser.fetch())
-				.done(function () {
+			$.when(CONZQ.allShows.fetch(),
+						 CONZQ.currentUser.fetch(),
+					 	 CONZQ.categories.fetch())
+			 .done(function () {
 					CONZQ.users.add(CONZQ.currentUser);
 					CONZQ.startRouter(els);
 				});
 				
 		} else {
-			CONZQ.allShows.fetch({
-				success: function () { CONZQ.startRouter(els); }
-			});
+			$.when(CONZQ.allShows.fetch(), CONZQ.categories.fetch())
+			 .done(function () { CONZQ.startRouter(els); });
 		}
   },
 	

@@ -1,4 +1,18 @@
 class Api::SearchesController < ApplicationController
+  def categories
+    @decades = {}
+    Decade.all.each do |decade|
+      @decades[decade.id] = decade.years == 0 ? "00" : decade.years.to_s
+    end
+    
+    @genres = {}
+    Genre.all.each do |genre|
+      @genres[genre.id] = genre.name
+    end
+    
+    render json: { decades: @decades, genres: @genres }
+  end
+  
   def show
     @results = run_query(params[:search])
     

@@ -50,38 +50,9 @@ CONZQ.Views.Searchbar = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var decades = {
-	    "1": "50",
-	    "2": "60",
-	    "3": "70",
-	    "4": "80",
-	    "5": "90",
-	    "6": "00",
-	    "7": "10"
-	  }
-		
-		var genres = {
-	    "1": "Action",
-	    "2": "Animated",
-	    "3": "Comedy",
-	    "4": "Crime",
-	    "5": "Drama",
-	    "6": "Live-Action",
-	    "7": "Period",
-	    "8": "Procedural",
-	    "9": "Sci-Fi/Fantasy",
-	    "10": "Scripted",
-	    "11": "Serialized",
-	    "12": "Thriller",
-	    "13": "Unscripted/Reality",
-	    "14": "Western",
-	    "15": "Single-camera",
-	    "16": "Multi-camera"
-	  }
-		
 		this.$el.html(this.template({
-			decades: decades,
-			genres: genres
+			decades: CONZQ.categories.get("decades"),
+			genres: CONZQ.categories.get("genres")
 		}));
 		
 		return this;
