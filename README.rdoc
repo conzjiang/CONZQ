@@ -1,5 +1,7 @@
 == TODO
 
+* Advanced search - more search options: have searchbar only show main categories and sub-categories on separate page
+* Textbox in TV show page for direct commenting
 * Back link on TV show page in order to return to search results
 * Read More for long blurbs in search results (http://jquery-plugins.net/readmore-js-jquery-plugin-to-expand-and-collapse-texts)
 * Clean up render functions in views with subviews by pulling subview rendering into separate function
