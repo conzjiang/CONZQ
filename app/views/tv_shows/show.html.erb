@@ -1,79 +1,88 @@
 <div class="tv-show-page-container">
-	<h1>
-		<%= @tv.title %>
-	
-		<% if current_user == @tv.admin %>
-		<a class="edit-profile tv" href="<%= edit_tv_url(@tv) %>">Edit Info</a>
-		<% end %>
-	</h1>
+  <h1>
+    <%= @tv.title %>
 
-	<div id="tv-show-page-statuses" data-id="<%= @tv.id %>"></div>
+    <% if current_user == @tv.admin %>
+    <a class="edit-profile tv" href="<%= edit_tv_url(@tv) %>">Edit Info</a>
+    <% end %>
+  </h1>
 
-	<img src="<%= @tv.photo.url(:big) %>">
-	
-	<section class="tv-info-container group">
-		<ul class="tv-info-left">
-		  <li>
-		    <strong>Genre(s):</strong>
-		    <%= @tv.genre_names.join(", ") %>
-		  </li>
+  <div id="tv-show-page-statuses" data-id="<%= @tv.id %>"></div>
 
-		  <li>
-		    <strong>IMDB rating:</strong>
-		    <%= @tv.rating %>
-		  </li>
+  <img src="<%= @tv.photo.url(:big) %>">
 
-		  <li>
-		    <strong>Network:</strong>
-		    <%= @tv.network %>
-		  </li>
+  <section class="tv-info-container group">
+    <ul class="tv-info-left">
+      <li>
+        <strong>Genre(s):</strong>
+        <%= @tv.genre_names.join(", ") %>
+      </li>
 
-		  <li>
-		    <%= @tv.seasons %> seasons, <%= @tv.year_start %> -
-		    <%= @tv.year_end.nil? ? "present" : @tv.year_end %>
-		  </li>
+      <li>
+        <strong>IMDB rating:</strong>
+        <%= @tv.rating %>
+      </li>
 
-		  <li>
-		    <strong>Status:</strong>
-		    <%= @tv.status %>
-			</li>
-		</ul>
+      <li>
+        <strong>Network:</strong>
+        <%= @tv.network %>
+      </li>
 
-	  <div class="tv-info-right">
-	    <p><%= @tv.blurb %></p>
-		</div>
-	</section>
+      <li>
+        <%= @tv.seasons %> seasons, <%= @tv.year_start %> -
+        <%= @tv.year_end.nil? ? "present" : @tv.year_end %>
+      </li>
+
+      <li>
+        <strong>Status:</strong>
+        <%= @tv.status %>
+      </li>
+    </ul>
+
+    <div class="tv-info-right">
+      <p><%= @tv.blurb %></p>
+    </div>
+  </section>
 </div>
 
 <div class="tv-posts-container">
-	<strong class="title">Recent posts</strong>
-	
-	<form action="<%= update_tv_url(@tv) %>" method="post">
-		<%= form_auth %>
-		<input type="hidden" name="_method" value="put">
-		
-		<textarea name="post[body]"></textarea>
-	</form>
-	
-	<ul class="tv-posts">
-		<% if @posts.empty? %>
-		<li>No posts.</li>
-		<% else %>
-		
-		<% @posts.each do |post| %>
-		<li>
-			<p><%= post.body %></p>
-			
-			<strong class="username">
-				<a href="/#/users/<%= post.user.id %>"><%= post.user.username %></a>
-			</strong>
-			
-			<strong class="time">
-				<%= distance_of_time_in_words(post.created_at, Time.zone.now) %> ago
-			</strong>
-		</li>
-		<% end %>
-		
-		<% end %>
-	</ul>
+  <strong class="title">Recent posts</strong>
+
+  <form id="tv-post" action="<%= posts_url(tv_show_id: @tv.id) %>" method="post">
+    <%= form_auth %>
+
+    <textarea name="post[body]"></textarea>
+  </form>
+
+  <script>
+  $(document).ready(function () {
+    $("#tv-post").on("keydown", function () {
+      if (event.which === 38) {
+        $(this).submit();
+      }
+    });
+  });
+  </script>
+
+  <ul class="tv-posts">
+    <% if @posts.empty? %>
+    <li>No posts.</li>
+    <% else %>
+
+    <% @posts.each do |post| %>
+    <li>
+      <p><%= post.body %></p>
+
+      <strong class="username">
+        <a href="/#/users/<%= post.user.id %>"><%= post.user.username %></a>
+      </strong>
+
+      <strong class="time">
+        <%= distance_of_time_in_words(post.created_at, Time.zone.now) %> ago
+      </strong>
+    </li>
+    <% end %>
+
+    <% end %>
+  </ul>
 </div>

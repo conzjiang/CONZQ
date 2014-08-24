@@ -6,33 +6,33 @@
 // SHOW PAGE
 .tv-show-page-container {
   width: 506px;
-//	height: 624px;
-	float: left;
-	padding: 10px;
-	border: 1px solid #eee;
+//  height: 624px;
+  float: left;
+  padding: 10px;
+  border: 1px solid #eee;
 }
 
 .edit-profile.tv {
-	position: relative;
-	bottom: 8px;
-	display: inline-block;
+  position: relative;
+  bottom: 8px;
+  display: inline-block;
 }
 
 .tv-show-page-container > img {
-	margin: auto;
-	border: 10px solid #ccc;
+  margin: auto;
+  border: 10px solid #ccc;
 }
 
 .tv-info-container {
-	position: relative;
-	margin-top: 10px;
+  position: relative;
+  margin-top: 10px;
 }
 
 .tv-info-left {
-	float: left;
-	width: 168px;
-	padding: 10px;
-	border: 1px solid #ccc;
+  float: left;
+  width: 168px;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
 .tv-info-left > li {
@@ -40,227 +40,239 @@
 }
 
 .tv-info-left strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .tv-info-right {
-	position: absolute;
-	right: 0;
-	width: 305px;
-	height: 100%;
+  position: absolute;
+  right: 0;
+  width: 305px;
+  height: 100%;
   font-size: 18px;
 }
 
 .tv-info-right > p {
-	padding: 20px;
-	background: #D2EDFA;
+  padding: 20px;
+  background: #D2EDFA;
 }
 
 // TV POSTS
 .tv-posts-container {
-	float: right;
-	width: 200px;
-	height: 746px;
-	padding: 5px;
-	font-size: 14px;
-	border: 1px solid #eee;
+  float: right;
+  width: 200px;
+  height: 746px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #eee;
+}
+
+.tv-posts-container > form textarea {
+  width: 190px;
+  height: 45px;
+  margin-bottom: 3px;
+  padding: 5px;
+}
+
+.tv-posts-container > form textarea:focus {
+  border: 0;
+  background: rgb(235, 217, 231);
 }
 
 .tv-posts-container > .title {
-	position: relative;
-	top: -5px;
-	left: -5px;
-	width: 190px;
-	display: block;
-	padding: 10px;
-	font-weight: 700;
-	background: #eee;
+  position: relative;
+  top: -5px;
+  left: -5px;
+  width: 190px;
+  display: block;
+  padding: 10px;
+  font-weight: 700;
+  background: #eee;
 }
 
 .tv-posts {
-	max-height: 726px;
-	overflow: auto;
+  max-height: 726px;
+  overflow: auto;
 }
 
 .tv-posts > li {
-	margin-bottom: 5px;
-	padding: 10px;
-	background: #E5F7FF;
+  margin-bottom: 5px;
+  padding: 10px;
+  background: #E5F7FF;
 }
 
 .tv-posts > li:last-child {
-	margin: 0;
-	border: 0;
+  margin: 0;
+  border: 0;
 }
 
 .tv-posts > li > .username {
-	font-size: 12px;
-	font-weight: 700;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .tv-posts > li > .username > a:hover {
-	color: #FD0D9D;
+  color: #FD0D9D;
 }
 
 // STATUSES
 #tv-show-page-statuses {
-	position: relative;
-	left: 50%;
-	width: 328px;
-	height: 20px;
-	margin-top: -10px;
-	margin-bottom: 20px;
-	margin-left: -40px;
+  position: relative;
+  left: 50%;
+  width: 328px;
+  height: 20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  margin-left: -40px;
 }
 
 #tv-show-page-statuses .statuses > li {
-	margin: 0 10px;
+  margin: 0 10px;
 }
 
 #tv-show-page-statuses #watchlist {
-	width: 20px;
-	height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 #tv-show-page-statuses #watchlist.on-watchlist {
-	background-position: 60px 0;
+  background-position: 60px 0;
 }
 
 #tv-show-page-statuses #favorite {
-	width: 20px;
-	height: 20px;
-	background-position: 40px 0;
+  width: 20px;
+  height: 20px;
+  background-position: 40px 0;
 }
 
 #tv-show-page-statuses #favorite.is-favorite {
-	background-position: 20px 0;
+  background-position: 20px 0;
 }
 
 #tv-show-page-statuses #message {
-	top: 6px;
-	left: 80px;
-	font-size: 12px;
+  top: 6px;
+  left: 80px;
+  font-size: 12px;
 }
 
 // AUTO COMPLETE FORM
 .new-tv-form-container > h2 {
-	margin-top: 30px;
+  margin-top: 30px;
 }
 
 form.auto-complete {
-	width: 323px;
-	margin: auto;
-	margin-top: 15px;
-	margin-bottom: 30px;
+  width: 323px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 form.auto-complete > input {
-	width: 200px;
-	padding: 5px;
+  width: 200px;
+  padding: 5px;
 }
 
 form.auto-complete > input:focus {
-	padding: 4px;
+  padding: 4px;
 }
 
 form.auto-complete > button {
-	padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 .or {
-	margin: 40px 0;
-	text-align: center;
-	text-transform: uppercase;
+  margin: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .or:before,
 .or:after {
-	content: " - ";
+  content: " - ";
 }
 
 // NEW FORM
 form.tv-form > label,
 form.tv-form > img {
-	margin-left: 80px;
+  margin-left: 80px;
 }
 
 form.tv-form > input,
 form.tv-form > select,
 form.tv-form > textarea {
-	margin: 0 0 20px 80px;
+  margin: 0 0 20px 80px;
 }
 
 form.tv-form > input {
-	width: 300px;
-	padding: 5px;
+  width: 300px;
+  padding: 5px;
 }
 
 form.tv-form > textarea {
-	display: block;
-	width: 300px;
-	height: 80px;
-	padding: 5px;
+  display: block;
+  width: 300px;
+  height: 80px;
+  padding: 5px;
 }
 
 form.tv-form > input:focus,
 form.tv-form > textarea:focus {
-	padding: 4px;
+  padding: 4px;
 }
 
 form.tv-form button {
-	padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 .genre-form {
-	width: 310px;
-	margin: auto;
-	padding-bottom: 30px
+  width: 310px;
+  margin: auto;
+  padding-bottom: 30px
 }
 
 .top-level {
-	width: 310px;
-	margin: auto;
+  width: 310px;
+  margin: auto;
 }
 
 .top-level > li {
-	float: left;
-	width: 145px;
-	margin: 5px;
+  float: left;
+  width: 145px;
+  margin: 5px;
 }
 
 .top-level label,
 .rest-genres > label {
-	text-align: center;
-	padding: 3px 0;
-	background: #D2EDFA;
+  text-align: center;
+  padding: 3px 0;
+  background: #D2EDFA;
 }
 
 form.tv-form label.selected {
-	color: #fff;
-	background: #27386F;
+  color: #fff;
+  background: #27386F;
 }
 
 .rest-genres {
-	text-align: center;
+  text-align: center;
 }
 
 .rest-genres > label {
-	display: inline-block;
-	margin: 5px 2px 2px 3px;
-	padding: 3px 8px;
+  display: inline-block;
+  margin: 5px 2px 2px 3px;
+  padding: 3px 8px;
 }
 
 // ADMIN INDEX
 .admin-index {
-	width: 546px;
-	margin: auto;
+  width: 546px;
+  margin: auto;
 }
 
 // FRONT PAGE
 .front {
-	width: 688px;
+  width: 688px;
 }
 
 .front > li {
-	margin: 5px;
+  margin: 5px;
 }

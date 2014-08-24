@@ -63,6 +63,10 @@ class TvShowsController < ApplicationController
                                :year_end, :status, :blurb, :network)
   end
 
+  def post_params
+    params.require(:post).permit(:body)
+  end
+
   def check_admin
     unless signed_in? && current_user.admin
       flash[:errors] = ["You are not allowed to perform that action!"]
