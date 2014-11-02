@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706191431) do
+ActiveRecord::Schema.define(version: 20141102011800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 20140706191431) do
     t.float    "rating"
     t.integer  "year_start"
     t.integer  "year_end"
-    t.string   "status"
     t.integer  "seasons"
     t.text     "blurb"
     t.integer  "admin_id",           default: 1
@@ -115,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140706191431) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "imdb_id"
+    t.integer  "status"
   end
 
   add_index "tv_shows", ["admin_id"], name: "index_tv_shows_on_admin_id", using: :btree

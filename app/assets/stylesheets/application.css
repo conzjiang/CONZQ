@@ -41,15 +41,15 @@ input[type="submit"] {
 }
 
 html, body {
-	position: relative;
-	height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-	font-weight: 300;
-	line-height: 1.5;
-	background: rgb(252, 240, 247);
+  font-weight: 300;
+  line-height: 1.5;
+  background: rgb(252, 240, 247);
 }
 
 div, img, label {
@@ -66,46 +66,46 @@ ul {
 }
 
 input, textarea {
-	background: rgb(219, 203, 216);
+  background: rgb(219, 203, 216);
 }
 
 input[type="file"] {
-	background: none;
+  background: none;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 textarea:focus {
-	border: 1px solid #41002D;
+  border: 1px solid #41002D;
 }
 
 input[type="submit"], button {
-	color: #fff;
-	background: #41002D;
+  color: #fff;
+  background: #41002D;
 }
 
 input[type="submit"]:hover,
 button:hover {
-	background: #FD0D9D;
+  background: #FD0D9D;
 }
 
 h1 { /* PROFILE HEADER */
-	display: block;
-	font-size: 36px;
-	font-weight: 700;
-	text-align: center;
-	margin: 15px 0;
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin: 15px 0;
 }
 
 h2 { /* PROFILE SECTION TITLES */
-	margin: 10px;
+  margin: 10px;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
 }
 
 h3 { /* SEARCH RESULT TITLES */
-	font-weight: 700;
+  font-weight: 700;
   font-size: 22px;
   text-transform: uppercase;
 }
@@ -116,55 +116,52 @@ h3 { /* SEARCH RESULT TITLES */
   clear: both;
 }
 
-/*HEADER*/
-
-
 /*CONTAINERS*/
 .container {
-	position: relative;
-	width: 772px;
-	margin: auto;
+  position: relative;
+  width: 772px;
+  margin: auto;
 }
 
 .sidebar {
-	position: absolute;
-	top: 20px;
-	left: 0;
+  position: absolute;
+  top: 20px;
+  left: 0;
 
-	display: block;
-	width: 250px;
-	height: 575px;
-	padding: 5px;
+  display: block;
+  width: 250px;
+  height: 550px;
+  padding: 5px;
 
-	background: #D89DA7;
-	transition: all 0.5s;
+  background: #D89DA7;
+  transition: all 0.5s;
 }
 
-.main {
-	position: absolute;
-	top: 0;
-	left: 0;
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-	width: 750px;
-	min-height: 525px;
-	margin-bottom: 50px;
-	padding: 10px;
-	padding-bottom: 100px;
-	display: block;
+  width: 750px;
+  min-height: 525px;
+  margin-bottom: 50px;
+  padding: 10px;
+  padding-bottom: 100px;
+  display: block;
 
-	background: #fff;
-	border: 1px solid #ccc;
-	border-top: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: 0;
 
-	transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .container.open > .sidebar {
-	left: -125px;
+  left: -125px;
 }
 
-.container.open > .main {
-	left: 125px;
+.container.open > .content {
+  left: 125px;
   box-shadow: -3px 0 5px rgba(6,6,6,0.2);
 
 }
@@ -172,225 +169,225 @@ h3 { /* SEARCH RESULT TITLES */
 /* FORMS */
 form.user-form,
 form.tv-form {
-	width: 500px;
-	margin: auto;
-	margin-bottom: 50px;
-	padding: 50px;
-	border: 1px solid #eee;
+  width: 500px;
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 50px;
+  border: 1px solid #eee;
 }
 
 form.user-form .input-group {
-	width: 300px;
-	margin: auto;
+  width: 300px;
+  margin: auto;
 }
 
 form.user-form label,
 form.auto-complete > label,
 form.tv-form > label {
-	padding-bottom: 5px;
-	font-weight: 700;
+  padding-bottom: 5px;
+  font-weight: 700;
 }
 
 form.user-form input,
 form.user-form textarea {
-	width: 300px;
-	padding: 5px;
-	margin-bottom: 20px;
+  width: 300px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 form.user-form input:focus,
 form.user-form textarea:focus {
-	padding: 4px;
+  padding: 4px;
 }
 
 form.user-form textarea {
-	height: 100px;
+  height: 100px;
 }
 
 form.user-form button {
-	padding: 5px 10px;
-	color: #fff;
-	text-align: center;
+  padding: 5px 10px;
+  color: #fff;
+  text-align: center;
 }
 
 /* FACEBOOK LOGIN */
 .fb-login {
-	position: relative;
-	display: block;
-	margin: auto;
-	padding: 5px;
+  position: relative;
+  display: block;
+  margin: auto;
+  padding: 5px;
 
-	font-family: sans-serif;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 0.5px;
-	color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
 
-	background: #3B5998;
-	border-radius: 3px;
+  background: #3B5998;
+  border-radius: 3px;
 }
 
 .fb-login > img {
-	width: 20px;
-	display: inline-block;
+  width: 20px;
+  display: inline-block;
 }
 
 .fb-login > p {
-	position: relative;
-	bottom: 4px;
-	display: inline-block;
-	padding: 0 5px;
+  position: relative;
+  bottom: 4px;
+  display: inline-block;
+  padding: 0 5px;
 }
 
 .fb-login:hover {
-	background: #3B5998;
+  background: #3B5998;
 }
 
 .fb-login:active {
-	padding-top: 6px;
-	padding-bottom: 4px;
+  padding-top: 6px;
+  padding-bottom: 4px;
 }
 
 /*STATUSES*/
 .statuses {
-	position: relative;
-	padding: 5px 0;
+  position: relative;
+  padding: 5px 0;
 }
 
 .statuses > li {
-	float: left;
-	margin: 0 10px 0 7px;
-	cursor: pointer;
+  float: left;
+  margin: 0 10px 0 7px;
+  cursor: pointer;
 }
 
 #watchlist {
-	position: relative;
+  position: relative;
 
-	width: 15px;
-	height: 15px;
+  width: 15px;
+  height: 15px;
 
-	background-image: url("status-sprite.png");
-	background-size: cover;
-	background-position: 0 0;
+  background-image: url("status-sprite.png");
+  background-size: cover;
+  background-position: 0 0;
 }
 
 #watchlist.on-watchlist {
-	background-position: 45px 0;
+  background-position: 45px 0;
 }
 
 .watchlist-statuses {
-	position: absolute;
-	top: 100%;
-	left: 30%;
+  position: absolute;
+  top: 100%;
+  left: 30%;
 
-	display: none;
-	width: 121px;
+  display: none;
+  width: 121px;
 
-	font-family: "Roboto";
-	font-weight: 300;
-	font-size: 10px;
-	color: #000;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 10px;
+  color: #000;
 
-	border: 1px solid #000;
-	border-bottom: 0;
+  border: 1px solid #000;
+  border-bottom: 0;
 
-	z-index: 100;
+  z-index: 100;
 }
 
 #watchlist:hover .watchlist-statuses {
-	display: block;
+  display: block;
 }
 
 .watchlist-statuses > li {
-	padding: 5px;
-	border-bottom: 1px solid black;
+  padding: 5px;
+  border-bottom: 1px solid black;
 
-	background: #fff;
-	opacity: 0.8;
+  background: #fff;
+  opacity: 0.8;
 
-	cursor: pointer;
-	transition: opacity 0.3s;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
 .watchlist-statuses > li:hover {
-	color: #fff;
-	background: #666;
-	opacity: 1;
+  color: #fff;
+  background: #666;
+  opacity: 1;
 }
 
 .watchlist-statuses > li.user-status {
-	font-weight: 700;
-	letter-spacing: 0.7;
-	background: rgb(226, 157, 157);
-	opacity: 1;
+  font-weight: 700;
+  letter-spacing: 0.7;
+  background: rgb(226, 157, 157);
+  opacity: 1;
 }
 
 #favorite {
-	width: 15px;
-	height: 15px;
+  width: 15px;
+  height: 15px;
 
-	background-image: url("status-sprite.png");
-	background-size: cover;
-	background-position: 30px 0;
+  background-image: url("status-sprite.png");
+  background-size: cover;
+  background-position: 30px 0;
 }
 
 #favorite.is-favorite {
-	background-position: 15px 0;
+  background-position: 15px 0;
 }
 
 #message {
-	position: absolute;
-	top: 5px;
-	left: 65px;
+  position: absolute;
+  top: 5px;
+  left: 65px;
 
-	display: none;
-	padding: 2px 8px;
-	border: 1px solid #27386F;
+  display: none;
+  padding: 2px 8px;
+  border: 1px solid #27386F;
 
-	font-size: 10px;
-	color: #27386F;
+  font-size: 10px;
+  color: #27386F;
 
-	background: #D2EDFA;
+  background: #D2EDFA;
 }
 
 #message.display {
-	display: block;
+  display: block;
 }
 
 #message.login-error {
-	display: block;
-	border: 1px solid #8A091E;
-	color: #8A091E;
-	background: #FAC1D5;
+  display: block;
+  border: 1px solid #8A091E;
+  color: #8A091E;
+  background: #FAC1D5;
 }
 
 /* ERRORS */
 .errors-container {
-	position: relative;
-	top: -10px;
-	left: -10px;
+  position: relative;
+  top: -10px;
+  left: -10px;
 
-	display: block;
-	width: 740px;
-	padding: 15px;
+  display: block;
+  width: 740px;
+  padding: 15px;
 
-	color: #f00;
-	background: pink;
-	border-bottom: 1px solid #f00;
+  color: #f00;
+  background: pink;
+  border-bottom: 1px solid #f00;
 }
 
 p.error {
-	text-align: center;
+  text-align: center;
 }
 
 ul.error {
-	list-style: circle;
-	width: 400px;
-	margin: auto;
+  list-style: circle;
+  width: 400px;
+  margin: auto;
 }
 
 /* INDEX VIEW */
 .index-header {
-	margin: 10px 0 0 35px;
-	text-align: left;
+  margin: 10px 0 0 35px;
+  text-align: left;
 }

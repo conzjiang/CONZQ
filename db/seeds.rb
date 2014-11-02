@@ -1,10 +1,8 @@
 # ADD ME AS ADMIN
-conz = User.new(username: "conz", email: "conzjiang@gmail.com", admin: true)
-conz.password = "green1"
-conz.save!
+conz = User.create!(username: "conz", email: "conzjiang@gmail.com", password: "green1", admin: true)
 
 # GENRES
-genres = ["Action", "Animated", "Comedy", "Crime", "Drama", "Live-Action", "Period", "Procedural", "Sci-Fi", "Scripted", "Serialized", "Thriller", "Unscripted/Reality", "Western", "Single-camera", "Multi-camera", "Family", "Workplace", "Mystery", "Political"]
+genres = %w(Action Animated Comedy Crime Drama Live-Action Period Procedural Sci-Fi Scripted Serialized Thriller Unscripted/Reality Western Single-camera Multi-camera Family Workplace Mystery Political)
 
 genres.each do |genre|
   Genre.create!(name: genre)

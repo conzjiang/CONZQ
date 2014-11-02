@@ -15,8 +15,8 @@
 <main class="container">
   <!-- SIDEBAR -->
 
-  <section class="main">
-    <%= render partial: "layouts/error" %>
+  <section class="content">
+    <%= render partial: "shared/error" %>
 
     <%= yield %>
   </section>
@@ -33,7 +33,7 @@
 $(document).ready(function(){
   var $container = $("main.container");
   var $sidebar = $("<section>").addClass("sidebar");
-  var $main = $("section.main");
+  var $main = $("section.content");
 
   // BACKBONE
   CONZQ.initialize($container, $sidebar, $main);
@@ -41,36 +41,13 @@ $(document).ready(function(){
   // EXTRA
   $("abbr.timeago").timeago();
 
-  <% if session[:sidebar] == "true" %>
-  $container.addClass("open");
-  <% end %>
-
   $("input#text-search").on("focus", function () {
     $(this).val("");
-  });
-
-  $("form#input-search-form").on("submit", function () {
-
   });
 
   $("a#discover").on("click", function () {
     event.preventDefault();
     $container.toggleClass("open");
-
-    // if $container hasClass open
-    // session[:sidebar] == true
-    // else session[:sidebar] == false
-  });
-
-
-  // removeClass on blur!!!
-  $("a#input-search").on("click", function () {
-    event.preventDefault();
-    $("li.search").toggleClass("open");
-  });
-
-  $(".signed-in").on("click", function () {
-    $(".profile-dropdown").toggleClass("open");
   });
 
 });

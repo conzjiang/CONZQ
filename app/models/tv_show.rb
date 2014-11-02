@@ -2,6 +2,7 @@
 require 'addressable/uri'
 
 class TvShow < ActiveRecord::Base
+  enum status: ["Currently Airing", "Current", "Ended", "Cancelled"]
   STATUSES = ["Currently Airing", "Current", "Ended", "Cancelled"]
 
   validates :title, presence: true

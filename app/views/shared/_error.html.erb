@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+
+  <% if flash[:errors].length == 1 %>
+  <div class="errors-container">
+    <p class="error"><%= flash[:errors].first %></p>
+  </div>
+  <% else %>
+  <div class="errors-container">
+    <ul class="error">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<% end %>
