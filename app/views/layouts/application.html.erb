@@ -2,77 +2,77 @@
 <html>
 <head>
   <title>Clickster</title>
-	<link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,500' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
-<%= render partial: "layouts/header" %>
+
+<%= render partial: "layouts/nav" %>
 
 <main class="container">
-	<!-- SIDEBAR -->
-	
-	<section class="main">
-		<%= render partial: "layouts/error" %>
-		
-		<%= yield %>
-	</section>
+  <!-- SIDEBAR -->
+
+  <section class="main">
+    <%= render partial: "layouts/error" %>
+
+    <%= yield %>
+  </section>
 </main>
 
 <% if current_user %>
 <script>
-	window.currentUser = { id: <%= current_user.id %> };
+  window.currentUser = { id: <%= current_user.id %> };
 </script>
 <% end %>
 
 
 <script>
 $(document).ready(function(){
-	var $container = $("main.container");
-	var $sidebar = $("<section>").addClass("sidebar");
-	var $main = $("section.main");
+  var $container = $("main.container");
+  var $sidebar = $("<section>").addClass("sidebar");
+  var $main = $("section.main");
 
-	// BACKBONE
+  // BACKBONE
   CONZQ.initialize($container, $sidebar, $main);
-	
-	// EXTRA
-	$("abbr.timeago").timeago();
-	
-	<% if session[:sidebar] == "true" %>
-	$container.addClass("open");
-	<% end %>
-	
-	$("input#text-search").on("focus", function () {
-		$(this).val("");
-	});
-	
-	$("form#input-search-form").on("submit", function () {
-		
-	});
-	
-	$("a.discover").on("click", function () {
-		event.preventDefault();
-		$container.toggleClass("open");
-		
-		// if $container hasClass open 
-		// session[:sidebar] == true
-		// else session[:sidebar] == false
-	});
-	
-	
-	// removeClass on blur!!!
-	$("a#input-search").on("click", function () {
-		event.preventDefault();
-		$("li.search").toggleClass("open");
-	});
-	
-	$(".signed-in").on("click", function () {
-		$(".profile-dropdown").toggleClass("open");
-	});
-	
+
+  // EXTRA
+  $("abbr.timeago").timeago();
+
+  <% if session[:sidebar] == "true" %>
+  $container.addClass("open");
+  <% end %>
+
+  $("input#text-search").on("focus", function () {
+    $(this).val("");
+  });
+
+  $("form#input-search-form").on("submit", function () {
+
+  });
+
+  $("a#discover").on("click", function () {
+    event.preventDefault();
+    $container.toggleClass("open");
+
+    // if $container hasClass open
+    // session[:sidebar] == true
+    // else session[:sidebar] == false
+  });
+
+
+  // removeClass on blur!!!
+  $("a#input-search").on("click", function () {
+    event.preventDefault();
+    $("li.search").toggleClass("open");
+  });
+
+  $(".signed-in").on("click", function () {
+    $(".profile-dropdown").toggleClass("open");
+  });
+
 });
 </script>
 </body>

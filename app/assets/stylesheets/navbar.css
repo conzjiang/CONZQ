@@ -1,0 +1,113 @@
+header {
+  width: 100%;
+  background: #41002D;
+  color: #fff;
+}
+
+header > nav {
+  width: 772px;
+  margin: auto;
+}
+
+header a {
+  display: block;
+  color: #fff;
+}
+
+.logo {
+  float: left;
+  padding: 10px;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+header > nav > ul {
+  float: right;
+}
+
+header > nav > ul > li {
+  float: left;
+  padding: 10px 5px;
+}
+
+header > nav > ul > li > a {
+  padding: 5px 10px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+header > nav > ul > li:last-child {
+  padding-right: 0;
+}
+
+header > nav > ul > li > a:hover {
+  background: #610143;
+}
+
+form#input-search-form {
+  position: relative;
+  float: left;
+}
+
+input#text-search {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+
+  width: 250px;
+  padding: 2px 5px;
+
+  font-size: 14px;
+  color: #000;
+
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.signed-in {
+  position: relative;
+}
+
+.triangle {
+  padding-left: 8px;
+  font-size: 9px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  display: none;
+  width: 130px;
+
+  border: 1px solid #41002D;
+  border-bottom: 0;
+
+  z-index: 100;
+}
+
+.profile-dropdown > li {
+  border-bottom: 1px solid #41002D;
+}
+
+.profile-dropdown > li > a,
+header form.logout-form > button {
+  display: block;
+  width: 110px;
+  padding: 5px 10px;
+  text-align: left;
+  color: #000;
+  background: #fff;
+
+  transition: background 0.3s;
+}
+
+.profile-dropdown > li > a:hover,
+header form.logout-form > button:hover {
+  background: #FD0D9D;
+}
+
+.signed-in:hover .profile-dropdown {
+  display: block;
+}

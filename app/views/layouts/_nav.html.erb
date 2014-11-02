@@ -1,0 +1,59 @@
+<header class="group">
+  <nav>
+    <a class="logo" href="#/index">Clickster</a>
+
+    <form id="input-search-form" action="<%= text_search_url %>" method="get">
+      <input id="text-search"
+             type="text"
+             name="query"
+             value="<%= params[:query] %>"
+             placeholder="Search for TV show titles or users">
+    </form>
+
+    <ul>
+      <li><a id="discover" href="#">Discover</a></li>
+
+      <% if signed_in? %>
+      <li class="signed-in">
+        <a href="#/users/<%= current_user.id %>">
+          <%= current_user.username %>
+          <strong class="triangle">▼</strong>
+        </a>
+
+        <ul class="profile-dropdown">
+          <% if current_user.admin %>
+          <li>
+            <a href="<%= tv_shows_url %>">My Series</a>
+          </li>
+
+          <li>
+            <a href="<%= new_tv_url %>">Add a Series</a>
+          </li>
+          <% end %>
+
+          <li>
+            <a href="#/users/<%= current_user.id %>">My Profile</a>
+          </li>
+
+          <li>
+            <a href="#">Settings</a>
+          </li>
+
+          <li>
+            <form class="logout-form" action="<%= session_url %>" method="post">
+              <%= form_auth %>
+              <input type="hidden" name="_method" value="delete">
+              <button>Logout</button>
+            </form>
+          </li>
+        </ul>
+      </li>
+      <% else %>
+
+      <li><a href="<%= new_session_url %>">Sign In</a></li>
+      <li><a href="<%= new_user_url %>">Create an account</a></li>
+
+      <% end %>
+    </ul>
+  </nav>
+</header>

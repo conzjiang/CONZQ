@@ -25,25 +25,25 @@ class TvShow < ActiveRecord::Base
 
   has_many :favorites, dependent: :destroy
   has_many :lovers, through: :favorites, source: :user
-  
+
   has_many :posts, inverse_of: :tv_show, dependent: :destroy
 
   belongs_to :admin,
     class_name: "User",
     foreign_key: :admin_id,
     inverse_of: :tv_shows
-  
+
   include PgSearch
   multisearchable against: [:title]
-  
+
   def genre_names
     @genres ||= self.genres.pluck(:name)
   end
-  
+
   def decade_years
     @decades ||= self.decades.pluck(:years)
   end
-  
+
   def apply_imdb_rating
     omdb_info = parse_omdb
     self.rating = omdb_info["imdbRating"]
@@ -53,7 +53,7 @@ class TvShow < ActiveRecord::Base
   def auto_complete
     omdb_info = parse_omdb
     tmdb_info = parse_tmdb
-    
+
     if omdb_info
       self.blurb = omdb_info["Plot"]
 
@@ -65,15 +65,15 @@ class TvShow < ActiveRecord::Base
       else
         self.status = "Currently Airing"
       end
-    
+
       @genres = omdb_info["Genre"].split(",")
     end
-    
+
     if tmdb_info
       self.seasons = tmdb_info["number_of_seasons"]
       self.network = tmdb_info["networks"].map { |hash| hash["name"] }.join("/")
     end
-    
+
     nil
   end
 
@@ -124,9 +124,9 @@ class TvShow < ActiveRecord::Base
             api_key: ENV["TMDB_KEY"],
             external_source: "imdb_id"
           }).to_s
-    
+
     parsed_tmdb = JSON.parse(RestClient.get(tmdb_external_search))
-    
+
     unless parsed_tmdb["tv_results"].empty?
       tmdb_show_id = parsed_tmdb["tv_results"].first["id"].to_s
 
