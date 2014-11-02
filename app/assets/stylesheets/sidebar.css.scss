@@ -1,0 +1,146 @@
+$themeYellow: #FFDC25;
+$hoverPink: #FF0052;
+$brightGreen: rgb(117, 219, 117);
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 0;
+
+  display: block;
+  width: 250px;
+  height: 550px;
+  padding: 5px;
+
+  background: #D89DA7;
+  transition: all 0.5s;
+}
+
+.container.open > .sidebar {
+  left: -125px;
+}
+
+form#search {
+  width: 240px;
+  margin: 5px auto;
+  text-align: center;
+}
+
+form#search > h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+form#search > ul {
+  width: 230px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+form#search li {
+  color: #000;
+}
+
+form#search h3 {
+  font-size: 16px;
+}
+
+.sidebar label {
+  padding: 3px;
+  background: $themeYellow;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+
+.sidebar label:hover {
+  background: lavenderblush;
+}
+
+.sidebar label.selected {
+  background: $hoverPink;
+}
+
+.decades > li {
+  display: block;
+  float: left;
+  width: 55px;
+  margin: 1px;
+  text-align: center;
+}
+
+.decades > li:first-child {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  background: none;
+}
+
+.decades > li > label:hover,
+.decades > li > label.selected {
+  padding-bottom: 1px;
+  border-bottom: 3px solid #000;
+}
+
+.genres > li {
+  display: block;
+  margin: 3px 0;
+}
+
+.genres > li:first-child {
+  background: none;
+}
+
+.genres label {
+  display: inline-block;
+  padding: 3px 7px;
+  transition: padding 0.5s;
+}
+
+.genres label > i {
+  display: none;
+}
+
+.genres label:hover {
+  padding: 3px 10px;
+}
+
+.genres label:hover > i {
+  display: inline-block;
+}
+
+.genres label.selected {
+  padding: 3px 10px;
+}
+
+.genres label.selected > i {
+  display: inline-block;
+}
+
+form#search > input[type="submit"] {
+  display: block;
+  width: 230px;
+  margin-top: 15px;
+  padding: 5px 0;
+  color: #fff;
+  background: #41002D;
+}
+
+form#search > input[type="submit"]:hover {
+  background: #FD0D9D;
+}
+
+form#search > input[type="submit"]:active {
+  padding-top: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #41002D;
+}
+
+form#search > a {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+form#search > a:hover {
+  text-decoration: underline;
+}

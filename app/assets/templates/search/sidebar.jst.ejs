@@ -1,40 +1,45 @@
 <form id="search">
-	
-<ul class="decades group">
-	<li>
-		<h3>By Decade</h3>
-	</li>
+  <h2>Quick Search</h2>
 
-  <% for (var id in decades) { %>
-	<li id="decade" data-id=<%= id %>>
-		<label class="label">
-	    <input type="checkbox" name="search[decade_ids][]" value="<%= id %>">
-			'<%= decades[id] %>s
-		</label>
-	</li>
-	<% } %>
+  <ul class="decades group">
+    <li class="header">
+      <h3>Decades</h3>
+    </li>
 
-	<li id="decade" class="current" data-id="current">
-		<label class="label">
-		  <input type="checkbox" name="search[status]" value="Current">
-			Current Shows
-	  </label>
-	</li>
-</ul>
+    <% for (var id in decades) { %>
+    <li class="query" data-id="<%= id %>">
+      <label>
+        <input type="checkbox" name="search[decade_ids][]" value="<%= id %>">
+        '<%= decades[id] %>s
+      </label>
+    </li>
+    <% } %>
 
-<h3>By Genre</h3>
+    <li class="query" data-id="current">
+      <label>
+        <input type="checkbox" name="search[status]" value="Current">
+        Now
+      </label>
+    </li>
+  </ul>
 
-<ul class="genres group">
-  <% for (var id in genres) { %>
-	<li id="genre" data-id="<%= id %>">
-		<label class="label">
-	    <input type="checkbox" name="search[genre_ids][]" value="<%= id %>">
-    	<%= genres[id] %>
-		</label>
-	</li>
-  <% } %>
-</ul>
+  <ul class="genres group">
+    <li class="header">
+      <h3>Most Popular Genres</h3>
+    </li>
 
-<input type="submit" value="Search">
-	
+    <% for (var id in genres) { %>
+    <li id="genre" data-id="<%= id %>">
+      <label>
+        <i class="fa fa-check"></i>
+        <input type="checkbox" name="search[genre_ids][]" value="<%= id %>">
+        <%= genres[id] %>
+      </label>
+    </li>
+    <% } %>
+  </ul>
+
+  <input type="submit" value="Search">
+
+  <a href="#">More search options</a>
 </form>

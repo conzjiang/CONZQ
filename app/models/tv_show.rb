@@ -9,7 +9,7 @@ class TvShow < ActiveRecord::Base
   validates :imdb_id, uniqueness: true
 
   has_attached_file :photo, styles: {
-      big: "360x360>",
+      big: "400x400>",
       medium: "160x200#",
       thumb: "50x50#"
     }, default_url: "/images/missing_:style.jpg"

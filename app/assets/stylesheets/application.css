@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_self
  *= require_tree .
  */
@@ -123,20 +124,6 @@ h3 { /* SEARCH RESULT TITLES */
   margin: auto;
 }
 
-.sidebar {
-  position: absolute;
-  top: 20px;
-  left: 0;
-
-  display: block;
-  width: 250px;
-  height: 550px;
-  padding: 5px;
-
-  background: #D89DA7;
-  transition: all 0.5s;
-}
-
 .content {
   position: absolute;
   top: 0;
@@ -154,10 +141,6 @@ h3 { /* SEARCH RESULT TITLES */
   border-top: 0;
 
   transition: all 0.5s;
-}
-
-.container.open > .sidebar {
-  left: -125px;
 }
 
 .container.open > .content {
