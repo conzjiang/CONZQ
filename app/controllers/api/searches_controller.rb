@@ -51,47 +51,29 @@ class Api::SearchesController < ApplicationController
   private
   def run_query(params)
     decade_ids = params[:decade_ids]
-    decade_shows = nil
+    genre_ids = params[:genre_ids]
+    current = params[:status]
 
     if decade_ids
-      decade_shows = []
-
-      decade_ids.each do |decade_id|
-        decade_shows += TvShow.joins(:tv_decades)
-                              .where("tv_decades.decade_id = ?", decade_id)
-      end
-
-      decade_shows.uniq!
+      decade_where = "tv_decades.decade_id IN (#{decade_ids.join(", ")})"
+    else
+      decade_where = ""
     end
-
-    genre_ids = params[:genre_ids]
-    genre_shows = nil
 
     if genre_ids
-      genre_shows = []
-
-      genre_ids.each do |genre_id|
-        genre_shows += TvShow.joins(:tv_genres)
-                             .where("tv_genres.genre_id = ?", genre_id)
-      end
-
-      genre_shows.uniq!
+      genre_where = "tv_genres.genre_ud IN (#{genre_ids.join(", ")})"
+    else
+      genre_where = ""
     end
-
-    current = params[:status]
-    current_shows = nil
 
     if current
-      current_shows = TvShow.where("status LIKE 'Current%'")
+      current_where = "tv_shows.status LIKE 'Current%'"
+    else
+      current_where = ""
     end
 
-    results = [decade_shows, genre_shows, current_shows].compact
-
-    final_results = results.first
-    results[1..-1].each do |show_arr|
-      final_results = final_results & show_arr
-    end
-
-    final_results
+    TvShow.joins(:tv_decades)
+      .joins(:tv_genres)
+      .where(decade_where).where(genre_where).where(current_where)
   end
 end

@@ -1,56 +1,20 @@
 <h1>my name is <u><%= user.escape("username") %></u></h1>
 
 <section class="profile-nav">
-	<ul class="group">
-	<% _(["Main", "Watchlist", "Favorites", "Follows"]).each(function (nav) { %>
-		<% if (nav === "Main") { %>
-		<li class="selected">
-		<% } else { %>
-		<li>
-		<% } %>
-			<a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a>
-		</li>
-	<% }) %>
-	</ul>
+  <ul class="group">
+  <% _(["Main", "Watchlist", "Favorites", "Follows"]).each(function (nav) { %>
+    <% if (nav === "Main") { %>
+    <li class="selected">
+    <% } else { %>
+    <li>
+    <% } %>
+      <a id="nav" data-id="<%= nav %>" href="#"><%= nav %></a>
+    </li>
+  <% }) %>
+  </ul>
 </section>
 
 <section class="profile-info group">
-	<form id="edit-user" class="group">
-		<div class="profile-left">
-			<img id="profile-photo" src="<%= user.escape("photo_medium") %>">
-			<input id="photo-upload" type="file" name="user[photo]">
-		</div>
-		
-		<ul class="profile-right">
-			<li>Currently watching <%= user.escape("currentCount") %> shows</li>
-			
-			<li>
-				<span class="heart"></span>
-				<%= user.escape("favoritesCount") %> favorite shows
-			</li>
-			
-			<% if (CONZQ.currentUser && CONZQ.currentUser.id != user.id) { %>
-			<li id="follow-statuses">
-				<div id="follows-you">Follows you</div>
-			</li>
-			<% } %>
-			
-			<li>
-				<% if (user.escape("bio")) { %>
-				<p class="bio"><%= user.escape("bio") %></p>
-				<% } %>
-				<textarea name="user[bio]"><%= user.escape("bio") %></textarea>
-				<input type="submit" value="Save">
-			</li>
-		</ul>
-	</form>
-	
-	<% if (isThisUser) { %>
-	<strong id="edit" class="edit-profile">Edit</strong>
-	<strong id="edit" class="cancel-edit">Cancel</strong>
-	<% } %>
-	
-	<div class="saving"><p>Saving...</p></div>
 </section>
 
 <section class="user-container">
