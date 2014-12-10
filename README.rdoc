@@ -1,3 +1,5 @@
+==== The new and improved version 2 in progress here: https://github.com/conzjiang/clickster_v2
+
 == TODO
 
 * Advanced search - more search options: have searchbar only show main categories and sub-categories on separate page
@@ -13,13 +15,8 @@
 * Allow for changing favorites status from profile refreshes page
 * currentCount and favoritesCount are not updated live - have them be defined on the collection instead of its own stagnant attribute
 * Genres aren't pre-selected in edit form
-* Can't search more than one thing at a time!!!
 
 == REACH TODOS
 
 * User feeds
 
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
